@@ -1,0 +1,21 @@
+---
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<a
+  href="https://apps.apple.com/app/atleast"
+  target="_blank"
+  rel="noopener noreferrer"
+  class:list={["inline-block transition-opacity hover:opacity-80", className]}
+>
+  <img
+    src="/app-store-badge.svg"
+    alt="Download on the App Store"
+    width="150"
+    height="50"
+  />
+</a>

@@ -1,0 +1,15 @@
+---
+interface Props {
+  emoji: string;
+  label: string;
+  description: string;
+}
+
+const { emoji, label, description } = Astro.props;
+---
+
+<div class="flex-shrink-0 rounded-2xl border border-brand-border bg-brand-surface p-6 w-56 snap-start md:w-auto">
+  <span class="mb-3 block text-3xl">{emoji}</span>
+  <h3 class="mb-1 text-base font-semibold text-brand-text">{label}</h3>
+  <p class="text-sm leading-relaxed text-brand-muted">{description}</p>
+</div>
