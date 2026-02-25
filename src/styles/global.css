@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-bg: #0A0A0A;
+  --color-brand-surface: #141414;
+  --color-brand-border: #222222;
+  --color-brand-text: #F5F5F5;
+  --color-brand-muted: #888888;
+  --color-brand-accent: #6B8FF8;
+  --color-brand-pulse: #9B7FE8;
+
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", Inter, system-ui, sans-serif;
+
+  --animate-pulse-fade: pulse-fade 2s ease-out forwards;
+}
+
+@keyframes pulse-fade {
+  0%   { opacity: 0.8; transform: scale(1); }
+  50%  { opacity: 0.4; transform: scale(1.08); }
+  100% { opacity: 0;   transform: scale(1.15); }
+}
+
+body {
+  background-color: var(--color-brand-bg);
+  color: var(--color-brand-text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

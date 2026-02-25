@@ -1,0 +1,120 @@
+---
+import Layout from '../layouts/Layout.astro';
+import HeroRings from '../components/HeroRings.astro';
+import StepCard from '../components/StepCard.astro';
+import UseCaseCard from '../components/UseCaseCard.astro';
+import FeatureRow from '../components/FeatureRow.astro';
+import AppStoreBadge from '../components/AppStoreBadge.astro';
+
+const steps = [
+  {
+    step: 1,
+    title: 'Set your minimum',
+    description: 'Choose a duration (1–60 min) and tap interval.',
+  },
+  {
+    step: 2,
+    title: 'Feel the rhythm',
+    description: 'Gentle haptic taps keep you present without distraction.',
+  },
+  {
+    step: 3,
+    title: 'Silence means done',
+    description: 'When taps stop, you\'ve reached your goal. No alarm. No interruption.',
+  },
+];
+
+const useCases = [
+  { emoji: '🧘', label: 'Meditation', description: 'Stay present without watching the clock.' },
+  { emoji: '🧊', label: 'Cold exposure', description: 'Know when your minimum is reached — eyes-free.' },
+  { emoji: '🧘‍♀️', label: 'Yoga & stretching', description: 'Hold poses with a gentle rhythm guiding you.' },
+  { emoji: '🏋️', label: 'Static holds', description: 'Planks, wall sits — feel the time without seeing it.' },
+  { emoji: '💻', label: 'Focused work', description: 'Pomodoro-style sessions with silent completion.' },
+];
+
+const features = [
+  {
+    icon: '🔕',
+    heading: 'No jarring alarm.',
+    description: 'Traditional timers interrupt the very state you\'re trying to maintain. AtLeast inverts this — taps encourage you during practice and go silent when you\'ve earned it.',
+  },
+  {
+    icon: '⌚',
+    heading: 'Eyes-free, by design.',
+    description: 'Built for Apple Watch. No screen-checking, no distractions. Just gentle taps on your wrist.',
+  },
+  {
+    icon: '🌱',
+    heading: '"At least" mindset.',
+    description: 'Setting a minimum threshold, not a hard deadline. More forgiving. More human.',
+  },
+];
+---
+
+<Layout
+  title="AtLeast — Passive Timer for Apple Watch"
+  description="Gentle haptic taps during your practice. Silence means done. No alarm. No interruption. A mindful timer for meditation, cold plunge, yoga, and focused work."
+>
+  <!-- Hero -->
+  <section class="relative flex min-h-[85vh] flex-col items-center justify-center px-6 py-24 text-center">
+    <HeroRings />
+    <h1 class="mt-8 text-5xl font-bold tracking-tight md:text-7xl">
+      Done when the silence comes.
+    </h1>
+    <p class="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-brand-muted">
+      AtLeast taps your Apple Watch gently during your practice. When tapping stops, you've reached your minimum.
+    </p>
+    <AppStoreBadge class="mt-8" />
+  </section>
+
+  <!-- How It Works -->
+  <section class="px-6 py-24">
+    <div class="mx-auto max-w-5xl">
+      <h2 class="mb-12 text-center text-3xl font-semibold md:text-4xl">How it works</h2>
+      <div class="grid gap-6 md:grid-cols-3">
+        {steps.map((s) => <StepCard {...s} />)}
+      </div>
+    </div>
+  </section>
+
+  <!-- Use Cases -->
+  <section class="px-6 py-24">
+    <div class="mx-auto max-w-5xl">
+      <h2 class="mb-12 text-center text-3xl font-semibold md:text-4xl">Built for practice</h2>
+      <div class="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory md:grid md:grid-cols-5 md:overflow-visible md:pb-0">
+        {useCases.map((uc) => <UseCaseCard {...uc} />)}
+      </div>
+    </div>
+  </section>
+
+  <!-- Why AtLeast -->
+  <section class="px-6 py-24">
+    <div class="mx-auto max-w-3xl">
+      <h2 class="mb-12 text-center text-3xl font-semibold md:text-4xl">Why AtLeast</h2>
+      <div class="space-y-10">
+        {features.map((f) => <FeatureRow {...f} />)}
+      </div>
+    </div>
+  </section>
+
+  <!-- Privacy -->
+  <section class="px-6 py-24">
+    <div class="mx-auto max-w-3xl text-center">
+      <h2 class="mb-4 text-3xl font-semibold md:text-4xl">Your practice is yours alone.</h2>
+      <p class="mx-auto mb-10 max-w-xl text-lg leading-relaxed text-brand-muted">
+        AtLeast is fully private. All logic runs on your Apple Watch. Nothing leaves your device.
+      </p>
+      <div class="flex flex-wrap items-center justify-center gap-6">
+        <span class="rounded-full border border-brand-border bg-brand-surface px-5 py-2.5 text-sm text-brand-muted">
+          No data collected
+        </span>
+        <span class="rounded-full border border-brand-border bg-brand-surface px-5 py-2.5 text-sm text-brand-muted">
+          No account required
+        </span>
+        <span class="rounded-full border border-brand-border bg-brand-surface px-5 py-2.5 text-sm text-brand-muted">
+          Runs entirely on-device
+        </span>
+      </div>
+    </div>
+  </section>
+</Layout>
