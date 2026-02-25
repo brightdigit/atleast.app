@@ -46,5 +46,5 @@ Calm, confident, minimal. Use words like "gentle", "silence", "rhythm", "practic
 ## Key Details
 
 - **Company:** BrightDigit
-- **Support email:** support@atleastapp.com
+- **Support email:** support@brightdigit.com
 - **Copyright:** © 2026 BrightDigit. All rights reserved.
