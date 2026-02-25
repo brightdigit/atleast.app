@@ -1,0 +1,61 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const faqs = [
+  {
+    question: 'Why did my taps stop before my timer finished?',
+    answer: 'If taps stopped, you\'ve reached your minimum duration. The silence is intentional — it means you\'re done.',
+  },
+  {
+    question: 'Can I use AtLeast with the screen off?',
+    answer: 'Yes. AtLeast uses an Extended Runtime Session to continue haptics with the watch face off.',
+  },
+  {
+    question: 'Why doesn\'t AtLeast alarm when it finishes?',
+    answer: 'That\'s by design. The absence of taps is the signal. No alarm means no interruption to your flow state.',
+  },
+  {
+    question: 'What Apple Watch models are supported?',
+    answer: 'Apple Watch Series 6 or later running watchOS 26.0 or later.',
+  },
+  {
+    question: 'Can I use AtLeast without my iPhone?',
+    answer: 'Yes. The watchOS app runs independently.',
+  },
+];
+---
+
+<Layout
+  title="Support — AtLeast"
+  description="Frequently asked questions and support contact for AtLeast, the passive Apple Watch timer."
+>
+  <section class="px-6 py-24">
+    <div class="mx-auto max-w-2xl">
+      <h1 class="mb-12 text-4xl font-bold tracking-tight md:text-5xl">Support</h1>
+
+      <div class="space-y-4">
+        {faqs.map((faq) => (
+          <details class="group rounded-2xl border border-brand-border bg-brand-surface">
+            <summary class="cursor-pointer px-6 py-5 text-base font-medium text-brand-text list-none flex items-center justify-between">
+              {faq.question}
+              <span class="ml-4 flex-shrink-0 text-brand-muted transition-transform group-open:rotate-45">+</span>
+            </summary>
+            <div class="px-6 pb-5 text-base leading-relaxed text-brand-muted">
+              {faq.answer}
+            </div>
+          </details>
+        ))}
+      </div>
+
+      <div class="mt-16 rounded-2xl border border-brand-border bg-brand-surface p-8 text-center">
+        <h2 class="mb-3 text-xl font-semibold text-brand-text">Still have questions?</h2>
+        <p class="text-base text-brand-muted">
+          Email us at
+          <a href="mailto:support@atleastapp.com" class="text-brand-accent hover:underline">
+            support@atleastapp.com
+          </a>
+        </p>
+      </div>
+    </div>
+  </section>
+</Layout>
