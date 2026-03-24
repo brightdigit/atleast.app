@@ -9,6 +9,7 @@ on:
     branches:
       - main
       - 'v*'
+      - '15-lighthouse'
 
 jobs:
   lighthouse:
