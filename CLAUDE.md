@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project
 
-Marketing website for **AtLeast**, a passive haptic timer app for Apple Watch. Static site deployed to Cloudflare Pages at `atleast.app`.
+Marketing website for **AtLeast**, a passive haptic timer app for Apple Watch. Static site deployed to GitHub Pages at `atleast.app`.
 
 Full website spec (pages, sections, copy, SEO, deployment details) is in `.claude/WEBSITE.md`.
 
@@ -12,7 +12,7 @@ Full website spec (pages, sections, copy, SEO, deployment details) is in `.claud
 
 - **Astro** (static site generator) with **Tailwind CSS**
 - TypeScript (strict mode)
-- Deployed to **Cloudflare Pages**
+- Deployed to **GitHub Pages** (domain via Namecheap)
 - No backend, no database, no CMS — pure static HTML
 
 ## Commands

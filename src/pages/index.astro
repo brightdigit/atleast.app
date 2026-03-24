@@ -5,6 +5,7 @@ import StepCard from '../components/StepCard.astro';
 import UseCaseCard from '../components/UseCaseCard.astro';
 import FeatureRow from '../components/FeatureRow.astro';
 import AppStoreBadge from '../components/AppStoreBadge.astro';
+import Schema from '../components/Schema.astro';
 
 const steps = [
   {
@@ -49,12 +50,49 @@ const features = [
     description: 'Setting a minimum threshold, not a hard deadline. More forgiving. More human.',
   },
 ];
+
+const softwareSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'AtLeast',
+  applicationCategory: 'HealthApplication',
+  operatingSystem: 'watchOS 26.0',
+  offers: {
+    '@type': 'Offer',
+    price: '0',
+    priceCurrency: 'USD',
+  },
+  description:
+    'AtLeast is a privacy-first passive haptic timer for Apple Watch that uses gentle taps to mark time intervals during meditation, breathwork, and cold plunge sessions — no screens, no data collection, just rhythm.',
+  featureList: [
+    'Privacy-first: zero data collection',
+    'Haptic-only timers — no screen required',
+    'Works completely offline',
+    'Perfect for meditation, breathwork, and cold plunge',
+    'Apple Watch native app',
+  ],
+};
+
+const howToSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: 'How to use AtLeast timer on Apple Watch',
+  description: 'Set up a passive haptic timer on Apple Watch in 3 simple steps.',
+  step: steps.map((s) => ({
+    '@type': 'HowToStep',
+    name: s.title,
+    text: s.description,
+  })),
+};
 ---
 
 <Layout
   title="AtLeast — Passive Timer for Apple Watch"
   description="Gentle haptic taps during your practice. Silence means done. No alarm. No interruption. A mindful timer for meditation, cold plunge, yoga, and focused work."
 >
+  <Schema schema={softwareSchema} />
+  <Schema schema={howToSchema} />
+
   <!-- Hero -->
   <section class="relative flex min-h-[85vh] flex-col items-center justify-center px-6 py-24 text-center">
     <HeroRings />
@@ -64,13 +102,16 @@ const features = [
     <p class="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-brand-muted">
       AtLeast taps your Apple Watch gently during your practice. When tapping stops, you've reached your minimum.
     </p>
+    <p class="sr-only">
+      AtLeast is a privacy-first passive haptic timer for Apple Watch. It uses gentle taps to mark time intervals during meditation, breathwork, and cold plunge sessions — no screens, no data collection, just rhythm.
+    </p>
     <AppStoreBadge class="mt-8" />
   </section>
 
   <!-- How It Works -->
   <section class="px-6 py-24">
     <div class="mx-auto max-w-5xl">
-      <h2 class="mb-12 text-center text-3xl font-semibold md:text-4xl">How it works</h2>
+      <h2 class="mb-12 text-center text-3xl font-semibold md:text-4xl">How does AtLeast work?</h2>
       <div class="grid gap-6 md:grid-cols-3">
         {steps.map((s) => <StepCard {...s} />)}
       </div>
@@ -90,9 +131,54 @@ const features = [
   <!-- Why AtLeast -->
   <section class="px-6 py-24">
     <div class="mx-auto max-w-3xl">
-      <h2 class="mb-12 text-center text-3xl font-semibold md:text-4xl">Why AtLeast</h2>
+      <h2 class="mb-12 text-center text-3xl font-semibold md:text-4xl">Why choose AtLeast?</h2>
       <div class="space-y-10">
         {features.map((f) => <FeatureRow {...f} />)}
+      </div>
+    </div>
+  </section>
+
+  <!-- Comparison -->
+  <section class="px-6 py-24">
+    <div class="mx-auto max-w-3xl">
+      <h2 class="mb-12 text-center text-3xl font-semibold md:text-4xl">AtLeast vs traditional timer apps</h2>
+      <div class="overflow-x-auto rounded-2xl border border-brand-border">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b border-brand-border bg-brand-surface">
+              <th class="px-6 py-4 text-left font-medium text-brand-muted">Feature</th>
+              <th class="px-6 py-4 text-left font-semibold text-brand-text">AtLeast</th>
+              <th class="px-6 py-4 text-left font-medium text-brand-muted">Traditional apps</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-brand-border">
+            <tr>
+              <td class="px-6 py-4 text-brand-muted">Privacy</td>
+              <td class="px-6 py-4 text-brand-accent">Zero data collection</td>
+              <td class="px-6 py-4 text-brand-muted">Collect usage data</td>
+            </tr>
+            <tr class="bg-brand-surface/50">
+              <td class="px-6 py-4 text-brand-muted">Screen required</td>
+              <td class="px-6 py-4 text-brand-accent">No — haptic only</td>
+              <td class="px-6 py-4 text-brand-muted">Yes</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-brand-muted">Works offline</td>
+              <td class="px-6 py-4 text-brand-accent">Fully offline</td>
+              <td class="px-6 py-4 text-brand-muted">Often requires internet</td>
+            </tr>
+            <tr class="bg-brand-surface/50">
+              <td class="px-6 py-4 text-brand-muted">Platform</td>
+              <td class="px-6 py-4 text-brand-accent">Apple Watch native</td>
+              <td class="px-6 py-4 text-brand-muted">iPhone-based</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-brand-muted">End signal</td>
+              <td class="px-6 py-4 text-brand-accent">Gentle silence</td>
+              <td class="px-6 py-4 text-brand-muted">Jarring alarm</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </section>
@@ -105,14 +191,14 @@ const features = [
         AtLeast is fully private. All logic runs on your Apple Watch. Nothing leaves your device.
       </p>
       <div class="flex flex-wrap items-center justify-center gap-6">
-        <span class="rounded-full border border-brand-border bg-brand-surface px-5 py-2.5 text-sm text-brand-muted">
-          No data collected
+        <span class="flex items-center gap-2 rounded-full border border-brand-border bg-brand-surface px-5 py-2.5 text-sm text-brand-muted">
+          <span class="text-base">🚫</span> No data collected
         </span>
-        <span class="rounded-full border border-brand-border bg-brand-surface px-5 py-2.5 text-sm text-brand-muted">
-          No account required
+        <span class="flex items-center gap-2 rounded-full border border-brand-border bg-brand-surface px-5 py-2.5 text-sm text-brand-muted">
+          <span class="text-base">👤</span> No account required
         </span>
-        <span class="rounded-full border border-brand-border bg-brand-surface px-5 py-2.5 text-sm text-brand-muted">
-          Runs entirely on-device
+        <span class="flex items-center gap-2 rounded-full border border-brand-border bg-brand-surface px-5 py-2.5 text-sm text-brand-muted">
+          <span class="text-base">⌚</span> Runs entirely on-device
         </span>
       </div>
     </div>
