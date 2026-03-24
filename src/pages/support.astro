@@ -53,10 +53,17 @@ const faqSchema = {
   '@type': 'FAQPage',
   mainEntity: faqs.map((faq) => ({
     '@type': 'Question',
+<<<<<<< HEAD
     name: stripHtml(faq.question),
     acceptedAnswer: {
       '@type': 'Answer',
       text: stripHtml(faq.answer),
+=======
+    name: faq.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: faq.answer,
+>>>>>>> 4557f2c (LLM SEO Phase 1: schema, CSP, FAQs, TestFlight, Mise (#16–19, #9) (#28))
     },
   })),
 };
