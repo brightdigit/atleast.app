@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Schema from '../components/Schema.astro';
 
 const faqs = [
   {
@@ -22,13 +23,48 @@ const faqs = [
     question: 'Can I use AtLeast without my iPhone?',
     answer: 'Yes. The watchOS app runs independently.',
   },
+  {
+    question: 'What is a passive timer?',
+    answer: 'A passive timer runs in the background without requiring your attention. AtLeast uses haptic taps — gentle vibrations on your wrist — to mark intervals, so you can keep your eyes closed during meditation or stay focused during breathwork without ever checking a screen.',
+  },
+  {
+    question: 'Does AtLeast collect any data?',
+    answer: 'No. AtLeast collects zero data. All timer sessions run entirely on your Apple Watch with no analytics, no tracking, and no cloud sync. Your practice is completely private.',
+  },
+  {
+    question: 'Is AtLeast good for cold plunge sessions?',
+    answer: 'Yes. AtLeast is perfect for cold plunge because you can keep your eyes closed and focus on breathing while gentle taps mark your intervals. It works completely offline on Apple Watch — no phone needed.',
+  },
+  {
+    question: 'Does AtLeast work offline?',
+    answer: 'Yes. AtLeast runs entirely on your Apple Watch with no internet connection required. Perfect for airplane meditation, remote locations, or simply staying disconnected.',
+  },
+  {
+    question: 'Can I use AtLeast for breathwork?',
+    answer: 'Absolutely. AtLeast pairs naturally with Wim Hof, box breathing, and 4-7-8 breathing techniques. Set an interval to match your breath cycles and let the gentle taps guide your rhythm — eyes closed, fully present.',
+  },
 ];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((faq) => ({
+    '@type': 'Question',
+    name: faq.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: faq.answer,
+    },
+  })),
+};
 ---
 
 <Layout
   title="Support — AtLeast"
   description="Frequently asked questions and support contact for AtLeast, the passive Apple Watch timer."
 >
+  <Schema schema={faqSchema} />
+
   <section class="px-6 py-24">
     <div class="mx-auto max-w-2xl">
       <h1 class="mb-12 text-4xl font-bold tracking-tight md:text-5xl">Support</h1>
