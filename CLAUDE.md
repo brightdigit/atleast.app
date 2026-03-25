@@ -17,10 +17,20 @@ Full website spec (pages, sections, copy, SEO, deployment details) is in `.claud
 
 ## Commands
 
+Always run commands through `mise` or `make` — do not invoke `npm` directly as it may not be on PATH.
+
 ```bash
-npm run dev        # Start dev server
-npm run build      # Production build (output: dist/)
-npm run preview    # Preview production build locally
+make install   # Install dependencies
+make dev       # Start dev server
+make build     # Production build (output: dist/)
+make preview   # Preview production build locally
+make lighthouse  # Run Lighthouse CI
+```
+
+Or equivalently via mise:
+```bash
+mise exec -- npm run dev
+mise exec -- npm run build
 ```
 
 ## Architecture
