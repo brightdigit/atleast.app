@@ -4,8 +4,19 @@ import AppStoreBadge from './AppStoreBadge.astro';
 
 <footer class="border-t border-brand-border/50 py-16">
   <div class="mx-auto max-w-5xl px-6 text-center">
+    <img
+      src="/press/icons/watchos/icon-512.webp"
+      alt="AtLeast app icon"
+      width="48"
+      height="48"
+      class="mx-auto mb-6 h-12 w-12 rounded-full"
+      loading="lazy"
+    />
     <AppStoreBadge class="mb-8" />
     <nav class="mb-6 flex items-center justify-center gap-6">
+      <a href="/press" class="text-sm text-brand-muted transition-colors hover:text-brand-text">
+        Press
+      </a>
       <a href="/privacy" class="text-sm text-brand-muted transition-colors hover:text-brand-text">
         Privacy Policy
       </a>

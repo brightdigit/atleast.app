@@ -12,6 +12,6 @@ const { icon, heading, description } = Astro.props;
   <span class="mt-1 flex-shrink-0 text-2xl">{icon}</span>
   <div>
     <h3 class="mb-2 text-lg font-semibold text-brand-text">{heading}</h3>
-    <p class="text-base leading-relaxed text-brand-muted">{description}</p>
+    <p class="text-base leading-relaxed text-brand-muted" set:html={description} />
   </div>
 </div>

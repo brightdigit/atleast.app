@@ -8,11 +8,11 @@ const faqs = [
     answer: 'If taps stopped, you\'ve reached your minimum duration. The silence is intentional — it means you\'re done.',
   },
   {
-    question: 'Can I use AtLeast with the screen off?',
-    answer: 'Yes. AtLeast uses an Extended Runtime Session to continue haptics with the watch face off.',
+    question: 'Can I use <em>AtLeast</em> with the screen off?',
+    answer: 'Yes. <em>AtLeast</em> uses an Extended Runtime Session to continue haptics with the watch face off.',
   },
   {
-    question: 'Why doesn\'t AtLeast alarm when it finishes?',
+    question: 'Why doesn\'t <em>AtLeast</em> alarm when it finishes?',
     answer: 'That\'s by design. The absence of taps is the signal. No alarm means no interruption to your flow state.',
   },
   {
@@ -20,40 +20,42 @@ const faqs = [
     answer: 'Apple Watch Series 6 or later running watchOS 26.0 or later.',
   },
   {
-    question: 'Can I use AtLeast without my iPhone?',
+    question: 'Can I use <em>AtLeast</em> without my iPhone?',
     answer: 'Yes. The watchOS app runs independently.',
   },
   {
     question: 'What is a passive timer?',
-    answer: 'A passive timer runs in the background without requiring your attention. AtLeast uses haptic taps — gentle vibrations on your wrist — to mark intervals, so you can keep your eyes closed during meditation or stay focused during breathwork without ever checking a screen.',
+    answer: 'A passive timer runs in the background without requiring your attention. <em>AtLeast</em> uses haptic taps — gentle vibrations on your wrist — to mark intervals, so you can keep your eyes closed during meditation or stay focused during breathwork without ever checking a screen.',
   },
   {
-    question: 'Does AtLeast collect any data?',
-    answer: 'No. AtLeast collects zero data. All timer sessions run entirely on your Apple Watch with no analytics, no tracking, and no cloud sync. Your practice is completely private.',
+    question: 'Does <em>AtLeast</em> require an account?',
+    answer: 'No. <em>AtLeast</em> works right away with no account, no sign-up, and no setup. Just open the app on your Apple Watch and start.',
   },
   {
-    question: 'Is AtLeast good for cold plunge sessions?',
-    answer: 'Yes. AtLeast is perfect for cold plunge because you can keep your eyes closed and focus on breathing while gentle taps mark your intervals. It works completely offline on Apple Watch — no phone needed.',
+    question: 'Is <em>AtLeast</em> good for cold plunge sessions?',
+    answer: 'Yes. <em>AtLeast</em> is perfect for cold plunge because you can keep your eyes closed and focus on breathing while gentle taps mark your intervals. It works completely offline on Apple Watch — no phone needed.',
   },
   {
-    question: 'Does AtLeast work offline?',
-    answer: 'Yes. AtLeast runs entirely on your Apple Watch with no internet connection required. Perfect for airplane meditation, remote locations, or simply staying disconnected.',
+    question: 'Does <em>AtLeast</em> work offline?',
+    answer: 'Yes. <em>AtLeast</em> runs entirely on your Apple Watch with no internet connection required. Perfect for airplane meditation, remote locations, or simply staying disconnected.',
   },
   {
-    question: 'Can I use AtLeast for breathwork?',
-    answer: 'Absolutely. AtLeast pairs naturally with Wim Hof, box breathing, and 4-7-8 breathing techniques. Set an interval to match your breath cycles and let the gentle taps guide your rhythm — eyes closed, fully present.',
+    question: 'Can I use <em>AtLeast</em> for breathwork?',
+    answer: 'Absolutely. <em>AtLeast</em> pairs naturally with Wim Hof, box breathing, and 4-7-8 breathing techniques. Set an interval to match your breath cycles and let the gentle taps guide your rhythm — eyes closed, fully present.',
   },
 ];
+
+const stripHtml = (str: string) => str.replace(/<[^>]*>/g, '');
 
 const faqSchema = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
   mainEntity: faqs.map((faq) => ({
     '@type': 'Question',
-    name: faq.question,
+    name: stripHtml(faq.question),
     acceptedAnswer: {
       '@type': 'Answer',
-      text: faq.answer,
+      text: stripHtml(faq.answer),
     },
   })),
 };
@@ -73,12 +75,10 @@ const faqSchema = {
         {faqs.map((faq) => (
           <details class="group rounded-2xl border border-brand-border bg-brand-surface">
             <summary class="cursor-pointer px-6 py-5 text-base font-medium text-brand-text list-none flex items-center justify-between">
-              {faq.question}
+              <span set:html={faq.question} />
               <span class="ml-4 flex-shrink-0 text-brand-muted transition-transform group-open:rotate-45">+</span>
             </summary>
-            <div class="px-6 pb-5 text-base leading-relaxed text-brand-muted">
-              {faq.answer}
-            </div>
+            <div class="px-6 pb-5 text-base leading-relaxed text-brand-muted" set:html={faq.answer} />
           </details>
         ))}
       </div>
@@ -87,8 +87,8 @@ const faqSchema = {
         <h2 class="mb-3 text-xl font-semibold text-brand-text">Still have questions?</h2>
         <p class="text-base text-brand-muted">
           Email us at
-          <a href="mailto:support@brightdigit.com" class="text-brand-accent underline">
-            support@brightdigit.com
+          <a href="mailto:support@atleast.app" class="text-brand-accent underline">
+            support@atleast.app
           </a>
         </p>
       </div>
