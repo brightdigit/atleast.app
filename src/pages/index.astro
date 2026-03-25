@@ -93,14 +93,19 @@ const howToSchema = {
 
   <!-- Hero -->
   <section class="relative flex min-h-[85vh] flex-col items-center justify-center px-6 py-24 text-center">
-    <img
-      src="/press/icons/watchos/icon-512.webp"
-      alt="AtLeast app icon"
-      width="256"
-      height="256"
-      class="h-64 w-64 rounded-full"
-      loading="eager"
-    />
+    <div class="relative flex items-center justify-center">
+      <span class="absolute h-64 w-64 rounded-full border-2 border-brand-accent/40" style="animation: ripple 4.5s ease-out infinite;" aria-hidden="true"></span>
+      <span class="absolute h-64 w-64 rounded-full border-2 border-brand-pulse/40" style="animation: ripple 4.5s ease-out 1.5s infinite;" aria-hidden="true"></span>
+      <span class="absolute h-64 w-64 rounded-full border-2 border-brand-accent/40" style="animation: ripple 4.5s ease-out 3s infinite;" aria-hidden="true"></span>
+      <img
+        src="/press/icons/watchos/icon-512.webp"
+        alt="AtLeast app icon"
+        width="256"
+        height="256"
+        class="relative h-64 w-64 rounded-full"
+        loading="eager"
+      />
+    </div>
     <h1 class="mt-12 text-5xl font-bold tracking-tight md:text-7xl">
       Done when the silence comes.
     </h1>
