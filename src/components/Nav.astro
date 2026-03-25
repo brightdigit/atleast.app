@@ -1,5 +1,6 @@
 ---
 const links = [
+  { href: '/press', label: 'Press' },
   { href: '/privacy', label: 'Privacy' },
   { href: '/terms', label: 'Terms' },
   { href: '/support', label: 'Support' },
@@ -8,7 +9,15 @@ const links = [
 
 <nav class="fixed top-0 left-0 right-0 z-50 border-b border-brand-border/50 bg-brand-bg/80 backdrop-blur-lg">
   <div class="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
-    <a href="/" class="text-lg font-semibold tracking-tight text-brand-text">
+    <a href="/" class="flex items-center gap-2 text-lg font-semibold tracking-tight text-brand-text">
+      <img
+        src="/press/icons/watchos/icon-512.webp"
+        alt=""
+        width="28"
+        height="28"
+        class="h-7 w-7 rounded-full"
+        loading="eager"
+      />
       AtLeast
     </a>
     <div class="flex items-center gap-6">
