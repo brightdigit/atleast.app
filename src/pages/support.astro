@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Schema from '../components/Schema.astro';
+import { SUPPORT_EMAIL } from '../config';
 
 const faqs = [
   {
@@ -87,8 +88,8 @@ const faqSchema = {
         <h2 class="mb-3 text-xl font-semibold text-brand-text">Still have questions?</h2>
         <p class="text-base text-brand-muted">
           Email us at
-          <a href="mailto:support@atleast.app" class="text-brand-accent underline">
-            support@atleast.app
+          <a href={`mailto:${SUPPORT_EMAIL}`} class="text-brand-accent underline">
+            {SUPPORT_EMAIL}
           </a>
         </p>
       </div>

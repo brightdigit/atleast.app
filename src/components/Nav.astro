@@ -1,4 +1,6 @@
 ---
+import { TESTFLIGHT_URL } from '../config';
+
 const links = [
   { href: '/privacy', label: 'Privacy' },
   { href: '/terms', label: 'Terms' },
@@ -29,7 +31,7 @@ const links = [
         </a>
       ))}
       <a
-        href="https://testflight.apple.com/join/XXXXXXXX"
+        href={TESTFLIGHT_URL}
         target="_blank"
         rel="noopener noreferrer"
         class="rounded-full border border-brand-border bg-brand-surface px-4 py-1.5 text-sm text-brand-text transition-opacity hover:opacity-80"

@@ -1,13 +1,14 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { COMPANY_NAME, WEBSITE_URL, SUPPORT_EMAIL } from '../config';
 
 const facts = [
   { label: 'Platform', value: 'watchOS (Apple Watch Series 6 or later)' },
   { label: 'Minimum OS', value: 'watchOS 26.0' },
   { label: 'Price', value: 'Free' },
-  { label: 'Developer', value: 'BrightDigit' },
-  { label: 'Website', value: 'atleast.app', href: 'https://atleast.app' },
-  { label: 'Support', value: 'support@atleast.app', href: 'mailto:support@atleast.app' },
+  { label: 'Developer', value: COMPANY_NAME },
+  { label: 'Website', value: WEBSITE_URL.replace('https://', ''), href: WEBSITE_URL },
+  { label: 'Support', value: SUPPORT_EMAIL, href: `mailto:${SUPPORT_EMAIL}` },
   { label: 'Category', value: 'Health & Fitness' },
 ];
 
@@ -192,8 +193,8 @@ const iconDownloads = [
       <div class="rounded-2xl border border-brand-border bg-brand-surface p-8 text-center">
         <p class="mb-4 text-base text-brand-muted">
           For press inquiries, email
-          <a href="mailto:support@atleast.app" class="text-brand-accent underline">
-            support@atleast.app
+          <a href={`mailto:${SUPPORT_EMAIL}`} class="text-brand-accent underline">
+            {SUPPORT_EMAIL}
           </a>
         </p>
         <p class="text-sm text-brand-muted">

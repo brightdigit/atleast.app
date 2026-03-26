@@ -1,5 +1,6 @@
 ---
 import AppStoreBadge from './AppStoreBadge.astro';
+import { COMPANY_NAME, COPYRIGHT_YEAR } from '../config';
 ---
 
 <footer class="border-t border-brand-border/50 py-16">
@@ -28,7 +29,7 @@ import AppStoreBadge from './AppStoreBadge.astro';
       </a>
     </nav>
     <p class="text-sm text-brand-muted">
-      &copy; 2026 BrightDigit. All rights reserved.
+      &copy; {COPYRIGHT_YEAR} {COMPANY_NAME}. All rights reserved.
     </p>
   </div>
 </footer>

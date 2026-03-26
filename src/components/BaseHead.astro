@@ -1,5 +1,6 @@
 ---
 import Schema from './Schema.astro';
+import { COMPANY_NAME, WEBSITE_URL, SUPPORT_EMAIL, OG_IMAGE_URL } from '../config';
 
 interface Props {
   title: string;
@@ -12,12 +13,12 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const orgSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
-  name: 'BrightDigit',
-  url: 'https://atleast.app',
-  logo: 'https://atleast.app/press/icons/apple-touch-icon.png',
+  name: COMPANY_NAME,
+  url: WEBSITE_URL,
+  logo: `${WEBSITE_URL}/press/icons/apple-touch-icon.png`,
   contactPoint: {
     '@type': 'ContactPoint',
-    email: 'support@atleast.app',
+    email: SUPPORT_EMAIL,
     contactType: 'Customer Support',
   },
 };
@@ -39,13 +40,13 @@ const orgSchema = {
 <meta property="og:description" content={description} />
 <meta property="og:type" content="website" />
 <meta property="og:url" content={canonicalURL.href} />
-<meta property="og:image" content="https://atleast.app/og.png" />
+<meta property="og:image" content={OG_IMAGE_URL} />
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
-<meta name="twitter:image" content="https://atleast.app/og.png" />
+<meta name="twitter:image" content={OG_IMAGE_URL} />
 
 <!-- Plausible Analytics -->
 <script async data-domain="atleast.app" src="https://plausible.io/js/script.outbound-links.js"></script>
