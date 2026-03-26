@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project
 
-Marketing website for **AtLeast**, a passive haptic timer app for Apple Watch. Static site deployed to Cloudflare Pages at `atleast.app`.
+Marketing website for **AtLeast**, a passive haptic timer app for Apple Watch. Static site deployed to GitHub Pages at `atleast.app`.
 
 Full website spec (pages, sections, copy, SEO, deployment details) is in `.claude/WEBSITE.md`.
 
@@ -12,15 +12,25 @@ Full website spec (pages, sections, copy, SEO, deployment details) is in `.claud
 
 - **Astro** (static site generator) with **Tailwind CSS**
 - TypeScript (strict mode)
-- Deployed to **Cloudflare Pages**
+- Deployed to **GitHub Pages** (domain via Namecheap)
 - No backend, no database, no CMS — pure static HTML
 
 ## Commands
 
+Always run commands through `mise` or `make` — do not invoke `npm` directly as it may not be on PATH.
+
 ```bash
-npm run dev        # Start dev server
-npm run build      # Production build (output: dist/)
-npm run preview    # Preview production build locally
+make install   # Install dependencies
+make dev       # Start dev server
+make build     # Production build (output: dist/)
+make preview   # Preview production build locally
+make lighthouse  # Run Lighthouse CI
+```
+
+Or equivalently via mise:
+```bash
+mise exec -- npm run dev
+mise exec -- npm run build
 ```
 
 ## Architecture

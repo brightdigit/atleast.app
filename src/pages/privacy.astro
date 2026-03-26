@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { SUPPORT_EMAIL } from '../config';
 ---
 
 <Layout
@@ -13,7 +14,7 @@ import Layout from '../layouts/Layout.astro';
 
       <div class="space-y-8 text-base leading-relaxed text-brand-muted">
         <p>
-          AtLeast collects no personal data. The app operates entirely on-device.
+          <em>AtLeast</em> collects no personal data. The app operates entirely on-device.
         </p>
 
         <div>
@@ -36,7 +37,7 @@ import Layout from '../layouts/Layout.astro';
         <div>
           <h2 class="mb-3 text-xl font-semibold text-brand-text">Third parties</h2>
           <p>
-            None. AtLeast has no third-party SDKs, analytics, or advertising.
+            None. <em>AtLeast</em> has no third-party SDKs, analytics, or advertising.
           </p>
         </div>
 
@@ -44,8 +45,8 @@ import Layout from '../layouts/Layout.astro';
           <h2 class="mb-3 text-xl font-semibold text-brand-text">Contact</h2>
           <p>
             Questions about this policy? Email us at
-            <a href="mailto:support@brightdigit.com" class="text-brand-accent underline">
-              support@brightdigit.com
+            <a href={`mailto:${SUPPORT_EMAIL}`} class="text-brand-accent underline">
+              {SUPPORT_EMAIL}
             </a>.
           </p>
         </div>

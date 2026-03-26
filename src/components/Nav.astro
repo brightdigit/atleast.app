@@ -1,4 +1,6 @@
 ---
+import { TESTFLIGHT_URL } from '../config';
+
 const links = [
   { href: '/privacy', label: 'Privacy' },
   { href: '/terms', label: 'Terms' },
@@ -8,7 +10,15 @@ const links = [
 
 <nav class="fixed top-0 left-0 right-0 z-50 border-b border-brand-border/50 bg-brand-bg/80 backdrop-blur-lg">
   <div class="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
-    <a href="/" class="text-lg font-semibold tracking-tight text-brand-text">
+    <a href="/" class="flex items-center gap-2 text-lg font-semibold tracking-tight text-brand-text">
+      <img
+        src="/press/icons/watchos/icon-512.webp"
+        alt=""
+        width="28"
+        height="28"
+        class="h-7 w-7 rounded-full"
+        loading="eager"
+      />
       AtLeast
     </a>
     <div class="flex items-center gap-6">
@@ -20,6 +30,14 @@ const links = [
           {link.label}
         </a>
       ))}
+      <a
+        href={TESTFLIGHT_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="rounded-full border border-brand-border bg-brand-surface px-4 py-1.5 text-sm text-brand-text transition-opacity hover:opacity-80"
+      >
+        Join Beta
+      </a>
     </div>
   </div>
 </nav>

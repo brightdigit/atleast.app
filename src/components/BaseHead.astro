@@ -1,4 +1,7 @@
 ---
+import Schema from './Schema.astro';
+import { COMPANY_NAME, WEBSITE_URL, SUPPORT_EMAIL, OG_IMAGE_URL } from '../config';
+
 interface Props {
   title: string;
   description: string;
@@ -6,26 +9,44 @@ interface Props {
 
 const { title, description } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+const orgSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: COMPANY_NAME,
+  url: WEBSITE_URL,
+  logo: `${WEBSITE_URL}/press/icons/apple-touch-icon.png`,
+  contactPoint: {
+    '@type': 'ContactPoint',
+    email: SUPPORT_EMAIL,
+    contactType: 'Customer Support',
+  },
+};
 ---
 
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://plausible.io; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https://plausible.io; font-src 'self'; object-src 'none'" />
+<Schema schema={orgSchema} />
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>{title}</title>
 <meta name="description" content={description} />
 <link rel="canonical" href={canonicalURL.href} />
 
-<link rel="icon" href="/favicon.ico" sizes="32x32" />
-<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="icon" href="/press/icons/favicon-32x32.png" type="image/png" sizes="32x32" />
+<link rel="apple-touch-icon" href="/press/icons/apple-touch-icon.png" />
 
 <!-- Open Graph -->
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta property="og:type" content="website" />
 <meta property="og:url" content={canonicalURL.href} />
-<meta property="og:image" content="https://atleast.app/og.png" />
+<meta property="og:image" content={OG_IMAGE_URL} />
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
-<meta name="twitter:image" content="https://atleast.app/og.png" />
+<meta name="twitter:image" content={OG_IMAGE_URL} />
+
+<!-- Plausible Analytics -->
+<script async data-domain="atleast.app" src="https://plausible.io/js/script.outbound-links.js"></script>

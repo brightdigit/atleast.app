@@ -23,7 +23,7 @@ Use **Astro** (static site generator) with **Tailwind CSS**.
 
 - Astro: fast, zero JS by default, excellent for content sites
 - Tailwind CSS: utility-first, easy to maintain
-- Deploy to **Cloudflare Pages** (free tier, custom domain support, global CDN)
+- Deploy to **GitHub Pages** (custom domain support via Namecheap DNS)
 - No database, no backend, no CMS — pure static HTML
 
 ### Initialize the project
@@ -285,16 +285,17 @@ Obtain the official App Store badge SVG from Apple's marketing resources page.
 
 ---
 
-## Deployment — Cloudflare Pages
+## Deployment — GitHub Pages
 
-1. Push the website repo to GitHub (separate repo from the AtLeast app)
-2. In Cloudflare Dashboard → Pages → Create a project → Connect to GitHub
-3. Build settings:
-   - Framework preset: **Astro**
+1. Push to the `main` branch — the `deploy.yml` workflow builds and publishes automatically
+2. Build settings (configured in `.github/workflows/deploy.yml`):
    - Build command: `npm run build`
    - Output directory: `dist`
-4. Add custom domain `atleast.app` in Pages → Custom domains
-5. Set DNS records at your registrar to point to Cloudflare Pages
+3. Enable GitHub Pages in repo Settings → Pages → Source: **GitHub Actions**
+4. Add custom domain `atleast.app` in Pages → Custom domain
+5. Set DNS records at **Namecheap** to point to GitHub Pages:
+   - A records: `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
+   - CNAME `www` → `<org>.github.io`
 
 ---
 
@@ -353,7 +354,7 @@ Before going live, verify:
 - [ ] OG image renders correctly (test with [opengraph.xyz](https://www.opengraph.xyz))
 - [ ] Canonical URLs are correct (no trailing slash issues)
 - [ ] Favicon appears in browser tab
-- [ ] Cloudflare Pages deployment succeeds with no build errors
+- [ ] GitHub Pages deployment succeeds with no build errors
 - [ ] Custom domain `atleast.app` resolves and SSL certificate is active
 - [ ] No console errors in browser
 

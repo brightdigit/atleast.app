@@ -1,0 +1,206 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { COMPANY_NAME, WEBSITE_URL, SUPPORT_EMAIL } from '../config';
+
+const facts = [
+  { label: 'Platform', value: 'watchOS (Apple Watch Series 6 or later)' },
+  { label: 'Minimum OS', value: 'watchOS 26.0' },
+  { label: 'Price', value: 'Free' },
+  { label: 'Developer', value: COMPANY_NAME },
+  { label: 'Website', value: WEBSITE_URL.replace('https://', ''), href: WEBSITE_URL },
+  { label: 'Support', value: SUPPORT_EMAIL, href: `mailto:${SUPPORT_EMAIL}` },
+  { label: 'Category', value: 'Health & Fitness' },
+];
+
+
+const iconDownloads = [
+  {
+    group: 'watchOS',
+    platform: 'watchos',
+    icons: [
+      { label: '512 x 512 PNG', path: '/press/icons/watchos/icon-512.png' },
+      { label: '512 x 512 WebP', path: '/press/icons/watchos/icon-512.webp' },
+      { label: '1024 x 1024 PNG', path: '/press/icons/watchos/icon-1024.png' },
+      { label: '1024 x 1024 WebP', path: '/press/icons/watchos/icon-1024.webp' },
+    ],
+    thumb: '/press/icons/watchos/icon-512.webp',
+  },
+  {
+    group: 'iOS',
+    platform: 'ios',
+    icons: [
+      { label: '512 x 512 PNG', path: '/press/icons/ios/icon-512.png' },
+      { label: '512 x 512 WebP', path: '/press/icons/ios/icon-512.webp' },
+      { label: '1024 x 1024 PNG', path: '/press/icons/ios/icon-1024.png' },
+      { label: '1024 x 1024 WebP', path: '/press/icons/ios/icon-1024.webp' },
+    ],
+    thumb: '/press/icons/ios/icon-512.webp',
+  },
+  {
+    group: 'iOS (Dark)',
+    platform: 'ios',
+    icons: [
+      { label: '512 x 512 PNG', path: '/press/icons/ios/icon-dark-512.png' },
+      { label: '512 x 512 WebP', path: '/press/icons/ios/icon-dark-512.webp' },
+      { label: '1024 x 1024 PNG', path: '/press/icons/ios/icon-dark-1024.png' },
+      { label: '1024 x 1024 WebP', path: '/press/icons/ios/icon-dark-1024.webp' },
+    ],
+    thumb: '/press/icons/ios/icon-dark-512.webp',
+  },
+  {
+    group: 'iOS Tinted Light (Purple)',
+    platform: 'ios',
+    icons: [
+      { label: '512 x 512 PNG', path: '/press/icons/ios/icon-tinted-light-purple-medium-512.png' },
+      { label: '512 x 512 WebP', path: '/press/icons/ios/icon-tinted-light-purple-medium-512.webp' },
+      { label: '1024 x 1024 PNG', path: '/press/icons/ios/icon-tinted-light-purple-medium-1024.png' },
+      { label: '1024 x 1024 WebP', path: '/press/icons/ios/icon-tinted-light-purple-medium-1024.webp' },
+    ],
+    thumb: '/press/icons/ios/icon-tinted-light-purple-medium-512.webp',
+  },
+  {
+    group: 'iOS Tinted Dark (Purple)',
+    platform: 'ios',
+    icons: [
+      { label: '512 x 512 PNG', path: '/press/icons/ios/icon-tinted-dark-purple-medium-512.png' },
+      { label: '512 x 512 WebP', path: '/press/icons/ios/icon-tinted-dark-purple-medium-512.webp' },
+      { label: '1024 x 1024 PNG', path: '/press/icons/ios/icon-tinted-dark-purple-medium-1024.png' },
+      { label: '1024 x 1024 WebP', path: '/press/icons/ios/icon-tinted-dark-purple-medium-1024.webp' },
+    ],
+    thumb: '/press/icons/ios/icon-tinted-dark-purple-medium-512.webp',
+  },
+  {
+    group: 'iOS Tinted Light (Pink)',
+    platform: 'ios',
+    icons: [
+      { label: '512 x 512 PNG', path: '/press/icons/ios/icon-tinted-light-pink-vivid-512.png' },
+      { label: '512 x 512 WebP', path: '/press/icons/ios/icon-tinted-light-pink-vivid-512.webp' },
+      { label: '1024 x 1024 PNG', path: '/press/icons/ios/icon-tinted-light-pink-vivid-1024.png' },
+      { label: '1024 x 1024 WebP', path: '/press/icons/ios/icon-tinted-light-pink-vivid-1024.webp' },
+    ],
+    thumb: '/press/icons/ios/icon-tinted-light-pink-vivid-512.webp',
+  },
+  {
+    group: 'iOS Tinted Dark (Pink)',
+    platform: 'ios',
+    icons: [
+      { label: '512 x 512 PNG', path: '/press/icons/ios/icon-tinted-dark-pink-vivid-512.png' },
+      { label: '512 x 512 WebP', path: '/press/icons/ios/icon-tinted-dark-pink-vivid-512.webp' },
+      { label: '1024 x 1024 PNG', path: '/press/icons/ios/icon-tinted-dark-pink-vivid-1024.png' },
+      { label: '1024 x 1024 WebP', path: '/press/icons/ios/icon-tinted-dark-pink-vivid-1024.webp' },
+    ],
+    thumb: '/press/icons/ios/icon-tinted-dark-pink-vivid-512.webp',
+  },
+  {
+    group: 'iOS Tinted Light (Sky)',
+    platform: 'ios',
+    icons: [
+      { label: '512 x 512 PNG', path: '/press/icons/ios/icon-tinted-light-sky-subtle-512.png' },
+      { label: '512 x 512 WebP', path: '/press/icons/ios/icon-tinted-light-sky-subtle-512.webp' },
+      { label: '1024 x 1024 PNG', path: '/press/icons/ios/icon-tinted-light-sky-subtle-1024.png' },
+      { label: '1024 x 1024 WebP', path: '/press/icons/ios/icon-tinted-light-sky-subtle-1024.webp' },
+    ],
+    thumb: '/press/icons/ios/icon-tinted-light-sky-subtle-512.webp',
+  },
+  {
+    group: 'iOS Tinted Dark (Sky)',
+    platform: 'ios',
+    icons: [
+      { label: '512 x 512 PNG', path: '/press/icons/ios/icon-tinted-dark-sky-subtle-512.png' },
+      { label: '512 x 512 WebP', path: '/press/icons/ios/icon-tinted-dark-sky-subtle-512.webp' },
+      { label: '1024 x 1024 PNG', path: '/press/icons/ios/icon-tinted-dark-sky-subtle-1024.png' },
+      { label: '1024 x 1024 WebP', path: '/press/icons/ios/icon-tinted-dark-sky-subtle-1024.webp' },
+    ],
+    thumb: '/press/icons/ios/icon-tinted-dark-sky-subtle-512.webp',
+  },
+];
+---
+
+<Layout
+  title="Press Kit — AtLeast"
+  description="Press resources, brand guidelines, and downloadable assets for AtLeast, the passive Apple Watch timer."
+>
+  <section class="px-6 py-24">
+    <div class="mx-auto max-w-2xl">
+      <h1 class="mb-6 text-4xl font-bold tracking-tight md:text-5xl">Press Kit</h1>
+      <p class="text-lg leading-relaxed text-brand-muted">
+        <em>AtLeast</em> is a passive haptic timer for Apple Watch. Gentle taps mark your intervals during meditation, breathwork, or cold exposure — when tapping stops, you've reached your minimum.
+      </p>
+
+      <!-- About -->
+      <h2 class="mb-6 mt-16 text-2xl font-semibold tracking-tight">About</h2>
+      <div class="space-y-4 text-base leading-relaxed text-brand-muted">
+        <p>
+          <em>AtLeast</em> reimagines the timer for mindful practice. Instead of counting down to a jarring alarm, <em>AtLeast</em> delivers gentle haptic taps at your chosen interval. When taps go silent, you know you've reached your minimum duration. No screen. No sound. Just rhythm, then stillness.
+        </p>
+        <p>
+          Built exclusively for Apple Watch, <em>AtLeast</em> requires no account and no phone. It works offline, so you can practice anywhere — no setup, no friction.
+        </p>
+        <p>
+          <em>AtLeast</em> is ideal for meditation, breathwork, cold plunge, yoga, static holds, and focused work. Set your minimum duration, choose your tap interval, and begin. The rest is silence.
+        </p>
+      </div>
+
+      <!-- Fact Sheet -->
+      <h2 class="mb-6 mt-16 text-2xl font-semibold tracking-tight">Fact Sheet</h2>
+      <div class="rounded-2xl border border-brand-border bg-brand-surface">
+        {facts.map((fact, i) => (
+          <div class:list={['flex items-baseline justify-between px-6 py-4', i < facts.length - 1 && 'border-b border-brand-border']}>
+            <span class="text-sm font-medium text-brand-text">{fact.label}</span>
+            {fact.href ? (
+              <a href={fact.href} class="text-sm text-brand-accent hover:underline">{fact.value}</a>
+            ) : (
+              <span class="text-sm text-brand-muted">{fact.value}</span>
+            )}
+          </div>
+        ))}
+      </div>
+
+      <!-- App Icon Downloads -->
+      <h2 class="mb-6 mt-16 text-2xl font-semibold tracking-tight">App Icon</h2>
+
+      <div class="space-y-6">
+        {iconDownloads.map((group) => (
+          <div class="rounded-2xl border border-brand-border bg-brand-surface p-6">
+            <div class="mb-4 flex items-center gap-4">
+              <img
+                src={group.thumb}
+                alt={`${group.group} app icon`}
+                width="48"
+                height="48"
+                class:list={['h-12 w-12', group.platform === 'ios' ? 'rounded-[22%]' : 'rounded-full']}
+                loading="lazy"
+              />
+              <h3 class="text-lg font-medium text-brand-text">{group.group}</h3>
+            </div>
+            <div class="grid gap-2 sm:grid-cols-2">
+              {group.icons.map((icon) => (
+                <a
+                  href={icon.path}
+                  download
+                  class="rounded-xl border border-brand-border px-4 py-3 text-sm text-brand-muted transition-colors hover:border-brand-accent/50 hover:text-brand-text"
+                >
+                  {icon.label}
+                </a>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Contact -->
+      <h2 class="mb-6 mt-16 text-2xl font-semibold tracking-tight">Contact</h2>
+      <div class="rounded-2xl border border-brand-border bg-brand-surface p-8 text-center">
+        <p class="mb-4 text-base text-brand-muted">
+          For press inquiries, email
+          <a href={`mailto:${SUPPORT_EMAIL}`} class="text-brand-accent underline">
+            {SUPPORT_EMAIL}
+          </a>
+        </p>
+        <p class="text-sm text-brand-muted">
+          Screenshots coming soon.
+        </p>
+      </div>
+    </div>
+  </section>
+</Layout>
