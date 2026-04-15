@@ -6,7 +6,7 @@
  */
 
 import sharp from 'sharp';
-import { readdirSync, statSync } from 'fs';
+import { existsSync, readdirSync, statSync } from 'fs';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
 
@@ -15,6 +15,7 @@ const __dirname = dirname(__filename);
 const pressDir = join(__dirname, '..', 'public', 'press');
 
 function findPngs(dir) {
+  if (!existsSync(dir)) return [];
   const results = [];
   for (const entry of readdirSync(dir, { withFileTypes: true })) {
     const full = join(dir, entry.name);
@@ -37,13 +38,20 @@ async function generateWebP() {
     return;
   }
 
-  await Promise.all(pngs.map(async (png) => {
+  const results = await Promise.all(pngs.map(async (png) => {
     const webp = png.replace(/\.png$/, '.webp');
-    await sharp(png).webp({ quality: 90 }).toFile(webp);
-    console.log(`  ✓ ${webp.replace(pressDir + '/', '')}`);
+    try {
+      await sharp(png).webp({ quality: 90 }).toFile(webp);
+      console.log(`  ✓ ${webp.replace(pressDir + '/', '')}`);
+      return true;
+    } catch (err) {
+      console.warn(`  ⚠️  Skipping ${png.replace(pressDir + '/', '')}: ${err.message}`);
+      return false;
+    }
   }));
+  const converted = results.filter(Boolean).length;
 
-  console.log(`✅ ${pngs.length} WebP file(s) generated\n`);
+  console.log(`✅ ${converted}/${pngs.length} WebP file(s) generated\n`);
 }
 
 generateWebP().catch((err) => {

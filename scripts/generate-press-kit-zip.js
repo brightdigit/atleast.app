@@ -25,7 +25,7 @@ Platform: watchOS (Apple Watch Series 6 or later)
 Price: Free
 Category: Health & Fitness
 Website: https://atleast.app
-Support: support@brightdigit.com
+Support: support@atleast.app
 
 Description
 -----------
@@ -48,7 +48,7 @@ Usage Guidelines
 - Do not alter icon colors, add effects, or distort the icon
 - Allow sufficient clear space around the icon
 
-For press inquiries: support@brightdigit.com
+For press inquiries: support@atleast.app
 Press page: https://atleast.app/press
 `;
 
@@ -63,6 +63,7 @@ async function generatePressKit() {
 
     const done = new Promise((resolve, reject) => {
       output.on('close', resolve);
+      output.on('error', reject);
       archive.on('error', reject);
     });
 
@@ -79,7 +80,7 @@ async function generatePressKit() {
     const filter = (entry) => {
       if (entry.name.endsWith('.webp')) return false;
       if (basename(entry.name).startsWith('.')) return false;
-      if (EXCLUDED_NAMES.has(entry.name)) return false;
+      if (EXCLUDED_NAMES.has(basename(entry.name))) return false;
       return entry;
     };
 
