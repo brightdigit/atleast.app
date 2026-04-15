@@ -80,7 +80,7 @@ async function generatePressKit() {
       if (entry.name.endsWith('.webp')) return false;
       if (basename(entry.name).startsWith('.')) return false;
       if (EXCLUDED_NAMES.has(entry.name)) return false;
-      return entry;
+      return true;
     };
 
     archive.append(readme, { name: 'README.txt' });
