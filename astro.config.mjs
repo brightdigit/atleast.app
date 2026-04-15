@@ -4,15 +4,17 @@ import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 import { copyFileSync } from 'node:fs';
 import { resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 function copyAppleTouchIcons() {
   return {
     name: 'copy-apple-touch-icons',
     hooks: {
       'astro:build:done': ({ dir }) => {
-        const src = resolve(dir.pathname, 'press/icons/apple-touch-icon.png');
-        copyFileSync(src, resolve(dir.pathname, 'apple-touch-icon.png'));
-        copyFileSync(src, resolve(dir.pathname, 'apple-touch-icon-precomposed.png'));
+        const outDir = fileURLToPath(dir);
+        const src = resolve(outDir, 'press/icons/apple-touch-icon.png');
+        copyFileSync(src, resolve(outDir, 'apple-touch-icon.png'));
+        copyFileSync(src, resolve(outDir, 'apple-touch-icon-precomposed.png'));
       },
     },
   };
