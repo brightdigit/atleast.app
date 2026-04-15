@@ -1,5 +1,9 @@
 # build output
 dist/
+
+# generated press assets (built by prebuild script, not committed)
+public/downloads/
+public/press/**/*.webp
 # generated types
 .astro/
 

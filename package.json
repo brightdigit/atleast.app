@@ -3,8 +3,12 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
+    "predev": "node scripts/generate-webp.js",
     "dev": "astro dev",
+    "prebuild": "node scripts/generate-webp.js && node scripts/generate-press-kit-zip.js",
     "build": "astro build",
+    "generate:webp": "node scripts/generate-webp.js",
+    "generate:presskit": "node scripts/generate-press-kit-zip.js",
     "preview": "astro preview",
     "astro": "astro",
     "lighthouse": "lhci autorun"
@@ -16,6 +20,8 @@
     "tailwindcss": "^4.2.1"
   },
   "devDependencies": {
-    "@lhci/cli": "^0.15.1"
+    "@lhci/cli": "^0.15.1",
+    "archiver": "^7.0.1",
+    "sharp": "^0.34.5"
   }
 }
