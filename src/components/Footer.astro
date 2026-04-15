@@ -1,6 +1,8 @@
 ---
 import AppStoreBadge from './AppStoreBadge.astro';
-import { COMPANY_NAME, COPYRIGHT_YEAR } from '../config';
+import BrightDigitLogo from './BrightDigitLogo.astro';
+import SocialIcon from './icons/SocialIcon.astro';
+import { APP_NAME, COMPANY_NAME, COMPANY_WEBSITE_URL, COPYRIGHT_YEAR, SOCIAL_LINKS } from '../config';
 ---
 
 <footer class="border-t border-brand-border/50 py-16">
@@ -14,6 +16,28 @@ import { COMPANY_NAME, COPYRIGHT_YEAR } from '../config';
       loading="lazy"
     />
     <AppStoreBadge class="mb-8" />
+    <a
+      href={COMPANY_WEBSITE_URL}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="group mb-8 block text-brand-muted transition-colors hover:text-brand-text"
+    >
+      <span class="text-sm italic">{APP_NAME} is developed by</span>
+      <BrightDigitLogo class="inline-block h-7 w-auto align-middle text-brand-text transition-colors duration-300 group-hover:text-[#f9ed32]" />
+    </a>
+    <div class="mb-8 flex items-center justify-center gap-5">
+      {SOCIAL_LINKS.map((link) => (
+        <a
+          href={link.url}
+          target="_blank"
+          rel={link.icon === 'mastodon' ? 'me noopener noreferrer' : 'noopener noreferrer'}
+          aria-label={link.label}
+          class="text-brand-muted transition-colors hover:text-brand-text"
+        >
+          <SocialIcon name={link.icon} />
+        </a>
+      ))}
+    </div>
     <nav class="mb-6 flex items-center justify-center gap-6">
       <a href="/press" class="text-sm text-brand-muted transition-colors hover:text-brand-text">
         Press
