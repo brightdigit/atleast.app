@@ -55,19 +55,20 @@ const softwareSchema = {
   '@type': 'SoftwareApplication',
   name: 'AtLeast',
   applicationCategory: 'HealthApplication',
-  operatingSystem: 'watchOS 26.0',
+  operatingSystem: 'watchOS 26.0, iOS 26.0',
   offers: {
     '@type': 'Offer',
     price: '0',
     priceCurrency: 'USD',
   },
   description:
-    'AtLeast is a passive haptic timer for Apple Watch that uses gentle taps to mark time intervals during meditation, breathwork, and cold plunge sessions — no screens, just rhythm.',
+    'AtLeast is a passive haptic timer for Apple Watch that uses gentle taps to mark time intervals during meditation, breathwork, and cold plunge sessions — no screens, just rhythm. An optional iPhone companion lets you pre-load a timer and mirror the live session.',
   featureList: [
     'Haptic-only timers — no screen required',
     'Works completely offline',
     'Perfect for meditation, breathwork, and cold plunge',
     'Apple Watch native app',
+    'Optional iPhone companion — pre-load a timer and mirror the live session',
   ],
 };
 
@@ -128,6 +129,16 @@ const howToSchema = {
     </div>
   </section>
 
+  <!-- iPhone Companion -->
+  <section class="px-6 py-24">
+    <div class="mx-auto max-w-3xl text-center">
+      <h2 class="mb-4 text-3xl font-semibold md:text-4xl">Set it on iPhone. Feel it on your wrist.</h2>
+      <p class="mx-auto max-w-xl text-lg leading-relaxed text-brand-muted">
+        Pre-load and pick a timer on your iPhone, then press Start on your Apple Watch. Your iPhone mirrors the live session in real time — while the gentle taps stay where they belong, on your wrist. The companion is entirely optional; the Watch remains the core, eyes-free experience.
+      </p>
+    </div>
+  </section>
+
   <!-- Use Cases -->
   <section class="px-6 py-24">
     <div class="mx-auto max-w-5xl">
@@ -174,7 +185,7 @@ const howToSchema = {
             </tr>
             <tr class="bg-brand-surface/50">
               <td class="px-6 py-4 text-brand-muted">Platform</td>
-              <td class="px-6 py-4 text-brand-accent">Apple Watch native</td>
+              <td class="px-6 py-4 text-brand-accent">Apple Watch native, optional iPhone companion</td>
               <td class="px-6 py-4 text-brand-muted">iPhone-based</td>
             </tr>
             <tr>
@@ -193,7 +204,7 @@ const howToSchema = {
     <div class="mx-auto max-w-3xl text-center">
       <h2 class="mb-4 text-3xl font-semibold md:text-4xl">Simple by design.</h2>
       <p class="mx-auto mb-10 max-w-xl text-lg leading-relaxed text-brand-muted">
-        No account required. No phone needed. Just your Apple Watch and your practice.
+        No account required. Your Apple Watch is all you need — with an optional iPhone companion when you want it.
       </p>
       <div class="flex flex-wrap items-center justify-center gap-6">
         <span class="flex items-center gap-2 rounded-full border border-brand-border bg-brand-surface px-5 py-2.5 text-sm text-brand-muted">
