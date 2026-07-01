@@ -3,6 +3,8 @@ import Layout from '../layouts/Layout.astro';
 import Schema from '../components/Schema.astro';
 import AppStoreBadge from '../components/AppStoreBadge.astro';
 import PracticeCard from '../components/PracticeCard.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import { Icon } from 'astro-icon/components';
 import { COMPANY_NAME, WEBSITE_URL, OG_IMAGE_URL, COMPANY_WEBSITE_URL } from '../config';
 
 // Scannable overview cards; each links to its detailed section below.
@@ -87,7 +89,7 @@ const articleSchema = {
       </div>
 
       <!-- Meditation -->
-      <h2 id="meditation" class="mt-16 scroll-mt-24 text-3xl font-semibold tracking-tight">Is <em>AtLeast</em> good for meditation?</h2>
+      <SectionHeading id="meditation" icon="ph:flower-lotus">Is <em>AtLeast</em> good for meditation?</SectionHeading>
       <p class="mt-4 text-base leading-relaxed text-brand-muted">
         Yes — meditation is what <em>AtLeast</em> was designed for. Reviews of mindfulness and meditation programs find moderate evidence that they reduce anxiety, depression, and pain, and help people manage psychological stress<sup><a href="#ref-1" class="text-brand-accent hover:underline">[1]</a></sup><sup><a href="#ref-2" class="text-brand-accent hover:underline">[2]</a></sup>. The hard part for most people is knowing when to stop without breaking the state. A conventional timer solves that with a jarring alarm — the very thing that pulls you out of stillness.
       </p>
@@ -96,7 +98,7 @@ const articleSchema = {
       </p>
 
       <!-- Breathwork -->
-      <h2 id="breathwork" class="mt-16 scroll-mt-24 text-3xl font-semibold tracking-tight">Using <em>AtLeast</em> for breathwork and breathing exercises</h2>
+      <SectionHeading id="breathwork" icon="ph:wind">Using <em>AtLeast</em> for breathwork and breathing exercises</SectionHeading>
       <p class="mt-4 text-base leading-relaxed text-brand-muted">
         Slow, structured breathing has measurable effects: diaphragmatic breathing has been associated with lower cortisol and improved attention<sup><a href="#ref-4" class="text-brand-accent hover:underline">[4]</a></sup>, and brief daily "cyclic sighing" and other controlled breathing practices have been shown to improve mood and reduce physiological arousal more than passive rest<sup><a href="#ref-5" class="text-brand-accent hover:underline">[5]</a></sup>. Techniques like box breathing (equal counts of inhale, hold, exhale, hold)<sup><a href="#ref-6" class="text-brand-accent hover:underline">[6]</a></sup> and the 4-7-8 breath<sup><a href="#ref-7" class="text-brand-accent hover:underline">[7]</a></sup> depend on timing — and timing is exactly where a haptic cue shines.
       </p>
@@ -105,31 +107,31 @@ const articleSchema = {
       </p>
 
       <!-- Yoga & stretching -->
-      <h2 id="yoga" class="mt-16 scroll-mt-24 text-3xl font-semibold tracking-tight">Yoga, stretching, and mobility holds</h2>
+      <SectionHeading id="yoga" icon="ph:person-simple-tai-chi">Yoga, stretching, and mobility holds</SectionHeading>
       <p class="mt-4 text-base leading-relaxed text-brand-muted">
         Yoga has been studied for stress, balance, and flexibility, and is generally considered a safe way to support overall well-being<sup><a href="#ref-3" class="text-brand-accent hover:underline">[3]</a></sup>. Whether you're holding a pose, working through a mobility flow, or easing into a long stretch, you want your attention on the body rather than on a clock. <em>AtLeast</em> gives each hold a felt duration: start the timer, breathe into the position, and let the taps tell you time is passing without asking you to look. When they stop, move on. It's an unobtrusive way to make sure each side gets equal time.
       </p>
 
       <!-- Cold exposure -->
-      <h2 id="cold-exposure" class="mt-16 scroll-mt-24 text-3xl font-semibold tracking-tight">Is <em>AtLeast</em> good for cold plunge and cold exposure?</h2>
+      <SectionHeading id="cold-exposure" icon="ph:snowflake">Is <em>AtLeast</em> good for cold plunge and cold exposure?</SectionHeading>
       <p class="mt-4 text-base leading-relaxed text-brand-muted">
         Cold exposure has become a popular deliberate practice, typically built around short, timed bouts in cold water<sup><a href="#ref-9" class="text-brand-accent hover:underline">[9]</a></sup>. In an ice bath or cold shower, checking a phone is impractical and counterproductive — your hands are cold, your eyes want to close, and your focus belongs on your breath. <em>AtLeast</em> is ideal here: set a minimum (30 seconds, a minute, three minutes), start it on the watch, and ride the taps. You always know how long you've been in without breaking concentration, and the session ends in silence rather than a shrill beep. The watch is water-resistant and needs no phone nearby to run the timer.
       </p>
 
       <!-- Static holds -->
-      <h2 id="static-holds" class="mt-16 scroll-mt-24 text-3xl font-semibold tracking-tight">Static holds and isometric training</h2>
+      <SectionHeading id="static-holds" icon="ph:barbell">Static holds and isometric training</SectionHeading>
       <p class="mt-4 text-base leading-relaxed text-brand-muted">
         Isometric holds — planks, wall sits, and similar exercises — have drawn attention for their effects on strength and, in some studies, resting blood pressure<sup><a href="#ref-8" class="text-brand-accent hover:underline">[8]</a></sup>. The challenge is honest timekeeping under strain: it's tempting to cut a plank short, and awkward to stare at a screen while shaking. Set your minimum, hold the position, and let the taps mark the seconds on your wrist. Silence means you've earned the rest. It's a small accountability partner for the hardest part of the hold.
       </p>
 
       <!-- Focused work -->
-      <h2 id="focus" class="mt-16 scroll-mt-24 text-3xl font-semibold tracking-tight">Is <em>AtLeast</em> good for focused work?</h2>
+      <SectionHeading id="focus" icon="ph:target">Is <em>AtLeast</em> good for focused work?</SectionHeading>
       <p class="mt-4 text-base leading-relaxed text-brand-muted">
         The Pomodoro Technique made timed focus popular — work in intervals, then take a break<sup><a href="#ref-10" class="text-brand-accent hover:underline">[10]</a></sup>. <em>AtLeast</em> flips the emphasis: instead of a countdown to a hard stop, you commit to <em>at least</em> a block of deep work. The usual tools — a kitchen timer or a phone app — introduce the exact distraction you're trying to avoid, and a ringing alarm yanks you out of flow. <em>AtLeast</em> keeps the timing on your wrist and out of your visual field: set your minimum focus block, put the phone away, and let the gentle taps reassure you that time is passing. When they go quiet, you've reached your minimum and earned the break — no sound, no screen, nothing to announce itself to the room.
       </p>
 
       <!-- How it fits -->
-      <h2 class="mt-16 text-3xl font-semibold tracking-tight">How the Watch and iPhone work together</h2>
+      <SectionHeading icon="ph:watch">How the Watch and iPhone work together</SectionHeading>
       <p class="mt-4 text-base leading-relaxed text-brand-muted">
         The Apple Watch is the core of <em>AtLeast</em>: it's where the taps happen and where you press Start, and it runs entirely on its own with no phone required. When your iPhone is handy, the optional companion lets you pick and pre-load a timer on the larger screen, then mirror the live session as it runs — useful for setting up a longer or more complex session before you begin. Either way, the experience stays eyes-free, offline, and private: <em>AtLeast</em> needs no account and keeps your practice on your own devices.
       </p>
@@ -144,7 +146,10 @@ const articleSchema = {
       </div>
 
       <!-- References -->
-      <h2 class="mt-16 text-2xl font-semibold tracking-tight">References</h2>
+      <h2 class="mt-16 flex items-center gap-3 text-2xl font-semibold tracking-tight">
+        <Icon name="ph:books" class="h-6 w-6 text-brand-accent" />
+        References
+      </h2>
       <ol class="mt-6 space-y-3 text-sm leading-relaxed text-brand-muted">
         {citations.map((c) => (
           <li id={`ref-${c.id}`} class="flex gap-3">
