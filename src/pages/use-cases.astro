@@ -1,0 +1,150 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Schema from '../components/Schema.astro';
+import AppStoreBadge from '../components/AppStoreBadge.astro';
+import { COMPANY_NAME, WEBSITE_URL, OG_IMAGE_URL, COMPANY_WEBSITE_URL } from '../config';
+
+const title = 'AtLeast Use Cases — Meditation, Breathwork, Yoga, Cold Plunge & Focus';
+const description =
+  'How to use AtLeast, the passive haptic timer for Apple Watch, across meditation, breathwork, yoga, stretching, cold exposure, static holds, cooking, and focused work — with citations.';
+
+const datePublished = '2026-07-01';
+
+// Authoritative sources cited throughout the page.
+const citations = [
+  { id: 1, text: 'National Center for Complementary and Integrative Health — Meditation and Mindfulness: What You Need To Know', url: 'https://www.nccih.nih.gov/health/meditation-and-mindfulness-what-you-need-to-know' },
+  { id: 2, text: 'Goyal M. et al. (2014). Meditation Programs for Psychological Stress and Well-being. JAMA Internal Medicine', url: 'https://pubmed.ncbi.nlm.nih.gov/24395196/' },
+  { id: 3, text: 'National Center for Complementary and Integrative Health — Yoga: What You Need To Know', url: 'https://www.nccih.nih.gov/health/yoga-what-you-need-to-know' },
+  { id: 4, text: 'Ma X. et al. (2017). The Effect of Diaphragmatic Breathing on Attention, Affect and Cortisol. Frontiers in Psychology', url: 'https://pubmed.ncbi.nlm.nih.gov/28626434/' },
+  { id: 5, text: 'Balban M. et al. (2023). Brief structured respiration practices enhance mood and reduce physiological arousal. Cell Reports Medicine', url: 'https://pubmed.ncbi.nlm.nih.gov/36630953/' },
+  { id: 6, text: 'Cleveland Clinic — Box Breathing Benefits', url: 'https://health.clevelandclinic.org/box-breathing-benefits' },
+  { id: 7, text: 'Andrew Weil, M.D. — The 4-7-8 Breath', url: 'https://www.drweil.com/videos-features/videos/breathing-exercises-4-7-8-breath/' },
+  { id: 8, text: 'Edwards J. et al. (2023). Exercise training and resting blood pressure: isometric exercise. British Journal of Sports Medicine', url: 'https://bjsm.bmj.com/content/57/20/1317' },
+  { id: 9, text: 'Huberman Lab — The Science and Use of Cold Exposure', url: 'https://www.hubermanlab.com/newsletter/the-science-and-use-of-cold-exposure' },
+  { id: 10, text: 'Francesco Cirillo — The Pomodoro Technique', url: 'https://francescocirillo.com/pages/pomodoro-technique' },
+];
+
+const canonicalURL = `${WEBSITE_URL}/use-cases`;
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'AtLeast Use Cases: Meditation, Breathwork, Yoga, Cold Plunge, and Focused Work',
+  description,
+  datePublished,
+  dateModified: datePublished,
+  author: {
+    '@type': 'Organization',
+    name: COMPANY_NAME,
+    url: COMPANY_WEBSITE_URL,
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: COMPANY_NAME,
+    logo: {
+      '@type': 'ImageObject',
+      url: `${WEBSITE_URL}/press/icons/apple-touch-icon.png`,
+    },
+  },
+  image: OG_IMAGE_URL,
+  mainEntityOfPage: {
+    '@type': 'WebPage',
+    '@id': canonicalURL,
+  },
+  citation: citations.map((c) => c.text),
+};
+---
+
+<Layout title={title} description={description}>
+  <Schema schema={articleSchema} />
+
+  <article class="px-6 py-24">
+    <div class="mx-auto max-w-3xl">
+      <h1 class="text-4xl font-bold tracking-tight md:text-5xl">What can you use <em>AtLeast</em> for?</h1>
+
+      <p class="mt-6 text-lg leading-relaxed text-brand-muted">
+        <em>AtLeast</em> is a passive haptic timer for Apple Watch. It marks time with gentle taps on your wrist during any practice where you'd rather not watch a clock — meditation, breathwork, yoga, stretching, cold exposure, static holds, cooking, and focused work. When the taps stop, you've reached your minimum. There's no alarm and no screen to check, so you can stay present. An optional iPhone companion lets you pre-load a timer and mirror the live session; the taps still happen on your wrist.
+      </p>
+
+      <p class="mt-4 text-base leading-relaxed text-brand-muted">
+        The idea behind <em>AtLeast</em> is simple: set a floor, not a ceiling. Instead of counting down to an interruption, you commit to <em>at least</em> a few minutes and let a quiet rhythm carry you there. Below are the practices it fits best, why each one benefits from an eyes-free timer, and how to set it up.
+      </p>
+
+      <!-- Meditation -->
+      <h2 class="mt-16 text-3xl font-semibold tracking-tight">Is <em>AtLeast</em> good for meditation?</h2>
+      <p class="mt-4 text-base leading-relaxed text-brand-muted">
+        Yes — meditation is what <em>AtLeast</em> was designed for. Reviews of mindfulness and meditation programs find moderate evidence that they reduce anxiety, depression, and pain, and help people manage psychological stress<sup><a href="#ref-1" class="text-brand-accent hover:underline">[1]</a></sup><sup><a href="#ref-2" class="text-brand-accent hover:underline">[2]</a></sup>. The hard part for most people is knowing when to stop without breaking the state. A conventional timer solves that with a jarring alarm — the very thing that pulls you out of stillness.
+      </p>
+      <p class="mt-4 text-base leading-relaxed text-brand-muted">
+        With <em>AtLeast</em>, you set a minimum duration and a tap interval. Gentle taps mark the passage of time on your wrist; when they go quiet, your session is complete. You keep your eyes closed the entire time, and the end of the session is a soft absence rather than a loud signal. Set a longer interval (say, a tap every few minutes) for silent sitting, or a shorter one when you want a steady anchor for the breath.
+      </p>
+
+      <!-- Breathwork -->
+      <h2 class="mt-16 text-3xl font-semibold tracking-tight">Using <em>AtLeast</em> for breathwork and breathing exercises</h2>
+      <p class="mt-4 text-base leading-relaxed text-brand-muted">
+        Slow, structured breathing has measurable effects: diaphragmatic breathing has been associated with lower cortisol and improved attention<sup><a href="#ref-4" class="text-brand-accent hover:underline">[4]</a></sup>, and brief daily "cyclic sighing" and other controlled breathing practices have been shown to improve mood and reduce physiological arousal more than passive rest<sup><a href="#ref-5" class="text-brand-accent hover:underline">[5]</a></sup>. Techniques like box breathing (equal counts of inhale, hold, exhale, hold)<sup><a href="#ref-6" class="text-brand-accent hover:underline">[6]</a></sup> and the 4-7-8 breath<sup><a href="#ref-7" class="text-brand-accent hover:underline">[7]</a></sup> depend on timing — and timing is exactly where a haptic cue shines.
+      </p>
+      <p class="mt-4 text-base leading-relaxed text-brand-muted">
+        Set the tap interval to match your cycle and let the rhythm on your wrist pace each breath — no counting in your head, no glancing at a screen. <em>AtLeast</em> pairs naturally with Wim Hof rounds, box breathing, and 4-7-8. Because it runs entirely on the watch, it works on an airplane, in a sauna, or anywhere you happen to be.
+      </p>
+
+      <!-- Yoga & stretching -->
+      <h2 class="mt-16 text-3xl font-semibold tracking-tight">Yoga, stretching, and mobility holds</h2>
+      <p class="mt-4 text-base leading-relaxed text-brand-muted">
+        Yoga has been studied for stress, balance, and flexibility, and is generally considered a safe way to support overall well-being<sup><a href="#ref-3" class="text-brand-accent hover:underline">[3]</a></sup>. Whether you're holding a pose, working through a mobility flow, or easing into a long stretch, you want your attention on the body rather than on a clock. <em>AtLeast</em> gives each hold a felt duration: start the timer, breathe into the position, and let the taps tell you time is passing without asking you to look. When they stop, move on. It's an unobtrusive way to make sure each side gets equal time.
+      </p>
+
+      <!-- Cold exposure -->
+      <h2 class="mt-16 text-3xl font-semibold tracking-tight">Is <em>AtLeast</em> good for cold plunge and cold exposure?</h2>
+      <p class="mt-4 text-base leading-relaxed text-brand-muted">
+        Cold exposure has become a popular deliberate practice, typically built around short, timed bouts in cold water<sup><a href="#ref-9" class="text-brand-accent hover:underline">[9]</a></sup>. In an ice bath or cold shower, checking a phone is impractical and counterproductive — your hands are cold, your eyes want to close, and your focus belongs on your breath. <em>AtLeast</em> is ideal here: set a minimum (30 seconds, a minute, three minutes), start it on the watch, and ride the taps. You always know how long you've been in without breaking concentration, and the session ends in silence rather than a shrill beep. The watch is water-resistant and needs no phone nearby to run the timer.
+      </p>
+
+      <!-- Static holds -->
+      <h2 class="mt-16 text-3xl font-semibold tracking-tight">Static holds and isometric training</h2>
+      <p class="mt-4 text-base leading-relaxed text-brand-muted">
+        Isometric holds — planks, wall sits, and similar exercises — have drawn attention for their effects on strength and, in some studies, resting blood pressure<sup><a href="#ref-8" class="text-brand-accent hover:underline">[8]</a></sup>. The challenge is honest timekeeping under strain: it's tempting to cut a plank short, and awkward to stare at a screen while shaking. Set your minimum, hold the position, and let the taps mark the seconds on your wrist. Silence means you've earned the rest. It's a small accountability partner for the hardest part of the hold.
+      </p>
+
+      <!-- Focused work -->
+      <h2 class="mt-16 text-3xl font-semibold tracking-tight">Focused work and Pomodoro-style sessions</h2>
+      <p class="mt-4 text-base leading-relaxed text-brand-muted">
+        The Pomodoro Technique breaks work into focused intervals separated by short breaks<sup><a href="#ref-10" class="text-brand-accent hover:underline">[10]</a></sup>. The usual tools — a kitchen timer or a phone app — introduce the exact distraction you're trying to avoid, and a ringing alarm yanks you out of flow. <em>AtLeast</em> keeps the timing on your wrist and out of your visual field. Set a minimum focus block, put the phone away, and work until the taps quietly fade. Because there's no screen and no sound, a session ends without startling you or announcing itself to the room.
+      </p>
+
+      <!-- Cooking & everyday -->
+      <h2 class="mt-16 text-3xl font-semibold tracking-tight">Cooking, resting, and everyday intervals</h2>
+      <p class="mt-4 text-base leading-relaxed text-brand-muted">
+        Not every timer is about mindfulness. Steeping tea, resting dough, timing a rest between sets, or steaming vegetables all benefit from a discreet nudge you can feel across a noisy kitchen or a busy gym. <em>AtLeast</em> handles these the same calm way: set a minimum, feel the taps, and know you're done when they stop — no beeping over the music, no unlocking a phone with flour on your hands.
+      </p>
+
+      <!-- How it fits -->
+      <h2 class="mt-16 text-3xl font-semibold tracking-tight">How the Watch and iPhone work together</h2>
+      <p class="mt-4 text-base leading-relaxed text-brand-muted">
+        The Apple Watch is the core of <em>AtLeast</em>: it's where the taps happen and where you press Start, and it runs entirely on its own with no phone required. When your iPhone is handy, the optional companion lets you pick and pre-load a timer on the larger screen, then mirror the live session as it runs — useful for setting up a longer or more complex session before you begin. Either way, the experience stays eyes-free, offline, and private: <em>AtLeast</em> needs no account and keeps your practice on your own devices.
+      </p>
+
+      <!-- CTA -->
+      <div class="mt-16 rounded-2xl border border-brand-border bg-brand-surface p-8 text-center">
+        <h2 class="mb-3 text-xl font-semibold text-brand-text">Find your minimum.</h2>
+        <p class="mb-6 text-base text-brand-muted">
+          Set a floor, feel the rhythm, and let the silence tell you you're done.
+        </p>
+        <AppStoreBadge />
+      </div>
+
+      <!-- References -->
+      <h2 class="mt-16 text-2xl font-semibold tracking-tight">References</h2>
+      <ol class="mt-6 space-y-3 text-sm leading-relaxed text-brand-muted">
+        {citations.map((c) => (
+          <li id={`ref-${c.id}`} class="flex gap-3">
+            <span class="flex-shrink-0 text-brand-muted">[{c.id}]</span>
+            <a href={c.url} target="_blank" rel="noopener noreferrer" class="text-brand-accent hover:underline">
+              {c.text}
+            </a>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </article>
+</Layout>
