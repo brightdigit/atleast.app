@@ -2,11 +2,22 @@
 import Layout from '../layouts/Layout.astro';
 import Schema from '../components/Schema.astro';
 import AppStoreBadge from '../components/AppStoreBadge.astro';
+import PracticeCard from '../components/PracticeCard.astro';
 import { COMPANY_NAME, WEBSITE_URL, OG_IMAGE_URL, COMPANY_WEBSITE_URL } from '../config';
+
+// Scannable overview cards; each links to its detailed section below.
+const practices = [
+  { icon: 'ph:flower-lotus', label: 'Meditation', blurb: 'Sit without watching the clock; silence marks the end.', anchor: '#meditation' },
+  { icon: 'ph:wind', label: 'Breathwork', blurb: 'Pace each breath by feel — box breathing, 4-7-8, Wim Hof.', anchor: '#breathwork' },
+  { icon: 'ph:person-simple-tai-chi', label: 'Yoga & stretching', blurb: 'Give every hold and every side an equal, felt duration.', anchor: '#yoga' },
+  { icon: 'ph:snowflake', label: 'Cold exposure', blurb: 'Ride a timed plunge eyes-closed, no phone in cold hands.', anchor: '#cold-exposure' },
+  { icon: 'ph:barbell', label: 'Static holds', blurb: 'Honest timekeeping for planks, wall sits, and isometrics.', anchor: '#static-holds' },
+  { icon: 'ph:target', label: 'Focused work', blurb: 'Commit to at least a block of deep focus, screen-free.', anchor: '#focus' },
+];
 
 const title = 'AtLeast Use Cases — Meditation, Breathwork, Yoga, Cold Plunge & Focus';
 const description =
-  'How to use AtLeast, the passive haptic timer for Apple Watch, across meditation, breathwork, yoga, stretching, cold exposure, static holds, cooking, and focused work — with citations.';
+  'How to use AtLeast, the passive haptic timer for Apple Watch, across meditation, breathwork, yoga, stretching, cold exposure, static holds, and focused work — with citations.';
 
 const datePublished = '2026-07-01';
 
@@ -20,8 +31,8 @@ const citations = [
   { id: 6, text: 'Cleveland Clinic — Box Breathing Benefits', url: 'https://health.clevelandclinic.org/box-breathing-benefits' },
   { id: 7, text: 'Andrew Weil, M.D. — The 4-7-8 Breath', url: 'https://www.drweil.com/videos-features/videos/breathing-exercises-4-7-8-breath/' },
   { id: 8, text: 'Edwards J. et al. (2023). Exercise training and resting blood pressure: isometric exercise. British Journal of Sports Medicine', url: 'https://bjsm.bmj.com/content/57/20/1317' },
-  { id: 9, text: 'Huberman Lab — The Science and Use of Cold Exposure', url: 'https://www.hubermanlab.com/newsletter/the-science-and-use-of-cold-exposure' },
-  { id: 10, text: 'Francesco Cirillo — The Pomodoro Technique', url: 'https://francescocirillo.com/pages/pomodoro-technique' },
+  { id: 9, text: 'Huberman Lab — The Science & Use of Cold Exposure for Health & Performance', url: 'https://www.hubermanlab.com/newsletter/the-science-and-use-of-cold-exposure-for-health-and-performance' },
+  { id: 10, text: 'Francesco Cirillo — The Pomodoro® Technique', url: 'https://www.pomodorotechnique.com/' },
 ];
 
 const canonicalURL = `${WEBSITE_URL}/use-cases`;
@@ -70,8 +81,13 @@ const articleSchema = {
         The idea behind <em>AtLeast</em> is simple: set a floor, not a ceiling. Instead of counting down to an interruption, you commit to <em>at least</em> a few minutes and let a quiet rhythm carry you there. Below are the practices it fits best, why each one benefits from an eyes-free timer, and how to set it up.
       </p>
 
+      <!-- Scannable overview -->
+      <div class="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3">
+        {practices.map((p) => <PracticeCard {...p} />)}
+      </div>
+
       <!-- Meditation -->
-      <h2 class="mt-16 text-3xl font-semibold tracking-tight">Is <em>AtLeast</em> good for meditation?</h2>
+      <h2 id="meditation" class="mt-16 scroll-mt-24 text-3xl font-semibold tracking-tight">Is <em>AtLeast</em> good for meditation?</h2>
       <p class="mt-4 text-base leading-relaxed text-brand-muted">
         Yes — meditation is what <em>AtLeast</em> was designed for. Reviews of mindfulness and meditation programs find moderate evidence that they reduce anxiety, depression, and pain, and help people manage psychological stress<sup><a href="#ref-1" class="text-brand-accent hover:underline">[1]</a></sup><sup><a href="#ref-2" class="text-brand-accent hover:underline">[2]</a></sup>. The hard part for most people is knowing when to stop without breaking the state. A conventional timer solves that with a jarring alarm — the very thing that pulls you out of stillness.
       </p>
@@ -80,7 +96,7 @@ const articleSchema = {
       </p>
 
       <!-- Breathwork -->
-      <h2 class="mt-16 text-3xl font-semibold tracking-tight">Using <em>AtLeast</em> for breathwork and breathing exercises</h2>
+      <h2 id="breathwork" class="mt-16 scroll-mt-24 text-3xl font-semibold tracking-tight">Using <em>AtLeast</em> for breathwork and breathing exercises</h2>
       <p class="mt-4 text-base leading-relaxed text-brand-muted">
         Slow, structured breathing has measurable effects: diaphragmatic breathing has been associated with lower cortisol and improved attention<sup><a href="#ref-4" class="text-brand-accent hover:underline">[4]</a></sup>, and brief daily "cyclic sighing" and other controlled breathing practices have been shown to improve mood and reduce physiological arousal more than passive rest<sup><a href="#ref-5" class="text-brand-accent hover:underline">[5]</a></sup>. Techniques like box breathing (equal counts of inhale, hold, exhale, hold)<sup><a href="#ref-6" class="text-brand-accent hover:underline">[6]</a></sup> and the 4-7-8 breath<sup><a href="#ref-7" class="text-brand-accent hover:underline">[7]</a></sup> depend on timing — and timing is exactly where a haptic cue shines.
       </p>
@@ -89,33 +105,27 @@ const articleSchema = {
       </p>
 
       <!-- Yoga & stretching -->
-      <h2 class="mt-16 text-3xl font-semibold tracking-tight">Yoga, stretching, and mobility holds</h2>
+      <h2 id="yoga" class="mt-16 scroll-mt-24 text-3xl font-semibold tracking-tight">Yoga, stretching, and mobility holds</h2>
       <p class="mt-4 text-base leading-relaxed text-brand-muted">
         Yoga has been studied for stress, balance, and flexibility, and is generally considered a safe way to support overall well-being<sup><a href="#ref-3" class="text-brand-accent hover:underline">[3]</a></sup>. Whether you're holding a pose, working through a mobility flow, or easing into a long stretch, you want your attention on the body rather than on a clock. <em>AtLeast</em> gives each hold a felt duration: start the timer, breathe into the position, and let the taps tell you time is passing without asking you to look. When they stop, move on. It's an unobtrusive way to make sure each side gets equal time.
       </p>
 
       <!-- Cold exposure -->
-      <h2 class="mt-16 text-3xl font-semibold tracking-tight">Is <em>AtLeast</em> good for cold plunge and cold exposure?</h2>
+      <h2 id="cold-exposure" class="mt-16 scroll-mt-24 text-3xl font-semibold tracking-tight">Is <em>AtLeast</em> good for cold plunge and cold exposure?</h2>
       <p class="mt-4 text-base leading-relaxed text-brand-muted">
         Cold exposure has become a popular deliberate practice, typically built around short, timed bouts in cold water<sup><a href="#ref-9" class="text-brand-accent hover:underline">[9]</a></sup>. In an ice bath or cold shower, checking a phone is impractical and counterproductive — your hands are cold, your eyes want to close, and your focus belongs on your breath. <em>AtLeast</em> is ideal here: set a minimum (30 seconds, a minute, three minutes), start it on the watch, and ride the taps. You always know how long you've been in without breaking concentration, and the session ends in silence rather than a shrill beep. The watch is water-resistant and needs no phone nearby to run the timer.
       </p>
 
       <!-- Static holds -->
-      <h2 class="mt-16 text-3xl font-semibold tracking-tight">Static holds and isometric training</h2>
+      <h2 id="static-holds" class="mt-16 scroll-mt-24 text-3xl font-semibold tracking-tight">Static holds and isometric training</h2>
       <p class="mt-4 text-base leading-relaxed text-brand-muted">
         Isometric holds — planks, wall sits, and similar exercises — have drawn attention for their effects on strength and, in some studies, resting blood pressure<sup><a href="#ref-8" class="text-brand-accent hover:underline">[8]</a></sup>. The challenge is honest timekeeping under strain: it's tempting to cut a plank short, and awkward to stare at a screen while shaking. Set your minimum, hold the position, and let the taps mark the seconds on your wrist. Silence means you've earned the rest. It's a small accountability partner for the hardest part of the hold.
       </p>
 
       <!-- Focused work -->
-      <h2 class="mt-16 text-3xl font-semibold tracking-tight">Focused work and Pomodoro-style sessions</h2>
+      <h2 id="focus" class="mt-16 scroll-mt-24 text-3xl font-semibold tracking-tight">Is <em>AtLeast</em> good for focused work?</h2>
       <p class="mt-4 text-base leading-relaxed text-brand-muted">
-        The Pomodoro Technique breaks work into focused intervals separated by short breaks<sup><a href="#ref-10" class="text-brand-accent hover:underline">[10]</a></sup>. The usual tools — a kitchen timer or a phone app — introduce the exact distraction you're trying to avoid, and a ringing alarm yanks you out of flow. <em>AtLeast</em> keeps the timing on your wrist and out of your visual field. Set a minimum focus block, put the phone away, and work until the taps quietly fade. Because there's no screen and no sound, a session ends without startling you or announcing itself to the room.
-      </p>
-
-      <!-- Cooking & everyday -->
-      <h2 class="mt-16 text-3xl font-semibold tracking-tight">Cooking, resting, and everyday intervals</h2>
-      <p class="mt-4 text-base leading-relaxed text-brand-muted">
-        Not every timer is about mindfulness. Steeping tea, resting dough, timing a rest between sets, or steaming vegetables all benefit from a discreet nudge you can feel across a noisy kitchen or a busy gym. <em>AtLeast</em> handles these the same calm way: set a minimum, feel the taps, and know you're done when they stop — no beeping over the music, no unlocking a phone with flour on your hands.
+        The Pomodoro Technique made timed focus popular — work in intervals, then take a break<sup><a href="#ref-10" class="text-brand-accent hover:underline">[10]</a></sup>. <em>AtLeast</em> flips the emphasis: instead of a countdown to a hard stop, you commit to <em>at least</em> a block of deep work. The usual tools — a kitchen timer or a phone app — introduce the exact distraction you're trying to avoid, and a ringing alarm yanks you out of flow. <em>AtLeast</em> keeps the timing on your wrist and out of your visual field: set your minimum focus block, put the phone away, and let the gentle taps reassure you that time is passing. When they go quiet, you've reached your minimum and earned the break — no sound, no screen, nothing to announce itself to the room.
       </p>
 
       <!-- How it fits -->

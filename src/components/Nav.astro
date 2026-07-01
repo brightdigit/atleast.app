@@ -28,17 +28,31 @@ const links = [
     </a>
     <div class="flex items-center gap-6">
       {links.map((link) => (
-        <a
-          href={link.href}
-          class="text-sm text-brand-muted transition-colors hover:text-brand-text"
-        >
-          {link.label}
-        </a>
+        link.href === '/use-cases' ? (
+          <a
+            href={link.href}
+            data-ab-usecases-link
+            class="text-sm text-brand-muted transition-colors hover:text-brand-text"
+          >
+            <span class="ab ab-how">How to Use It</span>
+            <span class="ab ab-ways">Ways to Use It</span>
+            <span class="ab ab-where">Where It Fits</span>
+          </a>
+        ) : (
+          <a
+            href={link.href}
+            class="text-sm text-brand-muted transition-colors hover:text-brand-text"
+          >
+            {link.label}
+          </a>
+        )
       ))}
       <a
         href={TESTFLIGHT_URL}
         target="_blank"
         rel="noopener noreferrer"
+        data-testflight-link
+        data-tf-location="nav"
         class="rounded-full border border-brand-border bg-brand-surface px-4 py-1.5 text-sm text-brand-text transition-opacity hover:opacity-80"
       >
         Join Beta

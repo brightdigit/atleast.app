@@ -32,3 +32,24 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+/* A/B test: the "Use Cases" nav/footer label. Hide all variants, then reveal
+   the one assigned by public/ab.js (via html[data-ab-label]). With JS off /
+   crawlers, the canonical "How to Use It" variant shows by default. */
+.ab {
+  display: none;
+}
+.ab-how,
+html[data-ab-label="how-to-use-it"] .ab-how {
+  display: inline;
+}
+html[data-ab-label="ways-to-use-it"] .ab-how,
+html[data-ab-label="where-it-fits"] .ab-how {
+  display: none;
+}
+html[data-ab-label="ways-to-use-it"] .ab-ways {
+  display: inline;
+}
+html[data-ab-label="where-it-fits"] .ab-where {
+  display: inline;
+}

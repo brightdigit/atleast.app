@@ -48,5 +48,8 @@ const orgSchema = {
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={OG_IMAGE_URL} />
 
+<!-- A/B label assignment (runs before paint to avoid flicker) -->
+<script src="/ab.js" is:inline></script>
+
 <!-- Plausible Analytics -->
-<script async data-domain="atleast.app" src="https://plausible.io/js/script.outbound-links.js"></script>
+<script async data-domain="atleast.app" src="https://plausible.io/js/script.outbound-links.tagged-events.js"></script>
