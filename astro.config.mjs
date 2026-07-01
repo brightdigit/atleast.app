@@ -2,6 +2,7 @@
 import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
+import icon from 'astro-icon';
 import { copyFileSync, existsSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -27,7 +28,7 @@ function copyAppleTouchIcons() {
 // https://astro.build/config
 export default defineConfig({
   site: 'https://atleast.app',
-  integrations: [sitemap(), copyAppleTouchIcons()],
+  integrations: [icon(), sitemap(), copyAppleTouchIcons()],
   vite: {
     plugins: [tailwindcss()],
   },

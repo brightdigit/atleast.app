@@ -3,15 +3,18 @@ import { TESTFLIGHT_URL } from '../config';
 
 interface Props {
   class?: string;
+  location?: string;
 }
 
-const { class: className } = Astro.props;
+const { class: className, location = 'badge' } = Astro.props;
 ---
 
 <a
   href={TESTFLIGHT_URL}
   target="_blank"
   rel="noopener noreferrer"
+  data-testflight-link
+  data-tf-location={location}
   class:list={["inline-flex items-center gap-3 rounded-2xl border border-brand-border bg-brand-surface px-6 py-3.5 transition-opacity hover:opacity-80", className]}
 >
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52" width="32" height="32" fill="currentColor" class="text-brand-text" aria-hidden="true">
