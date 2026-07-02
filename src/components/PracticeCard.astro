@@ -1,0 +1,21 @@
+---
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+  icon: string;
+  label: string;
+  blurb: string;
+  anchor: string;
+}
+
+const { icon, label, blurb, anchor } = Astro.props;
+---
+
+<a
+  href={anchor}
+  class="block rounded-2xl border border-brand-border bg-brand-surface p-6 transition-colors hover:border-brand-accent/50"
+>
+  <Icon name={icon} class="mb-3 h-8 w-8 text-brand-accent" />
+  <h3 class="mb-1 text-base font-semibold text-brand-text">{label}</h3>
+  <p class="text-sm leading-relaxed text-brand-muted">{blurb}</p>
+</a>
