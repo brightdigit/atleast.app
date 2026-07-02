@@ -132,6 +132,27 @@ const howToSchema = {
   <!-- iPhone Companion -->
   <section class="px-6 py-24">
     <div class="mx-auto max-w-3xl text-center">
+      <div class="mx-auto mb-12 max-w-2xl">
+        <video
+          class="h-auto w-full rounded-2xl"
+          autoplay
+          loop
+          muted
+          playsinline
+          preload="metadata"
+          poster="/demo/atleast-demo-poster.jpg"
+          aria-label="An Apple Watch and iPhone side by side. Selecting a timer on iPhone starts a session on the Watch, and the iPhone mirrors the gentle haptic taps in real time."
+        >
+          <source src="/demo/atleast-demo.webm" type="video/webm" />
+          <source src="/demo/atleast-demo.mp4" type="video/mp4" />
+          <img
+            src="/demo/atleast-demo-poster.jpg"
+            alt="An Apple Watch and iPhone side by side, showing AtLeast mirroring a live timer session between the two devices."
+            class="h-auto w-full rounded-2xl"
+            loading="lazy"
+          />
+        </video>
+      </div>
       <h2 class="mb-4 text-3xl font-semibold md:text-4xl">Set it on iPhone. Feel it on your wrist.</h2>
       <p class="mx-auto max-w-xl text-lg leading-relaxed text-brand-muted">
         Pre-load and pick a timer on your iPhone, then start the session from your Apple Watch. Your iPhone mirrors the live session in real time — while the gentle taps stay where they belong, on your wrist. The companion is entirely optional; the Watch remains the core, eyes-free experience.
