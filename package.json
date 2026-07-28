@@ -9,6 +9,8 @@
     "build": "astro build",
     "generate:webp": "node scripts/generate-webp.js",
     "generate:presskit": "node scripts/generate-press-kit-zip.js",
+    "leads": "node scripts/find-leads.js",
+    "leads:known": "node scripts/find-leads-known.js",
     "preview": "astro preview",
     "astro": "astro",
     "lighthouse": "lhci autorun"
