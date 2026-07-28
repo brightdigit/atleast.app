@@ -11,6 +11,8 @@
     "generate:presskit": "node scripts/generate-press-kit-zip.js",
     "leads": "node scripts/find-leads.js",
     "leads:known": "node scripts/find-leads-known.js",
+    "leads:studios": "node scripts/find-studios.js",
+    "leads:podcasts": "node scripts/find-podcasts.js",
     "preview": "astro preview",
     "astro": "astro",
     "lighthouse": "lhci autorun"
