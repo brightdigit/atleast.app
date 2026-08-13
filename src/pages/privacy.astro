@@ -5,7 +5,7 @@ import { SUPPORT_EMAIL } from '../config';
 
 <Layout
   title="Privacy Policy — AtLeast"
-  description="AtLeast keeps timer data on-device. The iOS companion and website use cookieless Plausible analytics—no accounts, no advertising, no cross-app tracking."
+  description="AtLeast runs timer logic on-device. The website, iPhone app, and Apple Watch app use cookieless Plausible analytics—no accounts, no advertising, no cross-app tracking."
 >
   <section class="px-6 py-24">
     <div class="mx-auto max-w-2xl">
@@ -14,13 +14,13 @@ import { SUPPORT_EMAIL } from '../config';
 
       <div class="space-y-8 text-base leading-relaxed text-brand-muted">
         <p>
-          <em>AtLeast</em> is privacy-first. There are no accounts. Timer settings and watch session logic stay on your device. We use limited, cookieless analytics on the website and iOS companion only—nothing for advertising or cross-app tracking.
+          <em>AtLeast</em> is privacy-first. There are no accounts. Session and haptic logic run on your devices. We use limited, cookieless analytics on the website, iPhone app, and Apple Watch app—nothing for advertising or cross-app tracking.
         </p>
 
         <div>
           <h2 class="mb-3 text-xl font-semibold text-brand-text">What stays on-device</h2>
           <p>
-            Timer settings (duration, tap interval) are stored in UserDefaults on your Apple Watch. Session and haptic logic run locally on the watch. These settings and practice data are not uploaded as a personal profile.
+            Timer settings are stored in UserDefaults on your Apple Watch. Session and haptic logic run locally on the watch. Starting a session also sends limited configuration via analytics (see below)—not as an account or personal profile, and never for advertising.
           </p>
         </div>
 
@@ -34,7 +34,10 @@ import { SUPPORT_EMAIL } from '../config';
               <strong class="text-brand-text">Website:</strong> page analytics for atleast.app; outbound-link clicks; custom events <code class="text-sm">Nav: UseCases click</code> (<code class="text-sm">variant</code>) and <code class="text-sm">TestFlight: Click</code> (<code class="text-sm">variant</code>, <code class="text-sm">location</code>)
             </li>
             <li>
-              <strong class="text-brand-text">iOS companion:</strong> a launch event (<code class="text-sm">ios_open</code>) with a <code class="text-sm">watch_paired</code> property, sent via AviaryInsights (a Plausible client). Watch timer and session logic remain on-device.
+              <strong class="text-brand-text">iPhone and Apple Watch apps:</strong> cookieless events via AviaryInsights (a Plausible client) on both platforms—
+              a launch event (<code class="text-sm">ios_open</code>) with a <code class="text-sm">watch_paired</code> property on iPhone;
+              <code class="text-sm">pageview</code> screen views across app screens;
+              and <code class="text-sm">session_start</code> on each watch session with <code class="text-sm">duration_seconds</code>, <code class="text-sm">tap_interval_seconds</code>, <code class="text-sm">haptic_config</code>, and <code class="text-sm">preloaded_from_phone</code>.
             </li>
           </ul>
         </div>
@@ -52,7 +55,7 @@ import { SUPPORT_EMAIL } from '../config';
         <div>
           <h2 class="mb-3 text-xl font-semibold text-brand-text">Third parties</h2>
           <p>
-            Plausible provides analytics for the website and iOS companion (via AviaryInsights on iOS). <em>AtLeast</em> has no advertising SDKs.
+            Plausible provides analytics for the website and for the iPhone and Apple Watch apps (via AviaryInsights). <em>AtLeast</em> has no advertising SDKs.
           </p>
         </div>
 

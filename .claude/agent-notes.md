@@ -15,3 +15,6 @@ directives for how to work in this repository.
 
 ## Log
 
+- Privacy copy must match app analytics: website + iPhone + Apple Watch; events ios_open, pageview, and session_start (including duration_seconds, tap_interval_seconds, haptic_config, preloaded_from_phone)—do not claim iOS-only or that session config never leaves the device.
+- ASC privacy labels were already correct; accuracy gaps were website-copy only—do not treat ASC re-declaration as a follow-up for this disclosure work.
+

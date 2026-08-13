@@ -51,7 +51,7 @@ mise exec -- npm run build
 
 ## Content Voice
 
-Calm, confident, minimal. Use words like "gentle", "silence", "rhythm", "practice". Avoid hype words like "revolutionary" or "game-changing". Frame features as benefits. Always mention privacy-first positioning — no accounts; timer settings and watch session logic stay on-device; cookieless Plausible analytics only (website pageviews, outbound-link clicks, and custom events plus iOS companion launch event), never for advertising or cross-app tracking.
+Calm, confident, minimal. Use words like "gentle", "silence", "rhythm", "practice". Avoid hype words like "revolutionary" or "game-changing". Frame features as benefits. Always mention privacy-first positioning — no accounts; session and haptic logic run on-device; cookieless Plausible analytics only (website pageviews, outbound-link clicks, and custom events; iPhone and Apple Watch apps via AviaryInsights: ios_open, pageview, and session_start with session config props), never for advertising or cross-app tracking. Privacy copy must match the app’s real analytics surface (Watch + iPhone, not iOS-only).
 
 ## Key Details
 

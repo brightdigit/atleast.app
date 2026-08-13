@@ -95,10 +95,10 @@ Copy:
 Short paragraph + three icons:
 
 - No account required
-- Timer settings stay on-device
+- Session and haptic logic run on-device
 - Cookieless analytics only (Plausible)
 
-> AtLeast is privacy-first. Timer settings and watch session logic stay on your Apple Watch. The website and iOS companion use cookieless Plausible analytics—no accounts, no advertising, no cross-app tracking.
+> AtLeast is privacy-first. Session and haptic logic run on your devices. The website, iPhone app, and Apple Watch app use cookieless Plausible analytics—no accounts, no advertising, no cross-app tracking.
 
 #### Footer
 - App Store badge (repeated)
@@ -117,16 +117,17 @@ Content template:
 AtLeast Privacy Policy
 Last updated: [date]
 
-AtLeast is privacy-first. No accounts. Timer settings and watch session logic stay on-device.
-Limited cookieless Plausible analytics on the website and iOS companion only.
+AtLeast is privacy-first. No accounts. Session and haptic logic run on-device.
+Limited cookieless Plausible analytics on the website, iPhone app, and Apple Watch app.
 
 What stays on-device:
-- Timer settings (duration, tap interval) — UserDefaults on Apple Watch
+- Timer settings — UserDefaults on Apple Watch
 - Session and haptic logic — local on the watch
+- Starting a session also sends limited configuration via analytics (below)—not as an account/profile
 
 Analytics:
 - Website: Plausible page analytics for atleast.app; outbound-link clicks; custom events Nav: UseCases click (variant) and TestFlight: Click (variant, location)
-- iOS companion: ios_open launch event with watch_paired prop (AviaryInsights / Plausible)
+- iPhone and Apple Watch apps (AviaryInsights / Plausible): ios_open (watch_paired); pageview screen views; session_start with duration_seconds, tap_interval_seconds, haptic_config, preloaded_from_phone
 - Cookieless; no persistent identifiers; not used for advertising or cross-app/site tracking
 
 What we do not collect:
@@ -136,7 +137,7 @@ What we do not collect:
 - No location data
 
 Third parties:
-- Plausible (and AviaryInsights on iOS). No advertising SDKs.
+- Plausible (and AviaryInsights on iPhone and Apple Watch). No advertising SDKs.
 
 Contact:
 support@atleast.app
@@ -265,7 +266,7 @@ const { title, description } = Astro.props;
 | Page | Title | Description |
 |------|-------|-------------|
 | `/` | `AtLeast — Passive Timer for Apple Watch` | `Gentle haptic taps during your practice. Silence means done. No alarm. No interruption. A mindful timer for meditation, cold plunge, yoga, and focused work.` |
-| `/privacy` | `Privacy Policy — AtLeast` | `AtLeast keeps timer data on-device. The iOS companion and website use cookieless Plausible analytics—no accounts, no advertising, no cross-app tracking.` |
+| `/privacy` | `Privacy Policy — AtLeast` | `AtLeast runs timer logic on-device. The website, iPhone app, and Apple Watch app use cookieless Plausible analytics—no accounts, no advertising, no cross-app tracking.` |
 | `/support` | `Support — AtLeast` | `Frequently asked questions and support contact for AtLeast, the passive Apple Watch timer.` |
 
 **Create an OG image** (`public/og.png`, 1200×630px):
