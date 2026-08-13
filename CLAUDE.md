@@ -51,7 +51,7 @@ mise exec -- npm run build
 
 ## Content Voice
 
-Calm, confident, minimal. Use words like "gentle", "silence", "rhythm", "practice". Avoid hype words like "revolutionary" or "game-changing". Frame features as benefits. Always mention privacy-first positioning — the app collects zero data and runs entirely on-device.
+Calm, confident, minimal. Use words like "gentle", "silence", "rhythm", "practice". Avoid hype words like "revolutionary" or "game-changing". Frame features as benefits. Always mention privacy-first positioning — no accounts; timer settings and watch session logic stay on-device; cookieless Plausible analytics only (website + iOS companion launch event), never for advertising or cross-app tracking.
 
 ## Key Details
 

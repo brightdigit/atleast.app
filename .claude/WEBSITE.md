@@ -94,11 +94,11 @@ Copy:
 #### Privacy Section
 Short paragraph + three icons:
 
-- No data collected
 - No account required
-- No network connection — runs entirely on-device
+- Timer settings stay on-device
+- Cookieless analytics only (Plausible)
 
-> AtLeast is fully private. All logic runs on your Apple Watch. Nothing leaves your device.
+> AtLeast is privacy-first. Timer settings and watch session logic stay on your Apple Watch. The website and iOS companion use cookieless Plausible analytics—no accounts, no advertising, no cross-app tracking.
 
 #### Footer
 - App Store badge (repeated)
@@ -117,22 +117,29 @@ Content template:
 AtLeast Privacy Policy
 Last updated: [date]
 
-AtLeast collects no personal data. The app operates entirely on-device.
+AtLeast is privacy-first. No accounts. Timer settings and watch session logic stay on-device.
+Limited cookieless Plausible analytics on the website and iOS companion only.
 
-Data we DO NOT collect:
-- No analytics or usage tracking
+What stays on-device:
+- Timer settings (duration, tap interval) — UserDefaults on Apple Watch
+- Session and haptic logic — local on the watch
+
+Analytics:
+- Website: Plausible page analytics for atleast.app
+- iOS companion: ios_open launch event with watch_paired prop (AviaryInsights / Plausible)
+- Cookieless; no persistent identifiers; not used for advertising or cross-app/site tracking
+
+What we do not collect:
+- No accounts or sign-in
 - No crash reporting sent off-device
-- No personal identifiers
+- No personal identifiers or advertising IDs
 - No location data
 
-Data stored locally:
-- Timer settings (duration, tap interval) — stored in UserDefaults on your Apple Watch only
-
 Third parties:
-- None. AtLeast has no third-party SDKs, analytics, or advertising.
+- Plausible (and AviaryInsights on iOS). No advertising SDKs.
 
 Contact:
-support@atleastapp.com
+support@atleast.app
 ```
 
 ---
@@ -258,7 +265,7 @@ const { title, description } = Astro.props;
 | Page | Title | Description |
 |------|-------|-------------|
 | `/` | `AtLeast — Passive Timer for Apple Watch` | `Gentle haptic taps during your practice. Silence means done. No alarm. No interruption. A mindful timer for meditation, cold plunge, yoga, and focused work.` |
-| `/privacy` | `Privacy Policy — AtLeast` | `AtLeast collects no personal data. The app runs entirely on your device.` |
+| `/privacy` | `Privacy Policy — AtLeast` | `AtLeast keeps timer data on-device. The iOS companion and website use cookieless Plausible analytics—no accounts, no advertising, no cross-app tracking.` |
 | `/support` | `Support — AtLeast` | `Frequently asked questions and support contact for AtLeast, the passive Apple Watch timer.` |
 
 **Create an OG image** (`public/og.png`, 1200×630px):

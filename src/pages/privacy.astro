@@ -5,39 +5,54 @@ import { SUPPORT_EMAIL } from '../config';
 
 <Layout
   title="Privacy Policy — AtLeast"
-  description="AtLeast collects no personal data. The app runs entirely on your device."
+  description="AtLeast keeps timer data on-device. The iOS companion and website use cookieless Plausible analytics—no accounts, no advertising, no cross-app tracking."
 >
   <section class="px-6 py-24">
     <div class="mx-auto max-w-2xl">
       <h1 class="mb-2 text-4xl font-bold tracking-tight md:text-5xl">Privacy Policy</h1>
-      <p class="mb-12 text-sm text-brand-muted">Last updated: February 2026</p>
+      <p class="mb-12 text-sm text-brand-muted">Last updated: August 2026</p>
 
       <div class="space-y-8 text-base leading-relaxed text-brand-muted">
         <p>
-          <em>AtLeast</em> collects no personal data. The app operates entirely on-device.
+          <em>AtLeast</em> is privacy-first. There are no accounts. Timer settings and watch session logic stay on your device. We use limited, cookieless analytics on the website and iOS companion only—nothing for advertising or cross-app tracking.
         </p>
 
         <div>
-          <h2 class="mb-3 text-xl font-semibold text-brand-text">Data we do not collect</h2>
+          <h2 class="mb-3 text-xl font-semibold text-brand-text">What stays on-device</h2>
+          <p>
+            Timer settings (duration, tap interval) are stored in UserDefaults on your Apple Watch. Session and haptic logic run locally on the watch. This settings and practice data is not uploaded as a personal profile.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="mb-3 text-xl font-semibold text-brand-text">Analytics</h2>
+          <p class="mb-3">
+            We use <a href="https://plausible.io/" class="text-brand-accent underline" target="_blank" rel="noopener noreferrer">Plausible</a>, a privacy-friendly analytics service that does not use cookies or persistent identifiers and is not used for advertising or cross-app or cross-site tracking.
+          </p>
           <ul class="list-inside list-disc space-y-1">
-            <li>No analytics or usage tracking</li>
+            <li>
+              <strong class="text-brand-text">Website:</strong> page analytics for atleast.app
+            </li>
+            <li>
+              <strong class="text-brand-text">iOS companion:</strong> a launch event (<code class="text-sm">ios_open</code>) with a <code class="text-sm">watch_paired</code> property, sent via AviaryInsights (a Plausible client). Watch timer and session logic remain on-device.
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="mb-3 text-xl font-semibold text-brand-text">What we do not collect</h2>
+          <ul class="list-inside list-disc space-y-1">
+            <li>No accounts or sign-in</li>
             <li>No crash reporting sent off-device</li>
-            <li>No personal identifiers</li>
+            <li>No personal identifiers or advertising IDs</li>
             <li>No location data</li>
           </ul>
         </div>
 
         <div>
-          <h2 class="mb-3 text-xl font-semibold text-brand-text">Data stored locally</h2>
-          <p>
-            Timer settings (duration, tap interval) are stored in UserDefaults on your Apple Watch only. This data never leaves your device.
-          </p>
-        </div>
-
-        <div>
           <h2 class="mb-3 text-xl font-semibold text-brand-text">Third parties</h2>
           <p>
-            None. <em>AtLeast</em> has no third-party SDKs, analytics, or advertising.
+            Plausible provides analytics for the website and iOS companion (via AviaryInsights on iOS). <em>AtLeast</em> has no advertising SDKs.
           </p>
         </div>
 
