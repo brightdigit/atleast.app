@@ -121,9 +121,9 @@ AtLeast is privacy-first. No accounts. Session and haptic logic run on-device.
 Limited cookieless Plausible analytics on the website, iPhone app, and Apple Watch app.
 
 What stays on-device:
-- Timer settings — UserDefaults on Apple Watch
+- Timer settings stay on the user's devices (not as an account/profile); do not name a storage API
 - Session and haptic logic — local on the watch
-- Starting a session also sends limited configuration via analytics (below)—not as an account/profile
+- Starting a session also sends limited configuration via analytics (below)—never for advertising
 
 Analytics:
 - Website: Plausible page analytics for atleast.app; outbound-link clicks; custom events Nav: UseCases click (variant) and TestFlight: Click (variant, location)
