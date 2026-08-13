@@ -9,7 +9,7 @@ This document provides step-by-step instructions for setting up the **atleast.ap
 **Goal:** A minimal, beautiful static marketing site that communicates AtLeast's core value proposition and drives App Store downloads.
 
 **Domain:** `atleast.app`
-**Support email:** `support@atleastapp.com`
+**Support email:** `support@atleast.app`
 **Company:** BrightDigit
 **Copyright:** © 2026 BrightDigit. All rights reserved.
 
@@ -125,7 +125,7 @@ What stays on-device:
 - Session and haptic logic — local on the watch
 
 Analytics:
-- Website: Plausible page analytics for atleast.app
+- Website: Plausible page analytics for atleast.app; outbound-link clicks; custom events Nav: UseCases click (variant) and TestFlight: Click (variant, location)
 - iOS companion: ios_open launch event with watch_paired prop (AviaryInsights / Plausible)
 - Cookieless; no persistent identifiers; not used for advertising or cross-app/site tracking
 
@@ -157,7 +157,7 @@ FAQ items to include:
 - **Can I use AtLeast without my iPhone?** — Yes. The watchOS app runs independently.
 
 Contact section:
-> Questions or feedback? Email us at **support@atleastapp.com**
+> Questions or feedback? Email us at **support@atleast.app**
 
 ---
 
@@ -357,7 +357,7 @@ Before going live, verify:
 - [ ] All pages render correctly on mobile (375px) and desktop (1280px)
 - [ ] App Store badge links to correct App Store URL (update once app is live)
 - [ ] Privacy policy is publicly accessible (required for App Store submission)
-- [ ] Support email (`support@atleastapp.com`) is active and receives mail
+- [ ] Support email (`support@atleast.app`) is active and receives mail
 - [ ] OG image renders correctly (test with [opengraph.xyz](https://www.opengraph.xyz))
 - [ ] Canonical URLs are correct (no trailing slash issues)
 - [ ] Favicon appears in browser tab

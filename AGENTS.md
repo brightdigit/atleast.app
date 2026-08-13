@@ -1,6 +1,6 @@
-# CLAUDE.md
+# AGENTS.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+This file provides guidance to coding agents working in this repository.
 
 ## Project
 
@@ -51,12 +51,12 @@ mise exec -- npm run build
 
 ## Content Voice
 
-Calm, confident, minimal. Use words like "gentle", "silence", "rhythm", "practice". Avoid hype words like "revolutionary" or "game-changing". Frame features as benefits. Always mention privacy-first positioning — no accounts; timer settings and watch session logic stay on-device; cookieless Plausible analytics only (website + iOS companion launch event), never for advertising or cross-app tracking.
+Calm, confident, minimal. Use words like "gentle", "silence", "rhythm", "practice". Avoid hype words like "revolutionary" or "game-changing". Frame features as benefits. Always mention privacy-first positioning — no accounts; timer settings and watch session logic stay on-device; cookieless Plausible analytics only (website pageviews, outbound-link clicks, and custom events plus iOS companion launch event), never for advertising or cross-app tracking.
 
 ## Key Details
 
 - **Company:** BrightDigit
-- **Support email:** support@brightdigit.com
+- **Support email:** support@atleast.app
 - **Copyright:** © 2026 BrightDigit. All rights reserved.
 
 ## Memory & Corrections Convention
