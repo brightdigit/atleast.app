@@ -9,7 +9,7 @@ This document provides step-by-step instructions for setting up the **atleast.ap
 **Goal:** A minimal, beautiful static marketing site that communicates AtLeast's core value proposition and drives App Store downloads.
 
 **Domain:** `atleast.app`
-**Support email:** `support@atleastapp.com`
+**Support email:** `support@atleast.app`
 **Company:** BrightDigit
 **Copyright:** © 2026 BrightDigit. All rights reserved.
 
@@ -94,11 +94,11 @@ Copy:
 #### Privacy Section
 Short paragraph + three icons:
 
-- No data collected
 - No account required
-- No network connection — runs entirely on-device
+- Session and haptic logic run on-device
+- Cookieless analytics only (Plausible)
 
-> AtLeast is fully private. All logic runs on your Apple Watch. Nothing leaves your device.
+> AtLeast is privacy-first. Session and haptic logic run on your devices. The website, iPhone app, and Apple Watch app use cookieless Plausible analytics—no accounts, no advertising, no cross-app tracking.
 
 #### Footer
 - App Store badge (repeated)
@@ -117,22 +117,30 @@ Content template:
 AtLeast Privacy Policy
 Last updated: [date]
 
-AtLeast collects no personal data. The app operates entirely on-device.
+AtLeast is privacy-first. No accounts. Session and haptic logic run on-device.
+Limited cookieless Plausible analytics on the website, iPhone app, and Apple Watch app.
 
-Data we DO NOT collect:
-- No analytics or usage tracking
+What stays on-device:
+- Timer settings stay on the user's devices (not as an account/profile); do not name a storage API
+- Session and haptic logic — local on the watch
+- Starting a session also sends limited configuration via analytics (below)—never for advertising
+
+Analytics:
+- Website: Plausible page analytics for atleast.app; outbound-link clicks; custom events Nav: UseCases click (variant) and TestFlight: Click (variant, location)
+- iPhone and Apple Watch apps (AviaryInsights / Plausible): ios_open (watch_paired); pageview screen views; session_start with duration_seconds, tap_interval_seconds, haptic_config, preloaded_from_phone
+- Cookieless; no persistent identifiers; not used for advertising or cross-app/site tracking
+
+What we do not collect:
+- No accounts or sign-in
 - No crash reporting sent off-device
-- No personal identifiers
+- No personal identifiers or advertising IDs
 - No location data
 
-Data stored locally:
-- Timer settings (duration, tap interval) — stored in UserDefaults on your Apple Watch only
-
 Third parties:
-- None. AtLeast has no third-party SDKs, analytics, or advertising.
+- Plausible (and AviaryInsights on iPhone and Apple Watch). No advertising SDKs.
 
 Contact:
-support@atleastapp.com
+support@atleast.app
 ```
 
 ---
@@ -150,7 +158,7 @@ FAQ items to include:
 - **Can I use AtLeast without my iPhone?** — Yes. The watchOS app runs independently.
 
 Contact section:
-> Questions or feedback? Email us at **support@atleastapp.com**
+> Questions or feedback? Email us at **support@atleast.app**
 
 ---
 
@@ -258,7 +266,7 @@ const { title, description } = Astro.props;
 | Page | Title | Description |
 |------|-------|-------------|
 | `/` | `AtLeast — Passive Timer for Apple Watch` | `Gentle haptic taps during your practice. Silence means done. No alarm. No interruption. A mindful timer for meditation, cold plunge, yoga, and focused work.` |
-| `/privacy` | `Privacy Policy — AtLeast` | `AtLeast collects no personal data. The app runs entirely on your device.` |
+| `/privacy` | `Privacy Policy — AtLeast` | `AtLeast runs timer logic on-device. The website, iPhone app, and Apple Watch app use cookieless Plausible analytics—no accounts, no advertising, no cross-app tracking.` |
 | `/support` | `Support — AtLeast` | `Frequently asked questions and support contact for AtLeast, the passive Apple Watch timer.` |
 
 **Create an OG image** (`public/og.png`, 1200×630px):
@@ -350,7 +358,7 @@ Before going live, verify:
 - [ ] All pages render correctly on mobile (375px) and desktop (1280px)
 - [ ] App Store badge links to correct App Store URL (update once app is live)
 - [ ] Privacy policy is publicly accessible (required for App Store submission)
-- [ ] Support email (`support@atleastapp.com`) is active and receives mail
+- [ ] Support email (`support@atleast.app`) is active and receives mail
 - [ ] OG image renders correctly (test with [opengraph.xyz](https://www.opengraph.xyz))
 - [ ] Canonical URLs are correct (no trailing slash issues)
 - [ ] Favicon appears in browser tab

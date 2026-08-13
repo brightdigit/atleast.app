@@ -5,39 +5,57 @@ import { SUPPORT_EMAIL } from '../config';
 
 <Layout
   title="Privacy Policy — AtLeast"
-  description="AtLeast collects no personal data. The app runs entirely on your device."
+  description="AtLeast runs timer logic on-device. The website, iPhone app, and Apple Watch app use cookieless Plausible analytics—no accounts, no advertising, no cross-app tracking."
 >
   <section class="px-6 py-24">
     <div class="mx-auto max-w-2xl">
       <h1 class="mb-2 text-4xl font-bold tracking-tight md:text-5xl">Privacy Policy</h1>
-      <p class="mb-12 text-sm text-brand-muted">Last updated: February 2026</p>
+      <p class="mb-12 text-sm text-brand-muted">Last updated: August 2026</p>
 
       <div class="space-y-8 text-base leading-relaxed text-brand-muted">
         <p>
-          <em>AtLeast</em> collects no personal data. The app operates entirely on-device.
+          <em>AtLeast</em> is privacy-first. There are no accounts. Session and haptic logic run on your devices. We use limited, cookieless analytics on the website, iPhone app, and Apple Watch app—nothing for advertising or cross-app tracking.
         </p>
 
         <div>
-          <h2 class="mb-3 text-xl font-semibold text-brand-text">Data we do not collect</h2>
+          <h2 class="mb-3 text-xl font-semibold text-brand-text">What stays on-device</h2>
+          <p>
+            Timer settings stay on your devices and are not uploaded as an account or personal profile. Session and haptic logic run locally on the watch. Starting a session also sends limited configuration via analytics (see below)—never for advertising.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="mb-3 text-xl font-semibold text-brand-text">Analytics</h2>
+          <p class="mb-3">
+            We use <a href="https://plausible.io/" class="text-brand-accent underline" target="_blank" rel="noopener noreferrer">Plausible</a>, a privacy-friendly analytics service that does not use cookies or persistent identifiers and is not used for advertising or cross-app or cross-site tracking.
+          </p>
           <ul class="list-inside list-disc space-y-1">
-            <li>No analytics or usage tracking</li>
+            <li>
+              <strong class="text-brand-text">Website:</strong> page analytics for atleast.app; outbound-link clicks; custom events <code class="text-sm">Nav: UseCases click</code> (<code class="text-sm">variant</code>) and <code class="text-sm">TestFlight: Click</code> (<code class="text-sm">variant</code>, <code class="text-sm">location</code>)
+            </li>
+            <li>
+              <strong class="text-brand-text">iPhone and Apple Watch apps:</strong> cookieless events via AviaryInsights (a Plausible client) on both platforms—
+              a launch event (<code class="text-sm">ios_open</code>) with a <code class="text-sm">watch_paired</code> property on iPhone;
+              <code class="text-sm">pageview</code> screen views across app screens;
+              and <code class="text-sm">session_start</code> on each watch session with <code class="text-sm">duration_seconds</code>, <code class="text-sm">tap_interval_seconds</code>, <code class="text-sm">haptic_config</code>, and <code class="text-sm">preloaded_from_phone</code>.
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="mb-3 text-xl font-semibold text-brand-text">What we do not collect</h2>
+          <ul class="list-inside list-disc space-y-1">
+            <li>No accounts or sign-in</li>
             <li>No crash reporting sent off-device</li>
-            <li>No personal identifiers</li>
+            <li>No personal identifiers or advertising IDs</li>
             <li>No location data</li>
           </ul>
         </div>
 
         <div>
-          <h2 class="mb-3 text-xl font-semibold text-brand-text">Data stored locally</h2>
-          <p>
-            Timer settings (duration, tap interval) are stored in UserDefaults on your Apple Watch only. This data never leaves your device.
-          </p>
-        </div>
-
-        <div>
           <h2 class="mb-3 text-xl font-semibold text-brand-text">Third parties</h2>
           <p>
-            None. <em>AtLeast</em> has no third-party SDKs, analytics, or advertising.
+            Plausible provides analytics for the website and for the iPhone and Apple Watch apps (via AviaryInsights). <em>AtLeast</em> has no advertising SDKs.
           </p>
         </div>
 
