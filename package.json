@@ -13,6 +13,7 @@
     "leads:known": "node scripts/find-leads-known.js",
     "leads:studios": "node scripts/find-studios.js",
     "leads:podcasts": "node scripts/find-podcasts.js",
+    "leads:verify": "node scripts/verify-leads.js",
     "preview": "astro preview",
     "astro": "astro",
     "lighthouse": "lhci autorun"
