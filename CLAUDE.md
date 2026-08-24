@@ -56,10 +56,11 @@ the way to check a query change here. Pass flags through `ARGS="..."`.
   by default: `SEARCHES.local` in `find-leads.config.js`, and the `lansing` / `michigan`
   areas in `find-studios.js`. Areas there run in listed order and a place already reported
   by an earlier area is skipped, so home must stay first in `DEFAULT_METROS`.
-- **Unverified:** the statewide filter matches Overture's `addresses[1].region` against
-  `MI`/`MICHIGAN`. Overture documents that field as an ISO 3166-2 code, but this has not
-  been run against the live dataset. If a statewide section comes back empty while
-  `detroit` or `grandrapids` return rows, inspect that field first.
+- **Statewide region filter:** `michigan` matches `upper(addresses[1].region)` against
+  `MI`/`MICHIGAN`. Verified live against Overture `2026-08-19.0` on 2026-08-24 (Lansing
+  returned rows and statewide returned additional MI places with Lansing URLs deduped).
+  If a future release returns an empty statewide section while metro boxes still work,
+  inspect that field first.
 - Leads are model- or index-extracted and go stale. Verify before contacting anyone, and
   keep the CAN-SPAM note in the studio report intact — those businesses did not opt in.
 
