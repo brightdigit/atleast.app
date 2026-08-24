@@ -44,6 +44,7 @@ make studios      # studios/spas from Overture Maps (needs the DuckDB CLI, no ke
 make podcasts     # shows from Podcast Index (PODCAST_INDEX_KEY / _SECRET)
 make verify-leads # live-check links and email domains in the newest reports
 make leads-known  # refresh KNOWN_TARGETS from open GitHub issues
+make drafts       # queue outreach batch as Gmail drafts (GMAIL_ADDRESS / GMAIL_APP_PASSWORD)
 ```
 
 Each script takes `--help` and `--dry-run`; `--dry-run` needs no key or DuckDB, so it is
@@ -51,7 +52,9 @@ the way to check a query change here. Pass flags through `ARGS="..."`.
 
 - **Output** goes to `leads/`, which is gitignored — the reports carry contact details and
   are backed up to a separate private repo (`make leads-backup`). Never commit them, and
-  never put a lead's contact details into site content.
+  never put a lead's contact details into site content. Inside `leads/`: `reports/` (raw
+  finder output + verification), `plan/` (the prioritized outreach plan), `templates/`
+  (email copy), `scripts/` (private outreach tooling), `drafts/` (drafting state).
 - **Home region is Greater Lansing, Michigan**, with Michigan statewide behind it. Both run
   by default: `SEARCHES.local` in `find-leads.config.js`, and the `lansing` / `michigan`
   areas in `find-studios.js`. Areas there run in listed order and a place already reported
@@ -63,6 +66,13 @@ the way to check a query change here. Pass flags through `ARGS="..."`.
   inspect that field first.
 - Leads are model- or index-extracted and go stale. Verify before contacting anyone, and
   keep the CAN-SPAM note in the studio report intact — those businesses did not opt in.
+- **Sending is always manual.** `make drafts` (leads/scripts/make-drafts.py, Python stdlib
+  only) renders a template per lead and IMAP-appends the result to the Gmail Drafts
+  mailbox — never sends — so the batch appears in Spark's Drafts folder to be personalized
+  ([[ ]] crib-note blocks must be edited out) and sent one by one. Default batch is
+  15/day for deliverability; drafted leads are tracked in `leads/drafts/log.json` so
+  re-runs continue down the plan. The script and its templates (`leads/templates/`) are
+  outreach copy/tooling and live in the private leads repo, not in this one.
 
 ## Architecture
 

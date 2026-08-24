@@ -35,7 +35,7 @@ import {
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const rootDir = join(__dirname, '..');
-const outputDir = join(rootDir, 'leads');
+const outputDir = join(rootDir, 'leads', 'reports');
 
 const S3_REGION = 'us-west-2';
 const DEFAULT_LIMIT = 40;

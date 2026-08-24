@@ -26,7 +26,7 @@
  *   node scripts/verify-leads.js --help
  *
  * Reads the newest leads-*.json, studios-*.json, and podcasts-*.json from
- * leads/ and writes leads/verified-YYYY-MM-DD.json.
+ * leads/reports/ and writes leads/reports/verified-YYYY-MM-DD.json.
  */
 
 import { readdirSync, readFileSync, writeFileSync, mkdirSync } from 'fs';
@@ -38,7 +38,7 @@ import { isSocialUrl, normalizeUrl } from './lead-contact.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const rootDir = join(__dirname, '..');
-const leadsDir = join(rootDir, 'leads');
+const leadsDir = join(rootDir, 'leads', 'reports');
 
 const REQUEST_TIMEOUT_MS = 12_000;
 const CONCURRENCY = 10;
@@ -83,7 +83,7 @@ Options:
   --help       Show this help
 
 Output:
-  leads/verified-YYYY-MM-DD.json — every lead with a verification block.
+  leads/reports/verified-YYYY-MM-DD.json — every lead with a verification block.
 `);
 }
 

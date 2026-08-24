@@ -12,7 +12,7 @@
  *   node scripts/find-leads.js --help
  *
  * Requires EXA_API_KEY in the environment or in a .env file at the repo root.
- * Results are written to leads/ (gitignored) — they contain contact details and
+ * Results are written to leads/reports/ (gitignored) — they contain contact details and
  * are a working artifact, not site content.
  */
 
@@ -24,7 +24,7 @@ import { SEARCHES, KNOWN_TARGETS } from './find-leads.config.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const rootDir = join(__dirname, '..');
-const outputDir = join(rootDir, 'leads');
+const outputDir = join(rootDir, 'leads', 'reports');
 
 const API_URL = 'https://api.exa.ai/search';
 const DEFAULT_RESULTS = 15;
