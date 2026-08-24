@@ -33,6 +33,36 @@ mise exec -- npm run dev
 mise exec -- npm run build
 ```
 
+## Outreach Lead Tooling
+
+`scripts/find-*.js` build outreach lists. They are working tools for marketing the app,
+not part of the site build — nothing they produce is ever published.
+
+```bash
+make leads        # press, communities, creators, studios, local (Exa; EXA_API_KEY)
+make studios      # studios/spas from Overture Maps (needs the DuckDB CLI, no key)
+make podcasts     # shows from Podcast Index (PODCAST_INDEX_KEY / _SECRET)
+make verify-leads # live-check links and email domains in the newest reports
+make leads-known  # refresh KNOWN_TARGETS from open GitHub issues
+```
+
+Each script takes `--help` and `--dry-run`; `--dry-run` needs no key or DuckDB, so it is
+the way to check a query change here. Pass flags through `ARGS="..."`.
+
+- **Output** goes to `leads/`, which is gitignored — the reports carry contact details and
+  are backed up to a separate private repo (`make leads-backup`). Never commit them, and
+  never put a lead's contact details into site content.
+- **Home region is Greater Lansing, Michigan**, with Michigan statewide behind it. Both run
+  by default: `SEARCHES.local` in `find-leads.config.js`, and the `lansing` / `michigan`
+  areas in `find-studios.js`. Areas there run in listed order and a place already reported
+  by an earlier area is skipped, so home must stay first in `DEFAULT_METROS`.
+- **Unverified:** the statewide filter matches Overture's `addresses[1].region` against
+  `MI`/`MICHIGAN`. Overture documents that field as an ISO 3166-2 code, but this has not
+  been run against the live dataset. If a statewide section comes back empty while
+  `detroit` or `grandrapids` return rows, inspect that field first.
+- Leads are model- or index-extracted and go stale. Verify before contacting anyone, and
+  keep the CAN-SPAM note in the studio report intact — those businesses did not opt in.
+
 ## Architecture
 
 - `src/pages/` — Three pages: `index.astro` (home), `privacy.astro`, `support.astro`
