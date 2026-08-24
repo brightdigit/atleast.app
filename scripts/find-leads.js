@@ -202,6 +202,7 @@ async function runSearch(key, search, opts, apiKey) {
 
 /** Fields rendered as a detail line, in display order, excluding the ones in the heading. */
 const DETAIL_FIELDS = [
+  ['target_type', 'Type'],
   ['outlet_type', 'Type'],
   ['platform', 'Platform'],
   ['practice', 'Practice'],
@@ -209,6 +210,7 @@ const DETAIL_FIELDS = [
   ['channel', 'Channel'],
   ['size', 'Size'],
   ['audience_note', 'Audience'],
+  ['city', 'City'],
   ['location', 'Location'],
   ['promo_rules', 'Self-promo rules'],
   ['contact', 'Contact'],

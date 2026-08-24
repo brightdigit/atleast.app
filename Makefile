@@ -14,7 +14,9 @@ install:
 $(SCRIPTS):
 	$(NPM) run $@
 
-# Outreach lead search. Pass flags through ARGS, e.g.
+# Outreach lead search. Runs every category, home region included. Pass flags
+# through ARGS, e.g.
+#   make leads ARGS="--only=local"        # Michigan & Greater Lansing only
 #   make leads ARGS="--only=press --num=25"
 #   make leads ARGS="--help"
 leads:
@@ -25,8 +27,11 @@ leads:
 leads-known:
 	$(NPM) run leads:known
 
-# Studio/spa leads from the Overture Maps Places open dataset. Needs the
+# Studio/spa leads from the Overture Maps Places open dataset. Defaults to
+# Greater Lansing, then Michigan statewide, then the national metros. Needs the
 # DuckDB CLI (brew install duckdb); no API key. Examples:
+#   make studios ARGS="--metro=lansing --limit=60"
+#   make studios ARGS="--metro=michigan"
 #   make studios ARGS="--metro=austin,denver --limit=50"
 #   make studios ARGS="--list-metros"
 studios:
