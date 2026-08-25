@@ -80,6 +80,15 @@ requires no account. Its practice areas are meditation, breathwork (box breathin
 isometrics, and focused/deep work.`;
 
 /**
+ * Home base. Local outreach is the cheapest kind available to an indie developer —
+ * you can walk into a studio, show the watch, and leave a card — so the local
+ * search knows where "local" is rather than inferring it from a query string.
+ */
+const LOCAL_CONTEXT = `BrightDigit is based in Greater Lansing, Michigan — Lansing,
+East Lansing, Okemos, Haslett, Grand Ledge, DeWitt, Mason. Michigan as a whole is the
+wider home region.`;
+
+/**
  * Guidance applied to every search. Keeps output grounded and actionable rather
  * than a list of plausible-sounding names.
  */
@@ -129,6 +138,44 @@ const commonFields = {
 };
 
 export const SEARCHES = {
+  // Listed first because Object.keys drives both the default run and the report's
+  // section order, and home should be the first thing read.
+  local: {
+    label: 'Michigan & Greater Lansing',
+    query:
+      'Michigan-based yoga studios, meditation centers, cold plunge and sauna facilities, wellness and lifestyle press, meetup groups, Apple and iOS developer groups, and local creators who cover apps or wellness — in the Lansing area and across the state',
+    additionalQueries: [
+      'Greater Lansing yoga, meditation, or breathwork community',
+      'Michigan wellness blog or newsletter that features local studios',
+      'Lansing or East Lansing tech meetup, iOS developer group, or maker community',
+      'Michigan cold plunge, sauna, or contrast therapy facility',
+      'Michigan local news or city magazine lifestyle section that features local app makers',
+    ],
+    systemPrompt: `${BASE_SYSTEM_PROMPT}
+
+${LOCAL_CONTEXT}
+- Everything here must be physically in Michigan, or cover Michigan as its beat.
+  Drop anything out of state, however good a fit it otherwise looks.
+- Rank Greater Lansing above the rest of Michigan, and Michigan above everything else.
+- Prefer targets reachable in person or through a local email — the advantage of a
+  local lead is that it can be visited, so record the city for every entry.`,
+    outputSchema: leadSchema('Michigan targets, closest to Lansing first', {
+      ...commonFields,
+      city: {
+        type: 'string',
+        description: 'City in Michigan, e.g. "East Lansing" or "Grand Rapids"',
+      },
+      target_type: {
+        type: 'string',
+        description: 'One of: studio, facility, press, meetup, creator, community',
+      },
+      contact: {
+        type: 'string',
+        description: 'Contact email or contact-page URL if published; empty string if unknown',
+      },
+    }),
+  },
+
   press: {
     label: 'Press & reviewers',
     issue: 94,

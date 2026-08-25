@@ -9,8 +9,9 @@
  * keeps only US places that have a usable contact path.
  *
  * Usage:
- *   make studios                                  # default metro set
- *   make studios ARGS="--metro=austin --limit=50"
+ *   make studios                                  # home, statewide, then national
+ *   make studios ARGS="--metro=lansing --limit=60"
+ *   make studios ARGS="--metro=michigan"
  *   make studios ARGS="--list-metros"
  *   node scripts/find-studios.js --help
  *
@@ -34,7 +35,7 @@ import {
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const rootDir = join(__dirname, '..');
-const outputDir = join(rootDir, 'leads');
+const outputDir = join(rootDir, 'leads', 'reports');
 
 const S3_REGION = 'us-west-2';
 const DEFAULT_LIMIT = 40;
@@ -68,32 +69,69 @@ const CATEGORIES = [
 ];
 
 /**
- * US metros worth searching, as bounding boxes. Overture partitions by geometry,
- * so a bbox filter is what keeps these queries cheap — a nationwide scan reads
- * far more data for a list nobody could work through anyway.
+ * Search areas as bounding boxes. Overture partitions by geometry, so a bbox
+ * filter is what keeps these queries cheap — a nationwide scan reads far more
+ * data for a list nobody could work through anyway.
+ *
+ * Optional per-area fields:
+ *   regions State values to accept, added to the WHERE clause. A bbox is a
+ *           rectangle, so a whole-state box catches neighbours; Michigan's
+ *           box also covers Chicago, Milwaukee, Toledo, and part of Ontario.
+ *           Overture documents this field as an ISO 3166-2 code, but the data
+ *           is aggregated from many sources, so list the spelled-out name too.
+ *   limit   Default result cap, for areas where the shared default is too tight.
+ *           An explicit --limit still wins.
  */
 const METROS = {
-  sf: { label: 'San Francisco Bay Area', bbox: [-122.75, 37.15, -121.75, 38.05] },
-  la: { label: 'Los Angeles', bbox: [-118.95, 33.6, -117.6, 34.35] },
-  nyc: { label: 'New York City', bbox: [-74.3, 40.5, -73.65, 40.95] },
-  austin: { label: 'Austin', bbox: [-98.05, 30.05, -97.5, 30.55] },
-  denver: { label: 'Denver / Boulder', bbox: [-105.35, 39.5, -104.6, 40.1] },
-  seattle: { label: 'Seattle', bbox: [-122.5, 47.4, -122.1, 47.8] },
-  portland: { label: 'Portland', bbox: [-122.85, 45.4, -122.4, 45.65] },
-  chicago: { label: 'Chicago', bbox: [-87.95, 41.65, -87.5, 42.05] },
-  boston: { label: 'Boston', bbox: [-71.25, 42.25, -70.95, 42.45] },
-  sandiego: { label: 'San Diego', bbox: [-117.35, 32.65, -117.0, 33.0] },
+  // Home first. Local outreach is the cheapest kind — these are places you can
+  // walk into with the watch on your wrist.
+  lansing: {
+    label: 'Greater Lansing',
+    group: 'Michigan',
+    // Lansing, East Lansing, Okemos, Haslett, Grand Ledge, DeWitt, Mason, Williamston.
+    bbox: [-84.9, 42.5, -84.2, 42.95],
+  },
+  michigan: {
+    label: 'Michigan (statewide)',
+    group: 'Michigan',
+    bbox: [-90.42, 41.69, -82.12, 48.31],
+    regions: ['MI', 'Michigan'],
+    // A whole state holds more than one city's worth of studios.
+    limit: 80,
+  },
+  detroit: { label: 'Detroit Metro', group: 'Michigan', bbox: [-83.65, 42.05, -82.85, 42.8] },
+  annarbor: { label: 'Ann Arbor', group: 'Michigan', bbox: [-83.95, 42.15, -83.55, 42.4] },
+  grandrapids: { label: 'Grand Rapids', group: 'Michigan', bbox: [-85.85, 42.8, -85.45, 43.1] },
+
+  sf: { label: 'San Francisco Bay Area', group: 'National', bbox: [-122.75, 37.15, -121.75, 38.05] },
+  la: { label: 'Los Angeles', group: 'National', bbox: [-118.95, 33.6, -117.6, 34.35] },
+  nyc: { label: 'New York City', group: 'National', bbox: [-74.3, 40.5, -73.65, 40.95] },
+  austin: { label: 'Austin', group: 'National', bbox: [-98.05, 30.05, -97.5, 30.55] },
+  denver: { label: 'Denver / Boulder', group: 'National', bbox: [-105.35, 39.5, -104.6, 40.1] },
+  seattle: { label: 'Seattle', group: 'National', bbox: [-122.5, 47.4, -122.1, 47.8] },
+  portland: { label: 'Portland', group: 'National', bbox: [-122.85, 45.4, -122.4, 45.65] },
+  chicago: { label: 'Chicago', group: 'National', bbox: [-87.95, 41.65, -87.5, 42.05] },
+  boston: { label: 'Boston', group: 'National', bbox: [-71.25, 42.25, -70.95, 42.45] },
+  sandiego: { label: 'San Diego', group: 'National', bbox: [-117.35, 32.65, -117.0, 33.0] },
 };
 
-/** Metros searched when none are named. Cold plunge and studio culture run strong here. */
-const DEFAULT_METROS = ['sf', 'la', 'nyc', 'austin', 'denver'];
+/**
+ * Areas searched when none are named: home, then the rest of the state, then the
+ * metros where cold plunge and studio culture run strong.
+ *
+ * Order matters. Areas run in sequence and a place already reported is skipped,
+ * so listing Lansing before Michigan keeps local results in the local section and
+ * leaves the statewide section to cover everywhere else.
+ */
+const DEFAULT_METROS = ['lansing', 'michigan', 'sf', 'la', 'nyc', 'austin', 'denver'];
 
 // ---------------------------------------------------------------------------
 // Argument parsing
 // ---------------------------------------------------------------------------
 
 function parseArgs(argv) {
-  const opts = { metros: null, limit: DEFAULT_LIMIT, release: null, dryRun: false };
+  // limit stays null until asked for, so each area can fall back to its own default.
+  const opts = { metros: null, limit: null, release: null, dryRun: false };
 
   for (const arg of argv) {
     if (arg === '--help' || arg === '-h') opts.help = true;
@@ -110,11 +148,21 @@ function parseArgs(argv) {
   return opts;
 }
 
-function printHelp() {
-  const metros = Object.entries(METROS)
-    .map(([key, m]) => `    ${key.padEnd(10)} ${m.label}`)
-    .join('\n');
+/** Group the areas by region so the list stays scannable as it grows. */
+function metroLines(indent = '    ') {
+  const groups = new Map();
+  for (const [key, metro] of Object.entries(METROS)) {
+    const group = metro.group ?? 'Other';
+    if (!groups.has(group)) groups.set(group, []);
+    groups.get(group).push(`${indent}  ${key.padEnd(12)} ${metro.label}`);
+  }
 
+  return [...groups]
+    .map(([group, lines]) => [`${indent}${group}:`, ...lines].join('\n'))
+    .join('\n\n');
+}
+
+function printHelp() {
   console.log(`
 Find studio/spa outreach leads from the Overture Maps Places dataset.
 
@@ -122,15 +170,15 @@ Usage:
   node scripts/find-studios.js [options]
 
 Options:
-  --metro=a,b       Metros to search (default: ${DEFAULT_METROS.join(',')})
-  --limit=N         Max leads per metro (default: ${DEFAULT_LIMIT})
+  --metro=a,b       Areas to search (default: ${DEFAULT_METROS.join(',')})
+  --limit=N         Max leads per area (default: ${DEFAULT_LIMIT}; statewide areas set their own)
   --release=VER     Overture release, e.g. 2026-07-22.0 (default: latest)
   --dry-run         Print the SQL without running it
-  --list-metros     List available metros
+  --list-metros     List available areas
   --help            Show this message
 
-Metros:
-${metros}
+Areas:
+${metroLines()}
 
 Requires the DuckDB CLI:  brew install duckdb
 No API key needed — Overture Places is open data (CDLA Permissive 2.0).
@@ -190,6 +238,11 @@ function buildQuery(release, metro, limit) {
   const [xmin, ymin, xmax, ymax] = metro.bbox;
   const path = `s3://overturemaps-${S3_REGION}/release/${release}/theme=places/type=place/*`;
   const categoryList = CATEGORIES.map(sqlStr).join(', ');
+  // A bbox is a rectangle, so a state-sized box always catches its neighbours.
+  // Filtering on the region is what makes a statewide search actually statewide.
+  const regionClause = metro.regions?.length
+    ? `\n    AND upper(addresses[1].region) IN (${metro.regions.map((r) => sqlStr(r.toUpperCase())).join(', ')})`
+    : '';
 
   return `
 INSTALL spatial; LOAD spatial;
@@ -214,7 +267,7 @@ WITH candidates AS (
   FROM read_parquet(${sqlStr(path)}, filename = true, hive_partitioning = 1)
   WHERE bbox.xmin BETWEEN ${xmin} AND ${xmax}
     AND bbox.ymin BETWEEN ${ymin} AND ${ymax}
-    AND addresses[1].country = 'US'
+    AND addresses[1].country = 'US'${regionClause}
 )
 SELECT
   name,
@@ -288,6 +341,23 @@ function flatten(value) {
     .map(String);
 }
 
+/** An explicit --limit wins; otherwise each area may set its own. */
+const limitFor = (metro, opts) => opts.limit ?? metro.limit ?? DEFAULT_LIMIT;
+
+/**
+ * Key for suppressing a place already reported by an earlier area. Areas overlap
+ * by design — Greater Lansing sits inside Michigan — so without this a local
+ * studio shows up twice.
+ *
+ * Keyed on the contact URL rather than the location: one entry per contactable
+ * organization is what outreach wants, so a two-location studio sharing one
+ * domain is one pitch, not two.
+ */
+function dedupeKey(lead) {
+  const url = lead.contact.websites[0] ?? lead.contact.socials[0];
+  return url ? `url:${normalize(url)}` : `place:${normalize(lead.name)}|${lead.mapUrl ?? ''}`;
+}
+
 function toLead(row, metroKey) {
   const address = [row.street, row.locality, row.region].filter(Boolean).join(', ') || null;
 
@@ -335,9 +405,10 @@ function renderSection(section) {
   }
 
   const { strong, weak } = section;
+  const dupeNote = section.dupeCount ? ` · ${section.dupeCount} shown under an earlier area` : '';
   lines.push(
     `${strong.length + weak.length} leads · ${strong.length} with a direct contact path · ` +
-      `${section.knownCount} already tracked`,
+      `${section.knownCount} already tracked${dupeNote}`,
     ''
   );
 
@@ -365,7 +436,7 @@ function renderReport(sections, release, timestamp) {
     '',
     `Generated ${timestamp} · Overture Maps release \`${release}\``,
     '',
-    `**${strong + weak} leads** across ${sections.length} metros — ` +
+    `**${strong + weak} leads** across ${sections.length} areas — ` +
       `${strong} with a direct contact path, ${weak} needing a contact-page lookup.`,
     '',
     'Sorted by contact quality: places with a published email come first, then those',
@@ -394,7 +465,7 @@ async function main() {
   }
 
   if (opts.listMetros) {
-    for (const [key, m] of Object.entries(METROS)) console.log(`${key.padEnd(10)} ${m.label}`);
+    console.log(metroLines(''));
     return 0;
   }
 
@@ -411,7 +482,7 @@ async function main() {
     const release = opts.release ?? (await latestRelease());
     for (const key of keys) {
       console.log(`\n--- ${key} ---`);
-      console.log(buildQuery(release, METROS[key], opts.limit));
+      console.log(buildQuery(release, METROS[key], limitFor(METROS[key], opts)));
     }
     return 0;
   }
@@ -431,11 +502,15 @@ async function main() {
 
   // Sequential on purpose: each query streams a lot of remote Parquet, and running
   // them concurrently competes for the same bandwidth without finishing sooner.
+  // The sequence also decides which area keeps an overlapping place — the first
+  // one to report it wins, which is why home comes first in DEFAULT_METROS.
   const sections = [];
+  const seen = new Set();
+
   for (const key of keys) {
     const metro = METROS[key];
     try {
-      const rows = runQuery(buildQuery(release, metro, opts.limit));
+      const rows = runQuery(buildQuery(release, metro, limitFor(metro, opts)));
       const all = rows.map((row) => toLead(row, key));
 
       const fresh = all.filter(
@@ -443,19 +518,34 @@ async function main() {
       );
       const knownCount = all.length - fresh.length;
 
-      const usable = fresh
+      const unseen = fresh.filter((lead) => !seen.has(dedupeKey(lead)));
+      const dupeCount = fresh.length - unseen.length;
+      for (const lead of unseen) seen.add(dedupeKey(lead));
+
+      const usable = unseen
         .filter((lead) => lead.contact.score >= MIN_CONTACT_SCORE)
         .sort(byContactQuality((a, b) => (b.confidence ?? 0) - (a.confidence ?? 0)));
 
       const strong = usable.filter((lead) => lead.contact.score >= STRONG_CONTACT_SCORE);
       const weak = usable.filter((lead) => lead.contact.score < STRONG_CONTACT_SCORE);
 
-      console.log(`  ✓ ${metro.label}: ${strong.length} direct, ${weak.length} site-only, ${knownCount} tracked`);
-      sections.push({ key, label: metro.label, strong, weak, knownCount });
+      const dupeNote = dupeCount ? `, ${dupeCount} already in an earlier area` : '';
+      console.log(
+        `  ✓ ${metro.label}: ${strong.length} direct, ${weak.length} site-only, ${knownCount} tracked${dupeNote}`
+      );
+      sections.push({ key, label: metro.label, strong, weak, knownCount, dupeCount });
     } catch (error) {
       const message = error.stderr?.toString().trim() || error.message;
       console.error(`  ✗ ${metro.label}: ${message.slice(0, 300)}`);
-      sections.push({ key, label: metro.label, strong: [], weak: [], knownCount: 0, error: message });
+      sections.push({
+        key,
+        label: metro.label,
+        strong: [],
+        weak: [],
+        knownCount: 0,
+        dupeCount: 0,
+        error: message,
+      });
     }
   }
 

@@ -20,13 +20,21 @@
  * verification against servers we don't own is abuse, and MX presence is
  * enough to separate lapsed domains from live ones.
  *
+ * Publications get a freshness check on top: a homepage that loads says
+ * nothing about whether anyone still publishes (a Substack keeps serving its
+ * archive forever). For podcasts the episode feed, and for press/community/
+ * creator leads a discovered RSS feed, is read for its newest publish date;
+ * an otherwise-alive lead whose latest post is older than --stale-days
+ * (default 365) is demoted to "stale" so it gets a second look before
+ * outreach.
+ *
  * Usage:
  *   make verify-leads
  *   make verify-leads ARGS="--only=studios --limit=20"
  *   node scripts/verify-leads.js --help
  *
  * Reads the newest leads-*.json, studios-*.json, and podcasts-*.json from
- * leads/ and writes leads/verified-YYYY-MM-DD.json.
+ * leads/reports/ and writes leads/reports/verified-YYYY-MM-DD.json.
  */
 
 import { readdirSync, readFileSync, writeFileSync, mkdirSync } from 'fs';
@@ -38,7 +46,7 @@ import { isSocialUrl, normalizeUrl } from './lead-contact.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const rootDir = join(__dirname, '..');
-const leadsDir = join(rootDir, 'leads');
+const leadsDir = join(rootDir, 'leads', 'reports');
 
 const REQUEST_TIMEOUT_MS = 12_000;
 const CONCURRENCY = 10;
@@ -57,11 +65,12 @@ const BLOCKED_STATUSES = new Set([401, 403, 405, 406, 429, 999]);
 // ---------------------------------------------------------------------------
 
 function parseArgs(argv) {
-  const opts = { only: null, limit: null, help: false };
+  const opts = { only: null, limit: null, staleDays: 365, help: false };
   for (const arg of argv) {
     if (arg === '--help' || arg === '-h') opts.help = true;
     else if (arg.startsWith('--only=')) opts.only = arg.slice(7).split(',').map((s) => s.trim());
     else if (arg.startsWith('--limit=')) opts.limit = Number(arg.slice(8));
+    else if (arg.startsWith('--stale-days=')) opts.staleDays = Number(arg.slice(13));
     else {
       console.error(`Unknown argument: ${arg}`);
       opts.help = true;
@@ -78,12 +87,14 @@ Usage:
   node scripts/verify-leads.js [options]
 
 Options:
-  --only=a,b   Verify only these sources: leads, studios, podcasts (default: all)
-  --limit=N    Verify at most N leads per source (for quick test runs)
-  --help       Show this help
+  --only=a,b      Verify only these sources: leads, studios, podcasts (default: all)
+  --limit=N       Verify at most N leads per source (for quick test runs)
+  --stale-days=N  Mark publications stale when the newest feed item is older
+                  than N days (default 365; 0 disables the freshness check)
+  --help          Show this help
 
 Output:
-  leads/verified-YYYY-MM-DD.json — every lead with a verification block.
+  leads/reports/verified-YYYY-MM-DD.json — every lead with a verification block.
 `);
 }
 
@@ -270,25 +281,130 @@ function checkUrlCached(url) {
   return urlCache.get(url);
 }
 
+// ---------------------------------------------------------------------------
+// Freshness (publications only)
+// ---------------------------------------------------------------------------
+
+// Feeds put the newest items first; the dates we need are in the first chunk,
+// so there is no reason to download a 24,000-episode archive.
+const FEED_READ_LIMIT = 512 * 1024;
+
+// exa sections whose leads are publications. Studio/local leads are
+// businesses — a live site and MX are the right bar for them.
+const CONTENT_SECTIONS = new Set(['press', 'communities', 'creators']);
+
+/** Feed URLs worth trying for a lead, most authoritative first. */
+function feedCandidates(entry) {
+  const candidates = [];
+  if (entry.feedUrl) candidates.push(entry.feedUrl);
+  if (entry.source === 'exa' && CONTENT_SECTIONS.has(entry.section)) {
+    for (const url of entry.urls.filter((u) => !isSocialUrl(u))) {
+      try {
+        // Substack, WordPress, Ghost, and most blog platforms serve RSS at
+        // /feed; a miss just means no freshness info for this lead.
+        candidates.push(`${new URL(url).origin}/feed`);
+      } catch {
+        // Not a parseable URL; nothing to derive.
+      }
+    }
+  }
+  return [...new Set(candidates)];
+}
+
+const FEED_DATE_RE = /<(?:pubDate|published|updated|dc:date)[^>]*>([^<]+)</gi;
+
+/** Newest item date found in a feed, or null if it can't be fetched/parsed. */
+async function latestFeedDate(url) {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
+  try {
+    const res = await fetch(url, {
+      redirect: 'follow',
+      signal: controller.signal,
+      headers: { 'User-Agent': USER_AGENT, Accept: 'application/rss+xml, application/atom+xml, application/xml, text/xml, */*' },
+    });
+    if (!res.ok || !res.body) {
+      res.body?.cancel().catch(() => {});
+      return null;
+    }
+    let text = '';
+    const decoder = new TextDecoder();
+    for await (const chunk of res.body) {
+      text += decoder.decode(chunk, { stream: true });
+      if (text.length >= FEED_READ_LIMIT) break;
+    }
+    res.body?.cancel().catch(() => {});
+    // An HTML page at /feed is a platform's 404-in-disguise, not a feed.
+    if (!/<(?:rss|feed|rdf)[\s>:]/i.test(text.slice(0, 2048))) return null;
+    // Only item-level dates count. Platforms stamp a current lastBuildDate /
+    // channel <updated> on every request, so a newsletter dead for years can
+    // carry today's date above its first <item>.
+    const firstItem = text.search(/<(?:item|entry)[\s>]/i);
+    if (firstItem === -1) return null;
+    let newest = null;
+    for (const match of text.slice(firstItem).matchAll(FEED_DATE_RE)) {
+      const date = new Date(match[1].trim());
+      if (!Number.isNaN(date.getTime()) && (!newest || date > newest)) newest = date;
+    }
+    return newest;
+  } catch {
+    return null;
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
+const feedDateCache = new Map();
+function latestFeedDateCached(url) {
+  if (!feedDateCache.has(url)) feedDateCache.set(url, latestFeedDate(url));
+  return feedDateCache.get(url);
+}
+
+/**
+ * Freshness verdict for a publication lead: fresh, stale (newest item older
+ * than staleDays), or unknown (no readable feed — not held against the lead).
+ */
+async function checkFreshness(entry, staleDays) {
+  const candidates = feedCandidates(entry);
+  if (!candidates.length || !staleDays) return null;
+  for (const feedUrl of candidates) {
+    const newest = await latestFeedDateCached(feedUrl);
+    if (newest) {
+      const ageDays = Math.round((Date.now() - newest.getTime()) / 86_400_000);
+      return {
+        feedUrl,
+        latestPost: newest.toISOString().slice(0, 10),
+        ageDays,
+        result: ageDays > staleDays ? 'stale' : 'fresh',
+      };
+    }
+  }
+  return { feedUrl: null, latestPost: null, ageDays: null, result: 'unknown' };
+}
+
 /**
  * Verify one lead: all its URLs and email domains. The verdict deliberately
  * separates "confirmed reachable" from "couldn't confirm" from "gone":
  *
  *   alive   — at least one owned/hosted URL loads, the feed loads, or an email
  *             domain has MX. There is a working way in.
+ *   stale   — reachable, but a publication whose newest feed item is older
+ *             than --stale-days. The operation behind the pages has likely
+ *             stopped; check the archive by hand before pitching.
  *   blocked — nothing confirmed, but every failure was a refusal (bot wall,
  *             timeout). Verify by hand before writing the lead off.
  *   dead    — every check failed hard and no email domain resolves.
  */
-async function verifyLead(entry) {
+async function verifyLead(entry, staleDays) {
   const socialUrls = entry.urls.filter((u) => isSocialUrl(u));
   const siteUrls = entry.urls.filter((u) => !isSocialUrl(u));
 
-  const [siteChecks, socialChecks, feedCheck, emailChecks] = await Promise.all([
+  const [siteChecks, socialChecks, feedCheck, emailChecks, freshness] = await Promise.all([
     Promise.all(siteUrls.map(checkUrlCached)),
     Promise.all(socialUrls.map(checkUrlCached)),
     entry.feedUrl ? checkUrlCached(entry.feedUrl) : Promise.resolve(null),
     Promise.all(entry.emails.map(checkEmailDomain)),
+    checkFreshness(entry, staleDays),
   ]);
 
   const emailOk = emailChecks.some((c) => c.result === 'ok');
@@ -304,6 +420,8 @@ async function verifyLead(entry) {
   // either way; without even a social URL there was nothing to check at all.
   else status = socialUrls.length ? 'blocked' : 'unchecked';
 
+  if (status === 'alive' && freshness?.result === 'stale') status = 'stale';
+
   return {
     ...entry,
     verification: {
@@ -312,6 +430,7 @@ async function verifyLead(entry) {
       urls: [...siteChecks, ...socialChecks],
       feed: feedCheck,
       emails: emailChecks,
+      ...(freshness ? { freshness } : {}),
     },
   };
 }
@@ -335,7 +454,7 @@ async function main() {
   }
 
   console.error(`Verifying ${leads.length} leads from: ${sources.join(', ')}`);
-  const verified = await withConcurrency(leads, CONCURRENCY, verifyLead);
+  const verified = await withConcurrency(leads, CONCURRENCY, (lead) => verifyLead(lead, opts.staleDays));
 
   const counts = {};
   for (const v of verified) counts[v.verification.status] = (counts[v.verification.status] ?? 0) + 1;
