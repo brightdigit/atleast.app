@@ -42,7 +42,7 @@ not part of the site build — nothing they produce is ever published.
 make leads        # press, communities, creators, studios, local (Exa; EXA_API_KEY)
 make studios      # studios/spas from Overture Maps (needs the DuckDB CLI, no key)
 make podcasts     # shows from Podcast Index (PODCAST_INDEX_KEY / _SECRET)
-make verify-leads # live-check links and email domains in the newest reports
+make verify-leads # live-check links, email domains, and publication freshness in the newest reports
 make leads-known  # refresh KNOWN_TARGETS from open GitHub issues
 make drafts       # queue outreach batch as Gmail drafts (GMAIL_ADDRESS / GMAIL_APP_PASSWORD)
 ```
@@ -66,13 +66,24 @@ the way to check a query change here. Pass flags through `ARGS="..."`.
   inspect that field first.
 - Leads are model- or index-extracted and go stale. Verify before contacting anyone, and
   keep the CAN-SPAM note in the studio report intact — those businesses did not opt in.
+  "Alive" means reachable, not thriving: link checks can't see whether a mailbox exists
+  (two 550 hard bounces on 2026-08-25) or whether a publication still publishes, so
+  `verify-leads` also reads podcast/press/community/creator feeds and demotes leads whose
+  newest item is over `--stale-days` (default 365) old to `stale`. Only item-level feed
+  dates count — platforms stamp a current lastBuildDate on dead feeds.
 - **Sending is always manual.** `make drafts` (leads/scripts/make-drafts.py, Python stdlib
   only) renders a template per lead and IMAP-appends the result to the Gmail Drafts
   mailbox — never sends — so the batch appears in Spark's Drafts folder to be personalized
-  ([[ ]] crib-note blocks must be edited out) and sent one by one. Default batch is
+  and sent one by one. Each draft carries a [[ ]] personalization marker plus its lead's
+  crib notes as a [[ NOTES ]] block at the bottom — both get deleted before sending — and
+  the notes are mirrored to a companion `leads/drafts/notes-<date>.md`. Spark's draft
+  viewer truncates note-bearing bodies (a Spark rendering bug; Gmail web shows them
+  fully), so personalize in Gmail web or from the notes file. Default batch is
   15/day for deliverability; drafted leads are tracked in `leads/drafts/log.json` so
-  re-runs continue down the plan. The script and its templates (`leads/templates/`) are
-  outreach copy/tooling and live in the private leads repo, not in this one.
+  re-runs continue down the plan, mixing across sections by default (one lead per
+  source+section group in turn; `--in-order` restores strict rank order). The script and
+  its templates (`leads/templates/`) are outreach copy/tooling and live in the private
+  leads repo, not in this one.
 
 ## Architecture
 
