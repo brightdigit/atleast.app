@@ -1,0 +1,106 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import Schema from '../../components/Schema.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+import AppStoreBadge from '../../components/AppStoreBadge.astro';
+import { CLUSTERS, WEBSITE_URL } from '../../config';
+
+const published = await getCollection('articles', ({ data }) => !data.draft);
+
+// Pillar first, then spokes by `order`, then alphabetically for stable output.
+const groups = CLUSTERS.map((cluster) => ({
+  ...cluster,
+  articles: published
+    .filter((entry) => entry.data.cluster === cluster.key)
+    .sort((a, b) => {
+      if (a.data.pillar !== b.data.pillar) return a.data.pillar ? -1 : 1;
+      if (a.data.order !== b.data.order) return a.data.order - b.data.order;
+      return a.data.title.localeCompare(b.data.title);
+    }),
+}));
+
+const hasArticles = published.length > 0;
+
+const title = 'Guides — AtLeast';
+const description =
+  'Guides to timing a practice by feel on Apple Watch: breathwork pacing, silent meditation timers, cold plunge timing, and timers that tap instead of ring.';
+
+const canonicalURL = `${WEBSITE_URL}/guides/`;
+
+const collectionSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: 'AtLeast Guides',
+  description,
+  url: canonicalURL,
+  mainEntity: {
+    '@type': 'ItemList',
+    itemListElement: groups.flatMap((group) =>
+      group.articles.map((entry, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        name: entry.data.title,
+        url: `${WEBSITE_URL}/${entry.id}/`,
+      })),
+    ),
+  },
+};
+---
+
+<Layout title={title} description={description}>
+  <Schema schema={collectionSchema} />
+
+  <section class="px-6 py-24">
+    <div class="mx-auto max-w-3xl">
+      <h1 class="text-4xl font-bold tracking-tight md:text-5xl">Guides</h1>
+      <p class="mt-6 text-lg leading-relaxed text-brand-muted">
+        How to time a practice by feel instead of by screen. These guides cover pacing breathwork,
+        sitting in silence, holding a cold plunge, and using a timer that taps your wrist rather
+        than ringing. <em>AtLeast</em> runs on Apple Watch, works offline, and needs no account.
+      </p>
+
+      {hasArticles ? (
+        <div class="mt-16 space-y-16">
+          {groups
+            .filter((group) => group.articles.length > 0)
+            .map((group) => (
+              <section id={group.key} class="scroll-mt-24">
+                <h2 class="text-2xl font-semibold tracking-tight text-brand-text">{group.label}</h2>
+                <p class="mt-3 text-base leading-relaxed text-brand-muted">{group.description}</p>
+                <div class="mt-6 grid gap-4 sm:grid-cols-2">
+                  {group.articles.map((entry) => (
+                    <ArticleCard
+                      slug={entry.id}
+                      title={entry.data.title}
+                      description={entry.data.description}
+                      pillar={entry.data.pillar}
+                    />
+                  ))}
+                </div>
+              </section>
+            ))}
+        </div>
+      ) : (
+        <p class="mt-12 rounded-2xl border border-brand-border bg-brand-surface p-8 text-base leading-relaxed text-brand-muted">
+          The first guides are being written. In the meantime,
+          <a href="/use-cases" class="text-brand-accent hover:underline">see where <em>AtLeast</em> fits</a>
+          across meditation, breathwork, yoga, cold exposure, and focused work.
+        </p>
+      )}
+
+      <p class="mt-16 text-base leading-relaxed text-brand-muted">
+        Weighing <em>AtLeast</em> against other timers? See the
+        <a href="/compare" class="text-brand-accent hover:underline">side-by-side comparison</a>.
+      </p>
+
+      <div class="mt-8 rounded-2xl border border-brand-border bg-brand-surface p-8 text-center">
+        <h2 class="mb-3 text-xl font-semibold text-brand-text">Find your minimum.</h2>
+        <p class="mb-6 text-base text-brand-muted">
+          Set a floor, feel the rhythm, and let the silence tell you you’re done.
+        </p>
+        <AppStoreBadge location="guides-hub" />
+      </div>
+    </div>
+  </section>
+</Layout>
