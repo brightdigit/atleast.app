@@ -1,0 +1,23 @@
+---
+interface Props {
+  slug: string;
+  title: string;
+  description: string;
+  pillar?: boolean;
+}
+
+const { slug, title, description, pillar = false } = Astro.props;
+---
+
+<a
+  href={`/${slug}`}
+  class="block rounded-2xl border border-brand-border bg-brand-surface p-6 transition-colors hover:border-brand-accent/50"
+>
+  {pillar && (
+    <span class="mb-3 inline-block rounded-full border border-brand-accent/40 px-3 py-0.5 text-xs text-brand-accent">
+      Start here
+    </span>
+  )}
+  <h3 class="mb-2 text-base font-semibold text-brand-text">{title}</h3>
+  <p class="text-sm leading-relaxed text-brand-muted">{description}</p>
+</a>
