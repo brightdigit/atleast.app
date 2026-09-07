@@ -78,10 +78,12 @@ On the Watch:
 - Requires **Apple Watch Series 6 or later** on **watchOS 26.0 or later**.
 - Free TestFlight beta today — no App Store listing yet, no accounts to create.
 
-Privacy stays light on purpose. Session and haptic logic run on-device. Analytics are cookieless page and session signals only — never for advertising or following you across other apps. A timer that only taps should not need to know who you are.
+Privacy stays light on purpose. There is nothing to sign in to. Analytics are cookieless — never for advertising or following you across other apps. A timer that only taps should not need to know who you are.
+
+To try it, join the free [TestFlight beta](https://testflight.apple.com/join/WUR3Wf47) from this page, pick a minimum and a tap interval, start on the Watch, and put your hands down. The taps run for your floor; then they stop.
 
 ## When Silent Mode is enough
 
-If you only need one silent “time’s up” buzz — pasta, laundry, a short stretch — the built-in Timer plus Silent Mode is already on your wrist and free<sup><a href="#ref-1">[1]</a></sup><sup><a href="#ref-2">[2]</a></sup>. Use it.
+If you only need one silent “time’s up” buzz — pasta, laundry, a short stretch — the built-in Timer plus Silent Mode is already on your wrist and free<sup><a href="#ref-1">[1]</a></sup><sup><a href="#ref-2">[2]</a></sup>. Our guide to a [vibrating timer for Apple Watch](/vibrating-timer-apple-watch) walks through that setup. Use it when a single end cue is enough.
 
-Reach for vibrate-only when the session itself is what you are protecting: meditation, breathwork, a plunge, a shared room, or any practice where a mid-session pulse helps more than a final buzz, and where “never makes sound” has to mean never — not “muted until something flips the switch back.”
+Reach for vibrate-only when the session itself is what you are protecting: meditation, breathwork, a plunge, a shared room, or any practice where a mid-session pulse helps more than a final buzz, and where “never makes sound” has to mean never — not “muted until something flips the switch back.” For the wider map of vibrating timers (phone, pager-style, Watch), start with [a timer that vibrates](/timer-that-vibrates).
