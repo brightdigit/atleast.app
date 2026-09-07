@@ -1,0 +1,11 @@
+# Internal paths that do not exist yet but are deliberately linked.
+# Remove each entry as its page lands — the checker fails on anything not listed.
+
+# /compare — comparison page (#22)
+/compare
+
+# Cluster pillar articles (#107, #115, #114, #123)
+/breathing-pacer
+/apple-watch-meditation-timer
+/cold-plunge-timer
+/timer-that-vibrates

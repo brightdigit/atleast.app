@@ -1,0 +1,45 @@
+---
+import { getCollection } from 'astro:content';
+import ArticleCard from './ArticleCard.astro';
+
+interface Props {
+  /** Slugs to link. Any slug without a published article is skipped, so a
+      pillar can list its spokes before those articles are written. */
+  slugs: string[];
+  /** The current article's slug, so it never links to itself. */
+  currentSlug: string;
+  heading?: string;
+}
+
+const { slugs, currentSlug, heading = 'Keep reading' } = Astro.props;
+
+const published = await getCollection('articles', ({ data }) => !data.draft);
+const bySlug = new Map(published.map((entry) => [entry.id, entry]));
+
+// Preserve the author's ordering; drop self-links, duplicates, and slugs that
+// do not (yet) exist in the collection.
+const seen = new Set<string>([currentSlug]);
+const related = slugs
+  .filter((slug) => {
+    if (seen.has(slug) || !bySlug.has(slug)) return false;
+    seen.add(slug);
+    return true;
+  })
+  .map((slug) => bySlug.get(slug)!);
+---
+
+{related.length > 0 && (
+  <section class="mt-16">
+    <h2 class="text-2xl font-semibold tracking-tight">{heading}</h2>
+    <div class="mt-6 grid gap-4 sm:grid-cols-2">
+      {related.map((entry) => (
+        <ArticleCard
+          slug={entry.id}
+          title={entry.data.title}
+          description={entry.data.description}
+          pillar={entry.data.pillar}
+        />
+      ))}
+    </div>
+  </section>
+)}

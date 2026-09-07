@@ -25,6 +25,7 @@ make dev       # Start dev server
 make build     # Production build (output: dist/)
 make preview   # Preview production build locally
 make lighthouse  # Run Lighthouse CI
+make check:links # Verify internal links in dist/ (run after make build)
 ```
 
 Or equivalently via mise:
@@ -35,7 +36,11 @@ mise exec -- npm run build
 
 ## Architecture
 
-- `src/pages/` — Three pages: `index.astro` (home), `privacy.astro`, `support.astro`
+- `src/pages/` — Static pages (`index.astro`, `use-cases.astro`, `privacy.astro`,
+  `terms.astro`, `support.astro`, `press.astro`), the `/guides` hub, and
+  `[slug].astro` which renders guide articles at the top level
+- `src/content/articles/` — Guide articles (markdown); schema in `src/content.config.ts`.
+  See `docs/content-guide.md`
 - `src/components/` — Astro components (Nav, Footer, BaseHead, HeroRings, cards, etc.)
 - `src/layouts/` — Shared page layout (`Layout.astro`)
 - `src/styles/` — Global CSS including Tailwind
@@ -52,6 +57,12 @@ mise exec -- npm run build
 ## Content Voice
 
 Calm, confident, minimal. Use words like "gentle", "silence", "rhythm", "practice". Avoid hype words like "revolutionary" or "game-changing". Frame features as benefits. Always mention privacy-first positioning — no accounts; session and haptic logic run on-device; cookieless Plausible analytics only (website pageviews, outbound-link clicks, and custom events; iPhone and Apple Watch apps via AviaryInsights: ios_open, pageview, and session_start with session config props), never for advertising or cross-app tracking. Privacy copy must match the app’s real analytics surface (Watch + iPhone, not iOS-only).
+
+See [`docs/positioning.md`](docs/positioning.md) for who the app is for, what it
+is, and why it's better — the source of truth for marketing copy and article
+intros. [`docs/content-guide.md`](docs/content-guide.md) covers how to add a
+guide article (frontmatter, slug table, citation targets, and the "do not
+claim" list).
 
 ## Key Details
 
