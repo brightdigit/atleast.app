@@ -10,19 +10,59 @@
   --color-brand-pulse: #9B7FE8;
 
   --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", Inter, system-ui, sans-serif;
-
-  --animate-pulse-fade: pulse-fade 2s ease-out forwards;
 }
 
-@keyframes pulse-fade {
-  0%   { opacity: 0.8; transform: scale(1); }
-  50%  { opacity: 0.4; transform: scale(1.08); }
-  100% { opacity: 0;   transform: scale(1.15); }
+/* Hero loop video. By default the video plays and its poster-image sibling is
+   hidden; under prefers-reduced-motion the pair swaps so the still frame shows
+   instead of the animation. */
+.hero-loop-fallback {
+  display: none;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .hero-loop {
+    display: none;
+  }
+  .hero-loop-fallback {
+    display: block;
+  }
+}
+
+/* Scroll-driven parallax for the hero media, CSS only (the site's CSP forbids
+   inline script, and animations here are CSS-only by convention). The timeline
+   is the root scroller (`scroll(root)`), not `view()`: the hero section is
+   overflow-hidden, which makes it a scroll container of its own, so a view
+   timeline on the media would resolve against the section and never advance.
+   Over the first viewport of scrolling the media is translated down by half a
+   viewport, so it travels at half the page's speed; the section's
+   overflow-hidden clips the overhang. Browsers without scroll-driven animations
+   (no `animation-timeline`) simply get a static full-width hero. */
+@keyframes hero-parallax {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(0, 50vh, 0); }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: scroll(root)) {
+    .hero-media {
+      animation: hero-parallax linear both;
+      animation-timeline: scroll(root);
+      animation-range: 0 100vh;
+      will-change: transform;
+    }
+  }
+}
+
+/* Decorative ripple rings around the app icon divider. */
 @keyframes ripple {
   0%   { opacity: 0.45; transform: scale(1); }
   100% { opacity: 0;    transform: scale(2.2); }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .ring-ripple {
+    animation: ripple 4.5s ease-out infinite;
+  }
 }
 
 body {
@@ -52,4 +92,153 @@ html[data-ab-label="ways-to-use-it"] .ab-ways {
 }
 html[data-ab-label="where-it-fits"] .ab-where {
   display: inline;
+}
+
+/* Article body styles for markdown rendered by src/layouts/ArticleLayout.astro.
+   Mirrors the type scale of src/pages/use-cases.astro so hand-written pages and
+   collection articles read identically. No typography plugin required. */
+.prose {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--color-brand-muted);
+}
+
+.prose > * + * {
+  margin-top: 1rem;
+}
+
+.prose h2 {
+  margin-top: 4rem;
+  font-size: 1.875rem;
+  line-height: 1.2;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  color: var(--color-brand-text);
+  scroll-margin-top: 6rem;
+}
+
+.prose h3 {
+  margin-top: 2.5rem;
+  font-size: 1.25rem;
+  line-height: 1.4;
+  font-weight: 600;
+  color: var(--color-brand-text);
+  scroll-margin-top: 6rem;
+}
+
+.prose h4 {
+  margin-top: 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-brand-text);
+  scroll-margin-top: 6rem;
+}
+
+.prose strong {
+  font-weight: 600;
+  color: var(--color-brand-text);
+}
+
+.prose a {
+  color: var(--color-brand-accent);
+  text-decoration: none;
+}
+
+.prose a:hover {
+  text-decoration: underline;
+}
+
+.prose sup a {
+  text-decoration: none;
+}
+
+.prose ul,
+.prose ol {
+  padding-left: 1.5rem;
+}
+
+.prose ul {
+  list-style-type: disc;
+}
+
+.prose ol {
+  list-style-type: decimal;
+}
+
+.prose li + li {
+  margin-top: 0.5rem;
+}
+
+.prose li::marker {
+  color: var(--color-brand-border);
+}
+
+.prose blockquote {
+  border-left: 2px solid var(--color-brand-accent);
+  padding-left: 1.25rem;
+  font-style: italic;
+}
+
+.prose hr {
+  border: 0;
+  border-top: 1px solid var(--color-brand-border);
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+/* Wide tables scroll inside their own container rather than the page. */
+.prose table {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.prose thead {
+  background-color: var(--color-brand-surface);
+}
+
+.prose th {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-weight: 600;
+  color: var(--color-brand-text);
+  border-bottom: 1px solid var(--color-brand-border);
+  white-space: nowrap;
+}
+
+.prose td {
+  padding: 0.75rem 1rem;
+  vertical-align: top;
+  border-bottom: 1px solid var(--color-brand-border);
+}
+
+.prose code {
+  font-size: 0.875em;
+  color: var(--color-brand-text);
+  background-color: var(--color-brand-surface);
+  border: 1px solid var(--color-brand-border);
+  border-radius: 0.375rem;
+  padding: 0.1rem 0.35rem;
+}
+
+.prose pre {
+  overflow-x: auto;
+  border: 1px solid var(--color-brand-border);
+  border-radius: 0.75rem;
+  padding: 1rem 1.25rem;
+  font-size: 0.875rem;
+}
+
+.prose pre code {
+  background: none;
+  border: 0;
+  padding: 0;
+}
+
+.prose img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 1rem;
 }

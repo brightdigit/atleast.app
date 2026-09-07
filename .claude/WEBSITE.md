@@ -223,7 +223,6 @@ Create in `src/components/`:
 | File | Purpose |
 |------|---------|
 | `AppStoreBadge.astro` | Apple App Store download button (SVG badge + link) |
-| `HeroRings.astro` | Animated concentric circles SVG animation |
 | `StepCard.astro` | "How it works" numbered step |
 | `UseCaseCard.astro` | Use case icon + label + description |
 | `FeatureRow.astro` | Icon + heading + paragraph for "Why AtLeast" |
@@ -317,7 +316,6 @@ atleast-website/
 │   │   ├── BaseHead.astro
 │   │   ├── FeatureRow.astro
 │   │   ├── Footer.astro
-│   │   ├── HeroRings.astro
 │   │   ├── Nav.astro
 │   │   ├── StepCard.astro
 │   │   └── UseCaseCard.astro
