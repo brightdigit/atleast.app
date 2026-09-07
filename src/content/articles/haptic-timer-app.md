@@ -12,6 +12,8 @@ datePublished: 2026-09-07
 related:
   - timer-that-vibrates
   - vibrating-timer-apple-watch
+  - vibrate-only-timer
+  - apple-watch-timer-without-sound
 citations:
   - text: "Apple Support — Set timers on Apple Watch"
     url: "https://support.apple.com/guide/watch/timers-apdf448955b2/watchos"
