@@ -10,19 +10,22 @@
   --color-brand-pulse: #9B7FE8;
 
   --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", Inter, system-ui, sans-serif;
-
-  --animate-pulse-fade: pulse-fade 2s ease-out forwards;
 }
 
-@keyframes pulse-fade {
-  0%   { opacity: 0.8; transform: scale(1); }
-  50%  { opacity: 0.4; transform: scale(1.08); }
-  100% { opacity: 0;   transform: scale(1.15); }
+/* Hero loop video. By default the video plays and its poster-image sibling is
+   hidden; under prefers-reduced-motion the pair swaps so the still frame shows
+   instead of the animation. */
+.hero-loop-fallback {
+  display: none;
 }
 
-@keyframes ripple {
-  0%   { opacity: 0.45; transform: scale(1); }
-  100% { opacity: 0;    transform: scale(2.2); }
+@media (prefers-reduced-motion: reduce) {
+  .hero-loop {
+    display: none;
+  }
+  .hero-loop-fallback {
+    display: block;
+  }
 }
 
 body {
