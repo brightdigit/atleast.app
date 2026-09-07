@@ -12,8 +12,6 @@ datePublished: 2026-09-07
 related:
   - timer-that-vibrates
   - vibrating-timer-apple-watch
-  - vibrate-only-timer
-  - apple-watch-timer-without-sound
 citations:
   - text: "Apple Support — Set timers on Apple Watch"
     url: "https://support.apple.com/guide/watch/timers-apdf448955b2/watchos"
@@ -25,17 +23,13 @@ citations:
     url: "https://support.apple.com/guide/watch/tell-time-with-haptic-feedback-apd2c755c294/watchos"
   - text: "Ferris & Sarter (2011), Human Factors 53(6):600-611 — Continuously informing vibrotactile displays in support of attention management and multitasking in anesthesiology"
     url: "https://pubmed.ncbi.nlm.nih.gov/22235523/"
-  - text: "App Store — Interval Timer Watch (listing, description, and App Privacy)"
-    url: "https://apps.apple.com/us/app/interval-timer-watch/id6475237369"
-  - text: "App Store — Timefully • Meditation Timer (listing, description, and App Privacy)"
-    url: "https://apps.apple.com/us/app/timefully-meditation-timer/id1440679849"
 faq:
   - q: "What is a haptic timer app?"
     a: "It is a timer whose cues reach you through touch rather than sound or a screen. On Apple Watch that means taps on the wrist. The useful ones tap during the session, not only when it ends, so you can keep your eyes closed and still know time is passing."
   - q: "Is a haptic timer app different from putting a timer on vibrate?"
     a: "Usually, yes. Vibrate is a fallback for a sound — one buzz at the end, and only when you remember to silence the device. A haptic timer app is silent by design and treats taps as the primary signal, which is what makes mid-session cues possible."
   - q: "How do I get a haptic timer app on my Apple Watch?"
-    a: "AtLeast is a free TestFlight beta today; the button on this page opens it. Timefully and Interval Timer Watch are on the App Store now. The built-in Timers app is already on your watch and taps at the end of a countdown when Silent Mode is on."
+    a: "AtLeast is a free TestFlight beta today; join from this page. Other Watch apps with haptic cues are on the App Store. The built-in Timers app is already on your watch and taps at the end of a countdown when Silent Mode is on."
 issue: 129
 ---
 
@@ -81,22 +75,22 @@ Against the checklist:
 
 - **Cues during the session** — taps at your interval for the whole minimum.
 - **Silent by design** — no sound at any point.
-- **Screen off** — haptics continue via an Extended Runtime Session.
+- **Screen off** — haptics continue with the face asleep.
 - **Standalone** — runs entirely on the Watch. An optional iPhone companion can pre-load a timer; taps always happen on the wrist.
-- **Offline, no account** — session and haptic logic run on-device.
+- **Offline, no account** — no sign-in; the timer keeps tapping with no phone and no network.
 - **Requirements** — Apple Watch Series 6 or later, watchOS 26.0 or later.
 
-Analytics are cookieless Plausible only — website pageviews plus app events via AviaryInsights, including session configuration. None of it is used for advertising or cross-app tracking.
+There is nothing to create an account for. Analytics are cookieless and never used for advertising or cross-app tracking.
 
 ## The honest alternatives
 
 **The built-in Timers app.** Already on your watch. With Silent Mode on, the countdown taps rather than chimes<sup><a href="#ref-1">[1]</a></sup><sup><a href="#ref-3">[3]</a></sup>. The limit is one buzz when time expires — nothing during the session. If you need something to stop at a fixed moment, use it. Our guide to a [vibrating timer for Apple Watch](/vibrating-timer-apple-watch) walks through the setup.
 
-**Interval timer apps with haptics.** Interval Timer Watch is a watch-only $0.99 purchase whose listing describes getting "notified by haptic feedback or sound repeatedly without having to look at your screen," with a no-data-collected privacy label<sup><a href="#ref-6">[6]</a></sup>. Timefully offers "Interval bells," a "Silent mode with haptics," and a "Standalone timer on your wrist," with "No account required" and the same privacy label; free with Pro at $2.99 monthly, $11.99 yearly, or $24.99 lifetime<sup><a href="#ref-7">[7]</a></sup>. Both give repeating cues. A fuller side-by-side is on our [comparison page](/compare).
+**Interval timer apps with haptics.** Several Watch apps offer repeating haptic cues during a session, often with a silent or haptic-only mode. They are a fair alternative when you want structured intervals rather than a passive minimum. A fuller side-by-side is on our [comparison page](/compare).
 
 ## How to get AtLeast
 
-*AtLeast* is a **free TestFlight beta** today — the button on this page opens it. Then three decisions:
+*AtLeast* is a free [TestFlight beta](https://testflight.apple.com/join/WUR3Wf47) today — or use the button on this page. Then three decisions:
 
 1. **Pick your minimum** — the number you will actually sit, plunge, or hold for on an ordinary day.
 2. **Pick your tap interval** — longer (a minute or more) for sitting and focus; shorter (a few seconds) for breath pacing or plunge seconds.
