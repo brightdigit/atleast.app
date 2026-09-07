@@ -5,16 +5,16 @@ import { SUPPORT_EMAIL } from '../config';
 
 <Layout
   title="Privacy Policy — AtLeast"
-  description="AtLeast runs timer logic on-device. The website, iPhone app, and Apple Watch app use cookieless Plausible analytics—no accounts, no advertising, no cross-app tracking."
+  description="AtLeast runs timer logic on-device. The website, iPhone app, and Apple Watch app use cookieless Plausible analytics, and purchases are processed by RevenueCat—no accounts, no advertising, no cross-app tracking."
 >
   <section class="px-6 py-24">
     <div class="mx-auto max-w-2xl">
       <h1 class="mb-2 text-4xl font-bold tracking-tight md:text-5xl">Privacy Policy</h1>
-      <p class="mb-12 text-sm text-brand-muted">Last updated: August 2026</p>
+      <p class="mb-12 text-sm text-brand-muted">Last updated: September 2026</p>
 
       <div class="space-y-8 text-base leading-relaxed text-brand-muted">
         <p>
-          <em>AtLeast</em> is privacy-first. There are no accounts. Session and haptic logic run on your devices. We use limited, cookieless analytics on the website, iPhone app, and Apple Watch app—nothing for advertising or cross-app tracking.
+          <em>AtLeast</em> is privacy-first. There are no accounts. Session and haptic logic run on your devices. We use limited, cookieless analytics on the website, iPhone app, and Apple Watch app, and a purchase service to unlock what you buy—nothing for advertising or cross-app tracking.
         </p>
 
         <div>
@@ -38,8 +38,21 @@ import { SUPPORT_EMAIL } from '../config';
               a launch event (<code class="text-sm">ios_open</code>) with a <code class="text-sm">watch_paired</code> property on iPhone;
               <code class="text-sm">pageview</code> screen views across app screens;
               and <code class="text-sm">session_start</code> on each watch session with <code class="text-sm">duration_seconds</code>, <code class="text-sm">tap_interval_seconds</code>, <code class="text-sm">haptic_config</code>, and <code class="text-sm">preloaded_from_phone</code>.
+              All app events also carry a device model identifier (a <code class="text-sm">system-model</code> property such as <code class="text-sm">iPhone16,1</code> or <code class="text-sm">Watch7,4</code>), which is likewise part of the User-Agent Plausible uses for its device breakdown. It names a hardware model shared by millions of devices—it is not a personal or persistent identifier.
             </li>
           </ul>
+        </div>
+
+        <div>
+          <h2 class="mb-3 text-xl font-semibold text-brand-text">Purchases</h2>
+          <p class="mb-3">
+            If you buy anything in <em>AtLeast</em>, your purchase history is processed by
+            <a href="https://www.revenuecat.com/" class="text-brand-accent underline" target="_blank" rel="noopener noreferrer">RevenueCat</a>,
+            which manages purchases and entitlements on our behalf. There are still no accounts: RevenueCat identifies a purchase with an anonymous app user ID.
+          </p>
+          <p>
+            That purchase history is used for app functionality—unlocking the Pro features you paid for and validating receipts—and for analytics, such as purchase charts and customer history. It is not linked to your identity, and it is not used for advertising or cross-app tracking.
+          </p>
         </div>
 
         <div>
@@ -55,7 +68,7 @@ import { SUPPORT_EMAIL } from '../config';
         <div>
           <h2 class="mb-3 text-xl font-semibold text-brand-text">Third parties</h2>
           <p>
-            Plausible provides analytics for the website and for the iPhone and Apple Watch apps (via AviaryInsights). <em>AtLeast</em> has no advertising SDKs.
+            Plausible provides analytics for the website and for the iPhone and Apple Watch apps (via AviaryInsights). RevenueCat processes in-app purchases and entitlements. Those are the only third parties <em>AtLeast</em> shares data with, and none of it is advertising: <em>AtLeast</em> has no advertising SDKs.
           </p>
         </div>
 

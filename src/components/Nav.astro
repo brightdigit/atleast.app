@@ -1,13 +1,20 @@
 ---
-import { TESTFLIGHT_URL } from '../config';
+import { APP_STORE_URL, PRIMARY_CTA, TESTFLIGHT_URL } from '../config';
 
 const links = [
   { href: '/use-cases', label: 'Use Cases' },
+  { href: '/guides', label: 'Guides' },
   { href: '/press', label: 'Press' },
   { href: '/privacy', label: 'Privacy' },
   { href: '/terms', label: 'Terms' },
   { href: '/support', label: 'Support' },
 ];
+
+// PRIMARY_CTA (src/config.ts) decides whether the button points at the beta or
+// the App Store. The tracking attributes stay in place either way.
+const isAppStore = PRIMARY_CTA === 'appstore';
+const ctaHref = isAppStore ? APP_STORE_URL : TESTFLIGHT_URL;
+const ctaLabel = isAppStore ? 'Download' : 'Join Beta';
 ---
 
 <nav class="fixed top-0 left-0 right-0 z-50 border-b border-brand-border/50 bg-brand-bg/80 backdrop-blur-lg">
@@ -48,14 +55,14 @@ const links = [
         )
       ))}
       <a
-        href={TESTFLIGHT_URL}
+        href={ctaHref}
         target="_blank"
         rel="noopener noreferrer"
         data-testflight-link
         data-tf-location="nav"
         class="rounded-full border border-brand-border bg-brand-surface px-4 py-1.5 text-sm text-brand-text transition-opacity hover:opacity-80"
       >
-        Join Beta
+        {ctaLabel}
       </a>
     </div>
   </div>
