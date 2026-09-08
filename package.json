@@ -11,8 +11,7 @@
     "generate:presskit": "node scripts/generate-press-kit-zip.js",
     "preview": "astro preview",
     "astro": "astro",
-    "lighthouse": "lhci autorun",
-    "check:links": "node scripts/check-links.js"
+    "lighthouse": "lhci autorun"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.2",
