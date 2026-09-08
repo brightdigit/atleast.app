@@ -1,0 +1,156 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import Layout from './Layout.astro';
+import Schema from '../components/Schema.astro';
+import ArticleBody from '../components/ArticleBody.astro';
+import ArticleCta from '../components/ArticleCta.astro';
+import Citations from '../components/Citations.astro';
+import RelatedArticles from '../components/RelatedArticles.astro';
+import {
+  APP_NAME,
+  CLUSTERS,
+  COMPANY_NAME,
+  COMPANY_WEBSITE_URL,
+  OG_IMAGE_URL,
+  WEBSITE_URL,
+} from '../config';
+
+interface Props {
+  entry: CollectionEntry<'articles'>;
+}
+
+const { entry } = Astro.props;
+const { data } = entry;
+const slug = entry.id;
+
+const cluster = CLUSTERS.find((c) => c.key === data.cluster);
+const clusterLabel = cluster?.label ?? data.cluster;
+
+const pageTitle = `${data.title} — ${APP_NAME}`;
+const canonicalURL = `${WEBSITE_URL}/${slug}/`;
+const dateModified = data.dateModified ?? data.datePublished;
+const iso = (d: Date) => d.toISOString().slice(0, 10);
+
+// RelatedArticles drops slugs that are not in the collection yet, plus
+// self-links and duplicates, so a pillar can list spokes before they exist.
+const relatedSlugs = data.related;
+
+const breadcrumbs = [
+  { name: 'Home', url: `${WEBSITE_URL}/` },
+  { name: 'Guides', url: `${WEBSITE_URL}/guides` },
+  { name: clusterLabel, url: `${WEBSITE_URL}/guides#${data.cluster}` },
+  { name: data.title, url: canonicalURL },
+];
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: breadcrumbs.map((crumb, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: crumb.name,
+    item: crumb.url,
+  })),
+};
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: data.title,
+  description: data.description,
+  datePublished: iso(data.datePublished),
+  dateModified: iso(dateModified),
+  author: {
+    '@type': 'Organization',
+    name: COMPANY_NAME,
+    url: COMPANY_WEBSITE_URL,
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: COMPANY_NAME,
+    logo: {
+      '@type': 'ImageObject',
+      url: `${WEBSITE_URL}/press/icons/apple-touch-icon.png`,
+    },
+  },
+  image: OG_IMAGE_URL,
+  mainEntityOfPage: {
+    '@type': 'WebPage',
+    '@id': canonicalURL,
+  },
+  citation: data.citations.map((c) => c.text),
+};
+
+const faqSchema =
+  data.faq.length > 0
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: data.faq.map((item) => ({
+          '@type': 'Question',
+          name: item.q,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: item.a,
+          },
+        })),
+      }
+    : null;
+---
+
+<Layout title={pageTitle} description={data.description}>
+  <Schema schema={articleSchema} />
+  <Schema schema={breadcrumbSchema} />
+  {faqSchema && <Schema schema={faqSchema} />}
+
+  <article class="px-6 py-24">
+    <div class="mx-auto max-w-3xl">
+      <nav aria-label="Breadcrumb">
+        <ol class="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-brand-muted">
+          {breadcrumbs.map((crumb, i) => (
+            <li class="flex items-center gap-2">
+              {i > 0 && <span aria-hidden="true">›</span>}
+              {i === breadcrumbs.length - 1 ? (
+                <span aria-current="page">{crumb.name}</span>
+              ) : (
+                <a href={new URL(crumb.url).pathname + new URL(crumb.url).hash} class="transition-colors hover:text-brand-text">
+                  {crumb.name}
+                </a>
+              )}
+            </li>
+          ))}
+        </ol>
+      </nav>
+
+      <h1 class="mt-8 text-4xl font-bold tracking-tight md:text-5xl">{data.title}</h1>
+
+      <p class="mt-6 text-lg leading-relaxed text-brand-muted">{data.description}</p>
+
+      <ArticleBody entry={entry} />
+
+      {data.faq.length > 0 && (
+        <section class="mt-16">
+          <h2 class="text-2xl font-semibold tracking-tight">Frequently asked questions</h2>
+          <dl class="mt-6 space-y-6">
+            {data.faq.map((item) => (
+              <div class="rounded-2xl border border-brand-border bg-brand-surface p-6">
+                <dt class="text-base font-semibold text-brand-text">{item.q}</dt>
+                <dd class="mt-2 text-base leading-relaxed text-brand-muted">{item.a}</dd>
+              </div>
+            ))}
+          </dl>
+        </section>
+      )}
+
+      <RelatedArticles slugs={relatedSlugs} currentSlug={slug} />
+
+      <Citations citations={data.citations} />
+
+      <ArticleCta
+        slug={slug}
+        heading="Set a floor, not a ceiling."
+        body="AtLeast taps your wrist during the practice and goes quiet when you have reached your minimum. It runs on Apple Watch, works offline, and needs no account."
+      />
+    </div>
+  </article>
+</Layout>
