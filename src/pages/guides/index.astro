@@ -36,14 +36,14 @@ const collectionSchema = {
   url: canonicalURL,
   mainEntity: {
     '@type': 'ItemList',
-    itemListElement: groups.flatMap((group) =>
-      group.articles.map((entry, i) => ({
+    itemListElement: groups
+      .flatMap((group) => group.articles)
+      .map((entry, i) => ({
         '@type': 'ListItem',
         position: i + 1,
         name: entry.data.title,
         url: `${WEBSITE_URL}/${entry.id}/`,
       })),
-    ),
   },
 };
 ---

@@ -4,8 +4,6 @@ on:
   pull_request:
     branches:
       - main
-      - '260907'
-      - '260907-reland'
       - 'v*'
   push:
     branches:

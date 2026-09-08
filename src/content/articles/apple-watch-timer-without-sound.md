@@ -28,7 +28,7 @@ faq:
   - q: "Can you run an Apple Watch timer without sound?"
     a: "Yes. Turn on Silent Mode from Control Center or Sounds & Haptics and you still receive haptic notifications, so the built-in Timer taps your wrist instead of chiming. Watch one caveat: while the Watch is charging, alarms and timers can still sound even in Silent Mode."
   - q: "Does Silent Mode stop the timer from vibrating too?"
-    a: "No. Silent Mode mutes sound and leaves haptics on. Do Not Disturb and Focus modes are different — they turn haptic notifications off as well, which is the wrong setting if you still want a wrist tap when time is up."
+    a: "No. Silent Mode mutes sound and leaves haptics on. Do Not Disturb is a Focus mode, and Focus can still deliver haptic alerts for notifications you allow — so whether you feel a wrist tap depends on that Focus’s settings. Use Silent Mode when you want quiet with a tap."
   - q: "How is a dedicated silent timer different from the built-in one?"
     a: "The built-in Timer is a countdown to one end-of-time buzz. A dedicated haptic timer can tap at an interval during the session and treat silence as the completion signal. AtLeast does that: mid-session taps for your minimum, then quiet."
 issue: 128
@@ -60,7 +60,7 @@ Silent Mode answers “can it be quiet?” It does not answer “does this prote
 
 **Charging still makes sound.** Apple notes that while Apple Watch is charging, “alarms and timers still sound, even in Silent Mode.”<sup><a href="#ref-3">[3]</a></sup> A nightstand charge is fine for a wake-up alarm; it is a surprise if you expected a muted kitchen timer on a dock.
 
-**Do Not Disturb is not Silent Mode.** Silent Mode keeps haptics on. Do Not Disturb and Focus turn haptic notifications off as well as sound.<sup><a href="#ref-3">[3]</a></sup> Theater Mode is closer to Silent Mode for this purpose: it silences sound, keeps the display dark on raise, and you still receive haptic notifications.<sup><a href="#ref-3">[3]</a></sup> Pick the mode for the outcome you want — quiet *with* a wrist tap, or quiet *without* one.
+**Do Not Disturb is not Silent Mode.** Silent Mode keeps haptics on. Do Not Disturb is a Focus mode, and Focus can still deliver haptic alerts for notifications you allow — so a wrist tap is not guaranteed off or on; it depends on that Focus’s allowed notifications.<sup><a href="#ref-3">[3]</a></sup> Theater Mode is closer to Silent Mode for this purpose: it silences sound, keeps the display dark on raise, and you still receive haptic notifications.<sup><a href="#ref-3">[3]</a></sup> If you want quiet *with* a wrist tap, Silent Mode is the reliable choice.
 
 None of these are bugs. They are the shape of a system timer built to expire. Practice timers often need a different shape.
 

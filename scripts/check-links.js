@@ -8,7 +8,7 @@
 // Usage: make check:links  (after make build)
 
 import { readdirSync, readFileSync, statSync, existsSync } from 'node:fs';
-import { join, dirname, resolve } from 'node:path';
+import { join, dirname, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -50,10 +50,19 @@ function normalize(href) {
   return path.replace(/\/+$/, '');
 }
 
+/** Absolute path under DIST for this internal URL path, or null if it escapes. */
+function targetUnderDist(path) {
+  const relative = path === '/' ? '' : path.replace(/^\//, '');
+  const target = resolve(DIST, relative);
+  if (target !== DIST && !target.startsWith(DIST + sep)) return null;
+  return target;
+}
+
 /** Does dist/ contain a file for this internal path? */
 function resolves(path) {
+  const target = targetUnderDist(path);
+  if (target === null) return false;
   if (path === '/') return existsSync(join(DIST, 'index.html'));
-  const target = join(DIST, path);
   return (
     (existsSync(target) && statSync(target).isFile()) ||
     existsSync(join(target, 'index.html'))

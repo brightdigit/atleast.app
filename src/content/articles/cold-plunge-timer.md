@@ -111,14 +111,7 @@ The published protocol most cold-exposure practitioners work from suggests a tot
 
 The recovery literature clusters in a similar band for a different purpose. A 2025 network meta-analysis of 55 randomised controlled trials found that 10–15 minutes at 11–15°C was most effective for reducing delayed-onset muscle soreness, and 10–15 minutes at 5–10°C most effective for the biochemical and neuromuscular markers it tracked<sup><a href="#ref-5">[5]</a></sup>. A 2025 systematic review of cold-water immersion for general health and wellbeing included studies at 7–15°C, and while it reported reduced stress at 12 hours post-immersion and improvements in sleep quality and quality of life, its authors were explicit that more robust evidence is needed to establish the safety profile and validate the claimed benefits<sup><a href="#ref-6">[6]</a></sup>. Cold water immersion after resistance training is a genuine trade-off rather than a free win: one controlled trial found it attenuated anabolic signalling and muscle fibre hypertrophy over seven weeks of training, though not strength gain<sup><a href="#ref-10">[10]</a></sup>.
 
-Taken together, a conservative way to set a floor:
-
-| Water temperature | A conservative starting minimum | Notes |
-|---|---|---|
-| 15°C / 59°F and up | 2–5 minutes | Mild enough to build tolerance; still cold enough to trigger a real response the first few times |
-| 10–15°C / 50–59°F | 1–3 minutes | The band most recovery protocols sit in |
-| 5–10°C / 41–50°F | 30 seconds – 2 minutes | Short by design; the cold does more per second |
-| Below 5°C / 41°F | 15–60 seconds, experienced only | Ice-heavy water; treat every session as its own decision |
+Taken together, a conservative way to set a floor: start around **10–15°C (50–59°F)** for **one to two minutes**, stay within the one-to-five-minute session band the weekly protocol describes, and do not treat water below about **4°C / 39°F** as a beginner target — ice-heavy water is a separate decision for experienced plungers with someone watching<sup><a href="#ref-1">[1]</a></sup>.
 
 **Start short.** The first session at any new temperature should be shorter than you think you can manage, and the honest reason is physiological rather than motivational. Sudden immersion in cold water triggers the cold shock response: an initial gasp, hypertension, and hyperventilation despite a profound hypocapnia. These respiratory responses "override both conscious and other autonomic respiratory controls and may act as a precursor to drowning"<sup><a href="#ref-2">[2]</a></sup>. That is not something you can decide your way out of on the first attempt.
 

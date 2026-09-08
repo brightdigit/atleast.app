@@ -46,7 +46,7 @@ faq:
   - q: "What tap interval should I use for box breathing?"
     a: "Four seconds. Box breathing is four equal phases of about four seconds, so a four-second tap lands on every phase change: inhale on one tap, hold on the next, exhale on the next, hold on the next."
   - q: "How do I pace an uneven pattern like 4-7-8?"
-    a: "Use a one-second interval and count the taps instead of counting in your head — four taps in, seven held, eight out. Alternatively set one short session per round and start a new one each time."
+    a: "Use a one-second interval and count the taps instead of counting in your head — four taps in, seven held, eight out. Or set a nineteen-second tap interval (one full 4-7-8 cycle) and a multi-round minimum of at least a minute, so each tap starts the next round."
   - q: "Is paced breathing safe?"
     a: "Slow breathing is generally considered safe for healthy people, but it is not a treatment and AtLeast is not a medical device. Stop if you feel dizzy or light-headed, never practise breath holds in or near water, and talk to a clinician before starting if you have a health condition."
 issue: 107

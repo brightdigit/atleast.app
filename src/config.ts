@@ -9,6 +9,10 @@ export const TESTFLIGHT_URL = "https://testflight.apple.com/join/WUR3Wf47";
 export const APP_STORE_URL = ""; // fill at launch
 export const PRIMARY_CTA: "testflight" | "appstore" = "testflight";
 
+if (PRIMARY_CTA === "appstore" && APP_STORE_URL.trim() === "") {
+  throw new Error('APP_STORE_URL is required when PRIMARY_CTA is "appstore"');
+}
+
 // Contact
 export const SUPPORT_EMAIL = "support@atleast.app";
 
