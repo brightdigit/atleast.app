@@ -23,3 +23,4 @@ directives for how to work in this repository.
 - Purchase history is processed by RevenueCat (anonymous app user ID, no accounts; app functionality + analytics; not linked to identity; not tracking); /privacy has a Purchases section and /terms a subscriptions clause—never imply "no third parties" or "no network".
 - CloudKit private-database sync for timers/history ships with app v1.0.0; "no AtLeast account" and "works offline" stay true, but do not imply nothing is ever synced — settings sync via the user's iCloud, which BrightDigit cannot read (#99).
 - After 260907 content PRs merge to main (and deploy), re-check internal article links on the live site — cross-links between milestone pages 404 on atleast.app until main ships (e.g. /timer-that-vibrates from #148).
+- Never merge PRs unless the user explicitly asks — open them, leave them for review.
