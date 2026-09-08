@@ -28,6 +28,40 @@
   }
 }
 
+/* Scroll-driven parallax for the hero media, CSS only (the site's CSP forbids
+   inline script, and animations here are CSS-only by convention). The hero sits
+   at the top of the page, so the `exit` range runs from scroll 0 until the hero
+   has left the viewport; translating the media down 40% over that range makes it
+   travel slower than the page, and the section's overflow-hidden clips the
+   overhang. Browsers without scroll-driven animations (no `animation-timeline`)
+   simply get a static full-width hero. */
+@keyframes hero-parallax {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(0, 40%, 0); }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .hero-media {
+      animation: hero-parallax linear both;
+      animation-timeline: view();
+      animation-range: exit 0% exit 100%;
+    }
+  }
+}
+
+/* Decorative ripple rings around the app icon divider. */
+@keyframes ripple {
+  0%   { opacity: 0.45; transform: scale(1); }
+  100% { opacity: 0;    transform: scale(2.2); }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .ring-ripple {
+    animation: ripple 4.5s ease-out infinite;
+  }
+}
+
 body {
   background-color: var(--color-brand-bg);
   color: var(--color-brand-text);

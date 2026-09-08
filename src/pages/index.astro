@@ -4,6 +4,7 @@ import StepCard from '../components/StepCard.astro';
 import UseCaseCard from '../components/UseCaseCard.astro';
 import FeatureRow from '../components/FeatureRow.astro';
 import AppStoreBadge from '../components/AppStoreBadge.astro';
+import AppIconRings from '../components/AppIconRings.astro';
 import Schema from '../components/Schema.astro';
 
 const steps = [
@@ -92,9 +93,11 @@ const howToSchema = {
   <Schema schema={softwareSchema} />
   <Schema schema={howToSchema} />
 
-  <!-- Hero -->
-  <section class="relative flex min-h-[85vh] flex-col items-center justify-center px-6 py-24 text-center">
-    <div class="mx-auto w-full max-w-3xl overflow-hidden rounded-2xl aspect-[800/449]">
+  <!-- Hero. Full-bleed: the negative top margin cancels the layout's pt-16 so the
+       media runs under the translucent nav, and overflow-hidden clips the
+       parallax overhang. -->
+  <section class="hero relative -mt-16 flex min-h-[70vh] items-end overflow-hidden md:min-h-[85vh]">
+    <div class="hero-media absolute inset-0">
       <video
         class="hero-loop h-full w-full object-cover"
         autoplay
@@ -119,16 +122,28 @@ const howToSchema = {
         loading="eager"
       />
     </div>
-    <h1 class="mt-12 text-5xl font-bold tracking-tight md:text-7xl">
-      Done when the silence comes.
-    </h1>
-    <p class="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-brand-muted">
-      <em>AtLeast</em> taps your Apple Watch gently during your practice. When tapping stops, you've reached your minimum.
-    </p>
-    <p class="sr-only">
-      <em>AtLeast</em> is a passive haptic timer for Apple Watch. It uses gentle taps to mark time intervals during meditation, breathwork, and cold plunge sessions — no screens, just rhythm.
-    </p>
-    <AppStoreBadge class="mt-8" />
+    <div
+      class="absolute inset-0 bg-gradient-to-t from-brand-bg via-brand-bg/70 to-brand-bg/10"
+      aria-hidden="true"
+    >
+    </div>
+    <div class="relative z-10 mx-auto w-full max-w-3xl px-6 pb-20 pt-48 text-center">
+      <h1 class="text-5xl font-bold tracking-tight md:text-7xl">
+        Done when the silence comes.
+      </h1>
+      <p class="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-brand-muted">
+        <em>AtLeast</em> taps your Apple Watch gently during your practice. When tapping stops, you've reached your minimum.
+      </p>
+      <p class="sr-only">
+        <em>AtLeast</em> is a passive haptic timer for Apple Watch. It uses gentle taps to mark time intervals during meditation, breathwork, and cold plunge sessions — no screens, just rhythm.
+      </p>
+      <AppStoreBadge class="mt-8" />
+    </div>
+  </section>
+
+  <!-- App icon divider -->
+  <section class="flex justify-center px-6 pt-24">
+    <AppIconRings />
   </section>
 
   <!-- How It Works -->
