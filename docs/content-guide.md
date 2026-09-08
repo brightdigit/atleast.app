@@ -1,8 +1,7 @@
 # Content Guide — How to Add an Article
 
 Everything you need to write and ship a guide article. Read
-[`docs/positioning.md`](positioning.md) first for voice and claims, and
-`docs/plans/260907-milestone-plan.md` §2 for the full product-truth list.
+[`docs/positioning.md`](positioning.md) first for voice and claims.
 
 Articles live in `src/content/articles/<slug>.md`. **The file name is the
 slug** — `box-breathing-timer.md` publishes at `/box-breathing-timer`. They are
@@ -153,8 +152,7 @@ clear the content layer cache: `rm -rf node_modules/.astro dist && make build`.
 
 ## Do not claim
 
-From `docs/plans/260907-milestone-plan.md` §2. These are the ways it is easiest
-to accidentally lie about the product.
+These are the ways it is easiest to accidentally lie about the product.
 
 - **No multi-phase breathing patterns.** The app has one tap interval per
   session — it does not know your pattern and cannot cue inhale/hold/exhale

@@ -2,8 +2,7 @@
 
 The short answer to "who is this for, what is it, and why is it better." Use it
 as the source of truth for marketing copy, article intros, and App Store text.
-Every claim here is verifiable on the live site or in
-`docs/plans/260907-milestone-plan.md` §2 ("Product truth").
+Every claim here is verifiable on the live site.
 
 ---
 
