@@ -94,28 +94,16 @@ const howToSchema = {
 
   <!-- Hero -->
   <section class="relative flex min-h-[85vh] flex-col items-center justify-center px-6 py-24 text-center">
-    <div class="mx-auto w-full max-w-3xl overflow-hidden rounded-2xl aspect-[800/449]">
-      <video
-        class="hero-loop h-full w-full object-cover"
-        autoplay
-        loop
-        muted
-        playsinline
-        preload="metadata"
-        width="1600"
-        height="898"
-        poster="/demo/atleast-loop-poster.jpg"
-        aria-label="Looping animation of AtLeast tapping an Apple Watch"
-      >
-        <source src="/demo/atleast-loop.webm" type="video/webm" />
-        <source src="/demo/atleast-loop.mp4" type="video/mp4" />
-      </video>
+    <div class="relative flex items-center justify-center">
+      <span class="absolute h-64 w-64 rounded-full border-2 border-brand-accent/40" style="animation: ripple 4.5s ease-out infinite;" aria-hidden="true"></span>
+      <span class="absolute h-64 w-64 rounded-full border-2 border-brand-pulse/40" style="animation: ripple 4.5s ease-out 1.5s infinite;" aria-hidden="true"></span>
+      <span class="absolute h-64 w-64 rounded-full border-2 border-brand-accent/40" style="animation: ripple 4.5s ease-out 3s infinite;" aria-hidden="true"></span>
       <img
-        src="/demo/atleast-loop-poster.jpg"
-        alt="Overhead view of a seated person resting their hands in their lap, with concentric rings radiating from the AtLeast timer on their Apple Watch."
-        width="1600"
-        height="898"
-        class="hero-loop-fallback h-full w-full object-cover"
+        src="/press/icons/watchos/icon-512.webp"
+        alt="AtLeast app icon"
+        width="256"
+        height="256"
+        class="relative h-64 w-64 rounded-full"
         loading="eager"
       />
     </div>
@@ -229,38 +217,6 @@ const howToSchema = {
           </tbody>
         </table>
       </div>
-      <p class="mt-6 text-center text-sm text-brand-muted">
-        See how <em>AtLeast</em> compares to the built-in Apple Watch Timer, the Mindfulness app, and
-        named third-party apps in the full
-        <a href="/compare" class="text-brand-accent hover:underline">comparison table</a>.
-      </p>
-    </div>
-  </section>
-
-  <!-- Guides -->
-  <section class="px-6 py-24">
-    <div class="mx-auto max-w-3xl text-center">
-      <h2 class="mb-4 text-3xl font-semibold md:text-4xl">Guides for your practice</h2>
-      <p class="mx-auto mb-10 max-w-xl text-lg leading-relaxed text-brand-muted">
-        How to pace a practice by feel instead of by screen — start with the guide closest to yours.
-      </p>
-      <div class="flex flex-wrap items-center justify-center gap-4">
-        <a href="/breathing-pacer" class="rounded-full border border-brand-border bg-brand-surface px-5 py-2.5 text-sm text-brand-text transition-colors hover:border-brand-accent/50">
-          Breathing pacer
-        </a>
-        <a href="/apple-watch-meditation-timer" class="rounded-full border border-brand-border bg-brand-surface px-5 py-2.5 text-sm text-brand-text transition-colors hover:border-brand-accent/50">
-          Apple Watch meditation timer
-        </a>
-        <a href="/cold-plunge-timer" class="rounded-full border border-brand-border bg-brand-surface px-5 py-2.5 text-sm text-brand-text transition-colors hover:border-brand-accent/50">
-          Cold plunge timer
-        </a>
-        <a href="/timer-that-vibrates" class="rounded-full border border-brand-border bg-brand-surface px-5 py-2.5 text-sm text-brand-text transition-colors hover:border-brand-accent/50">
-          Timer that vibrates
-        </a>
-      </div>
-      <p class="mt-8 text-base text-brand-muted">
-        <a href="/guides" class="text-brand-accent hover:underline">Browse all guides</a>
-      </p>
     </div>
   </section>
 
