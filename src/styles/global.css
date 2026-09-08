@@ -28,6 +28,43 @@
   }
 }
 
+/* Scroll-driven parallax for the hero media, CSS only (the site's CSP forbids
+   inline script, and animations here are CSS-only by convention). The timeline
+   is the root scroller (`scroll(root)`), not `view()`: the hero section is
+   overflow-hidden, which makes it a scroll container of its own, so a view
+   timeline on the media would resolve against the section and never advance.
+   Over the first viewport of scrolling the media is translated down by half a
+   viewport, so it travels at half the page's speed; the section's
+   overflow-hidden clips the overhang. Browsers without scroll-driven animations
+   (no `animation-timeline`) simply get a static full-width hero. */
+@keyframes hero-parallax {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(0, 50vh, 0); }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: scroll(root)) {
+    .hero-media {
+      animation: hero-parallax linear both;
+      animation-timeline: scroll(root);
+      animation-range: 0 100vh;
+      will-change: transform;
+    }
+  }
+}
+
+/* Decorative ripple rings around the app icon divider. */
+@keyframes ripple {
+  0%   { opacity: 0.45; transform: scale(1); }
+  100% { opacity: 0;    transform: scale(2.2); }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .ring-ripple {
+    animation: ripple 4.5s ease-out infinite;
+  }
+}
+
 body {
   background-color: var(--color-brand-bg);
   color: var(--color-brand-text);
