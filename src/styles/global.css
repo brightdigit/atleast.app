@@ -29,23 +29,26 @@
 }
 
 /* Scroll-driven parallax for the hero media, CSS only (the site's CSP forbids
-   inline script, and animations here are CSS-only by convention). The hero sits
-   at the top of the page, so the `exit` range runs from scroll 0 until the hero
-   has left the viewport; translating the media down 40% over that range makes it
-   travel slower than the page, and the section's overflow-hidden clips the
-   overhang. Browsers without scroll-driven animations (no `animation-timeline`)
-   simply get a static full-width hero. */
+   inline script, and animations here are CSS-only by convention). The timeline
+   is the root scroller (`scroll(root)`), not `view()`: the hero section is
+   overflow-hidden, which makes it a scroll container of its own, so a view
+   timeline on the media would resolve against the section and never advance.
+   Over the first viewport of scrolling the media is translated down by half a
+   viewport, so it travels at half the page's speed; the section's
+   overflow-hidden clips the overhang. Browsers without scroll-driven animations
+   (no `animation-timeline`) simply get a static full-width hero. */
 @keyframes hero-parallax {
   from { transform: translate3d(0, 0, 0); }
-  to   { transform: translate3d(0, 40%, 0); }
+  to   { transform: translate3d(0, 50vh, 0); }
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  @supports (animation-timeline: view()) {
+  @supports (animation-timeline: scroll(root)) {
     .hero-media {
       animation: hero-parallax linear both;
-      animation-timeline: view();
-      animation-range: exit 0% exit 100%;
+      animation-timeline: scroll(root);
+      animation-range: 0 100vh;
+      will-change: transform;
     }
   }
 }
