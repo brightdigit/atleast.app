@@ -28,6 +28,10 @@ function copyAppleTouchIcons() {
 // https://astro.build/config
 export default defineConfig({
   site: 'https://atleast.app',
+  // Astro 7 defaults compressHTML to 'jsx', which strips whitespace between
+  // inline elements (e.g. the many `<em>AtLeast</em>` runs inside prose).
+  // `true` keeps the Astro 6 whitespace-safe minification behaviour.
+  compressHTML: true,
   integrations: [icon(), sitemap(), copyAppleTouchIcons()],
   vite: {
     plugins: [tailwindcss()],
