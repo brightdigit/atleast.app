@@ -28,6 +28,18 @@
   }
 }
 
+/* Same swap, but for browsers that refuse muted autoplay (Safari's per-site
+   Auto-Play setting, Low Power Mode). hero-video.js sets the attribute after
+   play() is rejected; without it Safari renders the poster plus a play button,
+   and that button is a dead end for a decorative background loop. */
+.hero-loop[data-autoplay-blocked] {
+  display: none;
+}
+
+.hero-loop[data-autoplay-blocked] ~ .hero-loop-fallback {
+  display: block;
+}
+
 /* Scroll-driven parallax for the hero media, CSS only (the site's CSP forbids
    inline script, and animations here are CSS-only by convention). The timeline
    is the root scroller (`scroll(root)`), not `view()`: the hero section is

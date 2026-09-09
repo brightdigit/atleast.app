@@ -111,8 +111,8 @@ const howToSchema = {
         poster="/demo/atleast-loop-poster.jpg"
         aria-label="Looping animation of AtLeast tapping an Apple Watch"
       >
-        <source src="/demo/atleast-loop.webm" type="video/webm" />
         <source src="/demo/atleast-loop.mp4" type="video/mp4" />
+        <source src="/demo/atleast-loop.webm" type="video/webm" />
       </video>
       <img
         src="/demo/atleast-loop-poster.jpg"
@@ -171,8 +171,8 @@ const howToSchema = {
           poster="/demo/atleast-demo-poster.jpg"
           aria-label="An Apple Watch and iPhone side by side. Selecting a timer on iPhone starts a session on the Watch, and the iPhone mirrors the gentle haptic taps in real time."
         >
-          <source src="/demo/atleast-demo.webm" type="video/webm" />
           <source src="/demo/atleast-demo.mp4" type="video/mp4" />
+          <source src="/demo/atleast-demo.webm" type="video/webm" />
           <img
             src="/demo/atleast-demo-poster.jpg"
             alt="An Apple Watch and iPhone side by side, showing AtLeast mirroring a live timer session between the two devices."
@@ -300,4 +300,8 @@ const howToSchema = {
       </div>
     </div>
   </section>
+  <!-- Swaps the hero loop for its poster when a browser refuses muted autoplay
+       (Safari per-site Auto-Play, Low Power Mode), so no dead play button is
+       left on a decorative video. External file: CSP is script-src 'self'. -->
+  <script src="/hero-video.js" is:inline></script>
 </Layout>
