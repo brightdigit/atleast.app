@@ -73,12 +73,12 @@ the way to check a query change here. Pass flags through `ARGS="..."`.
   newest item is over `--stale-days` (default 365) old to `stale`. Only item-level feed
   dates count — platforms stamp a current lastBuildDate on dead feeds.
 - **Sending is always manual.** Write a recipient-facing `hookLine` on each plan entry
-  first, then `make drafts` (leads/scripts/make-drafts.py) IMAP-appends complete Gmail
-  drafts — never sends. Leads without a `hookLine` are skipped (no `[[ ]]` placeholders).
-  Each draft still carries a `[[ NOTES ]]` crib block to delete before sending; notes are
-  mirrored to `leads/drafts/notes-<date>.md`. Default batch is 15/day; drafted leads are
-  tracked in `leads/drafts/log.json`. Templates live in `leads/templates/` in the private
-  leads repo.
+  first (`hookLine` is not `pitchAngle` — that stays internal, notes-only), then
+  `make drafts` IMAP-appends complete Gmail drafts — never sends. Leads without a
+  `hookLine` are skipped. Each draft still carries a `[[ NOTES ]]` crib block to delete
+  before sending; notes are mirrored to `leads/drafts/notes-<date>.md`. Default batch is
+  15/day; drafted leads are tracked in `leads/drafts/log.json`. Templates live in
+  `leads/templates/` in the private leads repo.
 
 ## Architecture
 
