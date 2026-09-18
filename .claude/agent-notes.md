@@ -25,3 +25,4 @@ directives for how to work in this repository.
 - After 260907 content PRs merge to main (and deploy), re-check internal article links on the live site — cross-links between milestone pages 404 on atleast.app until main ships (e.g. /timer-that-vibrates from #148).
 - Never merge PRs unless the user explicitly asks — open them, leave them for review.
 - Safari 27 fully decodes VP9 (`canPlayType` "probably"); a hero video showing poster+play button there is muted-autoplay being refused (per-site Auto-Play setting / Low Power Mode), NOT a codec or `<source>`-order problem — verify with `play()`'s rejection before theorising.
+- Outreach drafts: write plan `hookLine` first, then `make drafts`; do not use the old `[[ ]]` placeholder flow. Appedus is post-launch only (held in drafts log like 148Apps/TidBITS).
