@@ -120,9 +120,10 @@ Last updated: [date]
 AtLeast is privacy-first. No accounts. Session and haptic logic run on-device.
 Limited cookieless Plausible analytics on the website, iPhone app, and Apple Watch app.
 
-What stays on-device:
-- Timer settings stay on the user's devices (not as an account/profile); do not name a storage API
-- Session and haptic logic — local on the watch
+Where your data lives:
+- Session and haptic logic — local on the watch; the app works with no network
+- Nothing uploaded as an AtLeast account or profile; no server of our own
+- Custom timers and session history sync through the user's own private iCloud database — BrightDigit cannot read it; do not name a storage API for local persistence
 - Starting a session also sends limited configuration via analytics (below)—never for advertising
 
 Analytics:
@@ -130,14 +131,24 @@ Analytics:
 - iPhone and Apple Watch apps (AviaryInsights / Plausible): ios_open (watch_paired); pageview screen views; session_start with duration_seconds, tap_interval_seconds, haptic_config, preloaded_from_phone
 - Cookieless; no persistent identifiers; not used for advertising or cross-app/site tracking
 
+Crash reports:
+- Sentry receives crash and error reports from the iPhone and Apple Watch apps (Debug and Release)
+- A report covers the error, where in the code it happened, and device/app version — no personal profile, never advertising
+- Shares the analytics opt-out: one in-app "Analytics & crash reports" toggle controls both
+
+Purchases:
+- RevenueCat processes purchases and entitlements against an anonymous app user ID — still no accounts
+- Used for unlocking Pro and receipt validation, plus purchase analytics; not linked to identity, not advertising
+
 What we do not collect:
 - No accounts or sign-in
-- No crash reporting sent off-device
 - No personal identifiers or advertising IDs
 - No location data
+- No advertising SDKs, no cross-app or cross-site tracking
 
 Third parties:
-- Plausible (and AviaryInsights on iPhone and Apple Watch). No advertising SDKs.
+- Plausible (and AviaryInsights on iPhone and Apple Watch), Sentry, RevenueCat. No advertising SDKs.
+- Synced timers/history live in the user's own iCloud account, not in any system of ours.
 
 Contact:
 support@atleast.app
