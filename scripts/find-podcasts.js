@@ -34,7 +34,7 @@ import { scoreContact, byContactQuality, renderContactLines, normalizeUrl } from
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const rootDir = join(__dirname, '..');
-const outputDir = join(rootDir, 'leads');
+const outputDir = join(rootDir, 'leads', 'reports');
 
 const API_BASE = 'https://api.podcastindex.org/api/1.0';
 const DEFAULT_MAX = 25;
