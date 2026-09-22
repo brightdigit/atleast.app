@@ -68,7 +68,7 @@ One caveat the pacer market rarely mentions. In the largest placebo-controlled b
 
 ## The patterns people pace
 
-**Box breathing** is the pattern most people arrive with. Cleveland Clinic describes it as four counts in through the nose, four held, four out, four held, repeated for three to four rounds once or twice a day, and lists square breathing, four-square breathing, 4x4 breathing, and equal breathing as other names for the same closed square<sup><a href="#ref-4">[4]</a></sup>.
+**Box breathing** is the pattern most people arrive with. Cleveland Clinic describes it as four counts in through the nose, four held, four out, four held, repeated for three to four rounds once or twice a day<sup><a href="#ref-4">[4]</a></sup>. It goes by other names — square breathing, four-square breathing — but the shape is always the same closed square.
 
 **4-7-8** is the pattern popular for bedtime: four counts in, seven held, eight out, for four cycles<sup><a href="#ref-5">[5]</a></sup>. What carries it is the long exhale and the slow overall rate — one cycle is nineteen seconds, roughly three breaths a minute — which is exactly what fits the slow-breathing evidence<sup><a href="#ref-1">[1]</a></sup>. Eight rounds take about two and a half minutes.
 
