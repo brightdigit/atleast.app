@@ -3,7 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import PracticeCard from '../components/PracticeCard.astro';
 import SectionHeading from '../components/SectionHeading.astro';
 import { Icon } from 'astro-icon/components';
-import { COMPANY_NAME, WEBSITE_URL, SUPPORT_EMAIL, PRICING, PRO_PRICE_LINE } from '../config';
+import { COMPANY_NAME, WEBSITE_URL, SUPPORT_EMAIL, PRICING } from '../config';
 
 interface Fact {
   label: string;
@@ -13,20 +13,21 @@ interface Fact {
   note?: { label: string; href: string };
 }
 
-const price = `${PRICING.download} (AtLeast Pro: ${PRO_PRICE_LINE})`;
+// Free to download; the Pro plans get their own sheet, linked from the Price row.
+const price: Fact = { label: 'Price', value: PRICING.download, note: { label: 'AtLeast Pro', href: '#atleast-pro' } };
 
 // Apple's own compatibility lists, pinned to the 26 releases our minimum OS names.
 const WATCHOS_26_MODELS_URL = 'https://support.apple.com/guide/watch/apd2054d0d5b/26/watchos/26';
 const IOS_26_MODELS_URL = 'https://support.apple.com/guide/iphone/iphone-models-compatible-with-ios-26-iphe3fa5df43/26/ios/26';
 
-const factSheets: { title: string; icon: string; facts: Fact[] }[] = [
+const factSheets: { title: string; icon: string; id?: string; facts: Fact[] }[] = [
   {
     title: 'Apple Watch',
     icon: 'ph:watch',
     facts: [
       { label: 'Platform', value: 'watchOS' },
       { label: 'Minimum OS', value: 'watchOS 26.0', note: { label: 'Compatible Apple Watch models', href: WATCHOS_26_MODELS_URL } },
-      { label: 'Price', value: price },
+      price,
       { label: 'Category', value: 'Health & Fitness' },
     ],
   },
@@ -36,7 +37,7 @@ const factSheets: { title: string; icon: string; facts: Fact[] }[] = [
     facts: [
       { label: 'Platform', value: 'iOS' },
       { label: 'Minimum OS', value: 'iOS 26.0', note: { label: 'Compatible iPhone models', href: IOS_26_MODELS_URL } },
-      { label: 'Price', value: price },
+      price,
       { label: 'Category', value: 'Health & Fitness' },
     ],
   },
@@ -47,6 +48,17 @@ const factSheets: { title: string; icon: string; facts: Fact[] }[] = [
       { label: 'Developer', value: COMPANY_NAME },
       { label: 'Website', value: WEBSITE_URL.replace('https://', ''), href: WEBSITE_URL },
       { label: 'Support', value: SUPPORT_EMAIL, href: `mailto:${SUPPORT_EMAIL}` },
+    ],
+  },
+  {
+    title: 'AtLeast Pro',
+    icon: 'ph:crown-simple',
+    id: 'atleast-pro',
+    facts: [
+      { label: 'Monthly', value: PRICING.pro.monthly },
+      { label: 'Annual', value: `${PRICING.pro.annual} with a ${PRICING.pro.annualTrial}` },
+      { label: 'AtLeast Founder', value: PRICING.pro.lifetime },
+      { label: 'Includes', value: 'Your own timers, History, every Session Type' },
     ],
   },
 ];
@@ -203,7 +215,7 @@ const iconDownloads = [
       <div class="mt-6 space-y-6">
         {factSheets.map((sheet) => (
           <div>
-            <h3 class="mb-3 flex items-center gap-2 text-lg font-medium text-brand-text">
+            <h3 id={sheet.id} class:list={['mb-3 flex items-center gap-2 text-lg font-medium text-brand-text', sheet.id && 'scroll-mt-24']}>
               <Icon name={sheet.icon} class="h-5 w-5 text-brand-accent" />
               {sheet.title}
             </h3>
@@ -218,7 +230,11 @@ const iconDownloads = [
                       <span class="text-sm text-brand-muted">{fact.value}</span>
                     )}
                     {fact.note && (
-                      <a href={fact.note.href} target="_blank" rel="noopener noreferrer" class="text-xs text-brand-accent hover:underline">
+                      <a
+                        href={fact.note.href}
+                        {...(fact.note.href.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                        class="text-xs text-brand-accent hover:underline"
+                      >
                         {fact.note.label}
                       </a>
                     )}
