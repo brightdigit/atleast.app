@@ -6,6 +6,7 @@ import FeatureRow from '../components/FeatureRow.astro';
 import AppStoreBadge from '../components/AppStoreBadge.astro';
 import AppIconRings from '../components/AppIconRings.astro';
 import Schema from '../components/Schema.astro';
+import { PRICING, PRO_PRICE_LINE } from '../config';
 
 const steps = [
   {
@@ -139,6 +140,9 @@ const howToSchema = {
         <em>AtLeast</em> is a passive haptic timer for Apple Watch. It uses gentle taps to mark time intervals during meditation, breathwork, and cold plunge sessions — no screens, just rhythm.
       </p>
       <AppStoreBadge class="mt-8" />
+      <p class="mt-4 text-sm text-brand-text/70 drop-shadow-md">
+        {PRICING.download} to download. <em>AtLeast</em> Pro is optional: {PRO_PRICE_LINE}.
+      </p>
     </div>
   </section>
 
