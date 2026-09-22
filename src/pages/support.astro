@@ -1,56 +1,147 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Schema from '../components/Schema.astro';
+import PracticeCard from '../components/PracticeCard.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import { Icon } from 'astro-icon/components';
 import { SUPPORT_EMAIL } from '../config';
 
-const faqs = [
+// Grouped for the jump grid and section headings; every question also gets
+// its own anchor (slug of the question text) so it can be linked directly.
+const sections = [
   {
-    question: 'Why did my taps stop before my timer finished?',
-    answer: 'If taps stopped, you\'ve reached your minimum duration. The silence is intentional — it means you\'re done.',
+    id: 'how-it-works',
+    icon: 'ph:hand-tap',
+    title: 'How it works',
+    blurb: 'Taps, silence, and why there is no alarm.',
+    faqs: [
+      {
+        question: 'What is a passive timer?',
+        answer: 'A passive timer runs in the background without requiring your attention. <em>AtLeast</em> uses haptic taps — gentle vibrations on your wrist — to mark intervals, so you can keep your eyes closed during meditation or stay focused during breathwork without ever checking a screen.',
+      },
+      {
+        question: 'Why did my taps stop?',
+        answer: 'Usually because you\'ve reached your minimum duration. The silence is intentional — it means you\'ve done enough, and you can keep going as long as you like. When a session ends, <em>AtLeast</em> tells you which way it went: <strong>Reached your minimum</strong>, or <strong>Ended early</strong> if the session stopped before your minimum (for example, when the app was closed). It never shows how much time was left.',
+      },
+      {
+        question: 'Why is there no countdown?',
+        answer: 'That\'s the whole idea. A countdown invites you to watch the clock. <em>AtLeast</em> shows no countdown, no progress ring, and no elapsed time while you practice — just gentle taps until you\'ve reached your minimum, then silence.',
+      },
+      {
+        question: 'Why doesn\'t <em>AtLeast</em> alarm when it finishes?',
+        answer: 'That\'s by design. The absence of taps is the signal. No alarm means no interruption to your flow state.',
+      },
+      {
+        question: 'Can I use <em>AtLeast</em> with the screen off?',
+        answer: 'Yes. <em>AtLeast</em> runs as a background session on Apple Watch, so the taps continue with your wrist down and the display off.',
+      },
+      {
+        question: 'Can I change how the taps feel?',
+        answer: 'Yes. Each timer has a tap interval and a haptic strength, with six strengths from gentle to max. Tweak them before you start, or save the combination as your own timer with AtLeast Pro.',
+      },
+    ],
   },
   {
-    question: 'Can I use <em>AtLeast</em> with the screen off?',
-    answer: 'Yes. <em>AtLeast</em> uses an Extended Runtime Session to continue haptics with the watch face off.',
+    id: 'devices',
+    icon: 'ph:watch',
+    title: 'Apple Watch & iPhone',
+    blurb: 'Supported devices, and running on either one.',
+    faqs: [
+      {
+        question: 'What devices are supported?',
+        answer: 'Any Apple Watch running watchOS 26.0 or later, and any iPhone running iOS 26.0 or later.',
+      },
+      {
+        question: 'Can I use <em>AtLeast</em> without my iPhone?',
+        answer: 'Yes. The Apple Watch app runs on its own. If your iPhone is nearby, the companion lets you pick a timer and follow the live session — but it is never required.',
+      },
+      {
+        question: 'Can I use <em>AtLeast</em> without an Apple Watch?',
+        answer: 'Yes. On your iPhone, switch the destination from Apple Watch to <strong>This iPhone</strong> and the session runs on the phone, tapping from there. The Watch is still the best eyes-free experience, because the taps are on your wrist.',
+      },
+      {
+        question: 'What does the iPhone app do?',
+        answer: 'Choose a timer on your iPhone and start it on your Apple Watch — your iPhone mirrors the live session in real time. You can also run a session on the iPhone itself, create your own timers, and look back on your History. Settings, AtLeast Pro, and the analytics toggle live on the iPhone too.',
+      },
+      {
+        question: 'Does <em>AtLeast</em> work offline?',
+        answer: 'Yes. Timers run on your device with no internet connection required — perfect for airplane meditation, remote locations, or simply staying disconnected. Your timers and History catch up through iCloud the next time you\'re online.',
+      },
+    ],
   },
   {
-    question: 'Why doesn\'t <em>AtLeast</em> alarm when it finishes?',
-    answer: 'That\'s by design. The absence of taps is the signal. No alarm means no interruption to your flow state.',
+    id: 'practices',
+    icon: 'ph:flower-lotus',
+    title: 'Your practice',
+    blurb: 'Cold plunge, breathwork, and more.',
+    faqs: [
+      {
+        question: 'Is <em>AtLeast</em> good for cold plunge sessions?',
+        answer: 'Yes. <em>AtLeast</em> suits cold plunge because you can keep your eyes closed and focus on breathing while gentle taps mark your intervals. It works offline on your Apple Watch, with an optional iPhone companion when you want to follow along.',
+      },
+      {
+        question: 'Can I use <em>AtLeast</em> for breathwork?',
+        answer: 'Yes. <em>AtLeast</em> taps at one steady interval, which pairs naturally with box breathing — a 4-second interval taps at every phase change. For uneven patterns like 4-7-8 or Wim Hof rounds, use a short steady interval to count against. Eyes closed, fully present.',
+      },
+    ],
   },
   {
-    question: 'What Apple Watch models are supported?',
-    answer: 'Apple Watch Series 6 or later running watchOS 26.0 or later.',
+    id: 'pro',
+    icon: 'ph:crown-simple',
+    title: 'AtLeast Pro',
+    blurb: 'What is free, what Pro adds, and purchases.',
+    faqs: [
+      {
+        question: 'What is free, and what does AtLeast Pro add?',
+        answer: 'The built-in timers and the Mindful Minutes and Yoga session types are free. AtLeast Pro adds saving your own timers, History, and every session type. Pro is available as a monthly or annual subscription (the annual plan starts with a 7-day free trial) or as a one-time AtLeast Founder purchase.',
+      },
+      {
+        question: 'How do I restore or manage my purchase?',
+        answer: 'On your iPhone, open Settings. You\'ll find Restore Purchases, Manage Subscriptions, and Redeem Offer Code there. Subscriptions renew automatically until you cancel them in your Apple Account settings. Once Pro is active on your iPhone, your Apple Watch unlocks too.',
+      },
+    ],
   },
   {
-    question: 'Can I use <em>AtLeast</em> without my iPhone?',
-    answer: 'Yes. The Apple Watch app runs on its own, and the taps always happen on your wrist. If you have your iPhone nearby, the optional companion lets you pre-load a timer and mirror the live session — but it is never required.',
+    id: 'health-history',
+    icon: 'ph:heartbeat',
+    title: 'Health & History',
+    blurb: 'Apple Health, History, and iCloud sync.',
+    faqs: [
+      {
+        question: 'Does <em>AtLeast</em> work with Apple Health?',
+        answer: 'Yes, if you want it to. Give a timer a session type and each finished session is saved to Apple Health as Mindful Minutes or a workout, such as Yoga, Flexibility, or Cooldown. <em>AtLeast</em> asks for permission the first time you pick a session type. It only writes to Health — it never reads your Health data.',
+      },
+      {
+        question: 'What is History, and do my sessions sync?',
+        answer: 'History lists every session you finish, grouped by day, with streaks and quiet minutes. <em>AtLeast</em> records your sessions whether or not you have Pro; Pro shows them to you. Your timers and History sync between your devices through your own private iCloud, which we cannot access.',
+      },
+    ],
   },
   {
-    question: 'Is there an iPhone app?',
-    answer: 'Yes. <em>AtLeast</em> includes an iPhone companion. Pick and pre-load a timer on your iPhone, press Start on your Apple Watch, and your iPhone mirrors the live session in real time. The Watch remains the core, eyes-free experience — the companion is optional.',
-  },
-  {
-    question: 'What is a passive timer?',
-    answer: 'A passive timer runs in the background without requiring your attention. <em>AtLeast</em> uses haptic taps — gentle vibrations on your wrist — to mark intervals, so you can keep your eyes closed during meditation or stay focused during breathwork without ever checking a screen.',
-  },
-  {
-    question: 'Does <em>AtLeast</em> require an account?',
-    answer: 'No. <em>AtLeast</em> works right away with no account, no sign-up, and no setup. Just open the app on your Apple Watch and start.',
-  },
-  {
-    question: 'Is <em>AtLeast</em> good for cold plunge sessions?',
-    answer: 'Yes. <em>AtLeast</em> is perfect for cold plunge because you can keep your eyes closed and focus on breathing while gentle taps mark your intervals. It works completely offline on your Apple Watch, with an optional iPhone companion when you want to follow along.',
-  },
-  {
-    question: 'Does <em>AtLeast</em> work offline?',
-    answer: 'Yes. <em>AtLeast</em> runs entirely on your Apple Watch with no internet connection required. Perfect for airplane meditation, remote locations, or simply staying disconnected.',
-  },
-  {
-    question: 'Can I use <em>AtLeast</em> for breathwork?',
-    answer: 'Absolutely. <em>AtLeast</em> pairs naturally with Wim Hof, box breathing, and 4-7-8 breathing techniques. Set an interval to match your breath cycles and let the gentle taps guide your rhythm — eyes closed, fully present.',
+    id: 'privacy',
+    icon: 'ph:shield-check',
+    title: 'Privacy',
+    blurb: 'Accounts and what data leaves your device.',
+    faqs: [
+      {
+        question: 'Does <em>AtLeast</em> require an account?',
+        answer: 'No. <em>AtLeast</em> works right away with no account and no sign-up — even for AtLeast Pro. Just open the app and start.',
+      },
+      {
+        question: 'Does <em>AtLeast</em> collect any data?',
+        answer: 'Very little, and nothing for advertising or tracking. The apps send anonymous, cookieless usage statistics and crash reports, which you can turn off with the Analytics & crash reports toggle in Settings. Purchases are handled with an anonymous ID, and your timers and History sync through your own iCloud. See our <a href="/privacy/" class="text-brand-accent underline">Privacy Policy</a> for the details.',
+      },
+    ],
   },
 ];
 
+const faqs = sections.flatMap((section) => section.faqs);
+
 const stripHtml = (str: string) => str.replace(/<[^>]*>/g, '');
+
+// Anchor id for a question, e.g. "Why did my taps stop?" → "why-did-my-taps-stop".
+const slugify = (str: string) =>
+  stripHtml(str).toLowerCase().replace(/&[a-z]+;|['’]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 
 const faqSchema = {
   '@context': 'https://schema.org',
@@ -74,19 +165,45 @@ const faqSchema = {
 
   <section class="px-6 py-24">
     <div class="mx-auto max-w-2xl">
-      <h1 class="mb-12 text-4xl font-bold tracking-tight md:text-5xl">Support</h1>
+      <h1 class="mb-6 text-4xl font-bold tracking-tight md:text-5xl">Support</h1>
+      <p class="mb-12 text-lg leading-relaxed text-brand-muted">
+        Answers to common questions about <em>AtLeast</em>. Pick a topic, or email us at the bottom of the page.
+      </p>
 
-      <div class="space-y-4">
-        {faqs.map((faq) => (
-          <details class="group rounded-2xl border border-brand-border bg-brand-surface">
-            <summary class="cursor-pointer px-6 py-5 text-base font-medium text-brand-text list-none flex items-center justify-between">
-              <span set:html={faq.question} />
-              <span class="ml-4 flex-shrink-0 text-brand-muted transition-transform group-open:rotate-45">+</span>
-            </summary>
-            <div class="px-6 pb-5 text-base leading-relaxed text-brand-muted" set:html={faq.answer} />
-          </details>
+      <div class="grid grid-cols-2 gap-4 sm:grid-cols-3">
+        {sections.map((section) => (
+          <PracticeCard icon={section.icon} label={section.title} blurb={section.blurb} anchor={`#${section.id}`} />
         ))}
       </div>
+
+      {sections.map((section) => (
+        <section>
+          <SectionHeading id={section.id} icon={section.icon}>{section.title}</SectionHeading>
+          <div class="mt-6 space-y-4">
+            {section.faqs.map((faq) => {
+              const id = slugify(faq.question);
+              return (
+                <details id={id} class="group scroll-mt-32 rounded-2xl border border-brand-border bg-brand-surface">
+                  <summary class="cursor-pointer px-6 py-5 text-base font-medium text-brand-text list-none flex items-center justify-between">
+                    <span set:html={faq.question} />
+                    <span class="ml-4 flex-shrink-0 text-brand-muted transition-transform group-open:rotate-45">+</span>
+                  </summary>
+                  <div class="px-6 pb-5 text-base leading-relaxed text-brand-muted">
+                    <div set:html={faq.answer} />
+                    <a
+                      href={`#${id}`}
+                      class="mt-3 inline-flex items-center gap-1 text-sm text-brand-muted hover:text-brand-accent"
+                    >
+                      <Icon name="ph:link-simple" class="h-4 w-4" />
+                      Link to this answer
+                    </a>
+                  </div>
+                </details>
+              );
+            })}
+          </div>
+        </section>
+      ))}
 
       <div class="mt-16 rounded-2xl border border-brand-border bg-brand-surface p-8 text-center">
         <h2 class="mb-3 text-xl font-semibold text-brand-text">Still have questions?</h2>
@@ -99,4 +216,6 @@ const faqSchema = {
       </div>
     </div>
   </section>
+
+  <script src="/support-anchors.js" is:inline></script>
 </Layout>
