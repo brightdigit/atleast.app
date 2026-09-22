@@ -13,6 +13,22 @@ if (PRIMARY_CTA === "appstore" && APP_STORE_URL.trim() === "") {
   throw new Error('APP_STORE_URL is required when PRIMARY_CTA is "appstore"');
 }
 
+// Pricing — the one place launch pricing is written. The press fact sheet, the
+// line under the hero CTA, and the /compare table all read these, so a price
+// change is a one-line edit here. Keep it identical to App Store Connect.
+export const PRICING = {
+  download: "Free",
+  pro: {
+    monthly: "$0.99/mo",
+    annual: "$9.99/yr",
+    annualTrial: "7-day free trial",
+    lifetime: "$49.99 once",
+  },
+} as const;
+
+// "$0.99/mo, $9.99/yr with a 7-day free trial, or $49.99 once"
+export const PRO_PRICE_LINE = `${PRICING.pro.monthly}, ${PRICING.pro.annual} with a ${PRICING.pro.annualTrial}, or ${PRICING.pro.lifetime}`;
+
 // Contact
 export const SUPPORT_EMAIL = "support@atleast.app";
 
