@@ -57,6 +57,8 @@ export const SOCIAL_LINKS = [
 export const CLUSTERS = [
   {
     key: "breathwork",
+    short: "Breathwork",
+    icon: "ph:wind",
     label: "Breathwork Pacing Timers for Apple Watch",
     issue: 104,
     description:
@@ -64,6 +66,8 @@ export const CLUSTERS = [
   },
   {
     key: "meditation",
+    short: "Meditation",
+    icon: "ph:flower-lotus",
     label: "Silent Meditation Timer on Apple Watch",
     issue: 103,
     description:
@@ -71,6 +75,8 @@ export const CLUSTERS = [
   },
   {
     key: "cold-plunge",
+    short: "Cold plunge",
+    icon: "ph:snowflake",
     label: "Cold Plunge Timing from the Wrist",
     issue: 105,
     description:
@@ -78,6 +84,8 @@ export const CLUSTERS = [
   },
   {
     key: "haptic",
+    short: "Haptic timers",
+    icon: "ph:vibrate",
     label: "Timer That Taps Instead of Rings",
     issue: 106,
     description:

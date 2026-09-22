@@ -225,7 +225,7 @@ const breadcrumbSchema = {
   <Schema schema={itemListSchema} />
   <Schema schema={breadcrumbSchema} />
 
-  <article class="px-6 py-24">
+  <article class="px-6 py-12 md:py-24">
     <div class="mx-auto max-w-3xl">
       <nav aria-label="Breadcrumb" class="mb-8 text-sm text-brand-muted">
         <a href="/" class="transition-colors hover:text-brand-text">Home</a>
@@ -252,7 +252,7 @@ const breadcrumbSchema = {
       </p>
 
       <!-- Comparison table -->
-      <SectionHeading id="table" icon="ph:table">The comparison table</SectionHeading>
+      <SectionHeading id="table" icon="ph:table" short="Comparison table">The comparison table</SectionHeading>
       <p class="mt-4 text-base leading-relaxed text-brand-muted">
         Scroll the table sideways to see every app. <em>AtLeast</em> is the first column.
       </p>
@@ -295,7 +295,7 @@ const breadcrumbSchema = {
       </div>
 
       <!-- Philosophy -->
-      <SectionHeading id="philosophy" icon="ph:waves">What <em>AtLeast</em> is built around</SectionHeading>
+      <SectionHeading id="philosophy" icon="ph:waves" short="What it's built around">What <em>AtLeast</em> is built around</SectionHeading>
       <p class="mt-4 text-base leading-relaxed text-brand-muted">
         <strong class="font-semibold text-brand-text">A floor, not a ceiling.</strong> You set a
         minimum duration between one and sixty minutes, not a deadline. Committing to
@@ -330,7 +330,7 @@ const breadcrumbSchema = {
       </p>
 
       <!-- When another app is better -->
-      <SectionHeading id="when-not" icon="ph:hand-heart">When another app is the better choice</SectionHeading>
+      <SectionHeading id="when-not" icon="ph:hand-heart" short="When to pick another app">When another app is the better choice</SectionHeading>
       <p class="mt-4 text-base leading-relaxed text-brand-muted">
         <em>AtLeast</em> does one thing, which means there are plenty of good reasons to use
         something else — often alongside it.
@@ -377,7 +377,7 @@ const breadcrumbSchema = {
       </ul>
 
       <!-- Which to pick -->
-      <SectionHeading id="which" icon="ph:signpost">Which should you pick?</SectionHeading>
+      <SectionHeading id="which" icon="ph:signpost" short="Which to pick">Which should you pick?</SectionHeading>
       <p class="mt-4 text-base leading-relaxed text-brand-muted">
         Pick the <strong class="font-semibold text-brand-text">built-in Timer</strong> when
         something must stop at a set moment. Pick
@@ -397,7 +397,7 @@ const breadcrumbSchema = {
       </p>
 
       <!-- Guides -->
-      <SectionHeading id="guides" icon="ph:compass">Go deeper with a guide</SectionHeading>
+      <SectionHeading id="guides" icon="ph:compass" short="Guides">Go deeper with a guide</SectionHeading>
       <p class="mt-4 text-base leading-relaxed text-brand-muted">
         Each practice has its own setup. Our guides walk through the specifics: how to
         <a href="/breathing-pacer" class="text-brand-accent hover:underline">pace a breath pattern without watching a screen</a>,
@@ -409,7 +409,7 @@ const breadcrumbSchema = {
       </p>
 
       <!-- CTA -->
-      <div class="mt-16 rounded-2xl border border-brand-border bg-brand-surface p-8 text-center">
+      <div class="mt-10 md:mt-16 rounded-2xl border border-brand-border bg-brand-surface p-8 text-center">
         <h2 class="mb-3 text-xl font-semibold text-brand-text">Find your minimum.</h2>
         <p class="mb-6 text-base text-brand-muted">
           Set a floor, feel the rhythm, and let the silence tell you you're done.
@@ -418,7 +418,7 @@ const breadcrumbSchema = {
       </div>
 
       <!-- References -->
-      <h2 id="references" class="mt-16 flex items-center gap-3 scroll-mt-24 text-2xl font-semibold tracking-tight">
+      <h2 id="references" class="mt-10 md:mt-16 flex items-center gap-3 scroll-mt-24 text-2xl font-semibold tracking-tight">
         <Icon name="ph:books" class="h-6 w-6 text-brand-accent" />
         References
       </h2>
