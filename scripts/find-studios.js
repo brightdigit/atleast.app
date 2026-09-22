@@ -534,14 +534,27 @@ async function main() {
       );
       const knownCount = all.length - fresh.length;
 
-      const unseen = [];
+      const byKey = new Map();
+      let dupeCount = 0;
       for (const lead of fresh) {
         const key = dedupeKey(lead);
-        if (seen.has(key)) continue;
-        seen.add(key);
-        unseen.push(lead);
+        if (seen.has(key)) {
+          dupeCount += 1;
+          continue;
+        }
+        const prev = byKey.get(key);
+        if (!prev) {
+          byKey.set(key, lead);
+          continue;
+        }
+        dupeCount += 1;
+        const betterScore = lead.contact.score > prev.contact.score;
+        const betterConfidence =
+          lead.contact.score === prev.contact.score && (lead.confidence ?? 0) > (prev.confidence ?? 0);
+        if (betterScore || betterConfidence) byKey.set(key, lead);
       }
-      const dupeCount = fresh.length - unseen.length;
+      const unseen = [...byKey.values()];
+      for (const lead of unseen) seen.add(dedupeKey(lead));
 
       const usable = unseen
         .filter((lead) => lead.contact.score >= MIN_CONTACT_SCORE)

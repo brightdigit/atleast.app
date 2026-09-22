@@ -294,8 +294,13 @@ async function checkEmailDomain(email) {
         try {
           await Promise.any([resolve4(domain), resolve6(domain)]);
           return 'ok';
-        } catch {
-          return 'no-mx';
+        } catch (error) {
+          // Promise.any wraps per-lookup failures in AggregateError.errors.
+          const errors = error?.errors ?? [error];
+          const allDefinitive =
+            errors.length > 0 &&
+            errors.every((e) => e?.code === 'ENOTFOUND' || e?.code === 'ENODATA');
+          return allDefinitive ? 'no-mx' : 'error';
         }
       })()
     );
