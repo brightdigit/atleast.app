@@ -1,4 +1,5 @@
 ---
+import { Icon } from 'astro-icon/components';
 import { APP_STORE_URL, PRIMARY_CTA, TESTFLIGHT_URL } from '../config';
 
 const links = [
@@ -18,7 +19,7 @@ const ctaLabel = isAppStore ? 'Download' : 'Join Beta';
 ---
 
 <nav class="fixed top-0 left-0 right-0 z-50 border-b border-brand-border/50 bg-brand-bg/80 backdrop-blur-lg">
-  <div class="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
+  <div class="mx-auto flex max-w-5xl items-center justify-between px-6 py-2 md:py-4">
     <a href="/" class="flex items-center gap-2 text-lg font-semibold tracking-tight text-brand-text">
       <picture>
         <source srcset="/press/icons/watchos/icon-512.webp" type="image/webp" />
@@ -33,37 +34,77 @@ const ctaLabel = isAppStore ? 'Download' : 'Join Beta';
       </picture>
       AtLeast
     </a>
-    <div class="flex items-center gap-6">
-      {links.map((link) => (
-        link.href === '/use-cases' ? (
-          <a
-            href={link.href}
-            data-ab-usecases-link
-            class="text-sm text-brand-muted transition-colors hover:text-brand-text"
-          >
-            <span class="ab ab-how">How to Use It</span>
-            <span class="ab ab-ways">Ways to Use It</span>
-            <span class="ab ab-where">Where It Fits</span>
-          </a>
-        ) : (
-          <a
-            href={link.href}
-            class="text-sm text-brand-muted transition-colors hover:text-brand-text"
-          >
-            {link.label}
-          </a>
-        )
-      ))}
+    <div class="flex items-center gap-3 md:gap-6">
+      <div class="hidden items-center gap-6 md:flex">
+        {links.map((link) => (
+          link.href === '/use-cases' ? (
+            <a
+              href={link.href}
+              data-ab-usecases-link
+              class="text-sm text-brand-muted transition-colors hover:text-brand-text"
+            >
+              <span class="ab ab-how">How to Use It</span>
+              <span class="ab ab-ways">Ways to Use It</span>
+              <span class="ab ab-where">Where It Fits</span>
+            </a>
+          ) : (
+            <a
+              href={link.href}
+              class="text-sm text-brand-muted transition-colors hover:text-brand-text"
+            >
+              {link.label}
+            </a>
+          )
+        ))}
+      </div>
       <a
         href={ctaHref}
         target="_blank"
         rel="noopener noreferrer"
         data-testflight-link
         data-tf-location="nav"
-        class="rounded-full border border-brand-border bg-brand-surface px-4 py-1.5 text-sm text-brand-text transition-opacity hover:opacity-80"
+        class="rounded-full border border-brand-border bg-brand-surface px-4 py-2.5 text-sm text-brand-text transition-opacity hover:opacity-80 md:py-1.5"
       >
         {ctaLabel}
       </a>
+      <!-- Below md the links collapse into a disclosure. <details> needs no JS,
+           which matters: the CSP is script-src 'self'. The panel is absolutely
+           positioned against the fixed <nav>, so it drops full-width below the bar. -->
+      <details class="group md:hidden">
+        <summary
+          aria-label="Menu"
+          class="-mr-2 flex h-11 w-11 cursor-pointer list-none items-center justify-center rounded-full text-brand-text transition-colors hover:bg-brand-surface focus-visible:outline-2 focus-visible:outline-brand-accent [&::-webkit-details-marker]:hidden"
+        >
+          <Icon name="ph:list" class="h-6 w-6 group-open:hidden" aria-hidden="true" />
+          <Icon name="ph:x" class="hidden h-6 w-6 group-open:block" aria-hidden="true" />
+        </summary>
+        <div class="absolute left-0 right-0 top-full border-b border-brand-border/50 bg-brand-bg shadow-lg shadow-black/40">
+          <ul class="mx-auto flex max-w-5xl flex-col px-3 py-2">
+            {links.map((link) => (
+              <li>
+                {link.href === '/use-cases' ? (
+                  <a
+                    href={link.href}
+                    data-ab-usecases-link
+                    class="block rounded-lg px-3 py-3 text-base text-brand-muted transition-colors hover:bg-brand-surface hover:text-brand-text focus-visible:outline-2 focus-visible:outline-brand-accent"
+                  >
+                    <span class="ab ab-how">How to Use It</span>
+                    <span class="ab ab-ways">Ways to Use It</span>
+                    <span class="ab ab-where">Where It Fits</span>
+                  </a>
+                ) : (
+                  <a
+                    href={link.href}
+                    class="block rounded-lg px-3 py-3 text-base text-brand-muted transition-colors hover:bg-brand-surface hover:text-brand-text focus-visible:outline-2 focus-visible:outline-brand-accent"
+                  >
+                    {link.label}
+                  </a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </details>
     </div>
   </div>
 </nav>

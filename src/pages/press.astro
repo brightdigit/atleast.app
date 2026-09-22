@@ -151,12 +151,12 @@ const iconDownloads = [
       <h2 class="mb-6 mt-16 text-2xl font-semibold tracking-tight">Fact Sheet</h2>
       <div class="rounded-2xl border border-brand-border bg-brand-surface">
         {facts.map((fact, i) => (
-          <div class:list={['flex items-baseline justify-between px-6 py-4', i < facts.length - 1 && 'border-b border-brand-border']}>
+          <div class:list={['flex items-baseline justify-between gap-4 px-6 py-4', i < facts.length - 1 && 'border-b border-brand-border']}>
             <span class="text-sm font-medium text-brand-text">{fact.label}</span>
             {fact.href ? (
-              <a href={fact.href} class="text-sm text-brand-accent hover:underline">{fact.value}</a>
+              <a href={fact.href} class="text-right text-sm text-brand-accent hover:underline">{fact.value}</a>
             ) : (
-              <span class="text-sm text-brand-muted">{fact.value}</span>
+              <span class="text-right text-sm text-brand-muted">{fact.value}</span>
             )}
           </div>
         ))}

@@ -163,7 +163,7 @@ const articleSchema = {
       </h2>
       <ol class="mt-6 space-y-3 text-sm leading-relaxed text-brand-muted">
         {citations.map((c) => (
-          <li id={`ref-${c.id}`} class="flex gap-3">
+          <li id={`ref-${c.id}`} class="flex scroll-mt-24 gap-3">
             <span class="flex-shrink-0 text-brand-muted">[{c.id}]</span>
             <a href={c.url} target="_blank" rel="noopener noreferrer" class="text-brand-accent hover:underline">
               {c.text}
