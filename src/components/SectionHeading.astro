@@ -13,10 +13,10 @@ const { icon, id, short } = Astro.props;
 ---
 
 <div id={id} class:list={['mt-10 flex flex-col gap-3 sm:mt-16 sm:flex-row sm:items-center sm:gap-4', id && 'scroll-mt-24']}>
-  <!-- Phones: a large bare icon centered above the title. sm+: the small bordered tile
+  <!-- Phones: a large bare icon above the title, left-aligned with it. sm+: the small bordered tile
        inline with the title. -->
   <span
-    class="flex w-full flex-shrink-0 items-center justify-center sm:h-11 sm:w-11 sm:rounded-xl sm:border sm:border-brand-border sm:bg-brand-surface"
+    class="flex w-full flex-shrink-0 items-center justify-start sm:h-11 sm:justify-center sm:w-11 sm:rounded-xl sm:border sm:border-brand-border sm:bg-brand-surface"
   >
     <Icon name={icon} class="h-12 w-12 text-brand-accent sm:h-6 sm:w-6" />
   </span>
