@@ -94,8 +94,16 @@ function parseArgs(argv) {
     else if (arg === '--dry-run') opts.dryRun = true;
     else if (arg === '--include-dormant') opts.includeDormant = true;
     else if (arg.startsWith('--only=')) opts.only = arg.slice(7).split(',').map((s) => s.trim());
-    else if (arg.startsWith('--max=')) opts.max = Number(arg.slice(6));
-    else {
+    else if (arg.startsWith('--max=')) {
+      const raw = arg.slice(6).trim();
+      const max = Number(raw);
+      if (!raw || !Number.isInteger(max) || max <= 0) {
+        console.error('--max must be a positive integer');
+        opts.help = true;
+      } else {
+        opts.max = max;
+      }
+    } else {
       console.error(`Unknown argument: ${arg}`);
       opts.help = true;
     }
@@ -424,7 +432,7 @@ async function main() {
   }
 
   const now = new Date();
-  const stamp = now.toISOString().slice(0, 10);
+  const stamp = now.toISOString().replace(/[:.]/g, '-');
   mkdirSync(outputDir, { recursive: true });
 
   const reportPath = join(outputDir, `podcasts-${stamp}.md`);

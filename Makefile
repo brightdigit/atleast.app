@@ -25,7 +25,7 @@ leads:
 # Print outreach targets referenced by open GitHub issues, to keep
 # KNOWN_TARGETS in scripts/find-leads.config.js current.
 leads-known:
-	$(NPM) run leads:known
+	$(NPM) run leads:known -- $(ARGS)
 
 # Studio/spa leads from the Overture Maps Places open dataset. Defaults to
 # Greater Lansing, then Michigan statewide, then the national metros. Needs the

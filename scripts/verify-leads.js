@@ -34,7 +34,7 @@
  *   node scripts/verify-leads.js --help
  *
  * Reads the newest leads-*.json, studios-*.json, and podcasts-*.json from
- * leads/reports/ and writes leads/reports/verified-YYYY-MM-DD.json.
+ * leads/reports/ and writes leads/reports/verified-<ISO-run-stamp>.json.
  */
 
 import { readdirSync, readFileSync, writeFileSync, mkdirSync } from 'fs';
@@ -70,8 +70,16 @@ function parseArgs(argv) {
     if (arg === '--help' || arg === '-h') opts.help = true;
     else if (arg.startsWith('--only=')) opts.only = arg.slice(7).split(',').map((s) => s.trim());
     else if (arg.startsWith('--limit=')) opts.limit = Number(arg.slice(8));
-    else if (arg.startsWith('--stale-days=')) opts.staleDays = Number(arg.slice(13));
-    else {
+    else if (arg.startsWith('--stale-days=')) {
+      const raw = arg.slice(13).trim();
+      const staleDays = Number(raw);
+      if (!raw || !Number.isFinite(staleDays) || !Number.isInteger(staleDays) || staleDays < 0) {
+        console.error('--stale-days must be a finite nonnegative integer');
+        opts.help = true;
+      } else {
+        opts.staleDays = staleDays;
+      }
+    } else {
       console.error(`Unknown argument: ${arg}`);
       opts.help = true;
     }
@@ -94,7 +102,7 @@ Options:
   --help          Show this help
 
 Output:
-  leads/reports/verified-YYYY-MM-DD.json — every lead with a verification block.
+  leads/reports/verified-<ISO-run-stamp>.json — every lead with a verification block.
 `);
 }
 
@@ -102,7 +110,7 @@ Output:
 // Loading the newest report of each kind
 // ---------------------------------------------------------------------------
 
-/** Newest file matching a prefix, relying on the ISO date in the filename. */
+/** Newest file matching a prefix, relying on the ISO run stamp in the filename. */
 function latestReport(prefix) {
   const files = readdirSync(leadsDir)
     .filter((f) => f.startsWith(`${prefix}-`) && f.endsWith('.json'))
@@ -131,14 +139,25 @@ function collectLeads(opts) {
           const pitchMail = /^mailto:/i.test(lead.pitch_url ?? '')
             ? lead.pitch_url.replace(/^mailto:/i, '').split('?')[0]
             : null;
+          const urls = [lead.url, pitchMail ? null : lead.pitch_url].map(normalizeUrl).filter(Boolean);
+          const emails = pitchMail ? [pitchMail] : [];
+          const contact = String(lead.contact ?? '').trim();
+          if (contact) {
+            if (/^mailto:/i.test(contact) || (/^[^/\s]+@[^/\s]+\.[a-z]{2,}$/i.test(contact) && !/^https?:/i.test(contact))) {
+              emails.push(contact.replace(/^mailto:/i, '').split('?')[0]);
+            } else {
+              const contactUrl = normalizeUrl(contact);
+              if (contactUrl) urls.push(contactUrl);
+            }
+          }
           leads.push({
             source: 'exa',
             section: section.key,
             sectionLabel: section.label,
             name: lead.name,
             lead,
-            urls: [lead.url, pitchMail ? null : lead.pitch_url].map(normalizeUrl).filter(Boolean),
-            emails: pitchMail ? [pitchMail] : [],
+            urls: [...new Set(urls)],
+            emails: [...new Set(emails)],
             feedUrl: null,
           });
         }
@@ -226,15 +245,21 @@ async function checkUrl(url) {
     if (BLOCKED_STATUSES.has(res.status)) {
       return { url, result: 'blocked', status: res.status, finalUrl };
     }
-    // 5xx is most often a broken site, occasionally a bad day. Record the
-    // status so a spot check can tell the difference.
+    // Definitive "gone" statuses only. 5xx is a bad day, not a dead lead.
+    if (res.status === 404 || res.status === 410) {
+      return { url, result: 'dead', status: res.status, finalUrl };
+    }
+    if (res.status >= 500) {
+      return { url, result: 'error', status: res.status, finalUrl };
+    }
     return { url, result: 'dead', status: res.status, finalUrl };
   } catch (error) {
     const cause = error?.cause?.code ?? error?.code ?? (error.name === 'AbortError' ? 'TIMEOUT' : null);
-    // No DNS record is the one network error that is definitive.
-    if (cause === 'ENOTFOUND') return { url, result: 'dead', error: cause };
+    // No DNS record / connection refused are the network errors that are definitive.
+    if (cause === 'ENOTFOUND' || cause === 'ECONNREFUSED') return { url, result: 'dead', error: cause };
     if (cause === 'TIMEOUT') return { url, result: 'blocked', error: cause };
-    return { url, result: 'dead', error: cause ?? String(error.message ?? error) };
+    // Transient DNS/network blips (EAI_AGAIN, ECONNRESET, …) are indeterminate.
+    return { url, result: 'error', error: cause ?? String(error.message ?? error) };
   } finally {
     clearTimeout(timer);
   }
@@ -411,10 +436,13 @@ async function verifyLead(entry, staleDays) {
   const hardChecks = [...siteChecks, ...(feedCheck ? [feedCheck] : [])];
   const anyOk = hardChecks.some((c) => c.result === 'ok');
   const anyBlocked = [...hardChecks, ...socialChecks].some((c) => c.result === 'blocked');
+  const anyIndeterminate =
+    [...hardChecks, ...socialChecks].some((c) => c.result === 'error') ||
+    emailChecks.some((c) => c.result === 'error');
 
   let status;
   if (anyOk || emailOk) status = 'alive';
-  else if (anyBlocked) status = 'blocked';
+  else if (anyBlocked || anyIndeterminate) status = 'blocked';
   else if (hardChecks.length || entry.emails.length) status = 'dead';
   // Social-profile-only leads whose platform blocks bots can't be confirmed
   // either way; without even a social URL there was nothing to check at all.
@@ -464,8 +492,8 @@ async function main() {
       .join(', ')}`
   );
 
-  const date = new Date().toISOString().slice(0, 10);
-  const outPath = join(leadsDir, `verified-${date}.json`);
+  const stamp = new Date().toISOString().replace(/[:.]/g, '-');
+  const outPath = join(leadsDir, `verified-${stamp}.json`);
   mkdirSync(leadsDir, { recursive: true });
   writeFileSync(outPath, JSON.stringify({ generatedAt: new Date().toISOString(), sources, counts, leads: verified }, null, 1));
   console.error(`Wrote ${outPath}`);

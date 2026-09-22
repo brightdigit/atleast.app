@@ -339,7 +339,8 @@ async function main() {
   });
 
   const now = new Date();
-  const stamp = now.toISOString().slice(0, 10);
+  // Full ISO run id so repeated same-day runs keep prior reports.
+  const stamp = now.toISOString().replace(/[:.]/g, '-');
   mkdirSync(outputDir, { recursive: true });
 
   const reportPath = join(outputDir, `leads-${stamp}.md`);

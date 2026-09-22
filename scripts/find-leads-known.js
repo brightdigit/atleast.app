@@ -24,7 +24,9 @@ let raw;
 try {
   raw = execFileSync(
     'gh',
-    ['issue', 'list', '--repo', REPO, '--state', 'open', '--limit', '200', '--json', 'number,title,body'],
+    // High enough to cover a busy repo; gh caps a single page, so raise this
+    // if open issues ever exceed the limit and KNOWN_TARGETS starts missing hosts.
+    ['issue', 'list', '--repo', REPO, '--state', 'open', '--limit', '1000', '--json', 'number,title,body'],
     { encoding: 'utf8' }
   );
 } catch (error) {

@@ -48,9 +48,17 @@ const ROLE_ADDRESS = /^(info|hello|hi|contact|studio|team|support|bookings?|admi
 /** Addresses that are inboxes nobody reads, or that we should never mail. */
 const UNUSABLE_ADDRESS = /^(noreply|no-reply|donotreply|postmaster|abuse|webmaster|privacy|legal|dmca)@/i;
 
-/** Hosts that are a social presence rather than a site the business controls. */
-const SOCIAL_HOST =
-  /(facebook|instagram|twitter|x\.com|linkedin|youtube|tiktok|threads|mastodon|bsky|linktr\.ee)/i;
+/** Hostnames that are a social presence rather than a site the business controls. */
+const SOCIAL_HOST_RE =
+  /(?:^|\.)(?:facebook\.com|fb\.com|instagram\.com|twitter\.com|x\.com|linkedin\.com|youtube\.com|youtu\.be|tiktok\.com|threads\.net|bsky\.app|linktr\.ee)$/i;
+const MASTODON_HOST_RE = /(?:^|\.)mastodon\./i;
+
+function isSocialHostname(hostname) {
+  const host = String(hostname ?? '')
+    .toLowerCase()
+    .replace(/^www\./, '');
+  return SOCIAL_HOST_RE.test(host) || MASTODON_HOST_RE.test(host);
+}
 
 /** Placeholder hosts that carry no contact value. */
 const PLACEHOLDER_HOST =
@@ -83,7 +91,12 @@ export function normalizeUrl(value) {
 /** True when a URL points at a social profile rather than an owned website. */
 export function isSocialUrl(value) {
   const url = normalizeUrl(value);
-  return url ? SOCIAL_HOST.test(url) : false;
+  if (!url) return false;
+  try {
+    return isSocialHostname(new URL(url).hostname);
+  } catch {
+    return false;
+  }
 }
 
 /** Validate and classify an email address. Returns null when it is unusable. */
@@ -115,8 +128,8 @@ export function scoreContact({ emails = [], websites = [], socials = [], phones 
   // Split anything URL-shaped into owned sites vs. social profiles, regardless of
   // which field the source filed it under — sources are inconsistent about this.
   const allUrls = [...asArray(websites), ...asArray(socials)].map(normalizeUrl).filter(Boolean);
-  const siteUrls = [...new Set(allUrls.filter((u) => !SOCIAL_HOST.test(u)))];
-  const socialUrls = [...new Set(allUrls.filter((u) => SOCIAL_HOST.test(u)))];
+  const siteUrls = [...new Set(allUrls.filter((u) => !isSocialUrl(u)))];
+  const socialUrls = [...new Set(allUrls.filter((u) => isSocialUrl(u)))];
 
   // An owned domain is the contact path worth having; a hosting page is a fallback.
   const ownedUrls = siteUrls.filter((u) => !HOSTED_PLATFORM.test(u));

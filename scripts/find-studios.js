@@ -138,8 +138,16 @@ function parseArgs(argv) {
     else if (arg === '--dry-run') opts.dryRun = true;
     else if (arg === '--list-metros') opts.listMetros = true;
     else if (arg.startsWith('--metro=')) opts.metros = arg.slice(8).split(',').map((s) => s.trim());
-    else if (arg.startsWith('--limit=')) opts.limit = Number(arg.slice(8));
-    else if (arg.startsWith('--release=')) opts.release = arg.slice(10);
+    else if (arg.startsWith('--limit=')) {
+      const raw = arg.slice(8).trim();
+      const limit = Number(raw);
+      if (!raw || !Number.isInteger(limit) || limit <= 0) {
+        console.error('--limit must be a positive integer');
+        opts.help = true;
+      } else {
+        opts.limit = limit;
+      }
+    } else if (arg.startsWith('--release=')) opts.release = arg.slice(10);
     else {
       console.error(`Unknown argument: ${arg}`);
       opts.help = true;
@@ -354,8 +362,16 @@ const limitFor = (metro, opts) => opts.limit ?? metro.limit ?? DEFAULT_LIMIT;
  * domain is one pitch, not two.
  */
 function dedupeKey(lead) {
-  const url = lead.contact.websites[0] ?? lead.contact.socials[0];
-  return url ? `url:${normalize(url)}` : `place:${normalize(lead.name)}|${lead.mapUrl ?? ''}`;
+  const website = lead.contact.websites[0];
+  if (website) {
+    try {
+      return `host:${new URL(website).hostname.toLowerCase().replace(/^www\./, '')}`;
+    } catch {
+      return `url:${normalize(website)}`;
+    }
+  }
+  const social = lead.contact.socials[0];
+  return social ? `url:${normalize(social)}` : `place:${normalize(lead.name)}|${lead.mapUrl ?? ''}`;
 }
 
 function toLead(row, metroKey) {
@@ -550,7 +566,7 @@ async function main() {
   }
 
   const now = new Date();
-  const stamp = now.toISOString().slice(0, 10);
+  const stamp = now.toISOString().replace(/[:.]/g, '-');
   mkdirSync(outputDir, { recursive: true });
 
   const reportPath = join(outputDir, `studios-${stamp}.md`);
