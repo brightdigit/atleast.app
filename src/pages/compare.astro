@@ -106,6 +106,22 @@ const rows = [
     ],
   },
   {
+    // AtLeast writes Mindful Minutes or a workout (free); the wider range of
+    // workout types is Pro. Competitor cells stay "Varies" until read on the
+    // listing or Apple's support page.
+    label: 'Saves to Apple Health',
+    values: [
+      'Yes — Mindful Minutes or a workout, chosen per timer',
+      'Varies',
+      'Varies',
+      'Varies',
+      'Varies',
+      'Varies',
+      'Varies',
+      'Varies',
+    ],
+  },
+  {
     label: 'Standalone on Apple Watch',
     values: [
       'Yes — the Watch is the whole app',
@@ -308,6 +324,9 @@ const breadcrumbSchema = {
         iPhone and Apple Watch apps — and are never used for advertising or cross-app tracking. You
         can read exactly what is collected in the
         <a href="/privacy" class="text-brand-accent hover:underline">privacy policy</a>.
+        Finished sessions can be saved to Apple Health as Mindful Minutes or a workout, chosen per
+        timer; <em>AtLeast</em> only writes to Health, never reads it, and the record stays in your
+        own Health app.
       </p>
 
       <!-- When another app is better -->
