@@ -5,6 +5,7 @@ import { APP_STORE_URL, PRIMARY_CTA, TESTFLIGHT_URL } from '../config';
 const links = [
   { href: '/use-cases', label: 'Use Cases' },
   { href: '/guides', label: 'Guides' },
+  { href: '/compare', label: 'Compare' },
   { href: '/press', label: 'Press' },
   { href: '/privacy', label: 'Privacy' },
   { href: '/terms', label: 'Terms' },
@@ -19,7 +20,7 @@ const ctaLabel = isAppStore ? 'Download' : 'Join Beta';
 ---
 
 <nav class="fixed top-0 left-0 right-0 z-50 border-b border-brand-border/50 bg-brand-bg/80 backdrop-blur-lg">
-  <div class="mx-auto flex max-w-5xl items-center justify-between px-6 py-2 md:py-4">
+  <div class="mx-auto flex max-w-5xl items-center justify-between px-6 py-2 lg:py-4">
     <a href="/" class="flex items-center gap-2 text-lg font-semibold tracking-tight text-brand-text">
       <picture>
         <source srcset="/press/icons/watchos/icon-512.webp" type="image/webp" />
@@ -34,8 +35,8 @@ const ctaLabel = isAppStore ? 'Download' : 'Join Beta';
       </picture>
       AtLeast
     </a>
-    <div class="flex items-center gap-3 md:gap-6">
-      <div class="hidden items-center gap-6 md:flex">
+    <div class="flex items-center gap-3 lg:gap-6">
+      <div class="hidden items-center gap-6 lg:flex">
         {links.map((link) => (
           link.href === '/use-cases' ? (
             <a
@@ -63,14 +64,14 @@ const ctaLabel = isAppStore ? 'Download' : 'Join Beta';
         rel="noopener noreferrer"
         data-testflight-link
         data-tf-location="nav"
-        class="rounded-full border border-brand-border bg-brand-surface px-4 py-2.5 text-sm text-brand-text transition-opacity hover:opacity-80 md:py-1.5"
+        class="rounded-full border border-brand-border bg-brand-surface px-4 py-2.5 text-sm text-brand-text transition-opacity hover:opacity-80 lg:py-1.5"
       >
         {ctaLabel}
       </a>
-      <!-- Below md the links collapse into a disclosure. <details> needs no JS,
+      <!-- Below lg the links collapse into a disclosure. <details> needs no JS,
            which matters: the CSP is script-src 'self'. The panel is absolutely
            positioned against the fixed <nav>, so it drops full-width below the bar. -->
-      <details class="group md:hidden">
+      <details class="group lg:hidden">
         <summary
           aria-label="Menu"
           class="-mr-2 flex h-11 w-11 cursor-pointer list-none items-center justify-center rounded-full text-brand-text transition-colors hover:bg-brand-surface focus-visible:outline-2 focus-visible:outline-brand-accent [&::-webkit-details-marker]:hidden"

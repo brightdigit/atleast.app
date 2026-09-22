@@ -11,11 +11,13 @@ interface Props {
 const { icon, label, blurb, anchor } = Astro.props;
 ---
 
+<!-- Jump-grid bookmark. On phones it is a compact icon + label tile (blurb hidden);
+     from sm up it shows the blurb as a full card. -->
 <a
   href={anchor}
-  class="block rounded-2xl border border-brand-border bg-brand-surface p-6 transition-colors hover:border-brand-accent/50"
+  class="flex flex-col items-center rounded-2xl border border-brand-border bg-brand-surface p-4 text-center transition-colors hover:border-brand-accent/50 sm:items-start sm:p-6 sm:text-left"
 >
-  <Icon name={icon} class="mb-3 h-8 w-8 text-brand-accent" />
-  <h3 class="mb-1 text-base font-semibold text-brand-text">{label}</h3>
-  <p class="text-sm leading-relaxed text-brand-muted">{blurb}</p>
+  <Icon name={icon} class="mb-2 h-10 w-10 text-brand-accent sm:mb-3 sm:h-8 sm:w-8" />
+  <h3 class="text-sm font-semibold leading-snug text-brand-text sm:mb-1 sm:text-base">{label}</h3>
+  <p class="hidden text-sm leading-relaxed text-brand-muted sm:block">{blurb}</p>
 </a>

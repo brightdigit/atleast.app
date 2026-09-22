@@ -4,18 +4,28 @@ import { Icon } from 'astro-icon/components';
 interface Props {
   icon: string;
   id?: string;
+  // One-line title shown on phones in place of a long heading. The full heading
+  // stays in the <h2> (screen-reader only below sm) so its text and name don't change.
+  short?: string;
 }
 
-const { icon, id } = Astro.props;
+const { icon, id, short } = Astro.props;
 ---
 
-<div id={id} class:list={['mt-16 flex items-center gap-4', id && 'scroll-mt-24']}>
+<div id={id} class:list={['mt-10 flex flex-col gap-3 sm:mt-16 sm:flex-row sm:items-center sm:gap-4', id && 'scroll-mt-24']}>
   <span
-    class="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl border border-brand-border bg-brand-surface"
+    class="flex h-16 w-full flex-shrink-0 items-center justify-center rounded-xl border border-brand-border bg-brand-surface sm:h-11 sm:w-11"
   >
-    <Icon name={icon} class="h-6 w-6 text-brand-accent" />
+    <Icon name={icon} class="h-10 w-10 text-brand-accent sm:h-6 sm:w-6" />
   </span>
-  <h2 class="text-3xl font-semibold tracking-tight">
-    <slot />
+  <h2 class="truncate text-xl font-semibold tracking-tight sm:overflow-visible sm:whitespace-normal sm:text-3xl">
+    {short ? (
+      <>
+        <span aria-hidden="true" class="sm:hidden">{short}</span>
+        <span class="sr-only sm:not-sr-only"><slot /></span>
+      </>
+    ) : (
+      <slot />
+    )}
   </h2>
 </div>
