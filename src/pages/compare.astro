@@ -4,7 +4,7 @@ import Schema from '../components/Schema.astro';
 import AppStoreBadge from '../components/AppStoreBadge.astro';
 import SectionHeading from '../components/SectionHeading.astro';
 import { Icon } from 'astro-icon/components';
-import { COMPANY_NAME, WEBSITE_URL, OG_IMAGE_URL, COMPANY_WEBSITE_URL } from '../config';
+import { COMPANY_NAME, WEBSITE_URL, OG_IMAGE_URL, COMPANY_WEBSITE_URL, PRICING, PRO_PRICE_LINE } from '../config';
 
 const title = 'AtLeast vs Other Timer Apps for Apple Watch — Comparison';
 const description =
@@ -134,7 +134,7 @@ const rows = [
   {
     label: 'Price',
     values: [
-      'Free TestFlight beta',
+      `${PRICING.download}; Pro ${PRO_PRICE_LINE}`,
       'Included with watchOS',
       'Included with watchOS',
       'Free; Premium $9.99/mo or $59.99/yr',
