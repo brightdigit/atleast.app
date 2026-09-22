@@ -6,7 +6,7 @@ import FeatureRow from '../components/FeatureRow.astro';
 import AppStoreBadge from '../components/AppStoreBadge.astro';
 import AppIconRings from '../components/AppIconRings.astro';
 import Schema from '../components/Schema.astro';
-import { PRICING, PRO_PRICE_LINE } from '../config';
+import { PRICING } from '../config';
 
 const steps = [
   {
@@ -55,6 +55,26 @@ const features = [
 // Session Type is chosen per timer and decides how a finished session is saved
 // to Apple Health. Writing to Health is free; the types marked `pro` need
 // AtLeast Pro (see the support FAQ).
+// Free vs Pro, matching /support and the App Store description. Prices come from PRICING.
+const plans = [
+  {
+    name: 'Free',
+    items: ['The haptic timer and built-in timers', 'Mindful Minutes and Yoga saved to Apple Health', 'The iPhone companion'],
+  },
+  {
+    name: 'AtLeast Pro',
+    items: ['Save your own timers', 'History, with streaks and quiet minutes', 'Every Session Type'],
+  },
+];
+
+// Rendered as a table from sm up and as stacked cards on phones.
+const comparison = [
+  { feature: 'Screen required', atleast: 'No — haptic only', traditional: 'Yes' },
+  { feature: 'Works offline', atleast: 'Fully offline', traditional: 'Often requires internet' },
+  { feature: 'Platform', atleast: 'Apple Watch native, optional iPhone companion', traditional: 'iPhone-based' },
+  { feature: 'End signal', atleast: 'Gentle silence', traditional: 'Jarring alarm' },
+];
+
 const sessionTypes = [
   { label: 'Mindful Minutes', pro: false },
   { label: 'Yoga', pro: false },
@@ -154,19 +174,16 @@ const howToSchema = {
         <em>AtLeast</em> is a passive haptic timer for Apple Watch. It uses gentle taps to mark time intervals during meditation, breathwork, and cold plunge sessions — no screens, just rhythm.
       </p>
       <AppStoreBadge class="mt-8" />
-      <p class="mt-4 text-sm text-brand-text/70 drop-shadow-md">
-        {PRICING.download} to download. <em>AtLeast</em> Pro is optional: {PRO_PRICE_LINE}.
-      </p>
     </div>
   </section>
 
   <!-- App icon divider -->
-  <section class="flex justify-center px-6 pt-24">
+  <section class="flex justify-center px-6 pt-12 md:pt-24">
     <AppIconRings />
   </section>
 
   <!-- How It Works -->
-  <section class="px-6 py-24">
+  <section class="px-6 py-12 md:py-24">
     <div class="mx-auto max-w-5xl">
       <h2 class="mb-12 text-center text-3xl font-semibold md:text-4xl">How does <em>AtLeast</em> work?</h2>
       <div class="grid gap-6 md:grid-cols-3">
@@ -176,7 +193,7 @@ const howToSchema = {
   </section>
 
   <!-- iPhone Companion -->
-  <section class="px-6 py-24">
+  <section class="px-6 py-12 md:py-24">
     <div class="mx-auto max-w-3xl text-center">
       <div class="mx-auto mb-12 max-w-2xl">
         <video
@@ -207,7 +224,7 @@ const howToSchema = {
   </section>
 
   <!-- Apple Health -->
-  <section class="px-6 py-24">
+  <section class="px-6 py-12 md:py-24">
     <div class="mx-auto max-w-3xl text-center">
       <h2 class="mb-4 text-3xl font-semibold md:text-4xl">Your practice, counted in Apple Health.</h2>
       <p class="mx-auto mb-10 max-w-xl text-lg leading-relaxed text-brand-muted">
@@ -224,18 +241,44 @@ const howToSchema = {
     </div>
   </section>
 
+  <!-- AtLeast Pro -->
+  <section class="px-6 py-12 md:py-24">
+    <div class="mx-auto max-w-3xl text-center">
+      <h2 class="mb-4 text-3xl font-semibold md:text-4xl"><em>AtLeast</em> Pro, when you want more.</h2>
+      <p class="mx-auto mb-10 max-w-xl text-lg leading-relaxed text-brand-muted">
+        The timer, saving to Apple Health, and the iPhone companion are free. Pro is optional.
+      </p>
+      <div class="grid gap-4 text-left sm:grid-cols-2">
+        {plans.map((plan) => (
+          <div class="rounded-2xl border border-brand-border bg-brand-surface p-6">
+            <h3 class="mb-3 text-lg font-semibold text-brand-text">{plan.name}</h3>
+            <ul class="space-y-2 text-base leading-relaxed text-brand-muted">
+              {plan.items.map((item) => <li>{item}</li>)}
+            </ul>
+          </div>
+        ))}
+      </div>
+      <p class="mt-6 text-sm text-brand-muted">
+        Monthly {PRICING.pro.monthly} · Annual {PRICING.pro.annual} with a {PRICING.pro.annualTrial} · <em>AtLeast</em> Founder {PRICING.pro.lifetime}
+      </p>
+      <p class="mt-4 text-base">
+        <a href="/support/#pro" class="text-brand-accent hover:underline">Questions about Pro?</a>
+      </p>
+    </div>
+  </section>
+
   <!-- Use Cases -->
-  <section class="px-6 py-24">
+  <section class="px-6 py-12 md:py-24">
     <div class="mx-auto max-w-5xl">
       <h2 class="mb-12 text-center text-3xl font-semibold md:text-4xl">Built for practice</h2>
-      <div class="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory md:grid md:grid-cols-5 md:overflow-visible md:pb-0">
+      <div class="grid gap-4 sm:grid-cols-2 md:grid-cols-5">
         {useCases.map((uc) => <UseCaseCard {...uc} />)}
       </div>
     </div>
   </section>
 
   <!-- Why AtLeast -->
-  <section class="px-6 py-24">
+  <section class="px-6 py-12 md:py-24">
     <div class="mx-auto max-w-3xl">
       <h2 class="mb-12 text-center text-3xl font-semibold md:text-4xl">Why choose <em>AtLeast</em>?</h2>
       <div class="space-y-10">
@@ -245,10 +288,10 @@ const howToSchema = {
   </section>
 
   <!-- Comparison -->
-  <section class="px-6 py-24">
+  <section class="px-6 py-12 md:py-24">
     <div class="mx-auto max-w-3xl">
       <h2 class="mb-12 text-center text-3xl font-semibold md:text-4xl"><em>AtLeast</em> vs traditional timer apps</h2>
-      <div class="overflow-x-auto rounded-2xl border border-brand-border">
+      <div class="hidden overflow-x-auto rounded-2xl border border-brand-border sm:block">
         <table class="w-full text-sm">
           <thead>
             <tr class="border-b border-brand-border bg-brand-surface">
@@ -258,39 +301,41 @@ const howToSchema = {
             </tr>
           </thead>
           <tbody class="divide-y divide-brand-border">
-            <tr class="bg-brand-surface/50">
-              <td class="px-6 py-4 text-brand-muted">Screen required</td>
-              <td class="px-6 py-4 text-brand-accent">No — haptic only</td>
-              <td class="px-6 py-4 text-brand-muted">Yes</td>
-            </tr>
-            <tr>
-              <td class="px-6 py-4 text-brand-muted">Works offline</td>
-              <td class="px-6 py-4 text-brand-accent">Fully offline</td>
-              <td class="px-6 py-4 text-brand-muted">Often requires internet</td>
-            </tr>
-            <tr class="bg-brand-surface/50">
-              <td class="px-6 py-4 text-brand-muted">Platform</td>
-              <td class="px-6 py-4 text-brand-accent">Apple Watch native, optional iPhone companion</td>
-              <td class="px-6 py-4 text-brand-muted">iPhone-based</td>
-            </tr>
-            <tr>
-              <td class="px-6 py-4 text-brand-muted">End signal</td>
-              <td class="px-6 py-4 text-brand-accent">Gentle silence</td>
-              <td class="px-6 py-4 text-brand-muted">Jarring alarm</td>
-            </tr>
+            {comparison.map((row, i) => (
+              <tr class:list={[i % 2 === 0 && 'bg-brand-surface/50']}>
+                <td class="px-6 py-4 text-brand-muted">{row.feature}</td>
+                <td class="px-6 py-4 text-brand-accent">{row.atleast}</td>
+                <td class="px-6 py-4 text-brand-muted">{row.traditional}</td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>
+      <dl class="divide-y divide-brand-border rounded-2xl border border-brand-border bg-brand-surface/50 sm:hidden">
+        {comparison.map((row) => (
+          <div class="px-5 py-4">
+            <dt class="mb-2 text-sm font-medium text-brand-text">{row.feature}</dt>
+            <dd class="flex justify-between gap-4 text-sm">
+              <span class="text-brand-muted"><em>AtLeast</em></span>
+              <span class="text-right text-brand-accent">{row.atleast}</span>
+            </dd>
+            <dd class="mt-1 flex justify-between gap-4 text-sm">
+              <span class="text-brand-muted">Traditional apps</span>
+              <span class="text-right text-brand-muted">{row.traditional}</span>
+            </dd>
+          </div>
+        ))}
+      </dl>
       <p class="mt-6 text-center text-sm text-brand-muted">
         See how <em>AtLeast</em> compares to the built-in Apple Watch Timer, the Mindfulness app, and
         named third-party apps in the full
-        <a href="/compare" class="text-brand-accent hover:underline">comparison table</a>.
+        <a href="/compare" class="text-brand-accent underline underline-offset-2 hover:no-underline">comparison table</a>.
       </p>
     </div>
   </section>
 
   <!-- Guides -->
-  <section class="px-6 py-24">
+  <section class="px-6 py-12 md:py-24">
     <div class="mx-auto max-w-3xl text-center">
       <h2 class="mb-4 text-3xl font-semibold md:text-4xl">Guides for your practice</h2>
       <p class="mx-auto mb-10 max-w-xl text-lg leading-relaxed text-brand-muted">
@@ -317,7 +362,7 @@ const howToSchema = {
   </section>
 
   <!-- Simplicity -->
-  <section class="px-6 py-24">
+  <section class="px-6 py-12 md:py-24">
     <div class="mx-auto max-w-3xl text-center">
       <h2 class="mb-4 text-3xl font-semibold md:text-4xl">Simple by design.</h2>
       <p class="mx-auto mb-10 max-w-xl text-lg leading-relaxed text-brand-muted">
