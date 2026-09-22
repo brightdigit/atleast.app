@@ -1,6 +1,6 @@
 ---
-title: "Breathing Pacer: Pace Your Breathwork by Touch, Not Screens"
-description: "A breathing pacer sets the rhythm of your breath. On an Apple Watch it can do that with gentle taps — so you pace the pattern with your eyes closed."
+title: "Breathing Pacer: How to Pace Any Breath Pattern Without Watching a Screen"
+description: "A breathing pacer keeps time for your breath so you stop counting. On Apple Watch it can do that with gentle taps — eyes closed, no screen, no chime."
 cluster: breathwork
 pillar: true
 order: 0
@@ -8,7 +8,9 @@ targetQueries:
   - breathing pacer
   - breath pacer
   - paced breathing timer
+  - breathing pacer app
 datePublished: 2026-09-07
+dateModified: 2026-09-22
 related:
   - box-breathing-timer
   - 4-7-8-breathing-timer
@@ -20,155 +22,168 @@ related:
 citations:
   - text: "Zaccaro A. et al. (2018). How Breath-Control Can Change Your Life: A Systematic Review on Psycho-Physiological Correlates of Slow Breathing. Frontiers in Human Neuroscience"
     url: "https://www.frontiersin.org/journals/human-neuroscience/articles/10.3389/fnhum.2018.00353/full"
-  - text: "Ma X. et al. (2017). The Effect of Diaphragmatic Breathing on Attention, Negative Affect and Stress in Healthy Adults. Frontiers in Psychology"
-    url: "https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2017.00874/full"
-  - text: "Stanford Medicine — Cyclic sighing tops other breathing methods for calming down (Balban et al., Cell Reports Medicine, 2023)"
-    url: "https://stanmed.stanford.edu/cyclic-sighing-stress-relief/"
+  - text: "Lehrer P.M. & Gevirtz R. (2014). Heart rate variability biofeedback: how and why does it work? Frontiers in Psychology"
+    url: "https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2014.00756/full"
+  - text: "Fincham G.W., Strauss C. & Cavanagh K. (2023). Effect of coherent breathing on mental health and wellbeing: a randomised placebo-controlled trial. Scientific Reports 13:22141"
+    url: "https://www.nature.com/articles/s41598-023-49279-8"
   - text: "Cleveland Clinic — Box Breathing Benefits"
     url: "https://health.clevelandclinic.org/box-breathing-benefits"
   - text: "Cleveland Clinic — 4-7-8 Breathing"
     url: "https://health.clevelandclinic.org/4-7-8-breathing"
-  - text: "Lehrer P.M. & Gevirtz R. (2014). Heart rate variability biofeedback: how and why does it work? Frontiers in Psychology"
-    url: "https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2014.00756/full"
-  - text: "National Center for Complementary and Integrative Health — Relaxation Techniques: What You Need To Know"
-    url: "https://www.nccih.nih.gov/health/relaxation-techniques-what-you-need-to-know"
   - text: "Wim Hof Method — Breathing Exercises (technique and safety warnings)"
     url: "https://www.wimhofmethod.com/breathing-exercises"
-  - text: "Apple Support — Adjust volume and haptics on Apple Watch"
-    url: "https://support.apple.com/guide/watch/adjust-volume-and-haptics-apd62807a9f3/watchos"
+  - text: "Stanford Medicine — Cyclic sighing tops other breathing methods for calming down (Balban et al., Cell Reports Medicine, 2023)"
+    url: "https://stanmed.stanford.edu/cyclic-sighing-stress-relief/"
   - text: "Cleveland Clinic — Diaphragmatic Breathing"
     url: "https://my.clevelandclinic.org/health/articles/9445-diaphragmatic-breathing"
+  - text: "National Center for Complementary and Integrative Health — Relaxation Techniques: What You Need To Know"
+    url: "https://www.nccih.nih.gov/health/relaxation-techniques-what-you-need-to-know"
+  - text: "Apple Support — Adjust volume and haptics on Apple Watch"
+    url: "https://support.apple.com/guide/watch/adjust-volume-and-haptics-apd62807a9f3/watchos"
 faq:
   - q: "What is a breathing pacer?"
-    a: "A breathing pacer is anything that supplies the rhythm for a breathing exercise so you do not have to count. It can be an animation, a sound, or — on a wrist-worn device — a series of gentle taps you feel rather than watch."
+    a: "A breathing pacer is anything that keeps time for a breathing exercise so you do not have to count — an animation on a screen, a tone or voice, or, on a wrist-worn device, a series of gentle taps you feel rather than watch."
   - q: "Can an Apple Watch pace my breathing with haptics?"
-    a: "Yes. AtLeast taps your wrist at an interval you choose for a minimum duration you set, so you can pace a pattern with your eyes closed. It has one interval per session, so it marks a steady beat rather than cueing inhale, hold, and exhale separately."
-  - q: "What tap interval should I use for box breathing?"
-    a: "Four seconds. Box breathing is four equal phases of about four seconds, so a four-second tap lands on every phase change: inhale on one tap, hold on the next, exhale on the next, hold on the next."
-  - q: "How do I pace an uneven pattern like 4-7-8?"
-    a: "Use a one-second interval and count the taps instead of counting in your head — four taps in, seven held, eight out. Or set a nineteen-second tap interval (one full 4-7-8 cycle) and a multi-round minimum of at least a minute, so each tap starts the next round."
+    a: "Yes. AtLeast taps your wrist at an interval you choose for a minimum duration you set, so you can pace a pattern with your eyes closed. It has one interval per session, so it marks a steady beat you breathe against rather than cueing inhale, hold, and exhale separately."
+  - q: "Does a breathing pacer need to set each phase separately?"
+    a: "Only for uneven patterns you cannot map onto a beat. Equal patterns such as box breathing and coherent breathing fit a single interval exactly. For 4-7-8 or Wim Hof rounds, a phase-cueing app announces each phase; a one-interval pacer gives you a short steady beat to count against, or one tap per round."
+  - q: "Which breathing pattern should I start with?"
+    a: "Box breathing at a four-second tap interval, or coherent breathing at five seconds in and five out. Both fit a steady wrist beat exactly, and a placebo-controlled trial suggests the pattern you will repeat consistently matters more than the specific numbers."
   - q: "Is paced breathing safe?"
     a: "Slow breathing is generally considered safe for healthy people, but it is not a treatment and AtLeast is not a medical device. Stop if you feel dizzy or light-headed, never practise breath holds in or near water, and talk to a clinician before starting if you have a health condition."
 issue: 107
 ---
 
-## What is a breathing pacer?
+## What a breathing pacer does, and why counting fails mid-session
 
-A breathing pacer is anything that supplies the rhythm so you do not have to count. Most of them are visual: an expanding circle, a rising bar, a wave that swells and falls. Some are audible — a chime on the inhale, a chime on the exhale, or a voice counting you through. Some are physical: a hand on the belly, a metronome, a partner's count.
+A breathing pacer is a tool that keeps time for your breath. It can be an app, a web timer, a wearable, or a handheld device, and its job is to signal the phases of a pattern — inhale, hold, exhale, hold — so you follow a fixed rhythm instead of counting in your head.
 
-The job is always the same. Structured breathing works because the *timing* is structured. A systematic review of slow-breathing research defines the category as anything that brings the breath below roughly ten breaths per minute, and links that pace to higher heart rate variability, greater parasympathetic activity, and reductions in anxiety and arousal<sup><a href="#ref-1">[1]</a></sup>. Eight weeks of diaphragmatic breathing training has been associated with improved sustained attention, lower negative affect, and lower salivary cortisol<sup><a href="#ref-2">[2]</a></sup>. A Stanford trial that asked 111 people to do five minutes of daily breathwork for a month found that exhale-focused cyclic sighing improved mood and lowered respiratory rate more than mindfulness meditation did<sup><a href="#ref-3">[3]</a></sup>.
+Pacers deliver that signal through one of three channels: a shape expanding and contracting on a screen, a voice or chime, or touch — a vibration on the wrist, or a handheld that swells and shrinks in your grip.
 
-None of that happens if the count drifts. Hold your breath for what feels like seven seconds and you will usually find it was four. The pacer is the part that keeps you honest, and the honest pacer for a practice you do with your eyes closed is one you can feel.
+Why hand the counting to a tool at all? Because silent counting works only until your attention drifts, and it drifts. Hold your breath for what feels like seven seconds and you will often find it was four. Under stress — usually the reason you sat down — the internal clock speeds up and the slow rhythm you came for disappears.
 
-## Why watching a screen breaks the practice you came for
+The rhythm is the part that matters. A systematic review of slow-breathing research defines the category as anything below roughly ten breaths per minute and links that pace to higher heart rate variability, greater parasympathetic activity, and reductions in anxiety and arousal<sup><a href="#ref-1">[1]</a></sup>. Breathing near six breaths a minute sits on the resonance frequency where heart rate and breathing synchronise most strongly, the pace used in heart rate variability biofeedback<sup><a href="#ref-2">[2]</a></sup>.
 
-Most breathing pacers ask for your eyes. That is a strange requirement for an exercise whose first instruction is almost always "close them."
+One caveat the pacer market rarely mentions. In the largest placebo-controlled breathwork trial to date, 400 adults practised either coherent breathing at about 5.5 breaths per minute or a matched placebo at 12 breaths per minute, for roughly ten minutes a day over four weeks. Both groups improved, and coherent breathing performed no better than the placebo on subjective stress<sup><a href="#ref-3">[3]</a></sup>. The practical reading is that consistency with a pattern you will repeat matters more than the exact numbers — which is why a pacer you will use every day is the real lever.
 
-Once you are looking at a phone or a watch face, you are running two practices at once: the breath, and the visual task of tracking an animation. Both need attention and one of them will lose. You also inherit everything else on that screen — the notification that arrives at count six, the brightness in a dark room, the lock screen you have to get past before the pacer is even visible. If you are lying down, the phone has to be propped somewhere you can see it. If your hands are cold or wet, it is worse.
+## The patterns people pace
 
-Audio pacers solve the eyes problem and introduce a different one. A chime is a public event. It rules out a shared office, a bedroom where someone is asleep, a train, a waiting room. Headphones fix the audience but not the intrusion: a sound arriving in your ears is a thing happening *to* you, and the more relaxed you get, the more a sound at the wrong moment feels like an interruption. That is the same design flaw as an alarm at the end of a meditation — it breaks the state it was supposed to protect.
+**Box breathing** is the pattern most people arrive with. Cleveland Clinic describes it as four counts in through the nose, four held, four out, four held, repeated for three to four rounds once or twice a day<sup><a href="#ref-4">[4]</a></sup>. It goes by other names — square breathing, four-square breathing — but the shape is always the same closed square.
 
-Counting in your head is the third option, and it is the one most people fall back on. It works, and it costs you the part of your attention you wanted to spend on the breath. Under stress — which is usually why you started box breathing in the first place — counting is exactly the thing that gets unreliable.
+**4-7-8** is the pattern popular for bedtime: four counts in, seven held, eight out, for four cycles<sup><a href="#ref-5">[5]</a></sup>. What carries it is the long exhale and the slow overall rate — one cycle is nineteen seconds, roughly three breaths a minute — which is exactly what fits the slow-breathing evidence<sup><a href="#ref-1">[1]</a></sup>. Eight rounds take about two and a half minutes.
 
-A haptic pacer sidesteps all three problems. You feel a tap, you change phase, and nothing enters your eyes, your ears, or the room.
+**Equal breathing** keeps it simpler: the same count in and out, no holds, often four seconds each and extended to six or eight once it feels easy.
 
-## How haptic pacing works on the wrist with *AtLeast*
+**Coherent breathing**, also called resonance breathing, drops the holds and slows the rate. The usual setting is five seconds in, five seconds out, about six breaths per minute. The resonance frequency varies from person to person, so practitioners tune the cycle by feel around that centre<sup><a href="#ref-2">[2]</a></sup>. If breath holds make you dizzy, this is the gentlest pattern on the list.
 
-*AtLeast* is a passive haptic timer for Apple Watch. There are two things to set: a minimum duration, from one to sixty minutes, and a tap interval. Once the session starts, gentle taps mark time on your wrist at that interval. When the taps stop, you have reached your minimum.
+**Wim Hof rounds** sit apart from all of these: about thirty deep breaths, a breath hold for as long as is comfortable, then one recovery breath held for about fifteen seconds, repeated for three or four rounds<sup><a href="#ref-6">[6]</a></sup>. A pacer that only understands fixed inhale-hold-exhale cycles cannot express it.
 
-That is the whole model, and the two halves do different jobs during breathwork:
+Which raises the real question about any pacer: does it fit the pattern you already practise? Equal patterns fit a single steady beat exactly. Uneven patterns need either an app that announces each phase, or a beat you count against.
 
-- **The taps are the rhythm.** Each one is a beat you breathe against. You are not reading a countdown or watching a circle inflate; you are following a pulse, the way you would follow a metronome.
-- **The silence is the finish.** There is no alarm and no sound. The session ends by going quiet, which means the end of your practice does not arrive as an interruption. You notice the absence when you are ready to notice it.
+## Why screens and chimes break a breathwork session
 
-The framing is "set a floor, not a ceiling." You commit to *at least* five minutes rather than promising exactly twenty, and when the taps stop you are free to continue or to stop. That is a more forgiving contract than a deadline, and it removes the small dread of a buzzer waiting at the end.
+The pacer idea is sound, but most tools that deliver it share a quiet flaw: they route the rhythm through your eyes or your ears, the two channels a breath practice is trying to quiet.
+
+A visual pacer works beautifully in a demo, and it demands your full attention for the entire session. You hold the phone, keep the display awake, and watch an animation with notifications arriving on the same surface. That pulls attention outward, and it contradicts the first instruction of almost every breathing exercise: close your eyes.
+
+Audio does no better in real rooms. A chime is a public event — it rules out an open-plan office, a train, a waiting room, a bedroom where someone is asleep. Headphones fix the audience but not the intrusion: a sound arriving in your ears is a thing happening *to* you, and the more settled you become, the more a tone at the wrong moment registers as an interruption.
+
+The physical setup fails too. A phone-based pacer needs somewhere visible to sit, so sessions get skipped whenever you are commuting, lying in bed, or unwilling to pull out a screen mid-workday. Vibration mode looks like the fix, and on paper it half is: the phone can stay in a pocket while it buzzes the rhythm. But you are still carrying, unlocking, and positioning a phone for every session. The gap is a pacer that runs on the wrist, cues you by touch, and needs no screen and no sound once the session starts.
+
+## Pacing by touch: how a haptic breathing pacer works on Apple Watch
+
+*AtLeast* is a passive haptic timer built to run entirely on Apple Watch. There are two things to set: a minimum duration, from one to sixty minutes, and a tap interval. Once you press Start, gentle taps mark time on your wrist at that interval. When the taps stop, you have reached your minimum. There is no alarm, no sound, and no screen to check.
+
+The two halves do different jobs during breathwork:
+
+- **The taps are the rhythm.** Each one is a beat you breathe against, the way you would follow a metronome. Set the interval to one phase of your pattern and every tap is a phase change.
+- **The silence is the finish.** The session ends by going quiet. There is no final cue and no summary screen, so nothing arrives to break the state you spent the session building. You notice the absence when you are ready to notice it.
+
+The framing is "set a floor, not a ceiling": commit to *at least* five minutes, and when the taps stop you are free to continue or to close.
+
+One honest limitation: *AtLeast* has **one tap interval per session**. It does not know your pattern, has no per-phase durations, and will not cue "inhale" differently from "hold" — every tap feels the same. What it gives you is an even, reliable beat, and every pattern below is a way of using an even beat well.
 
 The practical details matter as much as the model:
 
-- **It is eyes-free by design.** You press Start on the Watch and close your eyes. There is nothing to look at, nothing to unlock, nothing to dry off first.
-- **The taps continue with the watch face off.** *AtLeast* uses an Extended Runtime Session, so the display can sleep and your wrist can stay at your side without the rhythm stopping.
-- **It runs entirely on the Watch, offline.** No phone needs to be nearby, and no connection is required. It works on a plane, in a sauna, in a basement, at a retreat with your phone in a locker.
-- **The iPhone companion is optional.** When your phone is handy you can pick or pre-load a session on the larger screen and mirror the live session as it runs. The taps always happen on the wrist.
-- **It is privacy-first.** There is no account to create. Session and haptic logic run on-device, and analytics are cookieless — never used for advertising or cross-app tracking.
+- **Eyes-free by design.** Press Start and close your eyes. Nothing to look at, nothing to unlock.
+- **The taps continue with the watch face off.** *AtLeast* uses an Extended Runtime Session, so the display can sleep and your arm can rest at your side without the rhythm stopping.
+- **It runs entirely on the Watch, offline.** No phone needs to be nearby and no connection is required.
+- **The iPhone companion is optional.** When your phone is handy you can pre-load a session on the larger screen and mirror the live session. The taps always happen on the wrist.
+- **Privacy-first.** No account to create. Session and haptic logic run on-device, and analytics are cookieless — never used for advertising or cross-app tracking.
 
-One honest limitation, because it shapes every setup below: *AtLeast* has **one tap interval per session**. It does not know your pattern and it will not cue "inhale" differently from "hold." It gives you an even, reliable beat. Every pattern below is a way of using an even beat well.
+It requires an Apple Watch Series 6 or later running watchOS 26.0 or later, and it is a free TestFlight beta today. The [breathwork section of our use-cases page](/use-cases#breathwork) shows where wrist pacing fits into a day.
 
-It requires an Apple Watch Series 6 or later running watchOS 26.0 or later, and it is a free TestFlight beta today.
+## Choosing a breathing pacer: four questions that matter
 
-## How to pace box breathing with taps
+Touch solves the delivery problem, but you still have to pick a tool from app stores crowded with pacers that look similar and behave differently. Four questions cut through.
 
-Box breathing is the pattern haptics fit best, because it is already square. Cleveland Clinic describes it as four counts in, four counts holding, four counts out, four more counts holding, repeated for three to four rounds, once or twice a day<sup><a href="#ref-4">[4]</a></sup>.
+### 1. Does it fit your pattern?
 
-Every phase is the same length, so a **four-second tap interval** lands on every phase change:
+Start here, because this is where the trade-off lives. Guided-meditation platforms sell audio sessions, not pattern pacing. Among dedicated pacers there are two honest designs.
 
-| Tap | What you do |
-|---|---|
-| 1 | Begin the inhale |
-| 2 | Hold |
-| 3 | Begin the exhale |
-| 4 | Hold |
-| 5 | Begin the next inhale |
+A **phase-cueing app** lets you set inhale, hold, exhale, and hold independently, sometimes to a fraction of a second, and announces each transition. That precision matters for an uneven pattern like 4-7-8, or a resonance cycle tuned to a half-second value. The cost is a more complex setup and, on most phone apps, a screen or a sound as the cue.
 
-There is no counting at all. Four taps is one box. You are not tracking a number, you are riding a pulse, and the pattern loops for as long as the session runs.
+A **one-interval pacer** like *AtLeast* gives you a single steady beat and a minimum duration. For equal patterns — box, equal breathing, coherent breathing — that is a complete pacer, because one interval lands on every phase change. For uneven patterns it becomes a count you feel rather than a count you keep: a one-second beat for 4-7-8, or one tap per round. Less to configure, nothing to watch, and you supply the labels.
 
-Set the minimum to whatever you actually intend to sit for — five minutes is a common starting point and gives you roughly nineteen boxes. If four seconds per phase feels rushed, a five- or six-second interval gives you 5-5-5-5 or 6-6-6-6, which is a slower box and lands you near the six-breaths-per-minute range associated with the strongest heart rate variability effects<sup><a href="#ref-6">[6]</a></sup>. The pattern is yours; the interval just has to match one phase.
+Neither is wrong. Pick by the shape of the pattern you already practise, not the one a preset list nudges you toward.
 
-## How to pace 4-7-8 and other uneven patterns
+### 2. Can you run it without looking or listening?
 
-Uneven patterns are where a single interval stops mapping one-to-one, and where honesty matters more than a clever workaround. Cleveland Clinic's 4-7-8 is four counts in, seven holding, eight out, for four cycles<sup><a href="#ref-5">[5]</a></sup>. There is no single interval that lands on all three of those boundaries.
+A simple test: start a session, close your eyes, and put the device down. If you lose the rhythm, the pacer has failed. Phone apps pass only through vibration mode, and even then you are managing the device. Wrist haptics pass by default, because the cue never leaves your skin.
 
-Two setups work well:
+### 3. Does it stay out of the way?
 
-**Count the taps instead of counting in your head.** Set a one-second interval and let the taps become the count. Four taps for the inhale, seven for the hold, eight for the exhale. You are still counting, but you are counting something external and steady rather than an internal clock that speeds up when you are anxious. One full 4-7-8 cycle is nineteen taps, so four cycles is about seventy-six seconds — set a minimum of two minutes and you have room for the four cycles plus a settling breath at each end.
+Watch for paywalls on basic timing, ads that interrupt a session mid-breath, forced account creation, and quiet data collection. The best simple pacers need no account. The best expensive ones earn their price with biofeedback hardware — a sensor that reads your heart rhythm while you breathe. Anything charging a subscription without adding measurement is selling atmosphere, not pacing.
 
-**Or run one interval per round.** Set the interval to the length of a full cycle — nineteen seconds for 4-7-8 — and treat each tap as "start the next round." Inside the round you breathe by feel. This is a lighter touch: fewer taps, less structure, more room for the breath to find its own shape, and it suits people who already know the pattern well enough not to need the beat.
+### 4. Does it fit the device you already wear?
 
-The same logic covers any uneven ratio. Extended-exhale patterns like 4-6 or 4-8, coherent breathing at 5-5, resonance breathing near six breaths a minute — pick either the shortest common unit and count taps, or the full cycle and take one tap per round.
+For Apple Watch owners, a phone-based pacer forces a choice: carry two devices or accept the phone-in-pocket compromise. A Watch-native pacer removes the decision. Apple's built-in Mindfulness app paces a breath rate for up to five minutes and ends on a summary screen; the [round-up of breathing apps for Apple Watch](/apple-watch-breathing-app) covers where it stops and which third-party apps take a named pattern.
 
-## How to pace Wim Hof rounds
+## Pattern by pattern: where to go deep
 
-Wim Hof rounds are structured differently again: roughly thirty deep breaths, then a breath hold for as long as is comfortable, then one recovery breath held for about fifteen seconds, repeated for three to four rounds<sup><a href="#ref-8">[8]</a></sup>.
+**Box breathing** is where a single beat does the most work. The [box breathing timer](/box-breathing-timer) guide walks through the four-second interval phase by phase, slower boxes, and why web timers stop helping once you are away from a desk.
 
-Only the first part of that is paced. The retention is deliberately open-ended — you hold until you feel the urge to breathe — so a pacer's job is to carry the thirty breaths and then get out of the way.
+**4-7-8** is where mental counting falls apart hardest. At nineteen seconds per cycle, the count drifts by the third or fourth round. The [4-7-8 breathing timer](/4-7-8-breathing-timer) guide shows how a one-second tap interval turns the arithmetic into something you feel — four taps in, seven held, eight out.
 
-A practical setup: a **two-second interval** for the breathing phase, one tap per breath, thirty taps per round. Set the minimum long enough to cover all your rounds plus the retentions — ten to fifteen minutes is typical for three or four rounds — and simply ignore the taps during the holds. Or start a fresh short session at the top of each round, so the taps only run while you are actively breathing.
+**Wim Hof rounds** break fixed-cycle pacers, so the [Wim Hof breathing timer](/wim-hof-breathing-timer) guide explains a two-second interval for the breathing phase, one session per round, and the safety rules a timer does not change.
 
-The safety note here is not optional. The Wim Hof Method's own guidance warns that intense rounds can in rare cases cause loss of consciousness, and that this is dangerous in or near water or while driving; it instructs you to always practise seated or lying down in a neutral space<sup><a href="#ref-8">[8]</a></sup>. A timer on your wrist does not change any of that. Never do breath holds in a bath, a pool, or a cold plunge.
+**How long should a session run?** No research identifies an ideal duration. [How long you should do box breathing](/how-long-should-you-do-box-breathing) treats round counts as comfort settings — three to four rounds is Cleveland Clinic's starting dose — and shows how a minimum duration lets you stop keeping a tally.
 
-## Choosing an interval and a minimum
+**If the touch-based angle is what sold you**, the [breathing timer app](/breathing-timer-app) guide covers what to look for in an app that paces by haptics: custom timing, clear phase cues, eyes-free operation, and a session that ends without an alarm.
 
-Two decisions, and they are easier than they look.
+## Quick reference: pacer options at a glance
 
-**The interval** should equal the shortest unit you want marked.
+| Option | What you get | The trade-off |
+|---|---|---|
+| Web timers | Free, instant, nothing to install | Screen-bound; you watch the whole session |
+| Phone apps | Custom patterns, often a vibration mode | You carry, unlock, position, and keep a phone awake |
+| Subscription apps | Polished guided sessions | Paywalled, and built around audio or screen cues |
+| Biofeedback hardware | Real measurement; some handhelds pace by expanding in your grip | Priced like hardware |
+| Wrist-native haptic pacer | The cue on your skin, on a device you already wear | One steady interval; you supply the pattern's labels |
+
+And the interval settings for a one-interval pacer, by pattern:
 
 | Practice | Interval | What each tap means |
 |---|---|---|
 | Box breathing 4-4-4-4 | 4 s | One phase change |
-| Slower box 6-6-6-6 | 6 s | One phase change |
 | Coherent breathing 5-5 | 5 s | Inhale or exhale |
 | 4-7-8 | 1 s | One count |
 | 4-7-8, lighter touch | 19 s | One full round |
 | Wim Hof breathing phase | 2 s | One breath |
-| Free breathing / anchor only | 60 s+ | A quiet reminder time is passing |
+| Free breathing, anchor only | 60 s+ | A quiet reminder that time is passing |
 
-**The minimum** should be a number you will actually keep. The evidence for short daily practice is good: the Stanford trial used five minutes a day<sup><a href="#ref-3">[3]</a></sup>, and Cleveland Clinic's diaphragmatic breathing guidance suggests five to ten minutes a few times a day, building up gradually<sup><a href="#ref-10">[10]</a></sup>. Five minutes is a floor almost anyone can hold, and because it is a minimum rather than a deadline, nothing stops you at eleven.
+If the taps feel too faint or too strong, that is a watchOS setting rather than an app one: Apple Watch lets you set haptic intensity to Default or Prominent, and Silent Mode silences alerts without silencing the taps you feel<sup><a href="#ref-10">[10]</a></sup>.
 
-If the taps feel too faint or too strong, that is a watchOS setting rather than an app one: Apple Watch lets you set haptic intensity to Default or Prominent, and Silent Mode silences alerts without silencing the taps you feel<sup><a href="#ref-9">[9]</a></sup>. Try a session with your arm relaxed at your side, which is where it will be during practice, rather than held up in front of you.
+## Getting started
 
-## Safety, and what a pacer is not
+**Start with the pattern you already practise.** Remember the placebo-controlled trial above: the specific numbers mattered less than showing up consistently<sup><a href="#ref-3">[3]</a></sup>. Pattern loyalty beats pattern shopping.
 
-Slow breathing is generally considered safe for healthy people, and NCCIH notes that relaxation techniques rarely cause harm — while also recording occasional reports of increased anxiety, intrusive thoughts, or fear of losing control, and cautioning that some techniques may worsen symptoms for people with epilepsy, certain psychiatric conditions, or a history of trauma<sup><a href="#ref-7">[7]</a></sup>. Talk to a clinician before starting if any of that applies to you.
+**Set one interval and one minimum.** The interval is the shortest unit you want marked — four seconds for a box, five for coherent breathing, one for a 4-7-8 count. Do not know your resonance pace? Start at six breaths per minute, five seconds in and five out, then adjust by feel: gasping means too slow, feeling rushed means too fast. The minimum should be a number you will keep. The Stanford trial used five minutes a day<sup><a href="#ref-7">[7]</a></sup>, and Cleveland Clinic's diaphragmatic breathing guidance suggests five to ten minutes a few times a day, building up gradually<sup><a href="#ref-8">[8]</a></sup>. Five minutes is a floor almost anyone can hold, and nothing stops you at eleven.
 
-Three rules worth keeping:
+**Run one short session.** Close your eyes and notice whether the rhythm holds without any counting on your part. If it does, you have found your setup. If it does not, the pacer is not doing its one job.
 
-1. **Never do breath holds in or near water.** Not in a bath, a pool, a cold plunge, or an ice bath.
-2. **Stop if you feel dizzy or light-headed.** Tingling in the fingers is common with intense breathing<sup><a href="#ref-8">[8]</a></sup>; anything more than that is a signal to return to normal breathing and sit still.
-3. **A pacer is a rhythm, not a treatment.** *AtLeast* is not a medical device and does not diagnose, treat, or monitor anything. It counts, quietly, on your wrist.
+**Keep the safety rules.** Slow breathing is generally considered safe for healthy people, and NCCIH notes that relaxation techniques rarely cause harm — while recording occasional reports of increased anxiety, intrusive thoughts, or fear of losing control, and cautioning that some techniques may worsen symptoms for people with epilepsy, certain psychiatric conditions, or a history of trauma<sup><a href="#ref-9">[9]</a></sup>. Three rules worth keeping:
 
-There is also nothing to sign up for. No account, no streak, no feed, no library of guided sessions on a subscription. Session and haptic logic run on-device, and the analytics that do exist are cookieless and never used for advertising or cross-app tracking. For a practice you do with your eyes closed, that absence is most of the point.
-
-## Where to go from here
-
-If you already know your pattern, the setup is one interval and one minimum, and you can be breathing in under a minute. If you are still choosing, start with box breathing at a four-second interval and a five-minute floor, because it is the pattern where a single steady beat does the most work.
-
-The [breathwork section of our use-cases page](/use-cases#breathwork) covers how *AtLeast* fits alongside meditation, cold exposure, and static holds — every practice where the timer should be something you feel rather than something you watch.
+1. **Never do breath holds in or near water.** Not in a bath, a pool, a cold plunge, or an ice bath. The Wim Hof Method's own guidance warns that intense rounds can in rare cases cause loss of consciousness; practise seated or lying down in a dry, neutral space<sup><a href="#ref-6">[6]</a></sup>.
+2. **Stop if you feel dizzy or light-headed.** Return to normal breathing and sit still; if holds are the trouble, switch to a hold-free pattern.
+3. **A pacer is a rhythm, not a treatment.** *AtLeast* is not a medical device and does not diagnose, treat, or monitor anything. If stress or sleep problems persist for weeks, take them to a clinician. It counts, quietly, on your wrist, until you have done at least as much as you promised yourself.
