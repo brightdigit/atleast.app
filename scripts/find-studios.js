@@ -294,7 +294,7 @@ FROM candidates
 WHERE name IS NOT NULL
   AND primary_cat IN (${categoryList})
   -- Never pitch a business that has closed.
-  AND (operating_status IS NULL OR operating_status <> 'closed')
+  AND (operating_status IS NULL OR operating_status NOT IN ('permanently_closed', 'closed'))
   -- Reachability filter: keep only places with some contact path.
   AND (
     (emails   IS NOT NULL AND len(emails)   > 0) OR
@@ -534,9 +534,14 @@ async function main() {
       );
       const knownCount = all.length - fresh.length;
 
-      const unseen = fresh.filter((lead) => !seen.has(dedupeKey(lead)));
+      const unseen = [];
+      for (const lead of fresh) {
+        const key = dedupeKey(lead);
+        if (seen.has(key)) continue;
+        seen.add(key);
+        unseen.push(lead);
+      }
       const dupeCount = fresh.length - unseen.length;
-      for (const lead of unseen) seen.add(dedupeKey(lead));
 
       const usable = unseen
         .filter((lead) => lead.contact.score >= MIN_CONTACT_SCORE)

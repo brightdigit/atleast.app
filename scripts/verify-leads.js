@@ -38,7 +38,7 @@
  */
 
 import { readdirSync, readFileSync, writeFileSync, mkdirSync } from 'fs';
-import { resolveMx } from 'dns/promises';
+import { resolveMx, resolve4, resolve6 } from 'dns/promises';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
 
@@ -69,8 +69,16 @@ function parseArgs(argv) {
   for (const arg of argv) {
     if (arg === '--help' || arg === '-h') opts.help = true;
     else if (arg.startsWith('--only=')) opts.only = arg.slice(7).split(',').map((s) => s.trim());
-    else if (arg.startsWith('--limit=')) opts.limit = Number(arg.slice(8));
-    else if (arg.startsWith('--stale-days=')) {
+    else if (arg.startsWith('--limit=')) {
+      const raw = arg.slice(8).trim();
+      const limit = Number(raw);
+      if (!raw || !Number.isInteger(limit) || limit <= 0) {
+        console.error('--limit must be a positive integer');
+        opts.help = true;
+      } else {
+        opts.limit = limit;
+      }
+    } else if (arg.startsWith('--stale-days=')) {
       const raw = arg.slice(13).trim();
       const staleDays = Number(raw);
       if (!raw || !Number.isFinite(staleDays) || !Number.isInteger(staleDays) || staleDays < 0) {
@@ -273,10 +281,23 @@ async function checkEmailDomain(email) {
   if (!mxCache.has(domain)) {
     mxCache.set(
       domain,
-      resolveMx(domain).then(
-        (records) => (records.length ? 'ok' : 'no-mx'),
-        (error) => (error?.code === 'ENOTFOUND' || error?.code === 'ENODATA' ? 'no-mx' : 'error')
-      )
+      (async () => {
+        try {
+          const records = await resolveMx(domain);
+          // Null MX (RFC 7505): exchange "." means the domain accepts no mail.
+          if (records.some((r) => !r.exchange || r.exchange === '.')) return 'no-mx';
+          if (records.length) return 'ok';
+        } catch (error) {
+          if (error?.code !== 'ENOTFOUND' && error?.code !== 'ENODATA') return 'error';
+          // No MX RRs — fall through to implicit A/AAAA delivery (RFC 5321).
+        }
+        try {
+          await Promise.any([resolve4(domain), resolve6(domain)]);
+          return 'ok';
+        } catch {
+          return 'no-mx';
+        }
+      })()
     );
   }
   return { email, result: await mxCache.get(domain), domain };

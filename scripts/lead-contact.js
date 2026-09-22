@@ -60,9 +60,8 @@ function isSocialHostname(hostname) {
   return SOCIAL_HOST_RE.test(host) || MASTODON_HOST_RE.test(host);
 }
 
-/** Placeholder hosts that carry no contact value. */
-const PLACEHOLDER_HOST =
-  /(example\.(com|org)|localhost|wixsite\.com\/?$|godaddysites\.com\/?$|business\.site\/?$)/i;
+/** Placeholder hosts that carry no contact value (not a real business page). */
+const PLACEHOLDER_HOST = /(?:^|\.)(?:example\.(?:com|org)|localhost)$/i;
 
 /**
  * Hosting and link-aggregator platforms. A URL here belongs to the platform, not
@@ -70,7 +69,7 @@ const PLACEHOLDER_HOST =
  * less than a domain the owner controls.
  */
 const HOSTED_PLATFORM =
-  /(buzzsprout|libsyn|podbean|anchor\.fm|podcasters\.spotify|spotify\.com|captivate\.fm|transistor\.fm|simplecast|megaphone|redcircle|spreaker|podomatic|fireside\.fm|castos|blubrry|acast\.com|substack\.com|patreon\.com|mykajabi\.com|squarespace\.com|wordpress\.com|blogspot\.com|weebly\.com)/i;
+  /(buzzsprout|libsyn|podbean|anchor\.fm|podcasters\.spotify|spotify\.com|captivate\.fm|transistor\.fm|simplecast|megaphone|redcircle|spreaker|podomatic|fireside\.fm|castos|blubrry|acast\.com|substack\.com|patreon\.com|mykajabi\.com|squarespace\.com|wordpress\.com|blogspot\.com|weebly\.com|wixsite\.com|godaddysites\.com|business\.site)/i;
 
 /** Normalize a URL for comparison and display; returns null when unusable. */
 export function normalizeUrl(value) {

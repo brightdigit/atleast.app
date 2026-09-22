@@ -257,7 +257,7 @@ function isWorthContacting(lead, feed, opts) {
   if (!lead.name) return false;
   if (lead.episodeCount < MIN_EPISODES) return false;
   if (!lead.site) return false; // no site means no way in
-  if (!opts.includeDormant && lead.lastEpisodeDays != null && lead.lastEpisodeDays > ACTIVE_WINDOW_DAYS) {
+  if (!opts.includeDormant && (lead.lastEpisodeDays == null || lead.lastEpisodeDays > ACTIVE_WINDOW_DAYS)) {
     return false;
   }
   return true;

@@ -41,8 +41,16 @@ function parseArgs(argv) {
     if (arg === '--help' || arg === '-h') opts.help = true;
     else if (arg === '--dry-run') opts.dryRun = true;
     else if (arg.startsWith('--only=')) opts.only = arg.slice(7).split(',').map((s) => s.trim());
-    else if (arg.startsWith('--num=')) opts.numResults = Number(arg.slice(6));
-    else if (arg.startsWith('--type=')) opts.type = arg.slice(7);
+    else if (arg.startsWith('--num=')) {
+      const raw = arg.slice(6).trim();
+      const num = Number(raw);
+      if (!raw || !Number.isInteger(num) || num <= 0) {
+        console.error('--num must be a positive integer');
+        opts.help = true;
+      } else {
+        opts.numResults = num;
+      }
+    } else if (arg.startsWith('--type=')) opts.type = arg.slice(7);
     else {
       console.error(`Unknown argument: ${arg}`);
       opts.help = true;
