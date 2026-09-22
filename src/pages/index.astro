@@ -52,6 +52,19 @@ const features = [
   },
 ];
 
+// Session Type is chosen per timer and decides how a finished session is saved
+// to Apple Health. Writing to Health is free; the types marked `pro` need
+// AtLeast Pro (see the support FAQ).
+const sessionTypes = [
+  { label: 'Mindful Minutes', pro: false },
+  { label: 'Yoga', pro: false },
+  { label: 'Mind & Body', pro: true },
+  { label: 'Flexibility', pro: true },
+  { label: 'Cooldown', pro: true },
+  { label: 'Core Training', pro: true },
+  { label: 'Traditional Strength', pro: true },
+];
+
 const softwareSchema = {
   '@context': 'https://schema.org',
   '@type': 'SoftwareApplication',
@@ -71,6 +84,7 @@ const softwareSchema = {
     'Perfect for meditation, breathwork, and cold plunge',
     'Apple Watch native app',
     'Optional iPhone companion — pre-load a timer and mirror the live session',
+    'Saves finished sessions to Apple Health as Mindful Minutes or a workout',
   ],
 };
 
@@ -189,6 +203,24 @@ const howToSchema = {
       <p class="mx-auto max-w-xl text-lg leading-relaxed text-brand-muted">
         Pre-load and pick a timer on your iPhone, then start the session from your Apple Watch. Your iPhone mirrors the live session in real time — while the gentle taps stay where they belong, on your wrist. The companion is entirely optional; the Watch remains the core, eyes-free experience.
       </p>
+    </div>
+  </section>
+
+  <!-- Apple Health -->
+  <section class="px-6 py-24">
+    <div class="mx-auto max-w-3xl text-center">
+      <h2 class="mb-4 text-3xl font-semibold md:text-4xl">Your practice, counted in Apple Health.</h2>
+      <p class="mx-auto mb-10 max-w-xl text-lg leading-relaxed text-brand-muted">
+        Give a timer a Session Type and each finished session lands in your Health app — as Mindful Minutes, or as a workout such as Yoga or Core Training. It's chosen per timer, so a sit and a stretch can each be counted as what they were. Leave the type off and nothing is written. <em>AtLeast</em> only writes to Health, never reads it, and the record stays in your own Health app. Saving to Health is free; <em>AtLeast</em> Pro unlocks the full range of session types.
+      </p>
+      <div class="flex flex-wrap items-center justify-center gap-4">
+        {sessionTypes.map((t) => (
+          <span class="flex items-center gap-2 rounded-full border border-brand-border bg-brand-surface px-5 py-2.5 text-sm text-brand-muted">
+            {t.label}
+            {t.pro && <span class="text-xs font-medium text-brand-pulse">Pro</span>}
+          </span>
+        ))}
+      </div>
     </div>
   </section>
 
