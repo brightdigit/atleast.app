@@ -102,7 +102,7 @@ the way to check a query change here. Pass flags through `ARGS="..."`.
 
 ## Content Voice
 
-Calm, confident, minimal. Use words like "gentle", "silence", "rhythm", "practice". Avoid hype words like "revolutionary" or "game-changing". Frame features as benefits. Always mention privacy-first positioning — no accounts; session and haptic logic run on-device; cookieless Plausible analytics only (website pageviews, outbound-link clicks, and custom events; iPhone and Apple Watch apps via AviaryInsights: ios_open, pageview, and session_start with session config props), never for advertising or cross-app tracking. Privacy copy must match the app’s real analytics surface (Watch + iPhone, not iOS-only).
+Calm, confident, minimal. Use words like "gentle", "silence", "rhythm", "practice". Avoid hype words like "revolutionary" or "game-changing". Frame features as benefits. Always mention privacy-first positioning — no accounts; session and haptic logic run on-device; cookieless Plausible analytics only (website pageviews, outbound-link clicks, and custom events; iPhone and Apple Watch apps via AviaryInsights: ios_open, pageview, and session_start with session config props), never for advertising or cross-app tracking. Privacy copy must match the app’s real analytics surface (Watch + iPhone, not iOS-only) and the rest of its network surface: Sentry crash reporting (Debug and Release, sharing the analytics opt-out), RevenueCat for purchases, and CloudKit private-database sync for timers and history — never claim crash reports stay on-device or that Plausible is the only third party.
 
 See [`docs/positioning.md`](docs/positioning.md) for who the app is for, what it
 is, and why it's better — the source of truth for marketing copy and article
