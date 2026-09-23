@@ -5,16 +5,16 @@ import { SUPPORT_EMAIL, COMPANY_NAME } from '../config';
 
 <Layout
   title="Privacy Policy — AtLeast"
-  description="AtLeast runs timer logic on-device and syncs your timers through your own private iCloud account. The website, iPhone app, and Apple Watch app use cookieless Plausible analytics, purchases are processed by RevenueCat, and crash reports go to Sentry—no accounts, no advertising, no cross-app tracking."
+  description="AtLeast runs timer logic on-device, syncs your timers through your own private iCloud account, and can save finished sessions to Apple Health (write-only). The website, iPhone app, and Apple Watch app use cookieless Plausible analytics you can turn off in Settings, purchases are processed by RevenueCat, and crash reports go to Sentry—no accounts, no advertising, no cross-app tracking."
 >
-  <section class="px-6 py-24">
+  <section class="px-6 py-12 md:py-24">
     <div class="mx-auto max-w-2xl">
       <h1 class="mb-2 text-4xl font-bold tracking-tight md:text-5xl">Privacy Policy</h1>
       <p class="mb-12 text-sm text-brand-muted">Last updated: September 2026</p>
 
       <div class="space-y-8 text-base leading-relaxed text-brand-muted">
         <p>
-          <em>AtLeast</em> is privacy-first. There are no accounts. Session and haptic logic run on your devices, and what syncs between them travels through your own private iCloud account. We use limited, cookieless analytics on the website, iPhone app, and Apple Watch app, a crash reporter to find and fix bugs, and a purchase service to unlock what you buy—nothing for advertising or cross-app tracking.
+          <em>AtLeast</em> is privacy-first. There are no accounts. Session and haptic logic run on your devices, and what syncs between them travels through your own private iCloud account. If you choose a session type, finished sessions are saved to your own Apple Health app, and we never read anything back. We use limited, cookieless analytics on the website, iPhone app, and Apple Watch app, a crash reporter to find and fix bugs, and a purchase service to unlock what you buy—nothing for advertising or cross-app tracking, and you can turn the analytics and crash reports off in Settings.
         </p>
 
         <div>
@@ -23,7 +23,20 @@ import { SUPPORT_EMAIL, COMPANY_NAME } from '../config';
             Session and haptic logic run locally on the watch, and <em>AtLeast</em> keeps working with no network at all. Nothing is uploaded as an <em>AtLeast</em> account or personal profile—there is no account to make, and we run no server of our own.
           </p>
           <p>
-            Your custom timers and session history sync between your own devices through your private iCloud database. That is your iCloud account, not ours: {COMPANY_NAME} cannot read it. Starting a session also sends limited configuration via analytics (see below)—never for advertising.
+            Your custom timers and session history sync between your own devices through your private iCloud database whenever you are signed in to iCloud. There is no sync switch inside <em>AtLeast</em>: sync follows your iCloud account, and you can turn it off for <em>AtLeast</em> in iOS Settings under your Apple Account's iCloud app list, or by signing out of iCloud. That is your iCloud account, not ours: {COMPANY_NAME} cannot read it. Starting a session also sends limited configuration via analytics (see below)—never for advertising.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="mb-3 text-xl font-semibold text-brand-text">Apple Health</h2>
+          <p class="mb-3">
+            Each timer has an optional session type. If you set one, a finished session is saved to the Health app on your own device—as Mindful Minutes, or as a workout (Yoga, Mind &amp; Body, Flexibility, Cooldown, Core Training, or Traditional Strength), depending on the type. A timer with no session type writes nothing to Health. Saving to Health is free; <em>AtLeast</em> Pro widens the range of session types you can choose from.
+          </p>
+          <p class="mb-3">
+            <em>AtLeast</em> only writes to Health. It never reads your Health data—the app requests no read permission at all—and nothing you save to Health is sent to {COMPANY_NAME} or to any third party. The record is written by the device that ran the session, and Health itself syncs it between your devices under Apple's terms. Whether it appears in Health, and what you do with it afterwards, is controlled by you in the Health app.
+          </p>
+          <p>
+            The first time you pick a session type, iOS shows the Health permission sheet. It asks for both mindful-session and workout sharing at once, so that switching a timer from meditation to yoga later does not need a second prompt—that is why a meditation timer asks about workouts. You can change either permission at any time in the Health app under Sharing.
           </p>
         </div>
 
@@ -44,6 +57,9 @@ import { SUPPORT_EMAIL, COMPANY_NAME } from '../config';
               All app events also carry a device model identifier (a <code class="text-sm">system-model</code> property such as <code class="text-sm">iPhone16,1</code> or <code class="text-sm">Watch7,4</code>), which is likewise part of the User-Agent Plausible uses for its device breakdown. It names a hardware model shared by millions of devices—it is not a personal or persistent identifier.
             </li>
           </ul>
+          <p class="mt-3">
+            <strong class="text-brand-text">Turning it off.</strong> App analytics are on by default, and you can switch them off at any time: open <em>AtLeast</em> on your iPhone, go to Settings, and turn off <strong class="text-brand-text">Analytics &amp; crash reports</strong>. The setting applies to both the iPhone app and the Apple Watch app—the watch has no Settings screen of its own, and the choice is carried to it through your iCloud account—and it covers crash reports (below) as well as analytics. With it off, the apps send no events and no crash reports. The toggle is an app setting; the website's page analytics, described above, are separate and set no cookies.
+          </p>
         </div>
 
         <div>
@@ -54,7 +70,7 @@ import { SUPPORT_EMAIL, COMPANY_NAME } from '../config';
             so we can find and fix it. A report describes what the app was doing when it failed—the error, where in the code it happened, and the device and app version. It carries no personal profile and is never used for advertising.
           </p>
           <p>
-            Crash reporting shares the analytics opt-out. The in-app <strong class="text-brand-text">Analytics &amp; crash reports</strong> toggle in Settings controls both: turn it off and <em>AtLeast</em> stops sending either one.
+            Crash reporting shares the analytics opt-out. The in-app <strong class="text-brand-text">Analytics &amp; crash reports</strong> toggle in Settings on your iPhone controls both, on the Watch as well as the phone: it is on by default, and turning it off stops <em>AtLeast</em> sending either one.
           </p>
         </div>
 
@@ -76,6 +92,7 @@ import { SUPPORT_EMAIL, COMPANY_NAME } from '../config';
             <li>No accounts or sign-in</li>
             <li>No personal identifiers or advertising IDs</li>
             <li>No location data</li>
+            <li>No reading of your Health data—<em>AtLeast</em> only writes the sessions you choose to save</li>
             <li>No advertising SDKs, and no cross-app or cross-site tracking</li>
           </ul>
         </div>
@@ -83,7 +100,7 @@ import { SUPPORT_EMAIL, COMPANY_NAME } from '../config';
         <div>
           <h2 class="mb-3 text-xl font-semibold text-brand-text">Third parties</h2>
           <p>
-            Plausible provides analytics for the website and for the iPhone and Apple Watch apps (via AviaryInsights). Sentry receives crash and error reports from the apps. RevenueCat processes in-app purchases and entitlements. Those are the only third parties <em>AtLeast</em> shares data with, and none of it is advertising: <em>AtLeast</em> has no advertising SDKs. Your synced timers and history sit in your own iCloud account, held by Apple under Apple's terms—not in any system of ours, and not readable by us.
+            Plausible provides analytics for the website and for the iPhone and Apple Watch apps (via AviaryInsights). Sentry receives crash and error reports from the apps. RevenueCat processes in-app purchases and entitlements. Those are the only third parties <em>AtLeast</em> shares data with, and none of it is advertising: <em>AtLeast</em> has no advertising SDKs. Your synced timers and history sit in your own iCloud account, and any sessions you save to Health sit in your own Health app—both held by Apple under Apple's terms, not in any system of ours, and not readable by us.
           </p>
         </div>
 

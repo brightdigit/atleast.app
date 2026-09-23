@@ -97,7 +97,7 @@ the way to check a query change here. Pass flags through `ARGS="..."`.
 - **Dark theme** — near-black background (`#0A0A0A`), light text (`#F5F5F5`)
 - Brand colors defined as `brand-*` in Tailwind config: `bg`, `surface`, `border`, `text`, `muted`, `accent` (blue `#6B8FF8`), `pulse` (purple `#9B7FE8`)
 - System font stack: `-apple-system`, `SF Pro Display`, `Inter`, `system-ui`
-- Generous whitespace — minimum `py-24` between major sections
+- Generous whitespace — `py-24` between major sections on md+ (`py-12` on phones, via `py-12 md:py-24`)
 - CSS-only animations (no JS animation libraries)
 
 ## Content Voice

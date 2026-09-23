@@ -42,6 +42,16 @@ you pre-load or pick a timer on the larger screen and mirror the live session;
 the taps always happen on the wrist. It requires Apple Watch Series 6 or later
 running watchOS 26.0 or later.
 
+Each timer can carry a Session Type, which decides how a finished session is
+saved to Apple Health: as Mindful Minutes, or as a workout (Yoga, Mind & Body,
+Flexibility, Cooldown, Core Training, or Traditional Strength). A timer with no
+session type writes nothing. *AtLeast* only writes to Health and never reads
+it; the device that runs the session writes the record, and Health syncs it
+between devices itself. Saving to Health is free, and so are the Mindful
+Minutes and Yoga types. *AtLeast* Pro unlocks the other five session types,
+saving your own timers, and History (streaks, weekly count, and total quiet
+minutes). Never imply the whole Health feature is Pro.
+
 *AtLeast* is privacy-first: no accounts, session and haptic logic on-device, and
 cookieless Plausible analytics only — never for advertising or cross-app
 tracking. It is currently a free TestFlight beta.
@@ -61,9 +71,14 @@ most exactly where phones fail — eyes closed, hands cold, room dark, shared sp
 minutes is easier to keep than promising exactly twenty, and it leaves room to
 continue rather than forcing a stop.
 
-**It does one thing.** No account, no feed, no streak, no library of guided
-content to subscribe to. Set a duration and an interval, press Start on the
-Watch, and put your attention where it belongs.
+**It does one thing.** No account, no feed, no library of guided content to
+subscribe to. Set a duration and an interval, press Start on the Watch, and put
+your attention where it belongs.
+
+**Your practice counts where you already keep it.** A finished session lands in
+Apple Health as Mindful Minutes or a workout, chosen per timer, without a second
+app, an account, or anything leaving your own Health app. Saving to Health is
+free; Pro widens the range of types.
 
 **Privacy is a genuine differentiator, not a badge.** Session and haptic logic
 run on-device, there is nothing to sign in to, and analytics are cookieless and

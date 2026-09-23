@@ -4,7 +4,7 @@ import Schema from '../components/Schema.astro';
 import PracticeCard from '../components/PracticeCard.astro';
 import SectionHeading from '../components/SectionHeading.astro';
 import { Icon } from 'astro-icon/components';
-import { SUPPORT_EMAIL } from '../config';
+import { SUPPORT_EMAIL, PRO_PRICE_LINE } from '../config';
 
 // Grouped for the jump grid and section headings; every question also gets
 // its own anchor (slug of the question text) so it can be linked directly.
@@ -92,8 +92,8 @@ const sections = [
     blurb: 'What is free, what Pro adds, and purchases.',
     faqs: [
       {
-        question: 'What is free, and what does AtLeast Pro add?',
-        answer: 'The built-in timers and the Mindful Minutes and Yoga session types are free. AtLeast Pro adds saving your own timers, History, and every session type. Pro is available as a monthly or annual subscription (the annual plan starts with a 7-day free trial) or as a one-time AtLeast Founder purchase.',
+        question: 'What does <em>AtLeast</em> Pro include?',
+        answer: `Pro lets you save your own timers, shows your session history — streaks, weekly count, and total quiet minutes — and unlocks the five additional Session Types (Mind & Body, Flexibility, Cooldown, Core Training, and Traditional Strength). Mindful Minutes and Yoga stay free. <em>AtLeast</em> records every session you finish whether or not you have Pro; Pro shows them to you. Everything else — the haptic timer, saving to Apple Health, the iPhone companion — stays free. Pro is ${PRO_PRICE_LINE} — the one-time purchase is the <em>AtLeast</em> Founder edition.`,
       },
       {
         question: 'How do I restore or manage my purchase?',
@@ -108,8 +108,8 @@ const sections = [
     blurb: 'Apple Health, History, and iCloud sync.',
     faqs: [
       {
-        question: 'Does <em>AtLeast</em> work with Apple Health?',
-        answer: 'Yes, if you want it to. Give a timer a session type and each finished session is saved to Apple Health as Mindful Minutes or a workout, such as Yoga, Flexibility, or Cooldown. <em>AtLeast</em> asks for permission the first time you pick a session type. It only writes to Health — it never reads your Health data.',
+        question: 'Does <em>AtLeast</em> save sessions to Apple Health?',
+        answer: 'Yes, when you want it to. Each timer has a Session Type that decides how a finished session is saved: Mindful Minutes, or a workout such as Yoga, Flexibility, Cooldown, Core Training, or Traditional Strength. Leave the type off and nothing is written. The first time you pick a type, Apple Health asks for permission to share mindful sessions and workouts together — that is why a meditation timer mentions workouts. <em>AtLeast</em> only writes to Health and never reads it; the record stays in your own Health app and never goes to BrightDigit or anyone else through Health. Saving to Health is free — Mindful Minutes and Yoga are included, and <em>AtLeast</em> Pro unlocks the other session types.',
       },
       {
         question: 'What is History, and do my sessions sync?',
@@ -163,14 +163,14 @@ const faqSchema = {
 >
   <Schema schema={faqSchema} />
 
-  <section class="px-6 py-24">
+  <section class="px-6 py-12 md:py-24">
     <div class="mx-auto max-w-2xl">
       <h1 class="mb-6 text-4xl font-bold tracking-tight md:text-5xl">Support</h1>
       <p class="mb-12 text-lg leading-relaxed text-brand-muted">
         Answers to common questions about <em>AtLeast</em>. Pick a topic, or email us at the bottom of the page.
       </p>
 
-      <div class="grid grid-cols-2 gap-4 sm:grid-cols-3">
+      <div class="grid grid-cols-3 gap-3 sm:gap-4">
         {sections.map((section) => (
           <PracticeCard icon={section.icon} label={section.title} blurb={section.blurb} anchor={`#${section.id}`} />
         ))}
@@ -205,7 +205,7 @@ const faqSchema = {
         </section>
       ))}
 
-      <div class="mt-16 rounded-2xl border border-brand-border bg-brand-surface p-8 text-center">
+      <div class="mt-10 md:mt-16 rounded-2xl border border-brand-border bg-brand-surface p-8 text-center">
         <h2 class="mb-3 text-xl font-semibold text-brand-text">Still have questions?</h2>
         <p class="text-base text-brand-muted">
           Email us at

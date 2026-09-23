@@ -6,12 +6,31 @@ export const TESTFLIGHT_URL = "https://testflight.apple.com/join/WUR3Wf47";
 // While AtLeast is in beta this is "testflight". At App Store launch, fill in
 // APP_STORE_URL and flip PRIMARY_CTA to "appstore"; AppStoreBadge, the nav
 // "Join Beta" button, and every article CTA follow automatically.
-export const APP_STORE_URL = ""; // fill at launch
+export const APP_STORE_URL =
+  "https://apps.apple.com/us/app/atleast-silent-timer/id6759622997";
+// Keep PRIMARY_CTA on testflight until the listing is actually downloadable.
+// Flip to "appstore" on approval (atleast.app#167).
 export const PRIMARY_CTA: "testflight" | "appstore" = "testflight";
 
 if (PRIMARY_CTA === "appstore" && APP_STORE_URL.trim() === "") {
   throw new Error('APP_STORE_URL is required when PRIMARY_CTA is "appstore"');
 }
+
+// Pricing — the one place launch pricing is written. The press fact sheet, the
+// line under the hero CTA, and the /compare table all read these, so a price
+// change is a one-line edit here. Keep it identical to App Store Connect.
+export const PRICING = {
+  download: "Free",
+  pro: {
+    monthly: "$0.99/mo",
+    annual: "$9.99/yr",
+    annualTrial: "7-day free trial",
+    lifetime: "$49.99 once",
+  },
+} as const;
+
+// "$0.99/mo, $9.99/yr with a 7-day free trial, or $49.99 once"
+export const PRO_PRICE_LINE = `${PRICING.pro.monthly}, ${PRICING.pro.annual} with a ${PRICING.pro.annualTrial}, or ${PRICING.pro.lifetime}`;
 
 // Contact
 export const SUPPORT_EMAIL = "support@atleast.app";
@@ -41,6 +60,8 @@ export const SOCIAL_LINKS = [
 export const CLUSTERS = [
   {
     key: "breathwork",
+    short: "Breathwork",
+    icon: "ph:wind",
     label: "Breathwork Pacing Timers for Apple Watch",
     issue: 104,
     description:
@@ -48,6 +69,8 @@ export const CLUSTERS = [
   },
   {
     key: "meditation",
+    short: "Meditation",
+    icon: "ph:flower-lotus",
     label: "Silent Meditation Timer on Apple Watch",
     issue: 103,
     description:
@@ -55,6 +78,8 @@ export const CLUSTERS = [
   },
   {
     key: "cold-plunge",
+    short: "Cold plunge",
+    icon: "ph:snowflake",
     label: "Cold Plunge Timing from the Wrist",
     issue: 105,
     description:
@@ -62,6 +87,8 @@ export const CLUSTERS = [
   },
   {
     key: "haptic",
+    short: "Haptic timers",
+    icon: "ph:vibrate",
     label: "Timer That Taps Instead of Rings",
     issue: 106,
     description:

@@ -1,22 +1,93 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { COMPANY_NAME, WEBSITE_URL, SUPPORT_EMAIL } from '../config';
+import PracticeCard from '../components/PracticeCard.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import { Icon } from 'astro-icon/components';
+import { COMPANY_NAME, WEBSITE_URL, SUPPORT_EMAIL, PRICING } from '../config';
 
-const facts = [
-  { label: 'Platform', value: 'watchOS (Apple Watch Series 6 or later)' },
-  { label: 'Minimum OS', value: 'watchOS 26.0' },
-  { label: 'Price', value: 'Free' },
-  { label: 'Developer', value: COMPANY_NAME },
-  { label: 'Website', value: WEBSITE_URL.replace('https://', ''), href: WEBSITE_URL },
-  { label: 'Support', value: SUPPORT_EMAIL, href: `mailto:${SUPPORT_EMAIL}` },
-  { label: 'Category', value: 'Health & Fitness' },
+interface Fact {
+  label: string;
+  value: string;
+  href?: string;
+  // Secondary link under the value, e.g. Apple's list of compatible devices.
+  note?: { label: string; href: string };
+}
+
+// Free to download; the Pro plans get their own sheet, linked from the Price row.
+const price: Fact = { label: 'Price', value: PRICING.download, note: { label: 'AtLeast Pro', href: '#atleast-pro' } };
+
+// Apple's own compatibility lists, pinned to the 26 releases our minimum OS names.
+const WATCHOS_26_MODELS_URL = 'https://support.apple.com/guide/watch/apd2054d0d5b/26/watchos/26';
+const IOS_26_MODELS_URL = 'https://support.apple.com/guide/iphone/iphone-models-compatible-with-ios-26-iphe3fa5df43/26/ios/26';
+
+const factSheets: { title: string; icon: string; id?: string; facts: Fact[] }[] = [
+  {
+    title: 'Apple Watch',
+    icon: 'ph:watch',
+    facts: [
+      { label: 'Platform', value: 'watchOS' },
+      { label: 'Minimum OS', value: 'watchOS 26.0', note: { label: 'Compatible Apple Watch models', href: WATCHOS_26_MODELS_URL } },
+      price,
+      { label: 'Category', value: 'Health & Fitness' },
+    ],
+  },
+  {
+    title: 'iPhone',
+    icon: 'ph:device-mobile',
+    facts: [
+      { label: 'Platform', value: 'iOS' },
+      { label: 'Minimum OS', value: 'iOS 26.0', note: { label: 'Compatible iPhone models', href: IOS_26_MODELS_URL } },
+      price,
+      { label: 'Category', value: 'Health & Fitness' },
+    ],
+  },
+  {
+    title: 'General',
+    icon: 'ph:info',
+    facts: [
+      { label: 'Developer', value: COMPANY_NAME },
+      { label: 'Website', value: WEBSITE_URL.replace('https://', ''), href: WEBSITE_URL },
+      { label: 'Support', value: SUPPORT_EMAIL, href: `mailto:${SUPPORT_EMAIL}` },
+    ],
+  },
+  {
+    title: 'AtLeast Pro',
+    icon: 'ph:crown-simple',
+    id: 'atleast-pro',
+    facts: [
+      { label: 'Monthly', value: PRICING.pro.monthly },
+      { label: 'Annual', value: `${PRICING.pro.annual} with a ${PRICING.pro.annualTrial}` },
+      { label: 'AtLeast Founder', value: PRICING.pro.lifetime },
+      { label: 'Includes', value: 'Your own timers, History, and five extra Session Types' },
+    ],
+  },
+];
+
+const bookmarks = [
+  { icon: 'ph:info', label: 'About', blurb: 'What AtLeast is, in three paragraphs.', anchor: '#about' },
+  { icon: 'ph:clipboard-text', label: 'Fact Sheet', blurb: 'Platforms, requirements, and pricing.', anchor: '#fact-sheet' },
+  { icon: 'ph:app-window', label: 'App Icon', blurb: 'watchOS and iOS icons, PNG and WebP.', anchor: '#app-icon' },
+  { icon: 'ph:images', label: 'Screenshots', blurb: 'Apple Watch and iPhone, plus the zip.', anchor: '#screenshots' },
+  { icon: 'ph:envelope-simple', label: 'Contact', blurb: 'Press inquiries by email.', anchor: '#contact' },
 ];
 
 
-const screenshots = [
+// Watch kit stays at the three core timer states; iPhone adds companion
+// hand-off (04–05) plus History and Session Detail (06–07).
+const watchScreenshots = [
   { name: 'Configuration',  slug: '01-configuration'  },
   { name: 'Active Session', slug: '02-active-session'  },
   { name: 'Complete',       slug: '03-complete'        },
+];
+
+const iosScreenshots = [
+  { name: 'Configuration',      slug: '01-configuration'      },
+  { name: 'Active Session',     slug: '02-active-session'     },
+  { name: 'Complete',           slug: '03-complete'           },
+  { name: 'Watch Start Prompt', slug: '04-watch-start-prompt' },
+  { name: 'Waiting on Watch',   slug: '05-waiting-on-watch'   },
+  { name: 'History',            slug: '06-history'            },
+  { name: 'Session Detail',     slug: '07-session-detail'     },
 ];
 
 const iconDownloads = [
@@ -126,21 +197,25 @@ const iconDownloads = [
   title="Press Kit — AtLeast"
   description="Press resources, brand guidelines, and downloadable assets for AtLeast, the passive Apple Watch timer."
 >
-  <section class="px-6 py-24">
+  <section class="px-6 py-12 md:py-24">
     <div class="mx-auto max-w-2xl">
       <h1 class="mb-6 text-4xl font-bold tracking-tight md:text-5xl">Press Kit</h1>
       <p class="text-lg leading-relaxed text-brand-muted">
         <em>AtLeast</em> is a passive haptic timer for Apple Watch. Gentle taps mark your intervals during meditation, breathwork, or cold exposure — when tapping stops, you've reached your minimum.
       </p>
 
+      <div class="mt-10 grid grid-cols-3 gap-3 sm:mt-12 sm:gap-4">
+        {bookmarks.map((b) => <PracticeCard {...b} />)}
+      </div>
+
       <!-- About -->
-      <h2 class="mb-6 mt-16 text-2xl font-semibold tracking-tight">About</h2>
-      <div class="space-y-4 text-base leading-relaxed text-brand-muted">
+      <SectionHeading id="about" icon="ph:info">About</SectionHeading>
+      <div class="mt-6 space-y-4 text-base leading-relaxed text-brand-muted">
         <p>
           <em>AtLeast</em> reimagines the timer for mindful practice. Instead of counting down to a jarring alarm, <em>AtLeast</em> delivers gentle haptic taps at your chosen interval. When taps go silent, you know you've reached your minimum duration. No screen. No sound. Just rhythm, then stillness.
         </p>
         <p>
-          Built around Apple Watch, <em>AtLeast</em> requires no account and works offline, so you can practice anywhere — no setup, no friction. An optional iPhone companion lets you pre-load a timer and mirror the live session, while the taps stay on your wrist.
+          Built around Apple Watch, <em>AtLeast</em> requires no account and works offline, so you can practice anywhere — no setup, no friction. An optional iPhone companion lets you pre-load a timer and mirror the live session, while the taps stay on your wrist. Each timer can carry a Session Type, so a finished session is saved to Apple Health as Mindful Minutes or as a workout; saving to Health is free, and <em>AtLeast</em> Pro adds the full range of session types, custom timers, and a history of your practice.
         </p>
         <p>
           <em>AtLeast</em> is ideal for meditation, breathwork, cold plunge, yoga, static holds, and focused work. Set your minimum duration, choose your tap interval, and begin. The rest is silence.
@@ -148,24 +223,45 @@ const iconDownloads = [
       </div>
 
       <!-- Fact Sheet -->
-      <h2 class="mb-6 mt-16 text-2xl font-semibold tracking-tight">Fact Sheet</h2>
-      <div class="rounded-2xl border border-brand-border bg-brand-surface">
-        {facts.map((fact, i) => (
-          <div class:list={['flex items-baseline justify-between px-6 py-4', i < facts.length - 1 && 'border-b border-brand-border']}>
-            <span class="text-sm font-medium text-brand-text">{fact.label}</span>
-            {fact.href ? (
-              <a href={fact.href} class="text-sm text-brand-accent hover:underline">{fact.value}</a>
-            ) : (
-              <span class="text-sm text-brand-muted">{fact.value}</span>
-            )}
+      <SectionHeading id="fact-sheet" icon="ph:clipboard-text">Fact Sheet</SectionHeading>
+      <div class="mt-6 space-y-6">
+        {factSheets.map((sheet) => (
+          <div>
+            <h3 id={sheet.id} class:list={['mb-3 flex items-center gap-2 text-lg font-medium text-brand-text', sheet.id && 'scroll-mt-24']}>
+              <Icon name={sheet.icon} class="h-5 w-5 text-brand-accent" />
+              {sheet.title}
+            </h3>
+            <div class="rounded-2xl border border-brand-border bg-brand-surface">
+              {sheet.facts.map((fact, i) => (
+                <div class:list={['flex items-baseline justify-between gap-4 px-6 py-4', i < sheet.facts.length - 1 && 'border-b border-brand-border']}>
+                  <span class="text-sm font-medium text-brand-text">{fact.label}</span>
+                  <span class="flex flex-col items-end gap-1 text-right">
+                    {fact.href ? (
+                      <a href={fact.href} class="text-sm text-brand-accent hover:underline">{fact.value}</a>
+                    ) : (
+                      <span class="text-sm text-brand-muted">{fact.value}</span>
+                    )}
+                    {fact.note && (
+                      <a
+                        href={fact.note.href}
+                        {...(fact.note.href.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                        class="text-xs text-brand-accent hover:underline"
+                      >
+                        {fact.note.label}
+                      </a>
+                    )}
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
         ))}
       </div>
 
       <!-- App Icon Downloads -->
-      <h2 class="mb-6 mt-16 text-2xl font-semibold tracking-tight">App Icon</h2>
+      <SectionHeading id="app-icon" icon="ph:app-window">App Icon</SectionHeading>
 
-      <div class="space-y-6">
+      <div class="mt-6 space-y-6">
         {iconDownloads.map((group) => (
           <div class="rounded-2xl border border-brand-border bg-brand-surface p-6">
             <div class="mb-4 flex items-center gap-4">
@@ -195,12 +291,12 @@ const iconDownloads = [
       </div>
 
       <!-- Screenshots -->
-      <h2 class="mb-4 mt-16 text-2xl font-semibold tracking-tight">Screenshots</h2>
+      <SectionHeading id="screenshots" icon="ph:images">Screenshots</SectionHeading>
 
       <a
         href="/downloads/atleast-press-kit.zip"
         download
-        class="mb-8 inline-flex items-center gap-2 rounded-xl bg-brand-accent px-6 py-3 text-sm font-medium text-white transition-opacity hover:opacity-90"
+        class="mb-8 mt-6 inline-flex items-center gap-2 rounded-xl bg-brand-accent px-6 py-3 text-sm font-medium text-brand-bg transition-opacity hover:opacity-90"
       >
         Download Press Kit (.zip)
       </a>
@@ -208,7 +304,7 @@ const iconDownloads = [
       <!-- watchOS Screenshots -->
       <h3 class="mb-4 mt-8 text-lg font-medium tracking-tight text-brand-text">Apple Watch</h3>
       <div class="mb-4 grid grid-cols-3 gap-4">
-        {screenshots.map((s) => (
+        {watchScreenshots.map((s) => (
           <picture>
             <source srcset={`/press/screenshots/watchos/en-US/${s.slug}.webp`} type="image/webp" />
             <img
@@ -221,7 +317,7 @@ const iconDownloads = [
         ))}
       </div>
       <div class="space-y-4">
-        {screenshots.map((s) => (
+        {watchScreenshots.map((s) => (
           <div class="rounded-2xl border border-brand-border bg-brand-surface p-6">
             <h4 class="mb-3 text-base font-medium text-brand-text">{s.name}</h4>
             <div class="grid gap-2 sm:grid-cols-2">
@@ -240,8 +336,8 @@ const iconDownloads = [
 
       <!-- iPhone Screenshots -->
       <h3 class="mb-4 mt-10 text-lg font-medium tracking-tight text-brand-text">iPhone</h3>
-      <div class="mb-4 grid grid-cols-3 gap-4">
-        {screenshots.map((s) => (
+      <div class="mb-4 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+        {iosScreenshots.map((s) => (
           <picture>
             <source srcset={`/press/screenshots/ios/framed/en-US/${s.slug}.webp`} type="image/webp" />
             <img
@@ -254,7 +350,7 @@ const iconDownloads = [
         ))}
       </div>
       <div class="space-y-4">
-        {screenshots.map((s) => (
+        {iosScreenshots.map((s) => (
           <div class="rounded-2xl border border-brand-border bg-brand-surface p-6">
             <h4 class="mb-3 text-base font-medium text-brand-text">{s.name}</h4>
             <div class="space-y-3">
@@ -282,8 +378,8 @@ const iconDownloads = [
       </div>
 
       <!-- Contact -->
-      <h2 class="mb-6 mt-16 text-2xl font-semibold tracking-tight">Contact</h2>
-      <div class="rounded-2xl border border-brand-border bg-brand-surface p-8 text-center">
+      <SectionHeading id="contact" icon="ph:envelope-simple">Contact</SectionHeading>
+      <div class="mt-6 rounded-2xl border border-brand-border bg-brand-surface p-8 text-center">
         <p class="mb-4 text-base text-brand-muted">
           For press inquiries, email
           <a href={`mailto:${SUPPORT_EMAIL}`} class="text-brand-accent underline">
