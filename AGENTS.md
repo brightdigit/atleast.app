@@ -34,6 +34,52 @@ mise exec -- npm run dev
 mise exec -- npm run build
 ```
 
+## Outreach Lead Tooling
+
+`scripts/find-*.js` build outreach lists. They are working tools for marketing the app,
+not part of the site build — nothing they produce is ever published.
+
+```bash
+make leads        # press, communities, creators, studios, local (Exa; EXA_API_KEY)
+make studios      # studios/spas from Overture Maps (needs the DuckDB CLI, no key)
+make podcasts     # shows from Podcast Index (PODCAST_INDEX_KEY / _SECRET)
+make verify-leads # live-check links, email domains, and publication freshness in the newest reports
+make leads-known  # refresh KNOWN_TARGETS from open GitHub issues
+make drafts       # queue outreach batch as Gmail drafts (GMAIL_ADDRESS / GMAIL_APP_PASSWORD)
+```
+
+Each script takes `--help` and `--dry-run`; `--dry-run` needs no key or DuckDB, so it is
+the way to check a query change here. Pass flags through `ARGS="..."`.
+
+- **Output** goes to `leads/`, which is gitignored — the reports carry contact details and
+  are backed up to a separate private repo (`make leads-backup`). Never commit them, and
+  never put a lead's contact details into site content. Inside `leads/`: `reports/` (raw
+  finder output + verification), `plan/` (the prioritized outreach plan), `templates/`
+  (email copy), `scripts/` (private outreach tooling), `drafts/` (drafting state).
+- **Home region is Greater Lansing, Michigan**, with Michigan statewide behind it. Both run
+  by default: `SEARCHES.local` in `find-leads.config.js`, and the `lansing` / `michigan`
+  areas in `find-studios.js`. Areas there run in listed order and a place already reported
+  by an earlier area is skipped, so home must stay first in `DEFAULT_METROS`.
+- **Statewide region filter:** `michigan` matches `upper(addresses[1].region)` against
+  `MI`/`MICHIGAN`. Verified live against Overture `2026-08-19.0` on 2026-08-24 (Lansing
+  returned rows and statewide returned additional MI places with Lansing URLs deduped).
+  If a future release returns an empty statewide section while metro boxes still work,
+  inspect that field first.
+- Leads are model- or index-extracted and go stale. Verify before contacting anyone, and
+  keep the CAN-SPAM note in the studio report intact — those businesses did not opt in.
+  "Alive" means reachable, not thriving: link checks can't see whether a mailbox exists
+  (two 550 hard bounces on 2026-08-25) or whether a publication still publishes, so
+  `verify-leads` also reads podcast/press/community/creator feeds and demotes leads whose
+  newest item is over `--stale-days` (default 365) old to `stale`. Only item-level feed
+  dates count — platforms stamp a current lastBuildDate on dead feeds.
+- **Sending is always manual.** Write a recipient-facing `hookLine` on each plan entry
+  first (`hookLine` is not `pitchAngle` — that stays internal, notes-only), then
+  `make drafts` IMAP-appends complete Gmail drafts — never sends. Leads without a
+  `hookLine` are skipped. Each draft still carries a `[[ NOTES ]]` crib block to delete
+  before sending; notes are mirrored to `leads/drafts/notes-<date>.md`. Default batch is
+  15/day; drafted leads are tracked in `leads/drafts/log.json`. Templates live in
+  `leads/templates/` in the private leads repo.
+
 ## Architecture
 
 - `src/pages/` — Static pages (`index.astro`, `use-cases.astro`, `privacy.astro`,
