@@ -46,7 +46,7 @@ faq:
   - q: "Can an Apple Watch pace my breathing with haptics?"
     a: "Yes. AtLeast taps your wrist at an interval you choose for a minimum duration you set, so you can pace a pattern with your eyes closed. It has one interval per session, so it marks a steady beat you breathe against rather than cueing inhale, hold, and exhale separately."
   - q: "Does a breathing pacer need to set each phase separately?"
-    a: "Only for uneven patterns you cannot map onto a beat. Equal patterns such as box breathing and coherent breathing fit a single interval exactly. For 4-7-8 or Wim Hof rounds, a phase-cueing app announces each phase; a one-interval pacer gives you a short steady beat to count against, or one tap per round."
+    a: "Only for uneven patterns you cannot map onto a beat. Equal patterns such as box breathing and coherent breathing fit a single interval exactly. For 4-7-8, a phase-cueing app announces each phase; a one-interval pacer gives you a short steady beat to count against. For Wim Hof rounds, use a two-second beat during the breathing phase and ignore taps during the open-ended hold."
   - q: "Which breathing pattern should I start with?"
     a: "Box breathing at a four-second tap interval, or coherent breathing at five seconds in and five out. Both fit a steady wrist beat exactly, and a placebo-controlled trial suggests the pattern you will repeat consistently matters more than the specific numbers."
   - q: "Is paced breathing safe?"
@@ -123,7 +123,7 @@ Start here, because this is where the trade-off lives. Guided-meditation platfor
 
 A **phase-cueing app** lets you set inhale, hold, exhale, and hold independently, sometimes to a fraction of a second, and announces each transition. That precision matters for an uneven pattern like 4-7-8, or a resonance cycle tuned to a half-second value. The cost is a more complex setup and, on most phone apps, a screen or a sound as the cue.
 
-A **one-interval pacer** like *AtLeast* gives you a single steady beat and a minimum duration. For equal patterns — box, equal breathing, coherent breathing — that is a complete pacer, because one interval lands on every phase change. For uneven patterns it becomes a count you feel rather than a count you keep: a one-second beat for 4-7-8, or one tap per round. Less to configure, nothing to watch, and you supply the labels.
+A **one-interval pacer** like *AtLeast* gives you a single steady beat and a minimum duration. For equal patterns — box, equal breathing, coherent breathing — that is a complete pacer, because one interval lands on every phase change. For uneven patterns it becomes a count you feel rather than a count you keep: a one-second beat for 4-7-8, or a two-second beat during the Wim Hof breathing phase. Ignore taps during the open-ended hold. Less to configure, nothing to watch, and you supply the labels.
 
 Neither is wrong. Pick by the shape of the pattern you already practise, not the one a preset list nudges you toward.
 
