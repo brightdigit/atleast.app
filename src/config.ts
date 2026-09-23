@@ -6,7 +6,10 @@ export const TESTFLIGHT_URL = "https://testflight.apple.com/join/WUR3Wf47";
 // While AtLeast is in beta this is "testflight". At App Store launch, fill in
 // APP_STORE_URL and flip PRIMARY_CTA to "appstore"; AppStoreBadge, the nav
 // "Join Beta" button, and every article CTA follow automatically.
-export const APP_STORE_URL = ""; // fill at launch
+export const APP_STORE_URL =
+  "https://apps.apple.com/us/app/atleast-silent-timer/id6759622997";
+// Keep PRIMARY_CTA on testflight until the listing is actually downloadable.
+// Flip to "appstore" on approval (atleast.app#167).
 export const PRIMARY_CTA: "testflight" | "appstore" = "testflight";
 
 if (PRIMARY_CTA === "appstore" && APP_STORE_URL.trim() === "") {
