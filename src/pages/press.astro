@@ -72,10 +72,22 @@ const bookmarks = [
 ];
 
 
-const screenshots = [
+// Watch kit stays at the three core timer states; iPhone adds companion
+// hand-off (04–05) plus History and Session Detail (06–07).
+const watchScreenshots = [
   { name: 'Configuration',  slug: '01-configuration'  },
   { name: 'Active Session', slug: '02-active-session'  },
   { name: 'Complete',       slug: '03-complete'        },
+];
+
+const iosScreenshots = [
+  { name: 'Configuration',      slug: '01-configuration'      },
+  { name: 'Active Session',     slug: '02-active-session'     },
+  { name: 'Complete',           slug: '03-complete'           },
+  { name: 'Watch Start Prompt', slug: '04-watch-start-prompt' },
+  { name: 'Waiting on Watch',   slug: '05-waiting-on-watch'   },
+  { name: 'History',            slug: '06-history'            },
+  { name: 'Session Detail',     slug: '07-session-detail'     },
 ];
 
 const iconDownloads = [
@@ -292,7 +304,7 @@ const iconDownloads = [
       <!-- watchOS Screenshots -->
       <h3 class="mb-4 mt-8 text-lg font-medium tracking-tight text-brand-text">Apple Watch</h3>
       <div class="mb-4 grid grid-cols-3 gap-4">
-        {screenshots.map((s) => (
+        {watchScreenshots.map((s) => (
           <picture>
             <source srcset={`/press/screenshots/watchos/en-US/${s.slug}.webp`} type="image/webp" />
             <img
@@ -305,7 +317,7 @@ const iconDownloads = [
         ))}
       </div>
       <div class="space-y-4">
-        {screenshots.map((s) => (
+        {watchScreenshots.map((s) => (
           <div class="rounded-2xl border border-brand-border bg-brand-surface p-6">
             <h4 class="mb-3 text-base font-medium text-brand-text">{s.name}</h4>
             <div class="grid gap-2 sm:grid-cols-2">
@@ -324,8 +336,8 @@ const iconDownloads = [
 
       <!-- iPhone Screenshots -->
       <h3 class="mb-4 mt-10 text-lg font-medium tracking-tight text-brand-text">iPhone</h3>
-      <div class="mb-4 grid grid-cols-3 gap-4">
-        {screenshots.map((s) => (
+      <div class="mb-4 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+        {iosScreenshots.map((s) => (
           <picture>
             <source srcset={`/press/screenshots/ios/framed/en-US/${s.slug}.webp`} type="image/webp" />
             <img
@@ -338,7 +350,7 @@ const iconDownloads = [
         ))}
       </div>
       <div class="space-y-4">
-        {screenshots.map((s) => (
+        {iosScreenshots.map((s) => (
           <div class="rounded-2xl border border-brand-border bg-brand-surface p-6">
             <h4 class="mb-3 text-base font-medium text-brand-text">{s.name}</h4>
             <div class="space-y-3">
