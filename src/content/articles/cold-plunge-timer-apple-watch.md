@@ -72,7 +72,7 @@ Three details make it work at a tub:
 - **No phone required.** It runs entirely on the Watch and works offline.
 - **Optional setup from a dry phone.** Pre-load a timer on the iPhone companion indoors, then press Start on the Watch at the tub. Taps always happen on the wrist.
 
-It requires Apple Watch Series 6 or later on watchOS 26.0 or later, and is a free TestFlight beta today. No accounts; session and haptic logic run on-device; analytics are cookieless.
+It requires Apple Watch Series 6 or later on watchOS 26.0 or later, and is free to download on the App Store. No accounts; session and haptic logic run on-device; analytics are cookieless.
 
 ## Water resistance, honestly
 

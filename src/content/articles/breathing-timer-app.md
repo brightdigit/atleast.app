@@ -88,7 +88,7 @@ Against the checklist:
 - **Wrist-native and offline** — runs entirely on the Watch; no phone required. An optional iPhone companion can pre-load or pick a timer on the larger screen and mirror the live session; the taps always happen on the wrist.
 - **No *AtLeast* account** — nothing to sign in to. Analytics that exist are cookieless and never used for advertising or cross-app tracking.
 
-It continues tapping with the watch face off, requires Apple Watch Series 6 or later on watchOS 26.0 or later, and is a free TestFlight beta today.
+It continues tapping with the watch face off, requires Apple Watch Series 6 or later on watchOS 26.0 or later, and is free to download on the App Store.
 
 One limit to be clear about: *AtLeast* has **one tap interval per session**. It does not cue inhale, hold, and exhale as separate events. For equal phases that is enough. For uneven patterns you use a practical setup rather than pretending the app follows the shape.
 

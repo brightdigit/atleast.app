@@ -79,7 +79,7 @@ One thing to be clear about: *AtLeast* has **one tap interval per session**. It 
 
 Three details make that work in practice. The taps **continue with the watch face off** — *AtLeast* uses an Extended Runtime Session, so the display can sleep and your arm can stay down without the rhythm stopping. It **runs entirely on the Watch, offline**, so no phone needs to be nearby; the iPhone companion is optional, and only lets you pick or pre-load a session on the larger screen and mirror the live one. And it is **privacy-first**: no account to create, session and haptic logic on-device, and the analytics that exist are cookieless and never used for advertising or cross-app tracking.
 
-It requires an Apple Watch Series 6 or later running watchOS 26.0 or later, and it is a free TestFlight beta today.
+It requires an Apple Watch Series 6 or later running watchOS 26.0 or later, and it is free to download on the App Store.
 
 If the taps feel too faint or too strong, that is a watchOS setting rather than an app one — Apple Watch lets you set the intensity of wrist taps to Default, Prominent, or Off, and Silent Mode silences alerts without silencing the taps you feel<sup><a href="#ref-5">[5]</a></sup>.
 

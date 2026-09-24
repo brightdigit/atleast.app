@@ -54,7 +54,8 @@ minutes). Never imply the whole Health feature is Pro.
 
 *AtLeast* is privacy-first: no accounts, session and haptic logic on-device, and
 cookieless Plausible analytics only — never for advertising or cross-app
-tracking. It is currently a free TestFlight beta.
+tracking. It is free to download on the App Store; *AtLeast* Pro is an
+optional upgrade (prices live in `PRICING` in `src/config.ts`).
 
 ## 3. Why it's better
 
