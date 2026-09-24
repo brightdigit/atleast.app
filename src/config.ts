@@ -1,16 +1,17 @@
 // App
 export const APP_NAME = "AtLeast";
+// The public TestFlight beta continues after launch. It is no longer the
+// primary CTA, but the constant stays exported for secondary links and for
+// switching PRIMARY_CTA back to "testflight" (e.g. a future pre-release).
 export const TESTFLIGHT_URL = "https://testflight.apple.com/join/WUR3Wf47";
 
 // Primary call to action — the single source of truth for every CTA on the site.
-// While AtLeast is in beta this is "testflight". At App Store launch, fill in
-// APP_STORE_URL and flip PRIMARY_CTA to "appstore"; AppStoreBadge, the nav
-// "Join Beta" button, and every article CTA follow automatically.
+// AtLeast is live on the App Store, so this is "appstore": AppStoreBadge, the
+// nav "Download" button, and every article CTA point at APP_STORE_URL. Setting
+// it to "testflight" switches them all back to the beta (atleast.app#167).
 export const APP_STORE_URL =
   "https://apps.apple.com/us/app/atleast-silent-timer/id6759622997";
-// Keep PRIMARY_CTA on testflight until the listing is actually downloadable.
-// Flip to "appstore" on approval (atleast.app#167).
-export const PRIMARY_CTA: "testflight" | "appstore" = "testflight";
+export const PRIMARY_CTA: "testflight" | "appstore" = "appstore";
 
 if (PRIMARY_CTA === "appstore" && APP_STORE_URL.trim() === "") {
   throw new Error('APP_STORE_URL is required when PRIMARY_CTA is "appstore"');
