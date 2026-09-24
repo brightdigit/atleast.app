@@ -14,6 +14,7 @@ import { APP_NAME, COMPANY_NAME, COMPANY_WEBSITE_URL, COPYRIGHT_YEAR, SOCIAL_LIN
       height="48"
       class="mx-auto mb-6 h-12 w-12 rounded-full"
       loading="lazy"
+      data-repo-reveal
     />
     <AppStoreBadge class="mb-8" />
     <a
@@ -66,5 +67,7 @@ import { APP_NAME, COMPANY_NAME, COMPANY_WEBSITE_URL, COPYRIGHT_YEAR, SOCIAL_LIN
     <p class="text-sm text-brand-muted">
       &copy; {COPYRIGHT_YEAR} {COMPANY_NAME}. All rights reserved.
     </p>
+    <p data-repo-links class="mt-2 flex flex-wrap items-center justify-center gap-4 text-sm text-brand-muted empty:hidden"></p>
+    <script src="/repo-links.js" is:inline></script>
   </div>
 </footer>
