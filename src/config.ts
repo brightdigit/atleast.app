@@ -54,9 +54,13 @@ export const SOCIAL_LINKS = [
   { icon: "x-twitter", url: "https://x.com/leogdion", label: "X (Twitter)" },
   { icon: "mastodon", url: "https://c.im/@leogdion", label: "Mastodon" },
   { icon: "linkedin", url: "https://www.linkedin.com/in/leogdion/", label: "LinkedIn" },
+  { icon: "producthunt", url: "https://www.producthunt.com/products/atleast-passive-timer-for-apple-watch?launch=atleast-passive-timer-for-apple-watch", label: "AtLeast on Product Hunt" },
   { icon: "youtube", url: "https://www.youtube.com/@brightdigit", label: "YouTube" },
   { icon: "patreon", url: "https://www.patreon.com/c/brightdigit", label: "Patreon" },
   { icon: "podcast", url: "https://www.empowerapps.show/", label: "Empower Apps Podcast" },
+  { icon: "appstore", url: APP_STORE_URL, label: "AtLeast on the App Store" },
+  // Unverified: the catalog renders client-side, so confirm the listing resolves.
+  { icon: "indiecatalog", url: `https://indieappcatalog.com/app/${APP_STORE_ID}/atleast-silent-timer`, label: "AtLeast on Indie App Catalog" },
 ] as const;
 
 // Content clusters — the article hub at /guides groups articles by these keys.
