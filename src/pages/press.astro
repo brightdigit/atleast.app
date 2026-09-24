@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import PracticeCard from '../components/PracticeCard.astro';
 import SectionHeading from '../components/SectionHeading.astro';
+import HealthBadge from '../components/HealthBadge.astro';
 import { Icon } from 'astro-icon/components';
 import { COMPANY_NAME, WEBSITE_URL, SUPPORT_EMAIL, PRICING } from '../config';
 
@@ -220,6 +221,7 @@ const iconDownloads = [
         <p>
           <em>AtLeast</em> is ideal for meditation, breathwork, cold plunge, yoga, static holds, and focused work. Set your minimum duration, choose your tap interval, and begin. The rest is silence.
         </p>
+        <HealthBadge class="-ml-2" align="start" />
       </div>
 
       <!-- Fact Sheet -->

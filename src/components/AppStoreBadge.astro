@@ -4,9 +4,11 @@ import { APP_STORE_URL, PRIMARY_CTA, TESTFLIGHT_URL } from '../config';
 interface Props {
   class?: string;
   location?: string;
+  /** "lg" for closing CTAs, "xl" for the home hero. Apple's onscreen minimum is 40px tall ("md"). */
+  size?: 'md' | 'lg' | 'xl';
 }
 
-const { class: className, location = 'badge' } = Astro.props;
+const { class: className, location = 'badge', size = 'md' } = Astro.props;
 
 // PRIMARY_CTA in src/config.ts is the single source of truth for every CTA on
 // the site. Both modes keep the data-testflight-link / data-tf-location hooks
@@ -21,7 +23,14 @@ const href = isAppStore ? APP_STORE_URL : TESTFLIGHT_URL;
   rel="noopener noreferrer"
   data-testflight-link
   data-tf-location={location}
-  class:list={["inline-flex items-center gap-3 rounded-2xl border border-brand-border bg-brand-surface px-6 py-3.5 transition-opacity hover:opacity-80", className]}
+  class:list={[
+    "inline-flex items-center gap-3 transition-opacity hover:opacity-80",
+    // Apple's artwork is used as-is: no container fill, border, or padding.
+    isAppStore
+      ? "rounded-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-accent"
+      : "rounded-2xl border border-brand-border bg-brand-surface px-6 py-3.5",
+    className,
+  ]}
 >
   {isAppStore ? (
     <img
@@ -29,7 +38,7 @@ const href = isAppStore ? APP_STORE_URL : TESTFLIGHT_URL;
       alt="Download AtLeast on the App Store"
       width="120"
       height="40"
-      class="h-10 w-auto"
+      class:list={["w-auto", { md: "h-10", lg: "h-12 md:h-14", xl: "h-14 md:h-16" }[size]]}
       loading="lazy"
     />
   ) : (

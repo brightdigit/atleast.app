@@ -4,9 +4,15 @@ import { join } from 'node:path';
 
 interface Props {
   class?: string;
+  /** The write-only privacy line under the badge. Off where the surrounding copy already says it. */
+  note?: boolean;
+  /** "lg" (40px, 48px on md+) where Health is the topic; "md" (32px) elsewhere. */
+  size?: 'md' | 'lg';
+  /** "start" for left-aligned prose pages. */
+  align?: 'center' | 'start';
 }
 
-const { class: className } = Astro.props;
+const { class: className, note = true, size = 'md', align = 'center' } = Astro.props;
 
 // Apple's official, unmodified "Works with Apple Health" badge (black, US-English).
 // The artwork sits behind Apple's Developer Artwork License Agreement at
@@ -19,8 +25,9 @@ const BADGE_PATH = '/works-with-apple-health.svg';
 const badgeFile = join(process.cwd(), 'public', BADGE_PATH);
 const hasBadge = existsSync(badgeFile);
 
-// Onscreen minimum is 30px tall; 32px keeps it below the 40px App Store badge.
-const HEIGHT = 32;
+// Onscreen minimum is 30px tall. Every placement stays smaller than the App
+// Store badge on the same page, so the app's own CTA leads.
+const HEIGHT = size === 'lg' ? 48 : 32;
 let width = 96;
 if (hasBadge) {
   const viewBox = readFileSync(badgeFile, 'utf8').match(/viewBox="\s*[\d.-]+[\s,]+[\d.-]+[\s,]+([\d.]+)[\s,]+([\d.]+)/);
@@ -29,20 +36,22 @@ if (hasBadge) {
 ---
 
 {hasBadge && (
-  <div class:list={["flex flex-col items-center gap-2", className]}>
-    <!-- Clear space: at least 1/4 of the badge height (8px) on every side. -->
+  <div class:list={["flex flex-col gap-2", align === 'start' ? "items-start text-left" : "items-center", className]}>
+    <!-- Clear space: at least 1/4 of the badge height on every side. -->
     <img
       src={BADGE_PATH}
       alt="Works with Apple Health"
       width={width}
       height={HEIGHT}
-      class="m-2 h-8 w-auto"
+      class:list={["w-auto", size === 'lg' ? "m-2.5 h-10 md:m-3 md:h-12" : "m-2 h-8"]}
       loading="lazy"
       decoding="async"
     />
-    <p class="text-xs text-brand-muted">
-      Saves finished sessions to Health on your device. Write-only, never read.
-      <a href="/privacy#apple-health" class="underline underline-offset-2 hover:text-brand-text">Privacy</a>
-    </p>
+    {note && (
+      <p class="text-xs text-brand-muted">
+        Saves finished sessions to Health on your device. Write-only, never read.
+        <a href="/privacy#apple-health" class="underline underline-offset-2 hover:text-brand-text">Privacy</a>
+      </p>
+    )}
   </div>
 )}
