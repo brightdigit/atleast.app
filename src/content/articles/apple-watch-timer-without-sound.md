@@ -74,7 +74,7 @@ That difference shows up in three places:
 
 - **During the session.** Mid-session taps remove the need to check. You stop estimating how far along you are because the wrist keeps answering. The taps carry no instruction — nothing to decode, nothing to brace for.
 - **At the end.** Nothing arrives to interrupt you. Something you had grown used to simply stops. If the sit or hold is going well, you can continue; the minimum was a floor, not a ceiling.
-- **On the hardware.** Haptics continue with the **watch face off**. The app runs **entirely on the Apple Watch**, works **offline** with no phone nearby, and needs **no account**. An optional iPhone companion can pre-load or pick a timer and mirror the live session; the taps always happen on the wrist. It requires **Apple Watch Series 6 or later on watchOS 26.0 or later**, and it is a free [TestFlight](https://testflight.apple.com/join/WUR3Wf47) beta today.
+- **On the hardware.** Haptics continue with the **watch face off**. The app runs **entirely on the Apple Watch**, works **offline** with no phone nearby, and needs **no account**. An optional iPhone companion can pre-load or pick a timer and mirror the live session; the taps always happen on the wrist. It requires **Apple Watch Series 6 or later on watchOS 26.0 or later**, and it is free to download on the App Store.
 
 For a broader look at vibrating Watch timers specifically, see [vibrating timer for Apple Watch](/vibrating-timer-apple-watch). For apps built around the haptic channel rather than a muted countdown, see [haptic timer app](/haptic-timer-app).
 

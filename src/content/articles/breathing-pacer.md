@@ -111,7 +111,7 @@ The practical details matter as much as the model:
 - **The iPhone companion is optional.** When your phone is handy you can pre-load a session on the larger screen and mirror the live session. The taps always happen on the wrist.
 - **Privacy-first.** No account to create. Session and haptic logic run on-device, and analytics are cookieless — never used for advertising or cross-app tracking.
 
-It requires an Apple Watch Series 6 or later running watchOS 26.0 or later, and it is a free TestFlight beta today. The [breathwork section of our use-cases page](/use-cases#breathwork) shows where wrist pacing fits into a day.
+It requires an Apple Watch Series 6 or later running watchOS 26.0 or later, and it is free to download on the App Store. The [breathwork section of our use-cases page](/use-cases#breathwork) shows where wrist pacing fits into a day.
 
 ## Choosing a breathing pacer: four questions that matter
 
