@@ -1,0 +1,48 @@
+---
+import { existsSync, readFileSync } from 'node:fs';
+import { join } from 'node:path';
+
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+
+// Apple's official, unmodified "Works with Apple Health" badge (black, US-English).
+// The artwork sits behind Apple's Developer Artwork License Agreement at
+// https://developer.apple.com/licensing-trademarks/works-with-apple-health/
+// ("Download artwork files"), so it is added by hand — never recreate it.
+// Until public/works-with-apple-health.svg exists, nothing renders, so the site
+// never ships a broken image.
+const BADGE_PATH = '/works-with-apple-health.svg';
+// Resolved from the project root: import.meta.url points into the build chunk.
+const badgeFile = join(process.cwd(), 'public', BADGE_PATH);
+const hasBadge = existsSync(badgeFile);
+
+// Onscreen minimum is 30px tall; 32px keeps it below the 40px App Store badge.
+const HEIGHT = 32;
+let width = 96;
+if (hasBadge) {
+  const viewBox = readFileSync(badgeFile, 'utf8').match(/viewBox="\s*[\d.-]+[\s,]+[\d.-]+[\s,]+([\d.]+)[\s,]+([\d.]+)/);
+  if (viewBox) width = Math.round((Number(viewBox[1]) / Number(viewBox[2])) * HEIGHT);
+}
+---
+
+{hasBadge && (
+  <div class:list={["flex flex-col items-center gap-2", className]}>
+    <!-- Clear space: at least 1/4 of the badge height (8px) on every side. -->
+    <img
+      src={BADGE_PATH}
+      alt="Works with Apple Health"
+      width={width}
+      height={HEIGHT}
+      class="m-2 h-8 w-auto"
+      loading="lazy"
+      decoding="async"
+    />
+    <p class="text-xs text-brand-muted">
+      Saves finished sessions to Health on your device. Write-only, never read.
+      <a href="/privacy#apple-health" class="underline underline-offset-2 hover:text-brand-text">Privacy</a>
+    </p>
+  </div>
+)}
