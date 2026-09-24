@@ -11,6 +11,9 @@ export const TESTFLIGHT_URL = "https://testflight.apple.com/join/WUR3Wf47";
 // it to "testflight" switches them all back to the beta (atleast.app#167).
 export const APP_STORE_URL =
   "https://apps.apple.com/us/app/atleast-silent-timer/id6759622997";
+// Numeric App Store ID, derived from APP_STORE_URL — used by the Safari Smart
+// App Banner (apple-itunes-app meta in BaseHead).
+export const APP_STORE_ID = APP_STORE_URL.match(/\/id(\d+)/)?.[1] ?? "";
 export const PRIMARY_CTA: "testflight" | "appstore" = "appstore";
 
 if (PRIMARY_CTA === "appstore" && APP_STORE_URL.trim() === "") {
