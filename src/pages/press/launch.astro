@@ -1,0 +1,100 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import AppStoreBadge from '../../components/AppStoreBadge.astro';
+import HealthBadge from '../../components/HealthBadge.astro';
+import {
+  APP_STORE_URL,
+  COMPANY_NAME,
+  COMPANY_WEBSITE_URL,
+  LAUNCH_DATE,
+  PRICING,
+  PRO_PRICE_LINE,
+  SUPPORT_EMAIL,
+  WEBSITE_URL,
+} from '../../config';
+
+// Launch press release. The dateline stays hidden until LAUNCH_DATE is set in
+// config, so the page never shows a placeholder date (atleast.app#194).
+const dateline = LAUNCH_DATE
+  ? new Date(`${LAUNCH_DATE}T12:00:00Z`).toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      timeZone: 'UTC',
+    })
+  : '';
+---
+
+<Layout
+  title="AtLeast Launches on the App Store — Press Release"
+  description="AtLeast, a passive haptic timer for Apple Watch, is now on the App Store. Gentle wrist taps carry you to your minimum, then go quiet — no alarm to stop."
+>
+  <article class="px-6 py-12 md:py-24">
+    <div class="mx-auto max-w-2xl">
+      <p class="mb-4 text-sm font-medium uppercase tracking-wide text-brand-accent">
+        <a href="/press/" class="hover:underline">Press Kit</a> · Press Release
+      </p>
+      <h1 class="mb-6 text-4xl font-bold tracking-tight md:text-5xl">
+        <em>AtLeast</em> brings a silent, haptic practice timer to Apple Watch
+      </h1>
+      <p class="text-lg leading-relaxed text-brand-muted">
+        Gentle taps on your wrist carry you to your minimum, then go quiet. There's no alarm to stop, so you can keep going.
+      </p>
+
+      <div class="mt-10 space-y-5 text-base leading-relaxed text-brand-muted">
+        <p>
+          {dateline && <strong class="text-brand-text">{dateline} — </strong>}
+          {COMPANY_NAME} today released <em>AtLeast</em> on the App Store, a passive haptic timer for Apple Watch with an optional iPhone companion. You set a minimum duration and a tap interval. Gentle taps mark time during the session, and when they stop, you've reached your minimum. There's no alarm, no sound, and no screen to check.
+        </p>
+        <p>
+          “There are activities where I want to push past the minimum, and I don't want a timer interrupting my flow when I do,” said Leo Dion of {COMPANY_NAME}, who built <em>AtLeast</em>. “Nothing is more frustrating than being in the middle of a meditation and needing to tap my watch, or doing rows and having to stop to silence an alarm. I asked myself what's more subtle than sight and sound. The answer was touch.”
+        </p>
+        <p>
+          Because nothing needs dismissing, a session doesn't have to end at the minimum. The taps say keep going; the silence says you've done enough, and you decide what happens next. That works for meditation, breathwork, prayer, yoga holds, cold plunge, and sets like push-ups or rows.
+        </p>
+
+        <h2 class="pt-4 text-2xl font-semibold tracking-tight text-brand-text">How it works</h2>
+        <ul class="list-disc space-y-2 pl-6">
+          <li>Runs on Apple Watch and works offline, with no phone nearby. The taps continue with your wrist down and the display off.</li>
+          <li>The optional iPhone companion lets you pick or pre-load a timer on the larger screen and mirror the live session. The taps always happen on the wrist.</li>
+          <li>Each timer can carry a Session Type, so a finished session is saved to Apple Health as Mindful Minutes or as a workout.</li>
+          <li>No account to create and nothing to sign in to.</li>
+        </ul>
+        <HealthBadge class="-ml-2" align="start" />
+
+        <h2 class="pt-4 text-2xl font-semibold tracking-tight text-brand-text">AtLeast Pro</h2>
+        <p>
+          <em>AtLeast</em> is {PRICING.download.toLowerCase()} to download. <em>AtLeast</em> Pro adds your own custom timers, a History of every session, and five extra Session Types, for {PRO_PRICE_LINE}.
+        </p>
+
+        <h2 class="pt-4 text-2xl font-semibold tracking-tight text-brand-text">Privacy</h2>
+        <p>
+          There's no <em>AtLeast</em> account, and session and haptic logic run on-device. Anonymous, cookieless analytics and crash reports help improve the app, and one in-app toggle turns both off. They are never used for advertising or cross-app tracking. Timers and history sync through the user's own iCloud account, which {COMPANY_NAME} cannot access. Details are in the <a href="/privacy/" class="text-brand-accent underline">privacy policy</a>.
+        </p>
+
+        <h2 class="pt-4 text-2xl font-semibold tracking-tight text-brand-text">Availability</h2>
+        <p>
+          <em>AtLeast</em> is available now on the <a href={APP_STORE_URL} class="text-brand-accent underline">App Store</a>. It requires Apple Watch Series 6 or later running watchOS 26.0 or later; the iPhone companion requires iOS 26.0 or later.
+        </p>
+        <div class="pt-2">
+          <AppStoreBadge location="press-release" />
+        </div>
+
+        <h2 class="pt-4 text-2xl font-semibold tracking-tight text-brand-text">About {COMPANY_NAME}</h2>
+        <p>
+          <a href={COMPANY_WEBSITE_URL} class="text-brand-accent underline">{COMPANY_NAME}</a> is an independent software company run by Leo Dion, building apps for Apple platforms. Leo also hosts the <a href="https://www.empowerapps.show/" class="text-brand-accent underline">EmpowerApps</a> podcast for Apple developers.
+        </p>
+
+        <h2 class="pt-4 text-2xl font-semibold tracking-tight text-brand-text">Media contact</h2>
+        <p>
+          Leo Dion, {COMPANY_NAME} ·
+          <a href={`mailto:${SUPPORT_EMAIL}`} class="text-brand-accent underline">{SUPPORT_EMAIL}</a>
+          · <a href={WEBSITE_URL} class="text-brand-accent underline">{WEBSITE_URL.replace('https://', '')}</a>
+        </p>
+        <p>
+          Screenshots, app icons, and the fact sheet are in the <a href="/press/" class="text-brand-accent underline">press kit</a>.
+        </p>
+      </div>
+    </div>
+  </article>
+</Layout>

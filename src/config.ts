@@ -16,6 +16,11 @@ export const APP_STORE_URL =
 export const APP_STORE_ID = APP_STORE_URL.match(/\/id(\d+)/)?.[1] ?? "";
 export const PRIMARY_CTA: "testflight" | "appstore" = "appstore";
 
+// App Store release date, ISO "YYYY-MM-DD". Set it on approval day: the launch
+// press release at /press/launch renders its dateline only once this is filled
+// in (atleast.app#194).
+export const LAUNCH_DATE = "";
+
 if (PRIMARY_CTA === "appstore" && APP_STORE_URL.trim() === "") {
   throw new Error('APP_STORE_URL is required when PRIMARY_CTA is "appstore"');
 }
