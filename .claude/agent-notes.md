@@ -30,3 +30,5 @@ directives for how to work in this repository.
 - `/terms` is titled "Terms of Use" (matching App Store Guideline 3.1.2 "Terms of Use (EULA)"), and the footer link label matches; the URL stays `/terms/` and Apple's own "App Store Terms of Service" keeps its name (#165).
 - Apple Health writing is free (Mindful Minutes and Yoga are free session types); the other five session types (Mind & Body, Flexibility, Cooldown, Core Training, Traditional Strength), saving custom timers, and History are AtLeast Pro — never imply the whole Health feature is Pro (#173).
 - PRs base on `v1.0.0-pre-launch`, not `main` — it is the launch integration branch; work merged to main must be ported (e.g. #179).
+- Video/marketing copy listing practices should always include one where your hands aren't free to stop an alarm (e.g. a plank); that is the core "why passive" beat.
+- Sessions can run on iPhone alone (same on-screen pulse, no haptics) as of app 1.0.0-beta.10 — "taps always happen on the wrist" stays true (the phone never taps), but never claim the iPhone only picks/pre-loads/mirrors; site copy still needs updating.
