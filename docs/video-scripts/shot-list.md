@@ -20,15 +20,28 @@ Every shot the six scripts use, grouped so you can film each setup once. The **U
 
 ## Lifestyle b-roll (L)
 
+### You: film these yourself
+
+These show your Watch, your wrist or your face, and they carry the story, so stock footage can't replace them.
+
 | ID | Shot | Used in |
 | --- | --- | --- |
-| L1 | Yoga mat unrolling, or a slow stretch. Watch visible. | A a |
-| L2 | Prayer: a candle, beads or open hands, seated. Watch visible. | A C a |
 | L3 | Plank on a wood floor, hands flat. CU on the wrist, then WS. | A B C a b c |
 | L4 | Seated meditation, eyes closed, wrist resting on the knee. Plus a CU of your face for B's opening and your eyes opening. | A B C a b |
-| L5 | *(Optional)* The busy house: a toy on the floor, the kitchen, the kids' noise, then a door closing. | A B |
 | L6 | The alarm gag: mid-plank, the Watch buzzes, you reach for it one-handed, and the plank collapses. Film 2–3 takes. | A B C a b |
-| L7 | Walking out of the room afterwards, Watch on the wrist. | A B |
+
+### Generic: stock is fine
+
+These are ~1–1.5s quick cuts or optional cutaways, so licensed stock footage or anyone's hands will do.
+Use only royalty-free footage licensed for commercial use, with no visible logos or third-party app screens.
+A Watch in frame is optional; if one is visible, its screen shouldn't show another app.
+
+| ID | Shot | Used in |
+| --- | --- | --- |
+| L1 | Yoga mat unrolling, or a slow stretch. | A a |
+| L2 | Prayer: a candle, beads or open hands, seated. | A C a |
+| L5 | *(Optional)* The busy house: a toy on the floor, the kitchen, the kids' noise, then a door closing. Your own house is more personal, but stock works. | A B |
+| L7 | *(Optional)* Walking out of a room afterwards. No script cuts to it yet; it's a spare cutaway. | — |
 
 ## Watch (W) — physical device, filmed in macro
 
