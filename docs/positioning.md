@@ -38,8 +38,9 @@ you there. Silence is the completion signal.
 
 It runs entirely on the Apple Watch, works offline with no phone nearby, and
 continues its haptics with the watch face off. An optional iPhone companion lets
-you pre-load or pick a timer on the larger screen and mirror the live session;
-the taps always happen on the wrist. It requires Apple Watch Series 6 or later
+you pre-load or pick a timer on the larger screen and mirror the live session,
+or run a session on the phone alone (an on-screen pulse, no haptics) when the
+Watch isn't with you; the taps always happen on the wrist. It requires Apple Watch Series 6 or later
 running watchOS 26.0 or later.
 
 Each timer can carry a Session Type, which decides how a finished session is
