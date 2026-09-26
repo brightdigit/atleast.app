@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Schema from '../components/Schema.astro';
 import AppStoreBadge from '../components/AppStoreBadge.astro';
+import HealthBadge from '../components/HealthBadge.astro';
 import PracticeCard from '../components/PracticeCard.astro';
 import SectionHeading from '../components/SectionHeading.astro';
 import { Icon } from 'astro-icon/components';
@@ -153,7 +154,8 @@ const articleSchema = {
         <p class="mb-6 text-base text-brand-muted">
           Set a floor, feel the rhythm, and let the silence tell you you're done.
         </p>
-        <AppStoreBadge />
+        <AppStoreBadge size="lg" />
+        <HealthBadge class="mt-6" />
       </div>
 
       <!-- References -->

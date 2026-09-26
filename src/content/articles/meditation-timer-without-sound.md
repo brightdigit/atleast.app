@@ -73,7 +73,7 @@ There is a second cost. If every sit ends with a sound, part of your attention l
 
 **You choose when to open your eyes.** The passage the instruction describes stays intact — notice the room, notice the body, decide how to continue<sup><a href="#ref-1">[1]</a></sup><sup><a href="#ref-2">[2]</a></sup>. And if the sit is going well, keep going: the minimum is a floor, not a ceiling.
 
-It runs on the Watch and works offline. An optional iPhone companion lets you pick a timer on a larger screen, but the taps always happen on the wrist. No accounts; session and haptic logic run on-device; analytics are cookieless. It requires Apple Watch Series 6 or later on watchOS 26.0 or later, and is a free TestFlight beta today.
+It runs on the Watch and works offline. An optional iPhone companion lets you pick a timer on a larger screen, but the taps always happen on the wrist. No accounts; session and haptic logic run on-device; analytics are cookieless. It requires Apple Watch Series 6 or later on watchOS 26.0 or later, and is free to download on the App Store.
 
 ## How this differs from muting a phone timer
 

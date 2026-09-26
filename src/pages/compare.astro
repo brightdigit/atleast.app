@@ -3,19 +3,20 @@ import Layout from '../layouts/Layout.astro';
 import Schema from '../components/Schema.astro';
 import AppStoreBadge from '../components/AppStoreBadge.astro';
 import SectionHeading from '../components/SectionHeading.astro';
+import HealthBadge from '../components/HealthBadge.astro';
 import { Icon } from 'astro-icon/components';
-import { COMPANY_NAME, WEBSITE_URL, OG_IMAGE_URL, COMPANY_WEBSITE_URL, PRICING, PRO_PRICE_LINE } from '../config';
+import { COMPANY_NAME, WEBSITE_URL, OG_IMAGE_URL, COMPANY_WEBSITE_URL } from '../config';
 
 const title = 'AtLeast vs Other Timer Apps for Apple Watch — Comparison';
 const description =
-  'How AtLeast compares to the built-in Apple Watch Timer, the Mindfulness app, Insight Timer, Calm, Headspace, Timefully, and Interval Timer Watch — on haptics, silence, privacy, offline use, and price.';
+  'How AtLeast compares to the built-in Apple Watch Timer, the Mindfulness app, Insight Timer, Calm, Headspace, Timefully, and Interval Timer Watch — on haptics, silence, privacy, and offline use.';
 
 const datePublished = '2026-09-07';
 const canonicalURL = `${WEBSITE_URL}/compare`;
 
 // Every competitor fact below was read on the app's own App Store listing or
 // Apple's own support pages (see the References list). Anything that could not
-// be confirmed on a first-party page is written as "Varies" rather than guessed.
+// be confirmed on a first-party page is marked "unknown" (a dash) rather than guessed.
 const citations = [
   { id: 1, text: 'Apple — Apple Watch User Guide: Timers', url: 'https://support.apple.com/guide/watch/timers-apdf448955b2/watchos' },
   { id: 2, text: 'Apple — Apple Watch User Guide: Start a Reflect or Breathe session', url: 'https://support.apple.com/guide/watch/start-a-reflect-or-breathe-session-apd371dfe3d7/watchos' },
@@ -26,138 +27,108 @@ const citations = [
   { id: 7, text: 'App Store — Interval Timer Watch (listing, description, and App Privacy)', url: 'https://apps.apple.com/us/app/interval-timer-watch/id6475237369' },
 ];
 
-// Column order is shared by the header row and every data row.
+// Every app compared, for the ItemList schema. Order matches the References.
 const apps = [
-  { name: 'AtLeast', ref: null, note: 'Passive haptic timer' },
-  { name: 'Apple Watch Timer', ref: 1, note: 'Built in to watchOS' },
-  { name: 'Apple Mindfulness', ref: 2, note: 'Built in to watchOS' },
-  { name: 'Insight Timer', ref: 3, note: 'Guided library + timer' },
-  { name: 'Calm', ref: 4, note: 'Guided library' },
-  { name: 'Headspace', ref: 5, note: 'Guided library' },
-  { name: 'Timefully', ref: 6, note: 'Meditation timer' },
-  { name: 'Interval Timer Watch', ref: 7, note: 'Watch-only interval timer' },
+  { name: 'AtLeast', ref: null },
+  { name: 'Apple Watch Timer', ref: 1 },
+  { name: 'Apple Mindfulness', ref: 2 },
+  { name: 'Insight Timer', ref: 3 },
+  { name: 'Calm', ref: 4 },
+  { name: 'Headspace', ref: 5 },
+  { name: 'Timefully', ref: 6 },
+  { name: 'Interval Timer Watch', ref: 7 },
 ];
 
-// values[] is index-aligned with apps[]. `highlight` marks the AtLeast cell.
-const rows = [
+// Table columns. Insight Timer, Calm, and Headspace share one column: their
+// listings answer these rows the same way (or not at all), and the prose below
+// covers what sets them apart.
+const columns = [
+  { name: 'AtLeast' },
+  { name: 'Apple Watch Timer' },
+  { name: 'Apple Mindfulness' },
+  { name: 'Insight Timer, Calm, Headspace' },
+  { name: 'Timefully' },
+  { name: 'Interval Timer Watch' },
+];
+
+// cells[] is index-aligned with columns[]. "unknown" means the listing doesn't
+// say, never a guess. A `note` appears only where the icon alone would mislead.
+type Mark = 'yes' | 'no' | 'partial' | 'unknown';
+type Cell = { mark?: Mark; note?: string };
+const marks: Record<Mark, { icon: string; label: string; class: string }> = {
+  yes: { icon: 'ph:check-bold', label: 'Yes', class: 'text-brand-accent' },
+  no: { icon: 'ph:x-bold', label: 'No', class: 'text-brand-muted' },
+  partial: { icon: 'ph:circle-half-fill', label: 'Partly', class: 'text-brand-muted' },
+  unknown: { icon: 'ph:minus-bold', label: 'Not stated', class: 'text-brand-muted/60' },
+};
+
+const rows: { label: string; cells: Cell[] }[] = [
   {
-    label: 'Mid-session haptic cues',
-    values: [
-      'Yes — gentle taps at your chosen interval',
-      'No — the alert comes at the end',
-      'Yes — breathing haptics (None, Minimal, or Prominent)',
-      'Varies',
-      'Varies',
-      'Varies',
-      'Yes — interval bells, with a silent haptic mode',
-      'Yes — repeating haptic or sound at a set interval',
+    label: 'Taps during the session',
+    cells: [
+      { mark: 'yes' },
+      { mark: 'no' },
+      { mark: 'yes' },
+      { mark: 'unknown' },
+      { mark: 'yes' },
+      { mark: 'yes' },
     ],
   },
   {
     label: 'Ends in silence',
-    values: [
-      'Yes — the taps simply stop',
-      'No — it alerts when the timer goes off',
-      'No — a summary screen ends the session',
-      'Varies',
-      'Varies',
-      'Varies',
-      'Varies — bell sounds, or a silent haptic mode',
-      'Varies',
+    cells: [
+      { mark: 'yes' },
+      { mark: 'no' },
+      { mark: 'no' },
+      { mark: 'unknown' },
+      { mark: 'unknown' },
+      { mark: 'unknown' },
     ],
   },
   {
-    label: 'Account required',
-    values: [
-      'No account',
-      'No account',
-      'No account',
-      'Email address is listed as data linked to you',
-      'Email address is listed as data linked to you',
-      'Email address is listed as data linked to you',
-      'No — "No account required"',
-      'No account',
+    label: 'No account',
+    cells: [
+      { mark: 'yes' },
+      { mark: 'yes' },
+      { mark: 'yes' },
+      { mark: 'no' },
+      { mark: 'yes' },
+      { mark: 'yes' },
     ],
   },
   {
-    label: 'Tracking (App Store privacy label)',
-    values: [
-      'No tracking — cookieless analytics only',
-      'Apple system app',
-      'Apple system app',
-      'No "Used to Track You" category listed',
-      '"Data Used to Track You": Purchases, Identifiers, Usage Data',
-      'No "Used to Track You" category listed',
-      '"The developer does not collect any data from this app"',
-      '"The developer does not collect any data from this app"',
+    label: 'No tracking',
+    cells: [
+      { mark: 'yes' },
+      { mark: 'unknown' },
+      { mark: 'unknown' },
+      { mark: 'partial', note: 'Calm only' },
+      { mark: 'yes' },
+      { mark: 'yes' },
     ],
   },
   {
     label: 'Works offline',
-    values: [
-      'Yes — fully offline, no phone needed',
-      'Yes',
-      'Yes',
-      'Downloads for offline listening are a Premium feature',
-      'Varies',
-      'Varies',
-      'Varies',
-      'Varies',
+    cells: [
+      { mark: 'yes' },
+      { mark: 'yes' },
+      { mark: 'yes' },
+      { mark: 'partial', note: 'Insight Timer, paid' },
+      { mark: 'unknown' },
+      { mark: 'unknown' },
     ],
   },
   {
     // AtLeast writes Mindful Minutes or a workout (free); the wider range of
-    // workout types is Pro. Competitor cells stay "Varies" until read on the
-    // listing or Apple's support page.
+    // workout types is Pro. Timefully's listing names Health mindful minutes.
     label: 'Saves to Apple Health',
-    values: [
-      'Yes — Mindful Minutes or a workout, chosen per timer',
-      'Varies',
-      'Varies',
-      'Varies',
-      'Varies',
-      'Varies',
-      'Varies',
-      'Varies',
-    ],
-  },
-  {
-    label: 'Standalone on Apple Watch',
-    values: [
-      'Yes — the Watch is the whole app',
-      'Yes',
-      'Yes',
-      'Watch app; watchOS 9.0 or later',
-      'Watch app; watchOS 11.0 or later',
-      'Watch app; watchOS 26.0 or later',
-      'Yes — "Complete timer experience - not just a companion app"',
-      'Yes — Watch only',
-    ],
-  },
-  {
-    label: 'Session length',
-    values: [
-      '1–60 minutes',
-      'Up to 24 hours',
-      '1 to 5 minutes',
-      'Varies',
-      'Varies',
-      'Varies',
-      'Varies',
-      'Varies',
-    ],
-  },
-  {
-    label: 'Price',
-    values: [
-      `${PRICING.download}; Pro ${PRO_PRICE_LINE}`,
-      'Included with watchOS',
-      'Included with watchOS',
-      'Free; Premium $9.99/mo or $59.99/yr',
-      'Free; Premium $14.99/mo or $69.99/yr',
-      'Free; $12.99/mo or $69.99/yr',
-      'Free; Pro $2.99/mo, $11.99/yr, or $24.99 lifetime',
-      '$0.99, no in-app purchases',
+    cells: [
+      { mark: 'yes' },
+      { mark: 'unknown' },
+      { mark: 'unknown' },
+      { mark: 'unknown' },
+      { mark: 'yes' },
+      { mark: 'unknown' },
     ],
   },
 ];
@@ -247,32 +218,57 @@ const breadcrumbSchema = {
         Every fact about another app in the table below was read on that app's own App Store
         listing or on Apple's own support pages, all of which are linked in the
         <a href="#references" class="text-brand-accent hover:underline">References</a>. Where a
-        listing does not state something plainly, the cell reads &ldquo;Varies&rdquo; rather than a
-        guess. App Store prices and privacy labels change; check the listing before you buy.
+        listing does not state something plainly, the cell shows a dash rather than a
+        guess. Privacy labels change; check the listing before you install.
       </p>
 
       <!-- Comparison table -->
       <SectionHeading id="table" icon="ph:table" short="Comparison table">The comparison table</SectionHeading>
       <p class="mt-4 text-base leading-relaxed text-brand-muted">
-        Scroll the table sideways to see every app. <em>AtLeast</em> is the first column.
+        <em>AtLeast</em> is listed first. Sources are listed in the
+        <a href="#references" class="text-brand-accent hover:underline">References</a>.
       </p>
 
-      <div class="mt-8 overflow-x-auto rounded-2xl border border-brand-border">
-        <table class="w-full min-w-[64rem] text-sm">
+      <!-- Phones: one card per app. -->
+      <div class="mt-8 grid gap-4 sm:grid-cols-2 md:hidden">
+        {columns.map((col, c) => (
+          <section class:list={['rounded-2xl border p-5', c === 0 ? 'border-brand-accent/50 bg-brand-surface' : 'border-brand-border bg-brand-surface/50']}>
+            <h3 class="mb-3 text-base font-semibold text-brand-text">{c === 0 ? <em>AtLeast</em> : col.name}</h3>
+            <ul class="space-y-2 text-sm">
+              {rows.map((row) => {
+                const cell = row.cells[c];
+                const mark = cell.mark ?? 'unknown';
+                return (
+                  <li class="flex items-start gap-2.5">
+                    <Icon name={marks[mark].icon} class:list={['mt-0.5 h-4 w-4 shrink-0', c === 0 ? 'text-brand-accent' : marks[mark].class]} aria-hidden="true" />
+                    <span class:list={[mark === 'yes' ? 'text-brand-text' : 'text-brand-muted']}>
+                      <span class="sr-only">{marks[mark].label}: </span>{row.label}{cell.note && <span class="text-brand-muted"> ({cell.note})</span>}
+                    </span>
+                  </li>
+                );
+              })}
+            </ul>
+          </section>
+        ))}
+      </div>
+
+      <!-- md+: the side-by-side table, fitting the prose column. -->
+      <div class="mt-8 hidden overflow-x-auto rounded-2xl border border-brand-border md:block">
+        <table class="w-full table-fixed text-sm">
           <caption class="sr-only">
             Feature comparison of AtLeast against the built-in Apple Watch Timer and Mindfulness
-            apps and five third-party timer and meditation apps.
+            apps, the guided apps Insight Timer, Calm, and Headspace, Timefully, and Interval Timer Watch.
           </caption>
+          <colgroup>
+            <col class="w-32 md:w-36" />
+            {columns.map(() => <col />)}
+          </colgroup>
           <thead>
             <tr class="border-b border-brand-border bg-brand-surface">
-              <th scope="col" class="px-5 py-4 text-left font-medium text-brand-muted">Feature</th>
-              {apps.map((app) => (
-                <th scope="col" class:list={['px-5 py-4 text-left align-top', app.ref === null ? 'font-semibold text-brand-text' : 'font-medium text-brand-muted']}>
-                  {app.name === 'AtLeast' ? <em>AtLeast</em> : app.name}
-                  {app.ref && (
-                    <sup><a href={`#ref-${app.ref}`} class="text-brand-accent hover:underline">[{app.ref}]</a></sup>
-                  )}
-                  <span class="mt-1 block text-xs font-normal text-brand-muted">{app.note}</span>
+              <th scope="col" class="sticky left-0 z-10 bg-brand-surface px-3 py-3 text-left align-bottom font-medium text-brand-muted shadow-[1px_0_0_var(--color-brand-border)]"><span class="sr-only">Feature</span></th>
+              {columns.map((col, i) => (
+                <th scope="col" class:list={['px-2 py-3 text-center align-bottom leading-snug', i === 0 ? 'font-semibold text-brand-text' : 'font-medium text-brand-muted']}>
+                  {i === 0 ? <em>AtLeast</em> : col.name}
                 </th>
               ))}
             </tr>
@@ -280,12 +276,24 @@ const breadcrumbSchema = {
           <tbody class="divide-y divide-brand-border">
             {rows.map((row, rowIndex) => (
               <tr class:list={[rowIndex % 2 === 0 && 'bg-brand-surface/50']}>
-                <th scope="row" class="px-5 py-4 text-left align-top font-medium text-brand-text">
+                <!-- Opaque fill so scrolled cells don't show through; #0F0F0F is
+                     brand-surface/50 over brand-bg, matching the row stripe. -->
+                <th scope="row" class:list={['sticky left-0 z-10 px-3 py-3 text-left align-top font-medium leading-snug text-brand-text shadow-[1px_0_0_var(--color-brand-border)]', rowIndex % 2 === 0 ? 'bg-[#0F0F0F]' : 'bg-brand-bg']}>
                   {row.label}
                 </th>
-                {row.values.map((value, i) => (
-                  <td class:list={['px-5 py-4 align-top', i === 0 ? 'text-brand-accent' : 'text-brand-muted']}>
-                    {value}
+                {row.cells.map((cell, i) => (
+                  <td class="px-2 py-3 text-center align-top">
+                    {cell.mark && (
+                      <>
+                        <Icon name={marks[cell.mark].icon} class:list={['mx-auto h-5 w-5', i === 0 ? 'text-brand-accent' : marks[cell.mark].class]} aria-hidden="true" />
+                        <span class="sr-only">{marks[cell.mark].label}{cell.note ? ': ' : ''}</span>
+                      </>
+                    )}
+                    {cell.note && (
+                      <span class:list={['block leading-snug', cell.mark ? 'mt-1 text-xs' : 'text-sm', i === 0 ? 'text-brand-accent' : 'text-brand-muted']}>
+                        {cell.note}
+                      </span>
+                    )}
                   </td>
                 ))}
               </tr>
@@ -293,6 +301,16 @@ const breadcrumbSchema = {
           </tbody>
         </table>
       </div>
+
+      <p class="mt-4 flex flex-wrap gap-x-5 gap-y-1 text-sm text-brand-muted">
+        {(['yes', 'no', 'partial', 'unknown'] as Mark[]).map((m) => (
+          <span class="inline-flex items-center gap-1.5">
+            <Icon name={marks[m].icon} class:list={['h-4 w-4', marks[m].class]} aria-hidden="true" />
+            {m === 'unknown' ? 'Not stated on the listing' : m === 'partial' ? 'Some apps, or a paid feature' : marks[m].label}
+          </span>
+        ))}
+      </p>
+
 
       <!-- Philosophy -->
       <SectionHeading id="philosophy" icon="ph:waves" short="What it's built around">What <em>AtLeast</em> is built around</SectionHeading>
@@ -328,6 +346,7 @@ const breadcrumbSchema = {
         timer; <em>AtLeast</em> only writes to Health, never reads it, and the record stays in your
         own Health app.
       </p>
+      <HealthBadge class="-ml-2 mt-4" align="start" note={false} />
 
       <!-- When another app is better -->
       <SectionHeading id="when-not" icon="ph:hand-heart" short="When to pick another app">When another app is the better choice</SectionHeading>
@@ -414,7 +433,7 @@ const breadcrumbSchema = {
         <p class="mb-6 text-base text-brand-muted">
           Set a floor, feel the rhythm, and let the silence tell you you're done.
         </p>
-        <AppStoreBadge location="compare" />
+        <AppStoreBadge location="compare" size="lg" />
       </div>
 
       <!-- References -->

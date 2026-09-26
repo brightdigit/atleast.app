@@ -75,7 +75,7 @@ Three product details matter for this practice more than for a desk timer.
 
 The taps continue with the watch face off, so your arm can stay at your side through the hold. The session runs entirely on the Watch and works offline — no phone needs to be in the room. The optional iPhone companion is only for pre-loading a timer when dry hands are handy; the taps always happen on the wrist.
 
-Haptic strength is a watchOS setting: Apple Watch lets you set wrist-tap intensity to Default, Prominent, or Off, and Silent Mode silences alerts without removing the taps you feel<sup><a href="#ref-5">[5]</a></sup>. There is nothing to sign in to — no account, no streak, no feed. Session and haptic logic run on-device; analytics are cookieless and never used for advertising or cross-app tracking. *AtLeast* requires an Apple Watch Series 6 or later on watchOS 26.0 or later, and it is a free TestFlight beta today.
+Haptic strength is a watchOS setting: Apple Watch lets you set wrist-tap intensity to Default, Prominent, or Off, and Silent Mode silences alerts without removing the taps you feel<sup><a href="#ref-5">[5]</a></sup>. There is nothing to sign in to — no account, no streak, no feed. Session and haptic logic run on-device; analytics are cookieless and never used for advertising or cross-app tracking. *AtLeast* requires an Apple Watch Series 6 or later on watchOS 26.0 or later, and it is free to download on the App Store.
 
 ## Safety first — and what the evidence does not claim
 

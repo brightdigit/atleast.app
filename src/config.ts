@@ -1,16 +1,25 @@
 // App
 export const APP_NAME = "AtLeast";
+// The public TestFlight beta continues after launch. It is no longer the
+// primary CTA, but the constant stays exported for secondary links and for
+// switching PRIMARY_CTA back to "testflight" (e.g. a future pre-release).
 export const TESTFLIGHT_URL = "https://testflight.apple.com/join/WUR3Wf47";
 
 // Primary call to action — the single source of truth for every CTA on the site.
-// While AtLeast is in beta this is "testflight". At App Store launch, fill in
-// APP_STORE_URL and flip PRIMARY_CTA to "appstore"; AppStoreBadge, the nav
-// "Join Beta" button, and every article CTA follow automatically.
+// AtLeast is live on the App Store, so this is "appstore": AppStoreBadge, the
+// nav "Download" button, and every article CTA point at APP_STORE_URL. Setting
+// it to "testflight" switches them all back to the beta (atleast.app#167).
 export const APP_STORE_URL =
   "https://apps.apple.com/us/app/atleast-silent-timer/id6759622997";
-// Keep PRIMARY_CTA on testflight until the listing is actually downloadable.
-// Flip to "appstore" on approval (atleast.app#167).
-export const PRIMARY_CTA: "testflight" | "appstore" = "testflight";
+// Numeric App Store ID, derived from APP_STORE_URL — used by the Safari Smart
+// App Banner (apple-itunes-app meta in BaseHead).
+export const APP_STORE_ID = APP_STORE_URL.match(/\/id(\d+)/)?.[1] ?? "";
+export const PRIMARY_CTA: "testflight" | "appstore" = "appstore";
+
+// App Store release date, ISO "YYYY-MM-DD". Set it on approval day: the launch
+// press release at /press/launch renders its dateline only once this is filled
+// in (atleast.app#194).
+export const LAUNCH_DATE = "2026-09-27";
 
 if (PRIMARY_CTA === "appstore" && APP_STORE_URL.trim() === "") {
   throw new Error('APP_STORE_URL is required when PRIMARY_CTA is "appstore"');
@@ -50,9 +59,13 @@ export const SOCIAL_LINKS = [
   { icon: "x-twitter", url: "https://x.com/leogdion", label: "X (Twitter)" },
   { icon: "mastodon", url: "https://c.im/@leogdion", label: "Mastodon" },
   { icon: "linkedin", url: "https://www.linkedin.com/in/leogdion/", label: "LinkedIn" },
+  { icon: "producthunt", url: "https://www.producthunt.com/products/atleast-passive-timer-for-apple-watch?launch=atleast-passive-timer-for-apple-watch", label: "AtLeast on Product Hunt" },
   { icon: "youtube", url: "https://www.youtube.com/@brightdigit", label: "YouTube" },
   { icon: "patreon", url: "https://www.patreon.com/c/brightdigit", label: "Patreon" },
   { icon: "podcast", url: "https://www.empowerapps.show/", label: "Empower Apps Podcast" },
+  { icon: "appstore", url: APP_STORE_URL, label: "AtLeast on the App Store" },
+  // Unverified: the catalog renders client-side, so confirm the listing resolves.
+  { icon: "indiecatalog", url: `https://indieappcatalog.com/app/${APP_STORE_ID}/atleast-silent-timer`, label: "AtLeast on Indie App Catalog" },
 ] as const;
 
 // Content clusters — the article hub at /guides groups articles by these keys.

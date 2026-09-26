@@ -108,8 +108,10 @@ on the competitor's own page.
 
 Do not write a call to action into the markdown body. `ArticleLayout` inserts
 `ArticleCta` twice automatically — once mid-article (after the first `##`
-section) and once at the end. Both read `PRIMARY_CTA` from `src/config.ts`, so
-they switch from TestFlight to the App Store at launch with no article edits.
+section) and once at the end. Both read `PRIMARY_CTA` from `src/config.ts`,
+which now points every CTA at the App Store listing (`APP_STORE_URL`). Do not
+link TestFlight from an article or tell readers to "join the beta" — *AtLeast*
+has launched.
 
 ## JSON-LD checklist
 
@@ -160,8 +162,11 @@ These are the ways it is easiest to accidentally lie about the product.
   every phase change. For uneven patterns (4-7-8, Wim Hof rounds) describe a
   practical setup — a short steady interval you count against, or one session
   per round — rather than pretending the app follows the pattern.
-- **No App Store availability, ratings, or post-launch price.** It is a free
-  TestFlight beta today.
+- **No ratings, review counts, or chart rankings.** *AtLeast* is on the App
+  Store, and you can say so: "free to download on the App Store" is the
+  standard line. Do not quote ratings or rankings, and do not write Pro prices
+  into an article — they live in `PRICING` in `src/config.ts` and change
+  there. Never call the app a beta or link TestFlight.
 - **No health outcomes beyond what a cited source supports.** The Terms say
   *AtLeast* is not a medical device. Keep the safety caveats on cold-plunge and
   breathwork articles (and never breathe-hold in water).

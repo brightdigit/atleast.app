@@ -103,7 +103,7 @@ Set the floor slightly above the arithmetic. A couple of minutes covers four rou
 
 Three details make it work in bed. The taps continue with the watch face off — *AtLeast* uses an Extended Runtime Session, so the display sleeps and your arm stays at your side. It runs entirely on the Watch and works offline, so no phone needs to be in the room at all; the optional iPhone companion is there for pre-loading a session when the phone is handy, and the taps always happen on the wrist. And haptic strength is a watchOS setting rather than an app one: Apple Watch lets you set the intensity of wrist taps to Default, Prominent, or Off, and Silent Mode silences alerts<sup><a href="#ref-6">[6]</a></sup>.
 
-There is also nothing to sign in to — no account, no streak, no feed. Session and haptic logic run on-device, and analytics are cookieless, never used for advertising or cross-app tracking. *AtLeast* requires an Apple Watch Series 6 or later on watchOS 26.0 or later, and it is a free TestFlight beta today.
+There is also nothing to sign in to — no account, no streak, no feed. Session and haptic logic run on-device, and analytics are cookieless, never used for advertising or cross-app tracking. *AtLeast* requires an Apple Watch Series 6 or later on watchOS 26.0 or later, and it is free to download on the App Store.
 
 ## Safety, and what the evidence does and does not say
 

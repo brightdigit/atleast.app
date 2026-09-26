@@ -76,11 +76,11 @@ On the Watch:
 - It runs **entirely on Apple Watch**, works **offline**, and needs no phone nearby.
 - An optional iPhone companion can pre-load or pick a timer and mirror the live session; the taps still happen on the wrist.
 - Requires **Apple Watch Series 6 or later** on **watchOS 26.0 or later**.
-- Free TestFlight beta today — no App Store listing yet, no accounts to create.
+- Free to download on the App Store, with no accounts to create.
 
 Privacy stays light on purpose. There is nothing to sign in to. Analytics are cookieless — never for advertising or following you across other apps. A timer that only taps should not need to know who you are.
 
-To try it, join the free [TestFlight beta](https://testflight.apple.com/join/WUR3Wf47) from this page, pick a minimum and a tap interval, start on the Watch, and put your hands down. The taps run for your floor; then they stop.
+To try it, download it from the App Store with the button on this page, pick a minimum and a tap interval, start on the Watch, and put your hands down. The taps run for your floor; then they stop.
 
 ## When Silent Mode is enough
 
