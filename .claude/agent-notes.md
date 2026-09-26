@@ -32,3 +32,4 @@ directives for how to work in this repository.
 - PRs base on `v1.0.0-pre-launch`, not `main` — it is the launch integration branch; work merged to main must be ported (e.g. #179).
 - Video/marketing copy listing practices should always include one where your hands aren't free to stop an alarm (e.g. a plank); that is the core "why passive" beat.
 - Sessions can run on iPhone alone (same on-screen pulse, no haptics) as of app 1.0.0-beta.10 — "taps always happen on the wrist" stays true (the phone never taps), but never claim the iPhone only picks/pre-loads/mirrors; site copy still needs updating.
+- Video shot list: generic lifestyle b-roll (yoga mat, prayer, busy house, walking out) may be licensed stock; the plank, alarm gag and meditation-with-pulse shots must be Leo on his own Watch.
