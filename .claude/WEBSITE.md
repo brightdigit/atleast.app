@@ -262,28 +262,29 @@ const { title, description } = Astro.props;
 <meta property="og:description" content={description} />
 <meta property="og:type" content="website" />
 <meta property="og:url" content={Astro.url.href} />
-<meta property="og:image" content="https://atleast.app/og.png" />
+<meta property="og:site_name" content="AtLeast" />
+<meta property="og:image" content="https://atleast.app/og-appstore.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="628" />
+<meta property="og:image:alt" content="AtLeast - Silent Timer, now on the App Store" />
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
-<meta name="twitter:image" content="https://atleast.app/og.png" />
+<meta name="twitter:image" content="https://atleast.app/og-appstore.png" />
+<meta name="twitter:image:alt" content="AtLeast - Silent Timer, now on the App Store" />
 ```
 
 **Default values per page:**
 
 | Page | Title | Description |
 |------|-------|-------------|
-| `/` | `AtLeast — Passive Timer for Apple Watch` | `Gentle haptic taps during your practice. Silence means done. No alarm. No interruption. A mindful timer for meditation, cold plunge, yoga, and focused work.` |
+| `/` | `AtLeast — Silent Timer` | `Gentle haptic taps during your practice. Silence means done. No alarm. No interruption. A mindful timer for meditation, cold plunge, yoga, and focused work.` |
 | `/privacy` | `Privacy Policy — AtLeast` | `AtLeast runs timer logic on-device. The website, iPhone app, and Apple Watch app use cookieless Plausible analytics—no accounts, no advertising, no cross-app tracking.` |
 | `/support` | `Support — AtLeast` | `Frequently asked questions and support contact for AtLeast, the passive Apple Watch timer.` |
 
-**Create an OG image** (`public/og.png`, 1200×630px):
-- Dark background (#0A0A0A)
-- AtLeast wordmark centered
-- Tagline: "Gentle taps, silent success."
-- Three concentric rings visual (right side)
+**OG image** (`public/og-appstore.png`, 1200×628px): App Store Marketing Tools link-card export (dark background, iPhone icon, "AtLeast - Silent Timer", Download on the App Store badge). Keep `public/og.png` for old shares; `OG_IMAGE_URL` points at the new filename so caches bust.
 
 ---
 
@@ -295,7 +296,8 @@ Place in `public/`:
 public/
 ├── favicon.ico              # 32×32 favicon
 ├── apple-touch-icon.png     # 180×180 for iOS home screen
-├── og.png                   # 1200×630 Open Graph image
+├── og-appstore.png          # 1200×628 Open Graph image (App Store link card)
+├── og.png                   # Legacy OG image (kept for old shares)
 └── app-store-badge.svg      # Apple App Store download badge (official SVG)
 ```
 
@@ -341,6 +343,7 @@ atleast-website/
 ├── public/
 │   ├── favicon.ico
 │   ├── apple-touch-icon.png
+│   ├── og-appstore.png
 │   ├── og.png
 │   └── app-store-badge.svg
 ├── astro.config.mjs
