@@ -43,13 +43,18 @@ const orgSchema = {
 <meta property="og:description" content={description} />
 <meta property="og:type" content="website" />
 <meta property="og:url" content={canonicalURL.href} />
+<meta property="og:site_name" content="AtLeast" />
 <meta property="og:image" content={OG_IMAGE_URL} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="628" />
+<meta property="og:image:alt" content="AtLeast - Silent Timer, now on the App Store" />
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={OG_IMAGE_URL} />
+<meta name="twitter:image:alt" content="AtLeast - Silent Timer, now on the App Store" />
 
 <!-- A/B label assignment (runs before paint to avoid flicker) -->
 <script src="/ab.js" is:inline></script>

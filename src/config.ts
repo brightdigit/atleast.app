@@ -50,7 +50,7 @@ export const COPYRIGHT_YEAR = "2026";
 
 // URLs
 export const WEBSITE_URL = "https://atleast.app";
-export const OG_IMAGE_URL = "https://atleast.app/og.png";
+export const OG_IMAGE_URL = "https://atleast.app/og-appstore.png";
 export const COMPANY_WEBSITE_URL = "https://brightdigit.com";
 
 // Social links

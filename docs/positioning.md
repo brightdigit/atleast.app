@@ -27,7 +27,8 @@ wellness content, and they respond to a calm tone rather than a loud one.
 
 ## 2. What it is
 
-*AtLeast* is a passive haptic timer for Apple Watch. You set a minimum duration
+*AtLeast* (App Store name: *AtLeast - Silent Timer*) is a passive haptic timer
+for Apple Watch. You set a minimum duration
 (1–60 minutes) and a tap interval. Gentle taps on your wrist mark time during the
 session. When the taps stop, you have reached your minimum. There is no alarm, no
 sound, and no screen to check.
