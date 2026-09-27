@@ -20,7 +20,7 @@ const ctaLabel = isAppStore ? 'Download' : 'Join Beta';
 ---
 
 <nav class="fixed top-0 left-0 right-0 z-50 border-b border-brand-border/50 bg-brand-bg/80 backdrop-blur-lg">
-  <div class="mx-auto flex max-w-5xl items-center justify-between px-6 py-2 lg:py-4">
+  <div class="mx-auto flex max-w-5xl items-center justify-between px-6 py-2 lg:py-3">
     <a href="/" class="flex items-center gap-2 text-lg font-semibold tracking-tight text-brand-text">
       <picture>
         <source srcset="/press/icons/watchos/icon-512.webp" type="image/webp" />
@@ -58,15 +58,33 @@ const ctaLabel = isAppStore ? 'Download' : 'Join Beta';
           )
         ))}
       </div>
+      <!-- App Store mode shows Apple's badge as-is at its 40px onscreen minimum;
+           lg:py-3 keeps the bar at the 64px the layout's pt-16 expects. -->
       <a
         href={ctaHref}
         target="_blank"
         rel="noopener noreferrer"
         data-testflight-link
         data-tf-location="nav"
-        class="rounded-full border border-brand-border bg-brand-surface px-4 py-2.5 text-sm text-brand-text transition-opacity hover:opacity-80 lg:py-1.5"
+        class:list={[
+          'transition-opacity hover:opacity-80',
+          isAppStore
+            ? 'shrink-0 rounded-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-accent'
+            : 'rounded-full border border-brand-border bg-brand-surface px-4 py-2.5 text-sm text-brand-text lg:py-1.5',
+        ]}
       >
-        {ctaLabel}
+        {isAppStore ? (
+          <img
+            src="/app-store-badge.svg"
+            alt="Download AtLeast on the App Store"
+            width="120"
+            height="40"
+            class="h-10 w-auto"
+            loading="eager"
+          />
+        ) : (
+          ctaLabel
+        )}
       </a>
       <!-- Below lg the links collapse into a disclosure. <details> needs no JS,
            which matters: the CSP is script-src 'self'. The panel is absolutely

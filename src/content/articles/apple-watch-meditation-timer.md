@@ -188,6 +188,6 @@ None of these is the wrong tool everywhere. A countdown is right for eggs, and a
 
 A meditation practice is about as private as personal data gets. *AtLeast* has no accounts and nothing to sign in to, and session and haptic logic run on-device. Analytics are cookieless — the website, the iPhone app, and the Watch app report anonymous usage through Plausible and AviaryInsights, never for advertising and never for cross-app tracking. There is no profile of your practice, because there is no profile.
 
-It requires Apple Watch Series 6 or later running watchOS 26.0 or later, and it is currently a free TestFlight beta.
+It requires Apple Watch Series 6 or later running watchOS 26.0 or later, and it is free to download on the App Store.
 
 Set a floor, close your eyes, and let the silence tell you when you have earned it.

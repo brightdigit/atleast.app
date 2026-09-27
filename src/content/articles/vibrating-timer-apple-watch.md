@@ -81,7 +81,7 @@ Practically, on the Watch:
 - The haptics continue with the **watch face off**, using an Extended Runtime Session, so you never need to raise your wrist.
 - It runs **entirely on the Apple Watch** and works **offline**, with no phone nearby.
 - There is an **optional iPhone companion** if you would rather pick or pre-load a timer on the larger screen and mirror the live session — but the taps always happen on the wrist.
-- It requires **Apple Watch Series 6 or later running watchOS 26.0 or later**, and it is a free TestFlight beta today.
+- It requires **Apple Watch Series 6 or later running watchOS 26.0 or later**, and it is free to download on the App Store.
 
 ## Picking a tap interval by practice
 

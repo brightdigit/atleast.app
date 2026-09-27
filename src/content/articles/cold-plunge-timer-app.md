@@ -89,7 +89,7 @@ Three things follow, and they are the whole difference.
 
 It also solves the tub problem. *AtLeast* runs entirely on the Apple Watch and works offline with no phone nearby, and it keeps tapping with the watch face off. An optional iPhone companion lets you pre-load a timer indoors before you go; the taps always happen on the wrist. It requires Apple Watch Series 6 or later running watchOS 26.0 or later.
 
-There is nothing to sign in to. Session and haptic logic run on-device, and analytics are cookieless and never used for advertising or cross-app tracking. *AtLeast* is a free TestFlight beta today.
+There is nothing to sign in to. Session and haptic logic run on-device, and analytics are cookieless and never used for advertising or cross-app tracking. *AtLeast* is free to download on the App Store.
 
 ### About the watch in the water
 

@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import PracticeCard from '../components/PracticeCard.astro';
 import SectionHeading from '../components/SectionHeading.astro';
+import HealthBadge from '../components/HealthBadge.astro';
 import { Icon } from 'astro-icon/components';
 import { COMPANY_NAME, WEBSITE_URL, SUPPORT_EMAIL, PRICING } from '../config';
 
@@ -65,6 +66,7 @@ const factSheets: { title: string; icon: string; id?: string; facts: Fact[] }[] 
 
 const bookmarks = [
   { icon: 'ph:info', label: 'About', blurb: 'What AtLeast is, in three paragraphs.', anchor: '#about' },
+  { icon: 'ph:newspaper', label: 'Press Release', blurb: 'The launch announcement, with a quote.', anchor: '/press/launch/' },
   { icon: 'ph:clipboard-text', label: 'Fact Sheet', blurb: 'Platforms, requirements, and pricing.', anchor: '#fact-sheet' },
   { icon: 'ph:app-window', label: 'App Icon', blurb: 'watchOS and iOS icons, PNG and WebP.', anchor: '#app-icon' },
   { icon: 'ph:images', label: 'Screenshots', blurb: 'Apple Watch and iPhone, plus the zip.', anchor: '#screenshots' },
@@ -220,6 +222,7 @@ const iconDownloads = [
         <p>
           <em>AtLeast</em> is ideal for meditation, breathwork, cold plunge, yoga, static holds, and focused work. Set your minimum duration, choose your tap interval, and begin. The rest is silence.
         </p>
+        <HealthBadge class="-ml-2" align="start" />
       </div>
 
       <!-- Fact Sheet -->

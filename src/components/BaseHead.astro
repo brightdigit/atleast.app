@@ -1,6 +1,6 @@
 ---
 import Schema from './Schema.astro';
-import { COMPANY_NAME, WEBSITE_URL, SUPPORT_EMAIL, OG_IMAGE_URL } from '../config';
+import { COMPANY_NAME, WEBSITE_URL, SUPPORT_EMAIL, OG_IMAGE_URL, APP_STORE_ID } from '../config';
 
 interface Props {
   title: string;
@@ -34,6 +34,9 @@ const orgSchema = {
 
 <link rel="icon" href="/press/icons/favicon-32x32.png" type="image/png" sizes="32x32" />
 <link rel="apple-touch-icon" href="/press/icons/apple-touch-icon.png" />
+
+<!-- Safari Smart App Banner -->
+{APP_STORE_ID && <meta name="apple-itunes-app" content={`app-id=${APP_STORE_ID}`} />}
 
 <!-- Open Graph -->
 <meta property="og:title" content={title} />

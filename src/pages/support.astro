@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Schema from '../components/Schema.astro';
 import PracticeCard from '../components/PracticeCard.astro';
 import SectionHeading from '../components/SectionHeading.astro';
+import HealthBadge from '../components/HealthBadge.astro';
 import { Icon } from 'astro-icon/components';
 import { SUPPORT_EMAIL, PRO_PRICE_LINE } from '../config';
 
@@ -179,6 +180,7 @@ const faqSchema = {
       {sections.map((section) => (
         <section>
           <SectionHeading id={section.id} icon={section.icon}>{section.title}</SectionHeading>
+          {section.id === 'health-history' && <HealthBadge class="-ml-2 mt-4" align="start" />}
           <div class="mt-6 space-y-4">
             {section.faqs.map((faq) => {
               const id = slugify(faq.question);

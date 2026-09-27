@@ -89,7 +89,7 @@ None of this makes Mindfulness deficient. It was built for a short guided break.
 
 **No account.** Nothing to sign in to, no streak, no library of guided content. Session and haptic logic run on-device. Analytics are cookieless (website via Plausible; iPhone and Watch via AviaryInsights) and never used for advertising or cross-app tracking.
 
-It requires Apple Watch Series 6 or later running watchOS 26.0 or later, and it is currently a free [TestFlight](https://testflight.apple.com/join/WUR3Wf47) beta.
+It requires Apple Watch Series 6 or later running watchOS 26.0 or later, and it is free to download on the App Store.
 
 ## A practical way to use both
 

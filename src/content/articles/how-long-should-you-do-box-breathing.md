@@ -96,7 +96,7 @@ A [box breathing timer](/box-breathing-timer) on the wrist sidesteps all three f
 
 *AtLeast* has **one tap interval per session**. It does not label inhale differently from hold. Box breathing is the pattern where that costs you nothing, because every side is the same length. The [breathing pacer](/breathing-pacer) pillar covers how the same even beat works for other patterns.
 
-Practical details that matter for duration work: the taps **continue with the watch face off**, so your arm can stay down for the full five minutes. The app **runs on the Watch offline** — no phone needs to be nearby. It is **privacy-first**: no account, session and haptic logic on-device, cookieless analytics never used for advertising or cross-app tracking. It requires Apple Watch Series 6 or later on watchOS 26.0 or later, and it is a free TestFlight beta today.
+Practical details that matter for duration work: the taps **continue with the watch face off**, so your arm can stay down for the full five minutes. The app **runs on the Watch offline** — no phone needs to be nearby. It is **privacy-first**: no account, session and haptic logic on-device, cookieless analytics never used for advertising or cross-app tracking. It requires Apple Watch Series 6 or later on watchOS 26.0 or later, and it is free to download on the App Store.
 
 Once the timer holds the minutes, “how many rounds” stops being a question you answer mid-breath. Three rounds, nineteen boxes, or thirty-seven — the wrist already knows when you have done *at least* enough.
 
