@@ -131,7 +131,7 @@ Three decisions, none of which you have to revisit mid-session.
 2. **Pick your tap interval.** Longer intervals (a minute or more) suit sitting and focus blocks, where the taps are just a background pulse. Shorter intervals suit breathwork and cold exposure, where you are counting against them. One tap interval runs for the whole session.
 3. **Start it on the Watch and put your hands down.** The taps continue with the watch face off, for the whole minimum. Then they stop.
 
-It runs entirely on the Apple Watch and works offline, with no phone nearby. There is an optional iPhone companion if you would rather pick or pre-load a timer on the larger screen and mirror the live session — but the taps always happen on the wrist. It requires Apple Watch Series 6 or later running watchOS 26.0 or later, and it is a free TestFlight beta today.
+It runs entirely on the Apple Watch and works offline, with no phone nearby. There is an optional iPhone companion if you would rather pick or pre-load a timer on the larger screen and mirror the live session — but the taps always happen on the wrist. It requires Apple Watch Series 6 or later running watchOS 26.0 or later, and it is free to download on the App Store.
 
 ## Comparison
 

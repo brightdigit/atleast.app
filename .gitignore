@@ -10,6 +10,9 @@ public/press/**/*.webp
 # generated types
 .astro/
 
+# outreach lead reports (contain contact details; working artifacts, not site content)
+leads/
+
 # dependencies
 node_modules/
 

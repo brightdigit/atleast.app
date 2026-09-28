@@ -25,5 +25,8 @@ directives for how to work in this repository.
 - After 260907 content PRs merge to main (and deploy), re-check internal article links on the live site — cross-links between milestone pages 404 on atleast.app until main ships (e.g. /timer-that-vibrates from #148).
 - Never merge PRs unless the user explicitly asks — open them, leave them for review.
 - Safari 27 fully decodes VP9 (`canPlayType` "probably"); a hero video showing poster+play button there is muted-autoplay being refused (per-site Auto-Play setting / Low Power Mode), NOT a codec or `<source>`-order problem — verify with `play()`'s rejection before theorising.
+- Outreach drafts: write plan `hookLine` first, then `make drafts`; do not use the old `[[ ]]` placeholder flow. Appedus is post-launch only (held in drafts log like 148Apps/TidBITS).
 - AtLeast v1.0.0-beta.9 ships Sentry crash/error reporting in Debug *and* Release; it rides the analytics opt-out (one in-app "Analytics & crash reports" toggle) — never claim "no crash reporting sent off-device" or that Plausible/RevenueCat are the only third parties (#166).
 - `/terms` is titled "Terms of Use" (matching App Store Guideline 3.1.2 "Terms of Use (EULA)"), and the footer link label matches; the URL stays `/terms/` and Apple's own "App Store Terms of Service" keeps its name (#165).
+- Apple Health writing is free (Mindful Minutes and Yoga are free session types); the other five session types (Mind & Body, Flexibility, Cooldown, Core Training, Traditional Strength), saving custom timers, and History are AtLeast Pro — never imply the whole Health feature is Pro (#173).
+- PRs base on `v1.0.0-pre-launch`, not `main` — it is the launch integration branch; work merged to main must be ported (e.g. #179).

@@ -31,7 +31,7 @@ faq:
   - q: "Is a haptic timer app different from putting a timer on vibrate?"
     a: "Usually, yes. Vibrate is a fallback for a sound — one buzz at the end, and only when you remember to silence the device. A haptic timer app is silent by design and treats taps as the primary signal, which is what makes mid-session cues possible."
   - q: "How do I get a haptic timer app on my Apple Watch?"
-    a: "AtLeast is a free TestFlight beta today; join from this page. Other Watch apps with haptic cues are on the App Store. The built-in Timers app is already on your watch and taps at the end of a countdown when Silent Mode is on."
+    a: "AtLeast is free to download on the App Store; use the button on this page. Other Watch apps with haptic cues are on the App Store. The built-in Timers app is already on your watch and taps at the end of a countdown when Silent Mode is on."
 issue: 129
 ---
 
@@ -63,7 +63,7 @@ In an anaesthesiology simulation, Ferris and Sarter found tactile displays impro
 | **Standalone on the Watch** | A companion that needs a phone in the room is a phone in the room. |
 | **Works offline** | Practice happens in basements, on retreats, and outdoors. |
 | **No account** | Nothing about counting to ten requires a sign-in. |
-| **Clear price** | Free with a subscription, one-off purchase, and free beta are all fine — know which. |
+| **Clear price** | Free with a subscription, one-off purchase, or fully free are all fine — know which. |
 
 **Silent by design** is not the same as silenced: on Apple Watch, Silent Mode silences alerts while you still receive haptic notifications<sup><a href="#ref-3">[3]</a></sup>, but it is a switch. An app built haptic-first has nothing to switch. Wrist tap intensity can be set to Default, Prominent, or Off<sup><a href="#ref-2">[2]</a></sup>; Prominent is worth trying if you wear the band loose or are about to be cold.
 
@@ -92,7 +92,7 @@ There is nothing to create an account for. Analytics are cookieless and never us
 
 ## How to get AtLeast
 
-*AtLeast* is a free [TestFlight beta](https://testflight.apple.com/join/WUR3Wf47) today — or use the button on this page. Then three decisions:
+*AtLeast* is free to download on the App Store — use the button on this page. Then three decisions:
 
 1. **Pick your minimum** — the number you will actually sit, plunge, or hold for on an ordinary day.
 2. **Pick your tap interval** — longer (a minute or more) for sitting and focus; shorter (a few seconds) for breath pacing or plunge seconds.

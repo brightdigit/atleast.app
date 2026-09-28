@@ -99,7 +99,7 @@ For breathwork it behaves as a metronome. Box breathing's four equal phases map 
 - **No per-phase cues.** One tap interval per session; every tap feels the same. For uneven patterns, Box Breathe or Paced Breathing will serve you better.
 - **No guided sessions, library, or pattern editor.** Duration and interval are the whole interface.
 
-What it gives you: it runs **entirely on the Watch, offline**, taps **continue with the watch face off**, there is **no account**, and analytics are cookieless. It needs Apple Watch Series 6 or later on watchOS 26.0 or later, and it is a free TestFlight beta today. Wrist tap intensity is a watchOS setting — Default or Prominent<sup><a href="#ref-8">[8]</a></sup>.
+What it gives you: it runs **entirely on the Watch, offline**, taps **continue with the watch face off**, there is **no account**, and analytics are cookieless. It needs Apple Watch Series 6 or later on watchOS 26.0 or later, and it is free to download on the App Store. Wrist tap intensity is a watchOS setting — Default or Prominent<sup><a href="#ref-8">[8]</a></sup>.
 
 ## Which one to pick
 
