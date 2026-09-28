@@ -20,7 +20,7 @@ From the [Shipaton rules](https://revenuecat-shipaton-2026.devpost.com/rules). D
 
 - **Under 2:00.** Judges aren't required to watch past two minutes.
 - **Show the app running on the device.** The demo beats use real screen recordings and footage of the real Watch.
-- **No unlicensed music, and no third-party trademarks without permission.** There's no music at all. Apple product names (Apple Watch, iPhone, Apple Health, App Store) are used as Apple's guidelines require, and the App Store badge appears only in the Live ending.
+- **No unlicensed music, and no third-party trademarks without permission.** There's no music at all. Apple product names (Apple Watch, iPhone, Apple Health, App Store) are used as Apple's guidelines require, and the App Store badge appears on the end card.
 - Upload publicly to YouTube or Vimeo, in English.
 
 ## How to read a script
@@ -40,16 +40,13 @@ Each beat is one row:
 
 No music, as decided in Q13. Use room sound, breath, and the faint buzz of the Watch motor recorded close. The emotional peak in every version is the **drop to silence** when the taps stop, so leave it long enough to feel.
 
-## Endings: swap during the edit
+## Ending
 
-The last line of every version is **voiceover over an end card**, not on camera, so swapping endings means changing one audio clip and one graphic. Record both endings in the same session.
+The app is **live on the App Store**. Every version ends with voiceover over an end card (not on camera):
 
-| Ending | VO | End card |
-| --- | --- | --- |
-| **LIVE** (the app is approved) | "AtLeast is on the App Store now. Go to atleast.app and try it today." | AtLeast icon · **atleast.app** · App Store badge |
-| **PENDING** (the app is still in review) | "AtLeast is coming soon to the App Store. Go to atleast.app to find out more." | AtLeast icon · **atleast.app** · "Coming soon to the App Store" |
-
-> Shipaton only accepts an app whose first public version is released by Sept 30. The PENDING ending keeps the video usable outside the contest; it doesn't make an unreleased app eligible.
+| VO | End card |
+| --- | --- |
+| "AtLeast is on the App Store now. Go to atleast.app and try it today." | AtLeast icon · **atleast.app** · App Store badge |
 
 ## Facts checked against the app (1.0.0-beta.10)
 

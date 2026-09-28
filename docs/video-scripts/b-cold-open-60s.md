@@ -14,5 +14,5 @@ A cut of [b-cold-open.md](b-cold-open.md). The wordless opening does most of the
 | **0:33** | **SR** W5: summary with **+X over**, "Saved as Mindful Minutes". | VO: "Keep going as long as you like. It's saved to Apple Health." | — |
 | **0:38** | **SR** P7 → P5: the History preview, then the paywall. P8: History unlocked. | VO: "AtLeast is free. Pro adds your own timers, history and streaks, with a seven-day free trial on the annual plan." | **7-day free trial on the annual plan** |
 | **0:47** | **BR** callback: wrist ECU. | **SILENCE**, 1 second. | — |
-| **0:48** | **END CARD**. | VO: **LIVE** or **PENDING** ending. | Icon · **atleast.app** · badge (LIVE only) |
+| **0:48** | **END CARD**. | VO: "AtLeast is on the App Store now. Go to atleast.app and try it today." | Icon · **atleast.app** · App Store badge |
 | **~0:55** | End. | | |

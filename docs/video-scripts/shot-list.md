@@ -111,13 +111,12 @@ The phone and Watch together in one WS, filmed with a camera. One continuous tak
 | ID | What | Notes |
 | --- | --- | --- |
 | VO1 | Every voiceover line in all versions | A quiet room, close mic, the same mic as TH1 |
-| VO2 | **LIVE** ending: "AtLeast is on the App Store now. Go to atleast.app and try it today." | 2–3 takes |
-| VO3 | **PENDING** ending: "AtLeast is coming soon to the App Store. Go to atleast.app to find out more." | 2–3 takes |
+| VO2 | Ending: "AtLeast is on the App Store now. Go to atleast.app and try it today." | 2–3 takes |
 | NAT1 | 60 seconds of room tone | For the silence beats. True digital silence sounds broken, so use room tone |
 | NAT2 | The Watch motor buzzing, recorded close | Put a mic near the wrist, or record the Watch lying on a wooden table |
 | NAT3 | A generic alarm buzz for L6 | Your own recording |
 
-**The voiceover lines (VO1–VO3).** Same marks as the on-camera lines: **[pause]** between clips, **[small pause]** for a beat inside one.
+**The voiceover lines (VO1–VO2).** Same marks as the on-camera lines: **[pause]** between clips, **[small pause]** for a beat inside one.
 
 But some things you want to keep going. [small pause] Yoga. [small pause] Meditation. [small pause] Prayer. [small pause] A plank. [small pause] You don't want something loudly telling you to stop, [small pause] just a gentle sign that you've done your minimum for the day. [pause]
 
@@ -205,8 +204,6 @@ There's no paywall on the Watch. [small pause] Buy on your iPhone, and it unlock
 
 AtLeast is on the App Store now. [small pause] Go to atleast.app and try it today. [pause]
 
-AtLeast is coming soon to the App Store. [small pause] Go to atleast.app to find out more. [pause]
-
 ## Graphics
 
 | ID | What |
@@ -215,7 +212,6 @@ AtLeast is coming soon to the App Store. [small pause] Go to atleast.app to find
 | G2 | Step captions: **1 · Pick your minimum / 2 · Press Start / 3 · Feel the rhythm** |
 | G3 | **Silence means enough.** / **Taps mean keep going.** |
 | G4 | Pro captions and the **7-day free trial on the annual plan** line. For C, the price line and the **Built on RevenueCat** section card |
-| G5 | End card, **LIVE** version: icon, atleast.app and the official App Store badge |
-| G6 | End card, **PENDING** version: icon, atleast.app and "Coming soon to the App Store" |
+| G5 | End card: icon, atleast.app and the official App Store badge |
 
 Use the site's brand colors: background `#0A0A0A`, text `#F5F5F5`, accent `#6B8FF8`. Use SF Pro or the system font.

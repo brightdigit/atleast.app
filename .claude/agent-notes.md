@@ -34,3 +34,4 @@ directives for how to work in this repository.
 - Sessions can run on iPhone alone (same on-screen pulse, no haptics) as of app 1.0.0-beta.10 — "taps always happen on the wrist" stays true (the phone never taps), but never claim the iPhone only picks/pre-loads/mirrors; site copy still needs updating.
 - Video shot list: generic lifestyle b-roll (yoga mat, prayer, busy house, walking out) may be licensed stock; the plank, alarm gag and meditation-with-pulse shots must be Leo on his own Watch.
 - Video shots showing both devices (the D group: D1, D2) are single camera shots of phone + Watch together — never pair or split-screen them with separate screen recordings.
+- AtLeast is live on the App Store — video scripts use the live ending only (App Store now / try it today + badge); do not keep or revive a "coming soon" / PENDING ending.

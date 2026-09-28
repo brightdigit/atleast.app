@@ -3,7 +3,7 @@
 Aimed at **Shipaton judges**, especially the **HAMM Award** ("smartest use of RevenueCat") and the **Design Award**.
 It keeps the story short and adds a segment on **how Pro is built on RevenueCat and why it's priced the way it is**. This is the only version that states prices.
 
-Shot codes and the ending swap are explained in the [README](README.md). Shot IDs refer to the [shot list](shot-list.md).
+Shot codes and the ending are explained in the [README](README.md). Shot IDs refer to the [shot list](shot-list.md).
 
 | TIME | VIDEO | AUDIO | ON-SCREEN |
 | --- | --- | --- | --- |
@@ -23,7 +23,7 @@ Shot codes and the ending swap are explained in the [README](README.md). Shot ID
 | **1:28** | **SR** P8: History unlocked, with streak, this week and quiet minutes. Scroll through days of sessions. | VO: "And Pro turns your practice into something you can see: streaks, your week, total quiet minutes." | — |
 | **1:34** | **TH** MS. **[CUTTABLE]** | ON CAM: "No account. Session logic runs on the device, and your data syncs through your own iCloud." **[CUTTABLE]** | **No account** **[CUTTABLE]** |
 | **1:40** | **BR** callback: ECU of the wrist, the pulse settling. | **SILENCE**, 1 second. | **Silence means enough.** |
-| **1:42** | **END CARD** (see README). | VO: **LIVE** or **PENDING** ending. | Icon · **atleast.app** · badge (LIVE only) |
+| **1:42** | **END CARD** (see README). | VO: "AtLeast is on the App Store now. Go to atleast.app and try it today." | Icon · **atleast.app** · App Store badge |
 | **~1:49** | End. | | |
 
 **Running time:** about 1:49, or 1:43 without the privacy line. This is the closest to 2:00. If it runs long, cut the History beat at 1:28 first. The trigger montage and the "no paywall on the Watch" beat are the parts that make this version.

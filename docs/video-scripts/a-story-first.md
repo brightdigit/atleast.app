@@ -3,7 +3,7 @@
 Your draft's order, tightened: **problem → you → solution → demo → iPhone → Pro → CTA.**
 It opens with you talking, so the first 10 seconds rest on your delivery. Say the first line as a thought, not a pitch.
 
-Shot codes and the ending swap are explained in the [README](README.md). Shot IDs (`W3`, `P5`…) refer to the [shot list](shot-list.md).
+Shot codes and the ending are explained in the [README](README.md). Shot IDs (`W3`, `P5`…) refer to the [shot list](shot-list.md).
 
 | TIME | VIDEO | AUDIO | ON-SCREEN |
 | --- | --- | --- | --- |
@@ -22,7 +22,7 @@ Shot codes and the ending swap are explained in the [README](README.md). Shot ID
 | **1:21** | **SR** P1 → **WS** D1 (phone and Watch together) → W2: the iPhone Timers screen with the **Apple Watch** chip. Tap a timer, and the Watch jumps to its Start screen. Quick cut to P4: chip set to **This iPhone**, press **Start on iPhone**, the pulse shows on the phone. | VO: "Pick a timer on your iPhone and it's waiting on your wrist. No watch on you? It runs on your iPhone too." | — |
 | **1:28** | **SR** P6: tap **Save** on a new timer, and the **AtLeast Pro paywall** slides up (Annual selected, "Start Free Trial"). Cut to P8: History with streak, this week and quiet minutes. | VO: "AtLeast is free, Apple Health included. AtLeast Pro lets you save your own timers, see your history and streaks, and use every session type. Try it free for seven days on the annual plan." | **AtLeast Pro** · Save your timers · History · Every Session Type<br>**7-day free trial on the annual plan** |
 | **1:39** | **BR** W1 on the wrist, walking out of the room. **[CUTTABLE]** | VO: "No account to create. Your timers and history sync through your own iCloud." **[CUTTABLE]** | **No account** **[CUTTABLE]** |
-| **1:43** | **END CARD** (see README). | VO: **LIVE** or **PENDING** ending. | Icon · **atleast.app** · badge (LIVE only) |
+| **1:43** | **END CARD** (see README). | VO: "AtLeast is on the App Store now. Go to atleast.app and try it today." | Icon · **atleast.app** · App Store badge |
 | **~1:50** | End. | | |
 
 **Running time:** about 1:50, or 1:46 without the privacy line. If you need to cut more, trim the 0:10 practice list to three shots.

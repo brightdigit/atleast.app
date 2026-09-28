@@ -3,7 +3,7 @@
 Opens on the product feeling, not an explanation: **taps → silence → eyes open → title**. Then the problem, you, how it works, iPhone, Pro and the ending.
 This version shows why AtLeast exists before saying it, so a judge gets the idea in the first 10 seconds without any voiceover.
 
-Shot codes and the ending swap are explained in the [README](README.md). Shot IDs refer to the [shot list](shot-list.md).
+Shot codes and the ending are explained in the [README](README.md). Shot IDs refer to the [shot list](shot-list.md).
 
 | TIME | VIDEO | AUDIO | ON-SCREEN |
 | --- | --- | --- | --- |
@@ -23,7 +23,7 @@ Shot codes and the ending swap are explained in the [README](README.md). Shot ID
 | **1:21** | **SR** P7: open **History** on free, where the preview is blurred. Tap it and the **AtLeast Pro paywall** appears. Cut to P8: History unlocked, with streak, this week and quiet minutes. | VO: "AtLeast is free, Apple Health included. AtLeast Pro saves your own timers, shows your history and streaks, and unlocks every session type, with a seven-day free trial on the annual plan." | **AtLeast Pro** · **7-day free trial on the annual plan** |
 | **1:32** | **BR** walking out of the room, Watch on the wrist. **[CUTTABLE]** | VO: "No account. Your timers and history sync through your own iCloud." **[CUTTABLE]** | **No account** **[CUTTABLE]** |
 | **1:36** | **BR** callback to the opening: ECU of the wrist, the pulse settling. | **SILENCE**, 1 second. | **Silence means enough.** |
-| **1:38** | **END CARD** (see README). | VO: **LIVE** or **PENDING** ending. | Icon · **atleast.app** · badge (LIVE only) |
+| **1:38** | **END CARD** (see README). | VO: "AtLeast is on the App Store now. Go to atleast.app and try it today." | Icon · **atleast.app** · App Store badge |
 | **~1:45** | End. | | |
 
 **Running time:** about 1:45, or 1:41 without the privacy line. If you need to cut more, the Watch-wizard beat at 1:09 goes first.
