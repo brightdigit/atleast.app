@@ -35,3 +35,5 @@ directives for how to work in this repository.
 - Video shot list: generic lifestyle b-roll (yoga mat, prayer, busy house, walking out) may be licensed stock; the plank, alarm gag and meditation-with-pulse shots must be Leo on his own Watch.
 - Video shots showing both devices (the D group: D1, D2) are single camera shots of phone + Watch together — never pair or split-screen them with separate screen recordings.
 - AtLeast is live on the App Store — video scripts use the live ending only (App Store now / try it today + badge); do not keep or revive a "coming soon" / PENDING ending.
+- Talking-head clips are labeled TH01–TH13 (zero-filled; one ID per on-camera line) for FCP clip names; TH01/TH02 are no longer framing-only buckets.
+- Voiceover clips are labeled VO01–VO45 (zero-filled; one ID per VO line) for FCP clip names, same pattern as TH; VO45 is the shared App Store ending; VO08 is shared by A and B.

@@ -15,38 +15,51 @@ Every shot the six scripts use, grouped so you can film each setup once. The **U
 
 ## Talking head (TH)
 
-| ID | Shot | Used in |
-| --- | --- | --- |
-| TH1 | MS at a desk or in a quiet corner, natural side light. Record every on-camera line from all versions in one sitting, with 2 takes each. | A B C a b c |
-| TH2 | The same setup a touch tighter, for "father of six" and "That's it." | A B a |
+One setup for all clips: MS at a desk or quiet corner, natural side light. Record every line in one sitting, 2 takes each. Use the **ID** as the FCP clip name / keyword (e.g. `TH01`). TH02 and TH04 are a touch tighter; TH04 has a small smile; TH10 leans in slightly.
 
-**The on-camera lines.** Voiceover lines are recorded separately (VO1). **[pause]** marks a cut between clips; **[small pause]** marks a beat inside a clip where the edit can also cut.
+| ID | Framing | Line | Used in |
+| --- | --- | --- | --- |
+| TH01 | MS | "Timer apps have always been missing something. They're great when something has to happen at a certain time, or finish in a certain amount of time." | A |
+| TH02 | tighter | "I'm a father of six and an indie developer. I need at least fifteen quiet minutes a day." | A |
+| TH03 | MS | "So I built AtLeast." | A |
+| TH04 | tighter, smile | "That's it." | A a |
+| TH05 | MS | "Timers are great at telling you to stop. But some things you want to keep going." | a |
+| TH06 | MS | "That's what the end of a timer should feel like. Not an alarm. Just… quiet." | B |
+| TH07 | MS | "I'm a father of six and an indie developer. I need at least fifteen quiet minutes a day, and I don't want a timer to end them." | B |
+| TH08 | MS | "That's how a timer should end. Not an alarm. Just quiet." | b |
+| TH09 | MS | "Timers are built to make you stop. I wanted one that tells me when I've done *at least* enough, and lets me keep going." | C |
+| TH10 | MS, lean in | "Now, how it makes money." | C |
+| TH11 | MS | "No account. Session logic runs on the device, and your data syncs through your own iCloud." **[CUTTABLE]** | C |
+| TH12 | MS | "I built AtLeast, a timer for Apple Watch that never tells you to stop." | c |
+| TH13 | MS | "Pro runs on RevenueCat." | c |
 
-Timer apps have always been missing something. [small pause] They're great when something has to happen at a certain time, [small pause] or finish in a certain amount of time. [pause]
+**Recording script.** Voiceover is separate (VO01–VO45). **[pause]** = cut between clips; **[small pause]** = beat inside a clip.
 
-So I built AtLeast. [pause]
+**TH01:** Timer apps have always been missing something. [small pause] They're great when something has to happen at a certain time, [small pause] or finish in a certain amount of time. [pause]
 
-Timers are great at telling you to stop. [small pause] But some things you want to keep going. [pause]
+**TH02:** I'm a father of six and an indie developer. [small pause] I need at least fifteen quiet minutes a day. [pause]
 
-That's what the end of a timer should feel like. [small pause] Not an alarm. [small pause] Just… quiet. [pause]
+**TH03:** So I built AtLeast. [pause]
 
-That's how a timer should end. [small pause] Not an alarm. [small pause] Just quiet. [pause]
+**TH04:** That's it. [small smile] [pause]
 
-Timers are built to make you stop. [small pause] I wanted one that tells me when I've done *at least* enough, [small pause] and lets me keep going. [pause]
+**TH05:** Timers are great at telling you to stop. [small pause] But some things you want to keep going. [pause]
 
-Now, how it makes money. [lean in slightly] [pause]
+**TH06:** That's what the end of a timer should feel like. [small pause] Not an alarm. [small pause] Just… quiet. [pause]
 
-No account. [small pause] Session logic runs on the device, [small pause] and your data syncs through your own iCloud. [cuttable] [pause]
+**TH07:** I'm a father of six and an indie developer. [small pause] I need at least fifteen quiet minutes a day, [small pause] and I don't want a timer to end them. [pause]
 
-I built AtLeast, [small pause] a timer for Apple Watch that never tells you to stop. [pause]
+**TH08:** That's how a timer should end. [small pause] Not an alarm. [small pause] Just quiet. [pause]
 
-Pro runs on RevenueCat. [pause]
+**TH09:** Timers are built to make you stop. [small pause] I wanted one that tells me when I've done *at least* enough, [small pause] and lets me keep going. [pause]
 
-I'm a father of six and an indie developer. [small pause] I need at least fifteen quiet minutes a day. [pause]
+**TH10:** Now, how it makes money. [lean in slightly] [pause]
 
-I'm a father of six and an indie developer. [small pause] I need at least fifteen quiet minutes a day, [small pause] and I don't want a timer to end them. [pause]
+**TH11:** No account. [small pause] Session logic runs on the device, [small pause] and your data syncs through your own iCloud. [cuttable] [pause]
 
-That's it. [small smile] [pause]
+**TH12:** I built AtLeast, [small pause] a timer for Apple Watch that never tells you to stop. [pause]
+
+**TH13:** Pro runs on RevenueCat. [pause]
 
 ## Lifestyle b-roll (L)
 
@@ -106,103 +119,157 @@ The phone and Watch together in one WS, filmed with a camera. One continuous tak
 | P9 | Trigger: in the create sheet, pick a Pro **Session Type** (e.g. Core Training), and the paywall appears. | **Free** | C c |
 | P10 | Trigger: **Settings → AtLeast Pro**. | **Free** | C |
 
-## Audio pickups — record in the same session as TH1
+## Voiceover (VO)
+
+Record in the same session as TH01: quiet room, close mic, the same mic as TH01. Record every line in one sitting, 2 takes each. Use the **ID** as the FCP clip name / keyword (e.g. `VO01`). VO06 and VO20 are quieter.
+
+| ID | Line | Used in |
+| --- | --- | --- |
+| VO01 | "But some things you want to *keep going*. Yoga. Meditation. Prayer. A plank. You don't want something loudly telling you to stop, just a gentle sign that you've done your minimum for the day." | A |
+| VO02 | "And the last thing you want is to stop mid-plank to tap your watch and silence an alarm." | A |
+| VO03 | "AtLeast is a passive timer for Apple Watch. Gentle taps tell you to keep going. When the taps stop, you've reached your minimum. It doesn't interrupt your flow. It lets you keep going." | A |
+| VO04 | "Here's how it works. Pick your minimum…" | A |
+| VO05 | "…press Start, and put your wrist down." | A |
+| VO06 | "Every few seconds, a gentle tap. No countdown. Nothing to look at." *(quietly)* | A |
+| VO07 | "Keep going as long as you like. When you're done, you see how far past your minimum you went, and it's saved to Apple Health." | A |
+| VO08 | "Pick a timer on your iPhone and it's waiting on your wrist. No watch on you? It runs on your iPhone too." | A B |
+| VO09 | "AtLeast is free, Apple Health included. AtLeast Pro lets you save your own timers, see your history and streaks, and use every session type. Try it free for seven days on the annual plan." | A |
+| VO10 | "No account to create. Your timers and history sync through your own iCloud." **[CUTTABLE]** | A |
+| VO11 | "Yoga. Prayer. Meditation. I'm a father of six. I need at least fifteen quiet minutes a day." | a |
+| VO12 | "And not an alarm I have to reach over and silence." | a |
+| VO13 | "AtLeast is a passive timer for Apple Watch. Gentle taps mean keep going." | a |
+| VO14 | "Pick your minimum, press Start, put your wrist down." | a |
+| VO15 | "When the taps stop, you're there. Keep going, and it's saved to Apple Health." | a |
+| VO16 | "AtLeast is free. Pro saves your timers, tracks your streaks and unlocks every session type. Try it free for seven days on the annual plan." | a |
+| VO17 | "Most timers are built to make you stop. But some things you want to keep going: yoga, meditation, prayer, a plank. When your hands are busy, the last thing you want is to tap your watch to silence an alarm." | B |
+| VO18 | "So I built AtLeast, a passive timer for Apple Watch. Gentle taps mean keep going. When they stop, you've reached your minimum." | B |
+| VO19 | "Pick your minimum. Press Start. Put your wrist down." | B |
+| VO20 | "No countdown. Nothing to look at. Just a rhythm on your wrist." *(quietly)* | B |
+| VO21 | "Keep going as long as you like. When you finish, you see how far past your minimum you went, saved to Apple Health." | B |
+| VO22 | "Set any minimum from one to sixty minutes, and choose how often it taps." | B |
+| VO23 | "AtLeast is free, Apple Health included. AtLeast Pro saves your own timers, shows your history and streaks, and unlocks every session type, with a seven-day free trial on the annual plan." | B |
+| VO24 | "No account. Your timers and history sync through your own iCloud." **[CUTTABLE]** | B |
+| VO25 | "When your hands are busy, the last thing you want is to reach over and silence your watch." | b |
+| VO26 | "AtLeast is a passive timer for Apple Watch. Pick your minimum, press Start. Gentle taps mean keep going." | b |
+| VO27 | "When they stop, you've reached it." | b |
+| VO28 | "Keep going as long as you like. It's saved to Apple Health." | b |
+| VO29 | "AtLeast is free. Pro adds your own timers, history and streaks, with a seven-day free trial on the annual plan." | b |
+| VO30 | "Mid-plank, mid-meditation, mid-prayer, the last thing you want is to reach over and silence an alarm. As a father of six, I get fifteen quiet minutes a day, if I'm lucky." | C |
+| VO31 | "AtLeast is a passive timer for Apple Watch. Gentle taps mean keep going. Silence means you've reached your minimum." | C |
+| VO32 | "Pick a minimum, press Start, put your wrist down. No countdown, nothing to look at." | C |
+| VO33 | "Keep going as long as you like. It shows how far past your minimum you went, and it's saved to Apple Health." | C |
+| VO34 | "Start it from your iPhone, or run it on the phone itself." | C |
+| VO35 | "Everything that makes the practice work is free: the timer, the Watch, the iPhone, and Apple Health. Pro shows up only when you reach for more: saving your own timers, your history, and every session type." | C |
+| VO36 | "The paywall is RevenueCat Paywalls, built and configured in the RevenueCat dashboard, so I can change the offer and the copy without shipping an app update." | C |
+| VO37 | "Pricing is deliberately small: ninety-nine cents a month, $9.99 a year with a seven-day free trial, or a one-time AtLeast Founder plan at $49.99. A daily practice shouldn't cost more than the habit is worth." | C |
+| VO38 | "There's no paywall on the Watch. It just says 'Unlock on iPhone', and one purchase unlocks both." | C |
+| VO39 | "And Pro turns your practice into something you can see: streaks, your week, total quiet minutes." | C |
+| VO40 | "Gentle taps mean keep going. When they stop, you've done at least your minimum. No alarm to silence mid-plank." | c |
+| VO41 | "Free, with Apple Health." | c |
+| VO42 | "The paywall appears only when you reach for more: saving timers, history, every session type. It's RevenueCat Paywalls, so I change the offer from the dashboard, not with an app update." | c |
+| VO43 | "Ninety-nine cents a month, $9.99 a year with a seven-day free trial, or $49.99 once for the Founder plan." | c |
+| VO44 | "There's no paywall on the Watch. Buy on your iPhone, and it unlocks on your wrist." | c |
+| VO45 | "AtLeast is on the App Store now. Go to atleast.app and try it today." | A B C a b c |
+
+**Recording script.** Same marks as the on-camera lines: **[pause]** between clips; **[small pause]** for a beat inside one.
+
+**VO01:** But some things you want to keep going. [small pause] Yoga. [small pause] Meditation. [small pause] Prayer. [small pause] A plank. [small pause] You don't want something loudly telling you to stop, [small pause] just a gentle sign that you've done your minimum for the day. [pause]
+
+**VO02:** And the last thing you want is to stop mid-plank to tap your watch and silence an alarm. [pause]
+
+**VO03:** AtLeast is a passive timer for Apple Watch. [small pause] Gentle taps tell you to keep going. [small pause] When the taps stop, you've reached your minimum. [small pause] It doesn't interrupt your flow. [small pause] It lets you keep going. [pause]
+
+**VO04:** Here's how it works. [small pause] Pick your minimum… [pause]
+
+**VO05:** …press Start, and put your wrist down. [pause]
+
+**VO06:** Every few seconds, a gentle tap. [small pause] No countdown. [small pause] Nothing to look at. [quietly] [pause]
+
+**VO07:** Keep going as long as you like. [small pause] When you're done, you see how far past your minimum you went, [small pause] and it's saved to Apple Health. [pause]
+
+**VO08:** Pick a timer on your iPhone and it's waiting on your wrist. [small pause] No watch on you? [small pause] It runs on your iPhone too. [pause]
+
+**VO09:** AtLeast is free, Apple Health included. [small pause] AtLeast Pro lets you save your own timers, see your history and streaks, and use every session type. [small pause] Try it free for seven days on the annual plan. [pause]
+
+**VO10:** No account to create. [small pause] Your timers and history sync through your own iCloud. [cuttable] [pause]
+
+**VO11:** Yoga. [small pause] Prayer. [small pause] Meditation. [small pause] I'm a father of six. [small pause] I need at least fifteen quiet minutes a day. [pause]
+
+**VO12:** And not an alarm I have to reach over and silence. [pause]
+
+**VO13:** AtLeast is a passive timer for Apple Watch. [small pause] Gentle taps mean keep going. [pause]
+
+**VO14:** Pick your minimum, [small pause] press Start, [small pause] put your wrist down. [pause]
+
+**VO15:** When the taps stop, you're there. [small pause] Keep going, and it's saved to Apple Health. [pause]
+
+**VO16:** AtLeast is free. [small pause] Pro saves your timers, tracks your streaks and unlocks every session type. [small pause] Try it free for seven days on the annual plan. [pause]
+
+**VO17:** Most timers are built to make you stop. [small pause] But some things you want to keep going: [small pause] yoga, meditation, prayer, a plank. [small pause] When your hands are busy, the last thing you want is to tap your watch to silence an alarm. [pause]
+
+**VO18:** So I built AtLeast, [small pause] a passive timer for Apple Watch. [small pause] Gentle taps mean keep going. [small pause] When they stop, you've reached your minimum. [pause]
+
+**VO19:** Pick your minimum. [small pause] Press Start. [small pause] Put your wrist down. [pause]
+
+**VO20:** No countdown. [small pause] Nothing to look at. [small pause] Just a rhythm on your wrist. [quietly] [pause]
+
+**VO21:** Keep going as long as you like. [small pause] When you finish, you see how far past your minimum you went, [small pause] saved to Apple Health. [pause]
+
+**VO22:** Set any minimum from one to sixty minutes, [small pause] and choose how often it taps. [pause]
+
+**VO23:** AtLeast is free, Apple Health included. [small pause] AtLeast Pro saves your own timers, shows your history and streaks, and unlocks every session type, [small pause] with a seven-day free trial on the annual plan. [pause]
+
+**VO24:** No account. [small pause] Your timers and history sync through your own iCloud. [cuttable] [pause]
+
+**VO25:** When your hands are busy, the last thing you want is to reach over and silence your watch. [pause]
+
+**VO26:** AtLeast is a passive timer for Apple Watch. [small pause] Pick your minimum, press Start. [small pause] Gentle taps mean keep going. [pause]
+
+**VO27:** When they stop, you've reached it. [pause]
+
+**VO28:** Keep going as long as you like. [small pause] It's saved to Apple Health. [pause]
+
+**VO29:** AtLeast is free. [small pause] Pro adds your own timers, history and streaks, [small pause] with a seven-day free trial on the annual plan. [pause]
+
+**VO30:** Mid-plank, mid-meditation, mid-prayer, [small pause] the last thing you want is to reach over and silence an alarm. [small pause] As a father of six, I get fifteen quiet minutes a day, [small pause] if I'm lucky. [pause]
+
+**VO31:** AtLeast is a passive timer for Apple Watch. [small pause] Gentle taps mean keep going. [small pause] Silence means you've reached your minimum. [pause]
+
+**VO32:** Pick a minimum, press Start, put your wrist down. [small pause] No countdown, nothing to look at. [pause]
+
+**VO33:** Keep going as long as you like. [small pause] It shows how far past your minimum you went, [small pause] and it's saved to Apple Health. [pause]
+
+**VO34:** Start it from your iPhone, [small pause] or run it on the phone itself. [pause]
+
+**VO35:** Everything that makes the practice work is free: [small pause] the timer, the Watch, the iPhone, and Apple Health. [small pause] Pro shows up only when you reach for more: [small pause] saving your own timers, your history, and every session type. [pause]
+
+**VO36:** The paywall is RevenueCat Paywalls, built and configured in the RevenueCat dashboard, [small pause] so I can change the offer and the copy without shipping an app update. [pause]
+
+**VO37:** Pricing is deliberately small: [small pause] ninety-nine cents a month, [small pause] $9.99 a year with a seven-day free trial, [small pause] or a one-time AtLeast Founder plan at $49.99. [small pause] A daily practice shouldn't cost more than the habit is worth. [pause]
+
+**VO38:** There's no paywall on the Watch. [small pause] It just says 'Unlock on iPhone', [small pause] and one purchase unlocks both. [pause]
+
+**VO39:** And Pro turns your practice into something you can see: [small pause] streaks, your week, total quiet minutes. [pause]
+
+**VO40:** Gentle taps mean keep going. [small pause] When they stop, you've done at least your minimum. [small pause] No alarm to silence mid-plank. [pause]
+
+**VO41:** Free, with Apple Health. [pause]
+
+**VO42:** The paywall appears only when you reach for more: [small pause] saving timers, history, every session type. [small pause] It's RevenueCat Paywalls, [small pause] so I change the offer from the dashboard, not with an app update. [pause]
+
+**VO43:** Ninety-nine cents a month, [small pause] $9.99 a year with a seven-day free trial, [small pause] or $49.99 once for the Founder plan. [pause]
+
+**VO44:** There's no paywall on the Watch. [small pause] Buy on your iPhone, and it unlocks on your wrist. [pause]
+
+**VO45:** AtLeast is on the App Store now. [small pause] Go to atleast.app and try it today. [pause]
+
+## Natural sound (NAT)
 
 | ID | What | Notes |
 | --- | --- | --- |
-| VO1 | Every voiceover line in all versions | A quiet room, close mic, the same mic as TH1 |
-| VO2 | Ending: "AtLeast is on the App Store now. Go to atleast.app and try it today." | 2–3 takes |
 | NAT1 | 60 seconds of room tone | For the silence beats. True digital silence sounds broken, so use room tone |
 | NAT2 | The Watch motor buzzing, recorded close | Put a mic near the wrist, or record the Watch lying on a wooden table |
 | NAT3 | A generic alarm buzz for L6 | Your own recording |
-
-**The voiceover lines (VO1–VO2).** Same marks as the on-camera lines: **[pause]** between clips, **[small pause]** for a beat inside one.
-
-But some things you want to keep going. [small pause] Yoga. [small pause] Meditation. [small pause] Prayer. [small pause] A plank. [small pause] You don't want something loudly telling you to stop, [small pause] just a gentle sign that you've done your minimum for the day. [pause]
-
-And the last thing you want is to stop mid-plank to tap your watch and silence an alarm. [pause]
-
-AtLeast is a passive timer for Apple Watch. [small pause] Gentle taps tell you to keep going. [small pause] When the taps stop, you've reached your minimum. [small pause] It doesn't interrupt your flow. [small pause] It lets you keep going. [pause]
-
-Here's how it works. [small pause] Pick your minimum… [pause]
-
-…press Start, and put your wrist down. [pause]
-
-Keep going as long as you like. [small pause] When you're done, you see how far past your minimum you went, [small pause] and it's saved to Apple Health. [pause]
-
-Pick a timer on your iPhone and it's waiting on your wrist. [small pause] No watch on you? [small pause] It runs on your iPhone too. [pause]
-
-AtLeast is free, Apple Health included. [small pause] AtLeast Pro lets you save your own timers, see your history and streaks, and use every session type. [small pause] Try it free for seven days on the annual plan. [pause]
-
-No account to create. [small pause] Your timers and history sync through your own iCloud. [cuttable] [pause]
-
-Yoga. [small pause] Prayer. [small pause] Meditation. [small pause] I'm a father of six. [small pause] I need at least fifteen quiet minutes a day. [pause]
-
-And not an alarm I have to reach over and silence. [pause]
-
-AtLeast is a passive timer for Apple Watch. [small pause] Gentle taps mean keep going. [pause]
-
-Pick your minimum, [small pause] press Start, [small pause] put your wrist down. [pause]
-
-When the taps stop, you're there. [small pause] Keep going, and it's saved to Apple Health. [pause]
-
-AtLeast is free. [small pause] Pro saves your timers, tracks your streaks and unlocks every session type. [small pause] Try it free for seven days on the annual plan. [pause]
-
-Most timers are built to make you stop. [small pause] But some things you want to keep going: [small pause] yoga, meditation, prayer, a plank. [small pause] When your hands are busy, the last thing you want is to tap your watch to silence an alarm. [pause]
-
-So I built AtLeast, [small pause] a passive timer for Apple Watch. [small pause] Gentle taps mean keep going. [small pause] When they stop, you've reached your minimum. [pause]
-
-Pick your minimum. [small pause] Press Start. [small pause] Put your wrist down. [pause]
-
-Keep going as long as you like. [small pause] When you finish, you see how far past your minimum you went, [small pause] saved to Apple Health. [pause]
-
-Set any minimum from one to sixty minutes, [small pause] and choose how often it taps. [pause]
-
-AtLeast is free, Apple Health included. [small pause] AtLeast Pro saves your own timers, shows your history and streaks, and unlocks every session type, [small pause] with a seven-day free trial on the annual plan. [pause]
-
-No account. [small pause] Your timers and history sync through your own iCloud. [cuttable] [pause]
-
-When your hands are busy, the last thing you want is to reach over and silence your watch. [pause]
-
-AtLeast is a passive timer for Apple Watch. [small pause] Pick your minimum, press Start. [small pause] Gentle taps mean keep going. [pause]
-
-When they stop, you've reached it. [pause]
-
-Keep going as long as you like. [small pause] It's saved to Apple Health. [pause]
-
-AtLeast is free. [small pause] Pro adds your own timers, history and streaks, [small pause] with a seven-day free trial on the annual plan. [pause]
-
-Mid-plank, mid-meditation, mid-prayer, [small pause] the last thing you want is to reach over and silence an alarm. [small pause] As a father of six, I get fifteen quiet minutes a day, [small pause] if I'm lucky. [pause]
-
-AtLeast is a passive timer for Apple Watch. [small pause] Gentle taps mean keep going. [small pause] Silence means you've reached your minimum. [pause]
-
-Pick a minimum, press Start, put your wrist down. [small pause] No countdown, nothing to look at. [pause]
-
-Keep going as long as you like. [small pause] It shows how far past your minimum you went, [small pause] and it's saved to Apple Health. [pause]
-
-Start it from your iPhone, [small pause] or run it on the phone itself. [pause]
-
-Everything that makes the practice work is free: [small pause] the timer, the Watch, the iPhone, and Apple Health. [small pause] Pro shows up only when you reach for more: [small pause] saving your own timers, your history, and every session type. [pause]
-
-The paywall is RevenueCat Paywalls, built and configured in the RevenueCat dashboard, [small pause] so I can change the offer and the copy without shipping an app update. [pause]
-
-Pricing is deliberately small: [small pause] ninety-nine cents a month, [small pause] $9.99 a year with a seven-day free trial, [small pause] or a one-time AtLeast Founder plan at $49.99. [small pause] A daily practice shouldn't cost more than the habit is worth. [pause]
-
-There's no paywall on the Watch. [small pause] It just says 'Unlock on iPhone', [small pause] and one purchase unlocks both. [pause]
-
-And Pro turns your practice into something you can see: [small pause] streaks, your week, total quiet minutes. [pause]
-
-Gentle taps mean keep going. [small pause] When they stop, you've done at least your minimum. [small pause] No alarm to silence mid-plank. [pause]
-
-Free, with Apple Health. [pause]
-
-The paywall appears only when you reach for more: [small pause] saving timers, history, every session type. [small pause] It's RevenueCat Paywalls, [small pause] so I change the offer from the dashboard, not with an app update. [pause]
-
-Ninety-nine cents a month, [small pause] $9.99 a year with a seven-day free trial, [small pause] or $49.99 once for the Founder plan. [pause]
-
-There's no paywall on the Watch. [small pause] Buy on your iPhone, and it unlocks on your wrist. [pause]
-
-AtLeast is on the App Store now. [small pause] Go to atleast.app and try it today. [pause]
 
 ## Graphics
 

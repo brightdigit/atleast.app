@@ -30,8 +30,8 @@ Each beat is one row:
 | Column | Meaning |
 | --- | --- |
 | **TIME** | Approximate running time, assuming speech at about 150 words per minute |
-| **VIDEO** | The shot. `TH` = talking head (you, on camera). `BR` = b-roll. `SR` = screen recording. `ECU` / `CU` / `MS` / `WS` = extreme close-up / close-up / medium / wide |
-| **AUDIO** | `VO:` voiceover, `ON CAM:` spoken on camera, `NAT:` natural sound, `SILENCE` = no voice, room sound only |
+| **VIDEO** | The shot. `TH01`…`TH13` = talking-head clips (IDs are FCP labels; see the [shot list](shot-list.md)). `BR` = b-roll. `SR` = screen recording. `ECU` / `CU` / `MS` / `WS` = extreme close-up / close-up / medium / wide |
+| **AUDIO** | `VO01`…`VO45` = voiceover clips (FCP labels; see the [shot list](shot-list.md)). `ON CAM:` spoken on camera. `NAT:` natural sound. `SILENCE` = no voice, room sound only |
 | **ON-SCREEN** | Captions and lower thirds |
 
 **[CUTTABLE]** marks a line you can drop if the edit runs long. The privacy line is always cuttable, because the answer to Q6 was "depends on time".
@@ -46,7 +46,7 @@ The app is **live on the App Store**. Every version ends with voiceover over an 
 
 | VO | End card |
 | --- | --- |
-| "AtLeast is on the App Store now. Go to atleast.app and try it today." | AtLeast icon · **atleast.app** · App Store badge |
+| **VO45:** "AtLeast is on the App Store now. Go to atleast.app and try it today." | AtLeast icon · **atleast.app** · App Store badge |
 
 ## Facts checked against the app (1.0.0-beta.10)
 
