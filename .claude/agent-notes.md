@@ -37,3 +37,5 @@ directives for how to work in this repository.
 - AtLeast is live on the App Store — video scripts use the live ending only (App Store now / try it today + badge); do not keep or revive a "coming soon" / PENDING ending.
 - Talking-head clips are labeled TH01–TH13 (zero-filled; one ID per on-camera line) for FCP clip names; TH01/TH02 are no longer framing-only buckets.
 - Voiceover clips are labeled VO01–VO45 (zero-filled; one ID per VO line) for FCP clip names, same pattern as TH; VO45 is the shared App Store ending; VO08 is shared by A and B.
+- Video audio: licensed music is allowed (Shipaton bans only unlicensed music) but optional; never under a SILENCE beat — hard-cut to room tone when the taps stop. Pick/placement rules are in docs/video-scripts/README.md.
+- Version A Watch footage (W1–W5) is Device Hub screen recordings, not macro camera shots; D1 still stays a single camera shot. The shot list line "watchOS has no on-device screen recording" is outdated.

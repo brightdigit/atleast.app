@@ -5,6 +5,15 @@ It opens with you talking, so the first 10 seconds rest on your delivery. Say th
 
 Shot codes and the ending are explained in the [README](README.md). Shot IDs (`W3`, `P5`…) refer to the [shot list](shot-list.md).
 
+## Watch footage: Device Hub recordings
+
+The Watch screens (W1–W5) were **screen-recorded with Device Hub**, alongside the iPhone recordings, instead of filmed in macro. So in this version `SR` covers both devices:
+
+- **SR W…** means the Device Hub recording of the Watch, and **SR P…** the iPhone recording. It's still the app running on the real device, which is what the contest rules ask for.
+- **Frame the Watch recording.** It's small and square, so scale it up on the brand background (`#0A0A0A`) or place it in an Apple Watch bezel from Apple's marketing resources. Use the same treatment every time it appears.
+- **A recording can't show the wrist or the motor.** The pulse beats (1:02, 1:08) need the physical feel, so lay the W3 recording over L4 (wrist on the knee, eyes closed) or cut between them. Record the motor buzz and room tone separately (NAT) and sync them to the pulse.
+- **D1 stays one camera shot** of the phone and Watch together. Don't build the handoff as a split screen of the two recordings, because that's the one place a recording can't prove it's real.
+
 | TIME | VIDEO | AUDIO | ON-SCREEN |
 | --- | --- | --- | --- |
 | **0:00** | **TH01** MS, you at a desk or in a quiet corner, natural light. | ON CAM: "Timer apps have always been missing something. They're great when something has to happen at a certain time, or finish in a certain amount of time." | Lower third: **Leo Dion · Indie developer, BrightDigit** |
@@ -12,18 +21,34 @@ Shot codes and the ending are explained in the [README](README.md). Shot IDs (`W
 | **0:24** | **TH02** MS, a touch tighter. **[B-roll option:** a kid's toy on the floor, a busy kitchen (L5)**]** | ON CAM: "I'm a father of six and an indie developer. I need at least fifteen quiet minutes a day." | — |
 | **0:31** | **BR** L3 → L6: you in a plank, both hands on the floor. The Watch goes off. You wobble and reach to silence it. The plank collapses. | NAT: a harsh, generic alarm buzz (make it yourself; don't record another app).<br>**VO02:** "And the last thing you want is to stop mid-plank to tap your watch and silence an alarm." | — |
 | **0:39** | **TH03** MS. | ON CAM: "So I built AtLeast." | Title: **AtLeast** |
-| **0:41** | **BR** W1 → W5: ECU of the Watch on the wrist. The pulse glows softly. | **VO03:** "AtLeast is a passive timer for Apple Watch. Gentle taps tell you to keep going. When the taps stop, you've reached your minimum. It doesn't interrupt your flow. It lets you keep going." | Caption: **A passive haptic timer for Apple Watch** |
+| **0:41** | **SR** W3 (Device Hub): the pulse glows softly. Intercut with **BR** L4, the Watch on the wrist. | **VO03:** "AtLeast is a passive timer for Apple Watch. Gentle taps tell you to keep going. When the taps stop, you've reached your minimum. It doesn't interrupt your flow. It lets you keep going." | Caption: **A passive haptic timer for Apple Watch** |
 | **0:54** | **SR** W1: the Watch Timers grid. Tap **15 MIN**. W2: the Start screen, with the Session Type pill set to Mindfulness. | **VO04:** "Here's how it works. Pick your minimum…" | **1 · Pick your minimum** |
-| **0:58** | **SR** W2 → W3: press **Start**. Cut to **BR** L4: wrist down on your knee, eyes closed. | **VO05:** "…press Start, and put your wrist down." | **2 · Press Start** |
-| **1:02** | **BR** ECU W3: the pulse on the wrist, room sound only. Hold for two taps. | NAT: breath, and a faint motor buzz on each tap.<br>**VO06** (quietly): "Every few seconds, a gentle tap. No countdown. Nothing to look at." | **3 · Feel the rhythm** |
-| **1:08** | **BR** same framing. The taps stop, and the pulse settles. Hold. | **SILENCE**, 2–3 seconds. Let it land. | **Silence means enough.** |
+| **0:58** | **SR** W2 → W3: press **Start**. Match-cut to **BR** L4: wrist down on your knee, eyes closed. | **VO05:** "…press Start, and put your wrist down." | **2 · Press Start** |
+| **1:02** | **SR** W3 over **BR** L4: the pulse, with the wrist resting in the shot. Hold for two taps. | NAT: breath, and a faint motor buzz on each tap.<br>**VO06** (quietly): "Every few seconds, a gentle tap. No countdown. Nothing to look at." | **3 · Feel the rhythm** |
+| **1:08** | Same framing. The taps stop in the W3 recording, and the pulse settles. Hold. | **SILENCE**, 2–3 seconds. Let it land. | **Silence means enough.** |
 | **1:12** | **SR** W4 → W5: tap the Watch and press **Done**. The summary shows elapsed / goal / **+X over**, and "Saved as Mindful Minutes". | **VO07:** "Keep going as long as you like. When you're done, you see how far past your minimum you went, and it's saved to Apple Health." | — |
 | **1:19** | **TH04** a small smile. | ON CAM: "That's it." | — |
 | **1:21** | **SR** P1 → **WS** D1 (phone and Watch together) → W2: the iPhone Timers screen with the **Apple Watch** chip. Tap a timer, and the Watch jumps to its Start screen. Quick cut to P4: chip set to **This iPhone**, press **Start on iPhone**, the pulse shows on the phone. | **VO08:** "Pick a timer on your iPhone and it's waiting on your wrist. No watch on you? It runs on your iPhone too." | — |
 | **1:28** | **SR** P6: tap **Save** on a new timer, and the **AtLeast Pro paywall** slides up (Annual selected, "Start Free Trial"). Cut to P8: History with streak, this week and quiet minutes. | **VO09:** "AtLeast is free, Apple Health included. AtLeast Pro lets you save your own timers, see your history and streaks, and use every session type. Try it free for seven days on the annual plan." | **AtLeast Pro** · Save your timers · History · Every Session Type<br>**7-day free trial on the annual plan** |
-| **1:39** | **BR** W1 on the wrist, walking out of the room. **[CUTTABLE]** | **VO10:** "No account to create. Your timers and history sync through your own iCloud." **[CUTTABLE]** | **No account** **[CUTTABLE]** |
+| **1:39** | **BR** walking out of the room (L7), Watch on the wrist. **[CUTTABLE]** | **VO10:** "No account to create. Your timers and history sync through your own iCloud." **[CUTTABLE]** | **No account** **[CUTTABLE]** |
 | **1:43** | **END CARD** (see README). | **VO45:** "AtLeast is on the App Store now. Go to atleast.app and try it today." | Icon · **atleast.app** · App Store badge |
 | **~1:50** | End. | | |
+
+## Transitions
+
+Mostly straight cuts. The video is about calm, so no spins, zooms or whooshes. Use a transition only where the mood changes:
+
+| At | From → to | Transition | Why |
+| --- | --- | --- | --- |
+| 0:10 | TH01 → practice montage | Straight cuts, each landing on its word ("Yoga." "Meditation."…) | The rhythm of the list does the work |
+| 0:31 | TH02 → alarm gag | **Hard cut**, with the alarm on the first frame | It should jolt, like a real alarm |
+| 0:39 → 0:41 | "So I built AtLeast." → the pulse | **Cross-dissolve, ~15 frames** | The turn from chaos to calm; the one soft transition before the demo |
+| 0:58 | Press Start → wrist on the knee | **Match cut** on the tap | Keeps the action continuous from screen to body |
+| 1:02 → 1:08 | Taps → silence | **None**, one continuous shot | Any cut here breaks the silence |
+| 1:08 → 1:12 | Silence → summary | Slow cross-dissolve, ~20 frames, after the hold | Eases out of the peak instead of snapping out of it |
+| 1:21 | Phone → D1 → phone alone | Straight cuts | The handoff has to read as real |
+| 1:28 | Paywall | None added | The paywall slides up on its own |
+| 1:43 | Last shot → end card | Fade through black, ~10 frames, then fade out at the end | Signals the close |
 
 **Running time:** about 1:50, or 1:46 without the privacy line. If you need to cut more, trim the 0:10 practice list to three shots.
 

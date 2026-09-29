@@ -20,7 +20,7 @@ From the [Shipaton rules](https://revenuecat-shipaton-2026.devpost.com/rules). D
 
 - **Under 2:00.** Judges aren't required to watch past two minutes.
 - **Show the app running on the device.** The demo beats use real screen recordings and footage of the real Watch.
-- **No unlicensed music, and no third-party trademarks without permission.** There's no music at all. Apple product names (Apple Watch, iPhone, Apple Health, App Store) are used as Apple's guidelines require, and the App Store badge appears on the end card.
+- **No unlicensed music, and no third-party trademarks without permission.** Music is allowed only if it's a track you hold a license for (see [Audio](#audio)). Apple product names (Apple Watch, iPhone, Apple Health, App Store) are used as Apple's guidelines require, and the App Store badge appears on the end card.
 - Upload publicly to YouTube or Vimeo, in English.
 
 ## How to read a script
@@ -38,7 +38,34 @@ Each beat is one row:
 
 ## Audio
 
-No music, as decided in Q13. Use room sound, breath, and the faint buzz of the Watch motor recorded close. The emotional peak in every version is the **drop to silence** when the taps stop, so leave it long enough to feel.
+A quiet licensed track is optional; the video still works without one (Q13). Either way, use room sound, breath, and the faint buzz of the Watch motor recorded close. The emotional peak in every version is the **drop to silence** when the taps stop, so leave it long enough to feel. **Music must never play under a `SILENCE` beat.**
+
+### Picking a track
+
+- **Feel:** calm, warm and unhurried: ambient pads, soft felt piano, or sparse guitar. It should sound like the room you'd practice in, not like an ad.
+- **Avoid:** drums or a steady beat (they fight the taps), vocals (they fight the voiceover), big builds or drops, and anything "inspirational corporate" or upbeat. Search terms: *ambient*, *minimal piano*, *meditative*, *drone*, *calm*.
+- **Tempo:** slow, around 60–80 BPM or no clear pulse at all. The Watch taps are the rhythm, so the music shouldn't set a competing one.
+- **Shape:** a track with few changes that can be cut anywhere. You'll hard-cut it several times, so a looping or stem-based track is easier than one with a strong arc.
+- **Timbre:** keep the low end clean so the close-miked motor buzz stays audible under it.
+
+### Where it goes
+
+| Beat | Music |
+| --- | --- |
+| Cold open (B and C: taps → `SILENCE`) | **None.** Let the taps and silence land dry |
+| Alarm gag (L6) | **Cut hard** on the alarm, so it's harsh by contrast, then bring it back gently after |
+| Story, how it works, iPhone, Pro | Under the VO, low: about 20 dB below the voice, never competing for words |
+| Any `SILENCE` beat (e.g. "the taps stop") | **Hard cut** to room tone (NAT1) on the frame the taps stop, not a fade |
+| Closing silence callback | **None** |
+| End card (VO45) | Optional: bring it back softly under the last line and let it ring out |
+
+Mix the voice to about −14 LUFS integrated for YouTube, and check the silence beats on headphones, where a leftover music tail is easiest to hear.
+
+### License
+
+- The license must cover **online distribution and promotional/commercial use** on YouTube (and Vimeo, if you upload there), since the video markets a paid app.
+- If the library registers its tracks with **YouTube Content ID**, clear or whitelist your channel *before* the deadline so the submission isn't claimed or muted.
+- Keep the license certificate with the project files and note the track title and artist in the YouTube description if the license requires credit.
 
 ## Ending
 
