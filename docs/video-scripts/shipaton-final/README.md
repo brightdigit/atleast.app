@@ -13,8 +13,8 @@ This folder records what was submitted to RevenueCat Shipaton 2026 (deadline 202
 | Size | 3.49 GB |
 | Loudness (as shipped) | −19.8 LUFS integrated, 8.8 LU range, true peak 0.0 dBFS. It wasn't normalized to the −14 LUFS / −1 dBTP target |
 | Music | "LoFi" by ArtIss, Envato Elements. Licensed 2026-09-29 under the project name `AtLeast-v1-Release`. The certificate (PDF) is kept privately, not in this public repo |
-| YouTube | _add URL_ |
-| Devpost entry | _add URL_ |
+| YouTube | https://youtu.be/uGqpKWTIwFw |
+| Devpost entry | https://devpost.com/software/atleast |
 
 The earlier rough cut, `Story-A-TwoMin.mov` (2:02.0, 2026-09-29 13:41), is reviewed in [a-rough-cut-notes.md](../a-rough-cut-notes.md).
 
