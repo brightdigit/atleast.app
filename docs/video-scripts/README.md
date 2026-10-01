@@ -13,6 +13,8 @@ rough draft in [`../video-copy.md`](../video-copy.md). Decisions behind them are
 | [c-builder-cut.md](c-builder-cut.md) | C | ~1:50 | For judges: adds how Pro is built on RevenueCat and why it's priced the way it is |
 | [c-builder-cut-60s.md](c-builder-cut-60s.md) | C | ~0:60 | Short cut of C |
 | [shot-list.md](shot-list.md) | all | — | Every shot the scripts use, grouped for filming |
+| [lessons-learned.md](lessons-learned.md) | all | — | What finishing Version A taught us: export checks, captions, music, upload |
+| [shipaton-final/](shipaton-final/README.md) | A | 1:59.7 | Record of the submitted video: export specs, music, YouTube captions, thumbnail |
 
 ## Contest rules that shape every version
 

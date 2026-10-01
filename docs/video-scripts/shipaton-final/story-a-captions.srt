@@ -1,0 +1,160 @@
+1
+00:00:00,959 --> 00:00:02,920
+Timer apps have always been missing something.
+
+2
+00:00:02,961 --> 00:00:06,924
+They're great when something has to happen at a certain time, or
+
+3
+00:00:06,965 --> 00:00:08,592
+finish in a certain amount of time.
+
+4
+00:00:08,634 --> 00:00:10,594
+But some things you want to keep going.
+
+5
+00:00:12,596 --> 00:00:16,433
+Yoga, meditation, prayer, a plank.
+
+6
+00:00:16,475 --> 00:00:19,436
+You don't want something telling you loudly to stop.
+
+7
+00:00:19,436 --> 00:00:22,397
+Just a gentle sign that you've done your minimum
+
+8
+00:00:22,439 --> 00:00:23,398
+for the day.
+
+9
+00:00:24,316 --> 00:00:27,277
+I'm a father of 6 and an indie developer.
+
+10
+00:00:27,277 --> 00:00:30,239
+I need at least 15 quiet minutes a day.
+
+11
+00:00:32,366 --> 00:00:35,327
+And the last thing you want is to stop mid-plank to
+
+12
+00:00:35,369 --> 00:00:37,329
+tap your watch and silence an alarm.
+
+13
+00:00:38,205 --> 00:00:40,165
+So I built AtLeast.
+
+14
+00:00:41,250 --> 00:00:44,211
+AtLeast is a passive timer for Apple Watch.
+
+15
+00:00:45,003 --> 00:00:46,964
+Gentle taps tell you to keep going.
+
+16
+00:00:47,923 --> 00:00:50,717
+When the taps stop, you've reached your minimum.
+
+17
+00:00:50,842 --> 00:00:51,802
+It doesn't interrupt
+
+18
+00:00:51,802 --> 00:00:52,719
+your flow.
+
+19
+00:00:52,719 --> 00:00:53,679
+It lets you keep going.
+
+20
+00:00:55,013 --> 00:00:55,973
+Here's how it works.
+
+21
+00:00:58,934 --> 00:00:59,893
+Pick your minimum.
+
+22
+00:01:02,479 --> 00:01:03,438
+Press Start,
+
+23
+00:01:03,981 --> 00:01:05,941
+and put your wrist down.
+
+24
+00:01:07,317 --> 00:01:11,071
+Every few seconds, a gentle tap. No countdown.
+
+25
+00:01:11,196 --> 00:01:12,447
+Nothing to look at.
+
+26
+00:01:16,159 --> 00:01:18,120
+Keep going as long as you like.
+
+27
+00:01:18,120 --> 00:01:22,082
+When you're done, you see how far past your minimum you went.
+
+28
+00:01:22,124 --> 00:01:24,084
+And it's saved to Apple Health.
+
+29
+00:01:24,876 --> 00:01:25,836
+That's it.
+
+30
+00:01:27,004 --> 00:01:28,964
+Pick a timer on your iPhone.
+
+31
+00:01:29,006 --> 00:01:30,966
+And it's waiting on your wrist.
+
+32
+00:01:31,008 --> 00:01:31,967
+No watch on you?
+
+33
+00:01:33,010 --> 00:01:34,970
+It runs on your iPhone too.
+
+34
+00:01:38,307 --> 00:01:41,268
+AtLeast is free, Apple Health included.
+
+35
+00:01:41,268 --> 00:01:44,021
+AtLeast Pro lets you save your own timers, see
+
+36
+00:01:45,022 --> 00:01:45,981
+your history and streaks.
+
+37
+00:01:46,773 --> 00:01:48,734
+And use every session type.
+
+38
+00:01:49,776 --> 00:01:51,737
+Try it free for 7 days on the annual plan.
+
+39
+00:01:51,737 --> 00:01:53,697
+AtLeast is on the App Store now.
+
+40
+00:01:53,697 --> 00:01:56,658
+Go to atleast.app and try it today.
+

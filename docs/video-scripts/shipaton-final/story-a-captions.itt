@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<tt xmlns:vt="http://namespace.itunes.apple.com/itt/ttml-extension#vertical" xmlns:ttp="http://www.w3.org/ns/ttml#parameter" xmlns:ittp="http://www.w3.org/ns/ttml/profile/imsc1#parameter" xmlns:tt_feature="http://www.w3.org/ns/ttml/feature/" xmlns:ebutts="urn:ebu:tt:style" xmlns:tts="http://www.w3.org/ns/ttml#styling" xmlns:tt_extension="http://www.w3.org/ns/ttml/extension/" xmlns:tt_profile="http://www.w3.org/ns/ttml/profile/" xmlns:ttm="http://www.w3.org/ns/ttml#metadata" xmlns:ry="http://namespace.itunes.apple.com/itt/ttml-extension#ruby" xmlns:itts="http://www.w3.org/ns/ttml/profile/imsc1#styling" xmlns="http://www.w3.org/ns/ttml" xml:lang="en-US" ttp:dropMode="nonDrop" ttp:frameRate="24" ttp:frameRateMultiplier="1000 1001" ttp:timeBase="smpte" xmlns:tt="http://www.w3.org/ns/ttml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <head>
+    <styling>
+      <style xml:id="normal" tts:color="white" tts:fontFamily="sansSerif" tts:fontSize="100%" tts:fontStyle="normal" tts:fontWeight="normal"/>
+    </styling>
+    <layout>
+      <region xml:id="bottom" tts:displayAlign="after" tts:extent="100% 15%" tts:origin="0% 85%" tts:writingMode="lrtb"/>
+    </layout>
+  </head>
+  <body tts:color="white" region="bottom" style="normal">
+    <div>
+      <p begin="00:00:00:23" end="00:00:02:22" region="bottom">Timer apps have always been missing something.</p>
+      <p begin="00:00:02:23" end="00:00:06:22" region="bottom">They're great when something has to happen at a certain time, or</p>
+      <p begin="00:00:06:23" end="00:00:08:14" region="bottom">finish in a certain amount of time.</p>
+      <p begin="00:00:08:15" end="00:00:10:14" region="bottom">But some things you want to keep going.</p>
+      <p begin="00:00:12:14" end="00:00:16:10" region="bottom">Yoga, meditation, prayer, a plank.</p>
+      <p begin="00:00:16:11" end="00:00:19:10" region="bottom">You don't want something telling you loudly to stop.</p>
+      <p begin="00:00:19:10" end="00:00:22:09" region="bottom">Just a gentle sign that you've done your minimum</p>
+      <p begin="00:00:22:10" end="00:00:23:09" region="bottom">for the day.</p>
+      <p begin="00:00:24:07" end="00:00:27:06" region="bottom">I'm a father of 6 and an indie developer.</p>
+      <p begin="00:00:27:06" end="00:00:30:05" region="bottom">I need at least 15 quiet minutes a day.</p>
+      <p begin="00:00:32:08" end="00:00:35:07" region="bottom">And the last thing you want is to stop mid-plank to</p>
+      <p begin="00:00:35:08" end="00:00:37:07" region="bottom">tap your watch and silence an alarm.</p>
+      <p begin="00:00:38:04" end="00:00:40:03" region="bottom">So I built AtLeast.</p>
+      <p begin="00:00:41:05" end="00:00:44:04" region="bottom">AtLeast is a passive timer for Apple Watch.</p>
+      <p begin="00:00:44:23" end="00:00:46:22" region="bottom">Gentle taps tell you to keep going.</p>
+      <p begin="00:00:47:21" end="00:00:50:16" region="bottom">When the taps stop, you've reached your minimum.</p>
+      <p begin="00:00:50:19" end="00:00:51:18" region="bottom">It doesn't interrupt</p>
+      <p begin="00:00:51:18" end="00:00:52:16" region="bottom">your flow.</p>
+      <p begin="00:00:52:16" end="00:00:53:15" region="bottom">It lets you keep going.</p>
+      <p begin="00:00:54:23" end="00:00:55:22" region="bottom">Here's how it works.</p>
+      <p begin="00:00:58:21" end="00:00:59:20" region="bottom">Pick your minimum.</p>
+      <p begin="00:01:02:10" end="00:01:03:09" region="bottom">Press Start,</p>
+      <p begin="00:01:03:22" end="00:01:05:21" region="bottom">and put your wrist down.</p>
+      <p begin="00:01:07:06" end="00:01:11:00" region="bottom">Every few seconds, a gentle tap. No countdown.</p>
+      <p begin="00:01:11:03" end="00:01:12:09" region="bottom">Nothing to look at.</p>
+      <p begin="00:01:16:02" end="00:01:18:01" region="bottom">Keep going as long as you like.</p>
+      <p begin="00:01:18:01" end="00:01:22:00" region="bottom">When you're done, you see how far past your minimum you went.</p>
+      <p begin="00:01:22:01" end="00:01:24:00" region="bottom">And it's saved to Apple Health.</p>
+      <p begin="00:01:24:19" end="00:01:25:18" region="bottom">That's it.</p>
+      <p begin="00:01:26:22" end="00:01:28:21" region="bottom">Pick a timer on your iPhone.</p>
+      <p begin="00:01:28:22" end="00:01:30:21" region="bottom">And it's waiting on your wrist.</p>
+      <p begin="00:01:30:22" end="00:01:31:21" region="bottom">No watch on you?</p>
+      <p begin="00:01:32:22" end="00:01:34:21" region="bottom">It runs on your iPhone too.</p>
+      <p begin="00:01:38:05" end="00:01:41:04" region="bottom">AtLeast is free, Apple Health included.</p>
+      <p begin="00:01:41:04" end="00:01:43:22" region="bottom">AtLeast Pro lets you save your own timers, see</p>
+      <p begin="00:01:44:22" end="00:01:45:21" region="bottom">your history and streaks.</p>
+      <p begin="00:01:46:16" end="00:01:48:15" region="bottom">And use every session type.</p>
+      <p begin="00:01:49:16" end="00:01:51:15" region="bottom">Try it free for 7 days on the annual plan.</p>
+      <p begin="00:01:51:15" end="00:01:53:14" region="bottom">AtLeast is on the App Store now.</p>
+      <p begin="00:01:53:14" end="00:01:56:13" region="bottom">Go to atleast.app and try it today.</p>
+    </div>
+  </body>
+</tt>
