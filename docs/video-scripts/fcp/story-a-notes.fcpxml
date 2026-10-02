@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE fcpxml>
+
+<fcpxml version="1.10">
+    <resources>
+        <format id="r1" name="FFVideoFormat2160p2398" frameDuration="1001/24000s" width="3840" height="2160" colorSpace="1-1-1 (Rec. 709)"/>
+        <effect id="r2" name="Basic Title" uid=".../Titles.localized/Bumper:Opener.localized/Basic Title.localized/Basic Title.moti"/>
+    </resources>
+    <library>
+        <event name="AtLeast Video Notes">
+            <project name="Story-A Notes">
+                <sequence format="r1" duration="2872870/24000s" tcStart="0s" tcFormat="NDF" audioLayout="stereo" audioRate="48k">
+                    <spine>
+                        <gap name="Gap" offset="0s" start="0s" duration="2872870/24000s">
+                            <title ref="r2" lane="1" offset="0s" name="Notes (markers only)" start="0s" duration="2872870/24000s">
+                                <text>
+                                    <text-style ref="ts1">NOTES</text-style>
+                                </text>
+                                <text-style-def id="ts1">
+                                    <text-style font="Helvetica" fontSize="63" fontFace="Regular" fontColor="1 1 1 0" alignment="center"/>
+                                </text-style-def>
+                                <marker start="0s" duration="1001/24000s" value="Notes · From lessons-learned.md and a-story-first.md (2026-10-02). Times are from the final captions; plank and silence markers are approximate"/>
+                                <marker start="6006/24000s" duration="1001/24000s" value="Export · Delete the transcribed captions, then File › Import › Captions › shipaton-final/story-a-captions.itt" completed="0"/>
+                                <marker start="12012/24000s" duration="1001/24000s" value="Export · Loudness shipped at −19.8 LUFS, peak 0.0 dBTP. Normalize to −14 LUFS with a limiter at −1 dBTP, after the music" completed="0"/>
+                                <marker start="24024/24000s" duration="1001/24000s" value="G1 · Lower third: Leo Dion (Semibold 88) / Indie developer, BrightDigit (Regular 60, 70%). x 288, title baseline y 1860, 6 px #6B8FF8 bar"/>
+                                <marker start="48048/24000s" duration="1001/24000s" value="Export · Burned-in captions: check they clear the G1 lower third (0:01–0:06)" completed="0"/>
+                                <marker start="755755/24000s" duration="1001/24000s" value="Music · Hard cut OUT on the alarm, the first frame of the plank"/>
+                                <marker start="916916/24000s" duration="1001/24000s" value="Music · Back IN on “So I built AtLeast.”"/>
+                                <marker start="935935/24000s" duration="1001/24000s" value="Graphics · AtLeast: Semibold 180, left column (x 288, centred on y 1080). Leaves with the 15-frame dissolve into the pulse"/>
+                                <marker start="989989/24000s" duration="1001/24000s" value="Graphics · A passive haptic timer / for Apple Watch: Medium 96, left column, line height 1.15. Out 8 frames before the cut to W1"/>
+                                <marker start="1008007/24000s" duration="1001/24000s" value="Fix · Watch captions sit mid-frame over the pulse. Move them to the left column: x 288 (FCP X −1632), max 1500 px wide" completed="0"/>
+                                <marker start="1296295/24000s" duration="1001/24000s" value="Fix · White blur at this clip’s start. Start it on its first sharp frame" completed="0"/>
+                                <marker start="1414413/24000s" duration="1001/24000s" value="G2 · 1 · Pick your minimum: number Semibold 96 #6B8FF8, “ · ” 70%, words Medium 96. Left column"/>
+                                <marker start="1499498/24000s" duration="1001/24000s" value="G2 · 2 · Press Start: 8-frame cross-fade in place"/>
+                                <marker start="1615614/24000s" duration="1001/24000s" value="G2 · 3 · Feel the rhythm: 8-frame cross-fade in place"/>
+                                <marker start="1727726/24000s" duration="1001/24000s" value="Silence · Check the music hard-cuts on the frame the last tap ends, with room tone (NAT1) under the silence: no digital zero, no stray tap" completed="0"/>
+                                <marker start="1739738/24000s" duration="1001/24000s" value="Fix · “Silence means enough.” starts about 2.7s early, over the last taps. Find the last tap (silencedetect), bring it in about 1s after" completed="0"/>
+                                <marker start="1751750/24000s" duration="1001/24000s" value="G3 · Silence means enough.: Regular 112, where the steps were. 20-frame fade in. Leaves with the slow dissolve into the summary"/>
+                                <marker start="1827826/24000s" duration="1001/24000s" value="Music · Back IN on “Keep going…”"/>
+                                <marker start="2430428/24000s" duration="1001/24000s" value="G4 · AtLeast Pro: Semibold 120 #6B8FF8, top at y 600. Each item (Regular 80, line height 1.4) comes in on its words"/>
+                                <marker start="2634632/24000s" duration="1001/24000s" value="G4 · 7-day free trial on the annual plan: Medium 72, 80 px below the list. All G4 text fades out before the end-card dip"/>
+                                <marker start="2651649/24000s" duration="1001/24000s" value="Fix · The trial caption gets about 1s before the end card. Hold every caption at least 2s" completed="0"/>
+                                <marker start="2681679/24000s" duration="1001/24000s" value="G5 · End card: icon 480 px centred on y 760 · atleast.app Semibold 110, baseline y 1240 · badge 200 px tall, top y 1380. 10-frame fade through black"/>
+                                <marker start="2855853/24000s" duration="1001/24000s" value="Export · Share › Export File › Roles › Captions › Burn in captions. Then check: under 2:00, −14 LUFS and ≤ −1 dBTP, silencedetect, 4 fps contact sheet" completed="0"/>
+                            </title>
+                        </gap>
+                    </spine>
+                </sequence>
+            </project>
+        </event>
+    </library>
+</fcpxml>

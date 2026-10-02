@@ -15,6 +15,7 @@ rough draft in [`../video-copy.md`](../video-copy.md). Decisions behind them are
 | [shot-list.md](shot-list.md) | all | — | Every shot the scripts use, grouped for filming |
 | [lessons-learned.md](lessons-learned.md) | all | — | What finishing Version A taught us: export checks, captions, music, upload |
 | [shipaton-final/](shipaton-final/README.md) | A | 1:59.7 | Record of the submitted video: export specs, music, YouTube captions, thumbnail |
+| [fcp/](fcp/README.md) | A | — | The notes as Final Cut markers: `story-a-notes.fcpxml` puts the lessons-learned to-dos and the graphics spec on the timeline |
 
 ## Contest rules that shape every version
 
