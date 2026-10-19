@@ -1,0 +1,41 @@
+---
+// The demo video, served from our own origin. If the browser can't play either
+// source, /demo-video.js swaps in YouTube's privacy-enhanced player — the only
+// time the page contacts YouTube. Pages using this must load that script.
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+
+const YOUTUBE_ID = 'uGqpKWTIwFw';
+// Keep in step with the output of scripts/demo-video/encode.sh.
+const WIDTH = 1920;
+const HEIGHT = 1080;
+---
+
+<figure class:list={['mx-auto w-full', className]} data-demo-video data-youtube-id={YOUTUBE_ID}>
+  <div class="demo-video-frame overflow-hidden rounded-2xl border border-brand-border bg-brand-surface">
+    <video
+      class="block h-auto w-full"
+      controls
+      playsinline
+      preload="none"
+      width={WIDTH}
+      height={HEIGHT}
+      poster="/demo/atleast-video-poster.jpg"
+      aria-label="AtLeast demo video"
+    >
+      <source src="/demo/atleast-video.mp4" type="video/mp4" />
+      <source src="/demo/atleast-video.webm" type="video/webm" />
+    </video>
+  </div>
+  <figcaption class="mt-3 text-center text-sm text-brand-muted">
+    Also on <a
+      href={`https://youtu.be/${YOUTUBE_ID}`}
+      class="text-brand-accent underline"
+      target="_blank"
+      rel="noopener noreferrer">YouTube</a
+    >.
+  </figcaption>
+</figure>

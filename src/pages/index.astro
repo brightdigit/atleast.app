@@ -6,6 +6,7 @@ import FeatureRow from '../components/FeatureRow.astro';
 import AppStoreBadge from '../components/AppStoreBadge.astro';
 import HealthBadge from '../components/HealthBadge.astro';
 import AppIconRings from '../components/AppIconRings.astro';
+import DemoVideo from '../components/DemoVideo.astro';
 import Schema from '../components/Schema.astro';
 import { PRICING } from '../config';
 
@@ -181,6 +182,17 @@ const howToSchema = {
   <!-- App icon divider -->
   <section class="flex justify-center px-6 pt-12 md:pt-24">
     <AppIconRings />
+  </section>
+
+  <!-- PREVIEW: placement 1 — demo video after the hero -->
+  <section class="px-6 py-12 md:py-24">
+    <div class="mx-auto max-w-4xl text-center">
+      <h2 class="mb-4 text-3xl font-semibold md:text-4xl">See it in practice.</h2>
+      <p class="mx-auto mb-10 max-w-xl text-lg leading-relaxed text-brand-muted">
+        A gentle tap at each interval, then silence. Here's how a session feels.
+      </p>
+      <DemoVideo />
+    </div>
   </section>
 
   <!-- How It Works -->
@@ -363,6 +375,14 @@ const howToSchema = {
     </div>
   </section>
 
+  <!-- PREVIEW: placement 2 — demo video near the close -->
+  <section class="px-6 py-12 md:py-24">
+    <div class="mx-auto max-w-4xl text-center">
+      <h2 class="mb-10 text-3xl font-semibold md:text-4xl">Watch <em>AtLeast</em> in action.</h2>
+      <DemoVideo />
+    </div>
+  </section>
+
   <!-- Simplicity -->
   <section class="px-6 py-12 md:py-24">
     <div class="mx-auto max-w-3xl text-center">
@@ -387,4 +407,7 @@ const howToSchema = {
        (Safari per-site Auto-Play, Low Power Mode), so no dead play button is
        left on a decorative video. External file: CSP is script-src 'self'. -->
   <script src="/hero-video.js" is:inline></script>
+  <!-- Falls back to YouTube's privacy-enhanced player only if the self-hosted
+       demo video can't play. -->
+  <script src="/demo-video.js" is:inline></script>
 </Layout>

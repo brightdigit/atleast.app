@@ -6,7 +6,7 @@ LEADS_REPO := git@github.com:brightdigit/atleast-leads.git
 
 SCRIPTS := dev build preview lighthouse check\:links generate\:webp generate\:presskit
 
-.PHONY: install leads leads-known leads-clone leads-pull leads-backup studios podcasts verify-leads drafts product-hunt product-hunt-gif product-hunt-storyboard $(SCRIPTS)
+.PHONY: install leads leads-known leads-clone leads-pull leads-backup studios podcasts verify-leads drafts product-hunt product-hunt-gif product-hunt-storyboard demo-video $(SCRIPTS)
 
 install:
 	SHARP_IGNORE_GLOBAL_LIBVIPS=1 $(NPM) install
@@ -22,6 +22,11 @@ product-hunt-gif:
 
 product-hunt-storyboard:
 	python3 scripts/product-hunt/make-storyboard.py
+
+# Demo video → public/demo/atleast-video.{mp4,webm} + poster. Needs the master:
+#   make demo-video SRC=~/Movies/AtLeast-demo.mov
+demo-video:
+	SRC="$(SRC)" ./scripts/demo-video/encode.sh
   
 # Outreach lead search. Runs every category, home region included. Pass flags
 # through ARGS, e.g.
