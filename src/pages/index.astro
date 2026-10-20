@@ -6,6 +6,7 @@ import FeatureRow from '../components/FeatureRow.astro';
 import AppStoreBadge from '../components/AppStoreBadge.astro';
 import HealthBadge from '../components/HealthBadge.astro';
 import AppIconRings from '../components/AppIconRings.astro';
+import DemoVideo from '../components/DemoVideo.astro';
 import Schema from '../components/Schema.astro';
 import { PRICING } from '../config';
 
@@ -183,40 +184,27 @@ const howToSchema = {
     <AppIconRings />
   </section>
 
-  <!-- How It Works -->
-  <section class="px-6 py-12 md:py-24">
+  <!-- How It Works. The demo video walks through the same steps, then the
+       iPhone companion and Pro — the order of the sections that follow. -->
+  <section class="px-6 pt-12 md:pt-24">
     <div class="mx-auto max-w-5xl">
       <h2 class="mb-12 text-center text-3xl font-semibold md:text-4xl">How does <em>AtLeast</em> work?</h2>
       <div class="grid gap-6 md:grid-cols-3">
         {steps.map((s) => <StepCard {...s} />)}
       </div>
+      <div class="mx-auto mt-16 max-w-4xl text-center">
+        <p class="mx-auto mb-10 max-w-xl text-lg leading-relaxed text-brand-muted">
+          A gentle tap at each interval, then silence. Here's a session from start to finish.
+        </p>
+        <DemoVideo />
+      </div>
     </div>
   </section>
 
-  <!-- iPhone Companion -->
-  <section class="px-6 py-12 md:py-24">
+  <!-- iPhone Companion. Tight top padding: it follows straight on from the demo
+       video above, which serves as its visual. -->
+  <section class="px-6 pb-12 pt-12 md:pb-24">
     <div class="mx-auto max-w-3xl text-center">
-      <div class="mx-auto mb-12 max-w-2xl">
-        <video
-          class="h-auto w-full rounded-2xl"
-          autoplay
-          loop
-          muted
-          playsinline
-          preload="metadata"
-          poster="/demo/atleast-demo-poster.jpg"
-          aria-label="An Apple Watch and iPhone side by side. Selecting a timer on iPhone starts a session on the Watch, and the iPhone mirrors the gentle haptic taps in real time."
-        >
-          <source src="/demo/atleast-demo.mp4" type="video/mp4" />
-          <source src="/demo/atleast-demo.webm" type="video/webm" />
-          <img
-            src="/demo/atleast-demo-poster.jpg"
-            alt="An Apple Watch and iPhone side by side, showing AtLeast mirroring a live timer session between the two devices."
-            class="h-auto w-full rounded-2xl"
-            loading="lazy"
-          />
-        </video>
-      </div>
       <h2 class="mb-4 text-3xl font-semibold md:text-4xl">Set it on iPhone. Feel it on your wrist.</h2>
       <p class="mx-auto max-w-xl text-lg leading-relaxed text-brand-muted">
         Pre-load and pick a timer on your iPhone, then start the session from your Apple Watch. Your iPhone mirrors the live session in real time — while the gentle taps stay where they belong, on your wrist. The companion is entirely optional; the Watch remains the core, eyes-free experience.
@@ -387,4 +375,7 @@ const howToSchema = {
        (Safari per-site Auto-Play, Low Power Mode), so no dead play button is
        left on a decorative video. External file: CSP is script-src 'self'. -->
   <script src="/hero-video.js" is:inline></script>
+  <!-- Falls back to YouTube's privacy-enhanced player only if the self-hosted
+       demo video can't play. -->
+  <script src="/demo-video.js" is:inline></script>
 </Layout>

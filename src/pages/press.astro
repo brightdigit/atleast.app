@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import PracticeCard from '../components/PracticeCard.astro';
 import SectionHeading from '../components/SectionHeading.astro';
 import HealthBadge from '../components/HealthBadge.astro';
+import DemoVideo from '../components/DemoVideo.astro';
 import { Icon } from 'astro-icon/components';
 import { COMPANY_NAME, WEBSITE_URL, SUPPORT_EMAIL, PRICING } from '../config';
 
@@ -293,6 +294,15 @@ const iconDownloads = [
         ))}
       </div>
 
+      <!-- Demo video -->
+      <SectionHeading id="demo-video" icon="ph:video-camera">Demo Video</SectionHeading>
+      <div class="mt-6 space-y-4 text-base leading-relaxed text-brand-muted">
+        <DemoVideo />
+        <p>
+          To embed or link the video, use the YouTube version: <a href="https://youtu.be/uGqpKWTIwFw" class="text-brand-accent underline" target="_blank" rel="noopener noreferrer">youtu.be/uGqpKWTIwFw</a>.
+        </p>
+      </div>
+
       <!-- Screenshots -->
       <SectionHeading id="screenshots" icon="ph:images">Screenshots</SectionHeading>
 
@@ -392,4 +402,7 @@ const iconDownloads = [
       </div>
     </div>
   </section>
+  <!-- Falls back to YouTube's privacy-enhanced player only if the self-hosted
+       demo video can't play. -->
+  <script src="/demo-video.js" is:inline></script>
 </Layout>

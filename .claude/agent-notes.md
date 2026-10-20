@@ -29,7 +29,8 @@ directives for how to work in this repository.
 - AtLeast v1.0.0-beta.9 ships Sentry crash/error reporting in Debug *and* Release; it rides the analytics opt-out (one in-app "Analytics & crash reports" toggle) — never claim "no crash reporting sent off-device" or that Plausible/RevenueCat are the only third parties (#166).
 - `/terms` is titled "Terms of Use" (matching App Store Guideline 3.1.2 "Terms of Use (EULA)"), and the footer link label matches; the URL stays `/terms/` and Apple's own "App Store Terms of Service" keeps its name (#165).
 - Apple Health writing is free (Mindful Minutes and Yoga are free session types); the other five session types (Mind & Body, Flexibility, Cooldown, Core Training, Traditional Strength), saving custom timers, and History are AtLeast Pro — never imply the whole Health feature is Pro (#173).
-- PRs base on `v1.0.0-pre-launch`, not `main` — it is the launch integration branch; work merged to main must be ported (e.g. #179).
+- PRs base on `main` now that v1.0.0 has launched (superseded the `v1.0.0-pre-launch` integration branch, #203).
 - Video/marketing copy listing practices should always include one where your hands aren't free to stop an alarm (e.g. a plank); that is the core "why passive" beat.
 - Sessions can run on iPhone alone (same on-screen pulse, no haptics) as of app 1.0.0-beta.10 — "taps always happen on the wrist" stays true (the phone never taps), but never claim the iPhone only picks/pre-loads/mirrors; site copy still needs updating.
 - This public site repo holds site content only. Video scripts, shot lists, captions, Final Cut files and other marketing working docs go in Leo's private year-in-review repo (the Shipaton video is in `professional/video/atleast-shipaton/`), not here (#196).
+- Don't mention or link YouTube on the homepage (the self-hosted demo video plays fine there); keep the press-page YouTube link (for embedding) and the hidden `demo-video.js` youtube-nocookie fallback (#203).
