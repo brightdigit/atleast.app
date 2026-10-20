@@ -35,8 +35,8 @@ SRC=~/Movies/AtLeast-demo.mov WIDTH=1280 POSTER_AT=4 MP4_CRF=25 \
 |----------|---------|---|
 | `SRC` | *(required)* | master video |
 | `WIDTH` | `1920` | output width; height follows the aspect |
-| `POSTER_AT` | `2` | seconds into the video for the poster frame |
-| `MP4_CRF` / `WEBM_CRF` | `23` / `33` | quality (lower = better, larger) |
+| `POSTER_AT` | `44.5` | seconds into the video for the poster frame (show the product, not a face) |
+| `MP4_CRF` / `WEBM_CRF` | `26` / `33` | quality (lower = better, larger) |
 | `OUT_DIR` / `NAME` | `public/demo` / `atleast-video` | output location |
 
 The script prints the output dimensions; keep `width`/`height` in

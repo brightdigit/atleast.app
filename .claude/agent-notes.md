@@ -33,3 +33,4 @@ directives for how to work in this repository.
 - Video/marketing copy listing practices should always include one where your hands aren't free to stop an alarm (e.g. a plank); that is the core "why passive" beat.
 - Sessions can run on iPhone alone (same on-screen pulse, no haptics) as of app 1.0.0-beta.10 — "taps always happen on the wrist" stays true (the phone never taps), but never claim the iPhone only picks/pre-loads/mirrors; site copy still needs updating.
 - This public site repo holds site content only. Video scripts, shot lists, captions, Final Cut files and other marketing working docs go in Leo's private year-in-review repo (the Shipaton video is in `professional/video/atleast-shipaton/`), not here (#196).
+- Don't mention or link YouTube on the homepage (the self-hosted demo video plays fine there); keep the press-page YouTube link (for embedding) and the hidden `demo-video.js` youtube-nocookie fallback (#203).

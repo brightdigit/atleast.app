@@ -12,9 +12,10 @@ SRC="${SRC:-}"
 OUT_DIR="${OUT_DIR:-$ROOT/public/demo}"
 NAME="${NAME:-atleast-video}"
 WIDTH="${WIDTH:-1920}"
-POSTER_AT="${POSTER_AT:-2}"
+# The "passive haptic timer" title over the watch — product, not the talking head.
+POSTER_AT="${POSTER_AT:-44.5}"
 # Quality knobs. Lower = better/larger.
-MP4_CRF="${MP4_CRF:-23}"
+MP4_CRF="${MP4_CRF:-26}"
 WEBM_CRF="${WEBM_CRF:-33}"
 TMP="$(mktemp -d)"
 trap 'rm -rf "$TMP"' EXIT
@@ -86,5 +87,5 @@ done
 # Soft warn: the page sets preload="none", but a large file still means a slow start on mobile.
 MP4_BYTES=$(wc -c < "$MP4" | tr -d ' ')
 if (( MP4_BYTES > 25 * 1048576 )); then
-  echo "warning: MP4 is over 25 MB; re-run with WIDTH=1280 or MP4_CRF=26 to shrink" >&2
+  echo "warning: MP4 is over 25 MB; re-run with WIDTH=1280 or MP4_CRF=28 to shrink" >&2
 fi
